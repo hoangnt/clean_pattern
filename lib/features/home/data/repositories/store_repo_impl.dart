@@ -5,7 +5,6 @@ class StoreRepoImpl extends StoreRepo {
   @override
   Future<ServerResponse> getListStore() async {
     await Future.delayed(Duration(seconds: 2));
-
     Map<String, dynamic> data = {
       "data": [
         {

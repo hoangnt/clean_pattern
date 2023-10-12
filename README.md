@@ -2,7 +2,7 @@
 My Flutter project with Clean pattern design.
 
 # Command
-dart run build_runner build
+dart run build_runner build --delete-conflicting-outputs
 
 # Build APK
 flutter build apk --flavor dev .\lib\main_dev.dart<br />

@@ -27,28 +27,38 @@ class ApiController {
     required String endpoint,
     required Map<String, dynamic> params,
   }) async {
-    final res = await _dio.request(
-      endpoint,
-      queryParameters: params,
-      options: Options(method: "GET"),
-    );
-    debugPrint('API log request: ${res.statusCode} ${res.realUri}');
-    debugPrint('API log params: $params');
-    return _handleResponse(res);
+    try {
+      final res = await _dio.request(
+        endpoint,
+        queryParameters: params,
+        options: Options(method: "GET"),
+      );
+      debugPrint('API log request: ${res.statusCode} ${res.realUri}');
+      debugPrint('API log params: $params');
+
+      return _handleResponse(res);
+    } catch (e) {
+      return _handleResponse(null);
+    }
   }
 
   Future<ServerResponse> post({
     required String endpoint,
     required Map<String, dynamic> params,
   }) async {
-    final res = await _dio.request(
-      endpoint,
-      data: params,
-      options: Options(method: "POST"),
-    );
-    debugPrint('API log request: ${res.statusCode} ${res.realUri}');
-    debugPrint('API log params: $params');
-    return _handleResponse(res);
+    try {
+      final res = await _dio.request(
+        endpoint,
+        data: params,
+        options: Options(method: "POST"),
+      );
+      debugPrint('API log request: ${res.statusCode} ${res.realUri}');
+      debugPrint('API log params: $params');
+
+      return _handleResponse(res);
+    } catch (e) {
+      return _handleResponse(null);
+    }
   }
 
   Future<ServerResponse> postWithFile({
@@ -56,23 +66,35 @@ class ApiController {
     required File file,
     Map<String, dynamic>? params,
   }) async {
-    params?.addAll({
-      "file": await MultipartFile.fromFile(
-        file.path,
-        filename: file.path.split("/").last,
-      ),
-    });
-    final res = await _dio.post(
-      "${BaseUrl.getServerUrl()}$endpoint",
-      data: params,
-      options: Options(method: "POST"),
-    );
-    debugPrint('API log request: ${res.statusCode} ${res.realUri}');
-    debugPrint('API log params: $params');
-    return _handleResponse(res);
+    try {
+      params?.addAll({
+        "file": await MultipartFile.fromFile(
+          file.path,
+          filename: file.path.split("/").last,
+        ),
+      });
+      final res = await _dio.post(
+        "${BaseUrl.getServerUrl()}$endpoint",
+        data: params,
+        options: Options(method: "POST"),
+      );
+      debugPrint('API log request: ${res.statusCode} ${res.realUri}');
+      debugPrint('API log params: $params');
+
+      return _handleResponse(res);
+    } catch (e) {
+      return _handleResponse(null);
+    }
   }
 
-  ServerResponse _handleResponse(Response response) {
+  ServerResponse _handleResponse(Response? response) {
+    if (response == null) {
+      return ServerResponse(
+        statusCode: 999,
+        message: "Something went wrong !!!",
+      );
+    }
+
     Map<String, dynamic>? jsonData = Map<String, dynamic>();
     try {
       jsonData = json.decode(response.data);
@@ -80,18 +102,11 @@ class ApiController {
       jsonData = null;
     }
 
-    if (jsonData == null) {
-      return ServerResponse(
-        statusCode: response.statusCode ?? 999,
-        message: "Có lỗi đã xảy ra",
-      );
-    }
-
     return ServerResponse(
       statusCode: response.statusCode ?? 999,
-      data: jsonData["data"],
-      message: jsonData["message"],
-      paging: jsonData["paging"] != null
+      data: jsonData != null ? jsonData["data"] : null,
+      message: jsonData != null ? jsonData["message"] : null,
+      paging: (jsonData != null && jsonData["paging"] != null)
           ? Paging.fromJson(jsonData["paging"])
           : null,
     );
