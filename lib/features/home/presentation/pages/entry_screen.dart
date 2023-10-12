@@ -3,6 +3,7 @@ import 'package:clean_pattern/common/constant/app_color.dart';
 import 'package:clean_pattern/features/home/presentation/controller/entry_controller.dart';
 import 'package:clean_pattern/features/home/presentation/pages/home_screen.dart';
 import 'package:clean_pattern/features/home/presentation/pages/settings_screen.dart';
+import 'package:clean_pattern/features/home/presentation/pages/store_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -13,7 +14,7 @@ class EntryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("this is appbar"),
+        title: Text("We eat Ramen together"),
       ),
       body: GetBuilder<EntryController>(builder: (_) {
         return PageTransitionSwitcher(
@@ -27,8 +28,10 @@ class EntryScreen extends StatelessWidget {
           child: _controller.selectedIndex == 0
               ? HomeScreen()
               : _controller.selectedIndex == 1
-                  ? SettingsScreen()
-                  : Container(),
+                  ? StoreScreen()
+                  : _controller.selectedIndex == 2
+                      ? SettingsScreen()
+                      : Container(),
         );
       }),
       bottomNavigationBar: GetBuilder<EntryController>(
@@ -51,6 +54,10 @@ class EntryScreen extends StatelessWidget {
               BottomNavigationBarItem(
                 icon: Icon(Icons.home),
                 label: 'Home',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.store_rounded),
+                label: 'Store',
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.settings),
