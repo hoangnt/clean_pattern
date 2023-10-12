@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:clean_pattern/common/constant/network_code.dart';
 import 'package:clean_pattern/common/network/interceptor.dart';
 import 'package:clean_pattern/common/network/model/server_response.dart';
 import 'package:clean_pattern/config/base_url.dart';
@@ -90,7 +91,7 @@ class ApiController {
   ServerResponse _handleResponse(Response? response) {
     if (response == null) {
       return ServerResponse(
-        statusCode: 999,
+        statusCode: NetworkCode.crash,
         message: "Something went wrong !!!",
       );
     }
@@ -103,7 +104,7 @@ class ApiController {
     }
 
     return ServerResponse(
-      statusCode: response.statusCode ?? 999,
+      statusCode: response.statusCode ?? NetworkCode.crash,
       data: jsonData != null ? jsonData["data"] : null,
       message: jsonData != null ? jsonData["message"] : null,
       paging: (jsonData != null && jsonData["paging"] != null)
