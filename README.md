@@ -5,6 +5,6 @@ My Flutter project with Clean pattern design.
 dart run build_runner build
 
 # Build APK
-flutter build apk --flavor dev .\lib\main_dev.dart
-flutter build apk --flavor stg .\lib\main_stg.dart
-flutter build apk --flavor prod .\lib\main_prod.dart
+flutter build apk --flavor dev .\lib\main_dev.dart<br />
+flutter build apk --flavor stg .\lib\main_stg.dart<br />
+flutter build apk --flavor prod .\lib\main_prod.dart<br />
