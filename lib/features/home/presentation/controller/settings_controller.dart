@@ -8,7 +8,7 @@ class SettingsController extends GetxController {
   void onInit() async {
     super.onInit();
     EasyLoading.show(status: "loading setting");
-    await Future.delayed(Duration(seconds: 7));
+    await Future.delayed(Duration(seconds: 2));
     EasyLoading.dismiss();
   }
 

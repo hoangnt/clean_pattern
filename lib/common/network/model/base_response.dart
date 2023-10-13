@@ -1,17 +1,17 @@
-class ServerResponse {
+class BaseResponse<T> {
   String? message;
   Paging? paging;
-  Map<String, dynamic>? data;
+  T? data;
   late int statusCode;
 
-  ServerResponse({
+  BaseResponse({
     this.message,
     this.paging,
     this.data,
     required this.statusCode,
   });
 
-  ServerResponse.fromJson(Map<String, dynamic> json) {
+  BaseResponse.fromJson(Map<String, dynamic> json) {
     data = json['data'];
     message = json['message'];
     statusCode = json['statusCode'];

@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:clean_pattern/common/constant/network_code.dart';
+import 'package:clean_pattern/common/constant/status_code.dart';
 import 'package:clean_pattern/common/network/interceptor.dart';
-import 'package:clean_pattern/common/network/model/server_response.dart';
+import 'package:clean_pattern/common/network/model/base_response.dart';
 import 'package:clean_pattern/config/base_url.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +24,7 @@ class ApiController {
     connectTimeout: Duration(seconds: 10),
   );
 
-  Future<ServerResponse> get({
+  Future<BaseResponse> get({
     required String endpoint,
     required Map<String, dynamic> params,
   }) async {
@@ -43,7 +43,7 @@ class ApiController {
     }
   }
 
-  Future<ServerResponse> post({
+  Future<BaseResponse> post({
     required String endpoint,
     required Map<String, dynamic> params,
   }) async {
@@ -62,7 +62,7 @@ class ApiController {
     }
   }
 
-  Future<ServerResponse> postWithFile({
+  Future<BaseResponse> postWithFile({
     required String endpoint,
     required File file,
     Map<String, dynamic>? params,
@@ -88,10 +88,10 @@ class ApiController {
     }
   }
 
-  ServerResponse _handleResponse(Response? response) {
+  BaseResponse _handleResponse(Response? response) {
     if (response == null) {
-      return ServerResponse(
-        statusCode: NetworkCode.crash,
+      return BaseResponse(
+        statusCode: StatusCode.crash,
         message: "Something went wrong !!!",
       );
     }
@@ -103,8 +103,8 @@ class ApiController {
       jsonData = null;
     }
 
-    return ServerResponse(
-      statusCode: response.statusCode ?? NetworkCode.crash,
+    return BaseResponse(
+      statusCode: response.statusCode ?? StatusCode.crash,
       data: jsonData != null ? jsonData["data"] : null,
       message: jsonData != null ? jsonData["message"] : null,
       paging: (jsonData != null && jsonData["paging"] != null)

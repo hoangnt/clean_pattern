@@ -1,38 +1,32 @@
-import 'package:clean_pattern/common/network/model/server_response.dart';
+import 'package:clean_pattern/common/constant/status_code.dart';
+import 'package:clean_pattern/common/network/model/base_response.dart';
+import 'package:clean_pattern/features/home/data/datasource/store_local_datasource.dart';
+import 'package:clean_pattern/features/home/data/datasource/store_remote_datasource.dart';
+import 'package:clean_pattern/features/home/data/model/store_model.dart';
 import 'package:clean_pattern/features/home/domain/repositories/store_repo.dart';
 
 class StoreRepoImpl extends StoreRepo {
-  @override
-  Future<ServerResponse> getListStore() async {
-    await Future.delayed(Duration(seconds: 2));
-    Map<String, dynamic> data = {
-      "data": [
-        {
-          "name": "Yukiichi Ramen",
-          "address": "9 P. Phan Kế Bính, Cống Vị, Ba Đình, Hà Nội 10000",
-          "owner": "Tran The Hoang",
-          "bestSeller": "tonkotsu ramen",
-        },
-        {
-          "name": "Naruto Kairen Ramen",
-          "address": "10 P. Kim Mã Thượng, Cống Vị, Ba Đình, Hà Nội",
-          "owner": "Ngo The Hoang",
-          "bestSeller": "tonkotsu ramen",
-        },
-        {
-          "name": "Yukiichi Ramen",
-          "address": "Yukiichi Ramen",
-          "owner": "Tran The Hoang",
-          "bestSeller": "miso ramen",
-        },
-      ],
-    };
-    final res = ServerResponse(
-      statusCode: 200,
-      data: data,
-      message: null,
-    );
+  final StoreRemoteDatasouce remote = StoreRemoteDatasouce.instance;
+  final StoreLocalDatasource local = StoreLocalDatasource.instance;
 
-    return res;
+  @override
+  Future<BaseResponse<List<StoreModel>>> getAllStore() async {
+    final res = await remote.getAllStore();
+
+    if (res.statusCode != StatusCode.success) {
+      return BaseResponse(
+        statusCode: res.statusCode,
+        message: res.message,
+        data: [],
+      );
+    }
+
+    return BaseResponse(
+      statusCode: res.statusCode,
+      paging: res.paging,
+      data: res.data != null
+          ? (res.data as List).map((val) => StoreModel.fromJson(val)).toList()
+          : [],
+    );
   }
 }
