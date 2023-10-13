@@ -5,19 +5,20 @@ import 'package:get/get.dart';
 
 class BaseController extends GetxController {
   Future<void> handleBaseResponse<T>({
-    required BaseResponse<T> result,
+    required Future<BaseResponse<T>> usecase,
     String? messageLoading,
     void Function(T)? onSuccess,
     void Function()? onError,
   }) async {
     EasyLoading.show(status: "Loading...");
+    final res = await usecase;
 
-    if (result.statusCode != StatusCode.success && onError != null) {
+    if (res.statusCode != StatusCode.success && onError != null) {
       onError();
     }
 
     if (onSuccess != null) {
-      onSuccess(result.data as T);
+      onSuccess(res.data as T);
     }
 
     EasyLoading.dismiss();

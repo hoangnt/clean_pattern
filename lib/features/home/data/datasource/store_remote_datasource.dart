@@ -31,7 +31,7 @@ class StoreRemoteDatasouce {
     };
     final res = BaseResponse(
       statusCode: StatusCode.success,
-      data: data,
+      data: data["data"],
       message: null,
     );
 

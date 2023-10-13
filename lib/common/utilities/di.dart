@@ -6,5 +6,5 @@ final getIt = GetIt.instance;
 
 void homeInjection() {
   getIt.registerSingleton<StoreRepoImpl>(StoreRepoImpl());
-  getIt.registerSingleton<GetAllStoreUsecase>(GetAllStoreUsecase(getIt()));
+  getIt.registerSingleton<GetAllStoreUsecase>(GetAllStoreUsecase(getIt.get<StoreRepoImpl>()));
 }

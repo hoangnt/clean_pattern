@@ -13,9 +13,11 @@ class StoreController extends BaseController {
   void onInit() async {
     super.onInit();
 
-    handleBaseResponse<List<StoreModel>>(
-      result: await getAllStoreUsecase(),
+    await handleBaseResponse<List<StoreModel>>(
+      usecase: getAllStoreUsecase(),
       onSuccess: (data) => listStore = data,
     );
+
+    print(listStore.length);
   }
 }
