@@ -50,7 +50,6 @@ dependencies:
   flutter_screenutil: ^5.7.0
   flutter_easyloading: ^3.0.5
   shared_preferences: ^2.1.1
-  animations: ^2.0.8
   cached_network_image: ^3.3.0
 
   # google service
