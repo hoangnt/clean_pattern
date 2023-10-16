@@ -3,10 +3,10 @@ import 'package:clean_pattern/features/home/data/model/store_model.dart';
 import 'package:clean_pattern/features/home/domain/repositories/store_repo.dart';
 
 class GetAllStoreUsecase {
-  final StoreRepo storeRepo;
+  final StoreRepo repo;
 
-  GetAllStoreUsecase(this.storeRepo);
+  GetAllStoreUsecase(this.repo);
 
   Future<BaseResponse<List<StoreModel>>> call() async =>
-      await storeRepo.getAllStore();
+      await repo.getAllStore();
 }

@@ -9,7 +9,7 @@ class EntryBinding extends Bindings {
   @override
   void dependencies() {
     Get.lazyPut<EntryController>(() => EntryController());
-    Get.lazyPut<HomeController>(() => HomeController());
+    Get.lazyPut<HomeController>(() => HomeController(getIt()));
     Get.lazyPut<StoreController>(() => StoreController(getIt()));
     Get.lazyPut<SettingsController>(() => SettingsController());
   }

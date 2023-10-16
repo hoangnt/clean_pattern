@@ -51,7 +51,6 @@ class StoreScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CachedNetworkImage(
-            fit: BoxFit.cover,
             imageUrl: item.image!,
             errorWidget: (context, _, __) => Icon(Icons.error),
             imageBuilder: (context, imageProvider) => Container(
