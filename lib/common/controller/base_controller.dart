@@ -4,12 +4,15 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 
 class BaseController extends GetxController {
+  bool isLoading = false;
+
   Future<void> handleBaseResponse<T>({
     required Future<BaseResponse<T>> usecase,
     String? messageLoading,
     void Function(T)? onSuccess,
     void Function()? onError,
   }) async {
+    isLoading = true;
     EasyLoading.show(status: "Loading...");
     final res = await usecase;
 
@@ -21,6 +24,7 @@ class BaseController extends GetxController {
       onSuccess(res.data as T);
     }
 
+    isLoading = false;
     EasyLoading.dismiss();
   }
 }

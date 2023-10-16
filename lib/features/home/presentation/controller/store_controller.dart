@@ -17,7 +17,6 @@ class StoreController extends BaseController {
       usecase: getAllStoreUsecase(),
       onSuccess: (data) => listStore = data,
     );
-
-    print(listStore.length);
+    update();
   }
 }

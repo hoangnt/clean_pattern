@@ -8,12 +8,14 @@ class StoreModel {
   String? address;
   String? owner;
   String? bestSeller;
+  String? image;
 
   StoreModel({
     required this.name,
     required this.address,
     required this.owner,
     this.bestSeller,
+    this.image,
   });
 
   factory StoreModel.fromJson(Map<String, dynamic> json) =>
