@@ -10,7 +10,10 @@ class EntryBinding extends Bindings {
   void dependencies() {
     Get.lazyPut<EntryController>(() => EntryController());
     Get.lazyPut<HomeController>(() => HomeController(getIt()));
-    Get.lazyPut<StoreController>(() => StoreController(getIt()));
+    Get.lazyPut<StoreController>(() => StoreController(
+          getIt(),
+          getIt(),
+        ));
     Get.lazyPut<SettingsController>(() => SettingsController());
   }
 }

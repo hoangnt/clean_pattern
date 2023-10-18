@@ -29,4 +29,25 @@ class StoreRepoImpl extends StoreRepo {
           : [],
     );
   }
+
+  @override
+  Future<BaseResponse<List<StoreModel>>> getTopStore() async {
+    final res = await remote.getTopStore();
+
+    if (res.statusCode != StatusCode.success) {
+      return BaseResponse(
+        statusCode: res.statusCode,
+        message: res.message,
+        data: [],
+      );
+    }
+
+    return BaseResponse(
+      statusCode: res.statusCode,
+      paging: res.paging,
+      data: res.data != null
+          ? (res.data as List).map((val) => StoreModel.fromJson(val)).toList()
+          : [],
+    );
+  }
 }
