@@ -26,21 +26,32 @@ class StoreScreen extends StatelessWidget {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      "Top 10 on 10",
-                      style: TextStyle(
-                          fontSize: 12.sp, fontWeight: FontWeight.w500),
+                    Row(
+                      children: [
+                        Text(
+                          "Top 10 on 10",
+                          style: TextStyle(
+                              fontSize: 12.sp, fontWeight: FontWeight.w500),
+                        ),
+                        ElevatedButton(
+                          onPressed: _controller.captureWidget,
+                          child: Text("capture widget"),
+                        ),
+                      ],
                     ),
-                    SizedBox(
-                      width: double.infinity,
-                      height: 0.2.sh,
-                      child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: _controller.listTopStore.length,
-                        itemBuilder: (context, index) {
-                          return ItemTopStoreWidget(
-                              item: _controller.listTopStore[index]);
-                        },
+                    RepaintBoundary(
+                      key: _controller.captureKey,
+                      child: SizedBox(
+                        width: double.infinity,
+                        height: 0.2.sh,
+                        child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: _controller.listTopStore.length,
+                          itemBuilder: (context, index) {
+                            return ItemTopStoreWidget(
+                                item: _controller.listTopStore[index]);
+                          },
+                        ),
                       ),
                     ),
                     SizedBox(height: 7.h),
