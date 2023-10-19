@@ -1,4 +1,4 @@
-import 'dart:io';
+import 'dart:ui' as ui;
 import 'dart:typed_data';
 
 import 'package:clean_pattern/common/controller/base_controller.dart';
@@ -7,9 +7,7 @@ import 'package:clean_pattern/features/home/domain/usecase/get_all_store_usecase
 import 'package:clean_pattern/features/home/domain/usecase/get_top_store_usecase.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'dart:ui' as ui;
-
-import 'package:path_provider/path_provider.dart';
+import 'package:image_gallery_saver/image_gallery_saver.dart';
 
 class StoreController extends BaseController {
   final GetAllStoreUsecase getAllStoreUsecase;
@@ -65,10 +63,8 @@ class StoreController extends BaseController {
       return;
     }
 
-    final directory = (await getDownloadsDirectory())!.path;
-    Uint8List pngBytes = byteData.buffer.asUint8List();
-    File imgFile = File("$directory/screenshot.png");
-    // await imgFile.writeAsBytes(pngBytes);
-    // print("success");
+    Uint8List imageByte = byteData.buffer.asUint8List();
+    final result = await ImageGallerySaver.saveImage(imageByte);
+    print(result);
   }
 }

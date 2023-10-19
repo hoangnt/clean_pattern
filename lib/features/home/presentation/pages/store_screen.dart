@@ -33,6 +33,7 @@ class StoreScreen extends StatelessWidget {
                           style: TextStyle(
                               fontSize: 12.sp, fontWeight: FontWeight.w500),
                         ),
+                        SizedBox(width: 10.w),
                         ElevatedButton(
                           onPressed: _controller.captureWidget,
                           child: Text("capture widget"),
