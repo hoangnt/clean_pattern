@@ -6,7 +6,7 @@ class HomeRemoteDatasource {
   HomeRemoteDatasource._();
 
   Future<BaseResponse> getAllArticle() async {
-    await Future.delayed(Duration(milliseconds: 2500));
+    await Future.delayed(Duration(milliseconds: 1500));
 
     dynamic data = {
       "data": [

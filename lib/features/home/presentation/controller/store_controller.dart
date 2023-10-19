@@ -18,7 +18,7 @@ class StoreController extends BaseController {
     this.getTopStoreUsecase,
   );
 
-  final GlobalKey captureKey = GlobalKey();
+  final GlobalKey captureKey = GlobalKey(debugLabel: "capture");
 
   List<StoreModel> listStore = [];
   List<StoreModel> listTopStore = [];
