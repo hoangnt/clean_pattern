@@ -47,19 +47,16 @@ class StoreScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    RepaintBoundary(
-                      key: _controller.captureKey,
-                      child: SizedBox(
-                        width: double.infinity,
-                        height: 0.2.sh,
-                        child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: _controller.listTopStore.length,
-                          itemBuilder: (context, index) {
-                            return ItemTopStoreWidget(
-                                item: _controller.listTopStore[index]);
-                          },
-                        ),
+                    SizedBox(
+                      width: double.infinity,
+                      height: 0.2.sh,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: _controller.listTopStore.length,
+                        itemBuilder: (context, index) {
+                          return ItemTopStoreWidget(
+                              item: _controller.listTopStore[index]);
+                        },
                       ),
                     ),
                     SizedBox(height: 7.h),

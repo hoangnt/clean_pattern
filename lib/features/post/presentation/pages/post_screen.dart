@@ -16,24 +16,27 @@ class PostScreen extends StatelessWidget {
       body: FlutterPainter.builder(
         controller: _controller.paintController,
         builder: (context, painter) {
-          return Container(
-            width: double.infinity,
-            color: AppColor.primary,
-            child: Stack(
-              children: [
-                painter,
-                ElevatedButton(
-                  onPressed: () {
-                    if (_controller.paintController.freeStyleMode !=
-                        FreeStyleMode.none) {
-                      _controller.paintController.freeStyleMode =
-                          FreeStyleMode.none;
-                    }
-                    _controller.paintController.addText();
-                  },
-                  child: Text("add text"),
-                ),
-              ],
+          return RepaintBoundary(
+            key: _controller.captureKey,
+            child: Container(
+              width: double.infinity,
+              color: AppColor.primary,
+              child: Stack(
+                children: [
+                  painter,
+                  ElevatedButton(
+                    onPressed: () {
+                      if (_controller.paintController.freeStyleMode !=
+                          FreeStyleMode.none) {
+                        _controller.paintController.freeStyleMode =
+                            FreeStyleMode.none;
+                      }
+                      _controller.paintController.addText();
+                    },
+                    child: Text("add text"),
+                  ),
+                ],
+              ),
             ),
           );
         },
