@@ -5,20 +5,20 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ItemStoreWidget extends StatelessWidget {
   ItemStoreWidget({required this.item});
-  
+
   final StoreModel item;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 10.h),
+      margin: EdgeInsets.symmetric(horizontal: 15).copyWith(bottom: 10.h),
       decoration: BoxDecoration(
         color: Colors.white,
         border: Border.all(color: Color(0xffFDFDFD)),
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
-            offset: Offset(3, 3),
+            offset: Offset(0, 3),
             spreadRadius: 1.5,
             blurRadius: 4,
             color: Colors.black.withOpacity(0.2),

@@ -13,72 +13,74 @@ class StoreScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 15),
-        child: RefreshIndicator(
-          onRefresh: _controller.refreshData,
-          child: SingleChildScrollView(
-            physics: AlwaysScrollableScrollPhysics(),
-            child: GetBuilder<StoreController>(
-              builder: (_) {
-                if (_controller.isLoading) {
-                  return SizedBox();
-                }
+      body: RefreshIndicator(
+        onRefresh: _controller.refreshData,
+        child: SingleChildScrollView(
+          physics: AlwaysScrollableScrollPhysics(),
+          child: GetBuilder<StoreController>(
+            builder: (_) {
+              if (_controller.isLoading) {
+                return SizedBox();
+              }
 
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        Text(
-                          "Top 10 on 10",
-                          style: TextStyle(
-                              fontSize: 12.sp, fontWeight: FontWeight.w500),
-                        ),
-                        SizedBox(width: 10.w),
-                        ElevatedButton(
-                          onPressed: () {
-                            Get.toNamed(Routes.post);
-                          },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: AppColor.primary,
-                          ),
-                          child: Text("Go to Post"),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      width: double.infinity,
-                      height: 0.2.sh,
-                      child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: _controller.listTopStore.length,
-                        itemBuilder: (context, index) {
-                          return ItemTopStoreWidget(
-                              item: _controller.listTopStore[index]);
-                        },
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      SizedBox(width: 15.w),
+                      Text(
+                        "Top 10 on 10",
+                        style: TextStyle(
+                            fontSize: 12.sp, fontWeight: FontWeight.w500),
                       ),
+                      SizedBox(width: 10.w),
+                      ElevatedButton(
+                        onPressed: () {
+                          Get.toNamed(Routes.post);
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColor.primary,
+                        ),
+                        child: Text("Go to Post"),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    width: double.infinity,
+                    height: 0.2.sh,
+                    child: ListView.builder(
+                      padding: EdgeInsets.symmetric(horizontal: 15.w),
+                      scrollDirection: Axis.horizontal,
+                      itemCount: _controller.listTopStore.length,
+                      itemBuilder: (context, index) {
+                        return ItemTopStoreWidget(
+                            item: _controller.listTopStore[index]);
+                      },
                     ),
-                    SizedBox(height: 7.h),
-                    Text(
+                  ),
+                  SizedBox(height: 7.h),
+                  Padding(
+                    padding: EdgeInsets.only(left: 15.w),
+                    child: Text(
                       "Would you like to go?",
                       style: TextStyle(
                           fontSize: 12.sp, fontWeight: FontWeight.w500),
                     ),
-                    SizedBox(height: 4.h),
-                    ListView.builder(
-                      physics: NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      itemCount: _controller.listStore.length,
-                      itemBuilder: (context, index) {
-                        return ItemStoreWidget(
-                            item: _controller.listStore[index]);
-                      },
-                    ),
-                  ],
-                );
-              },
-            ),
+                  ),
+                  SizedBox(height: 4.h),
+                  ListView.builder(
+                    physics: NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: _controller.listStore.length,
+                    itemBuilder: (context, index) {
+                      return ItemStoreWidget(
+                          item: _controller.listStore[index]);
+                    },
+                  ),
+                ],
+              );
+            },
           ),
         ),
       ),

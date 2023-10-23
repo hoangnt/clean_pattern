@@ -18,7 +18,7 @@ class ItemTopStoreWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
-            offset: Offset(3, 3),
+            offset: Offset(0, 3),
             spreadRadius: 1.5,
             blurRadius: 4,
             color: Colors.black.withOpacity(0.2),

@@ -22,30 +22,27 @@ class _HomeScreenState extends State<HomeScreen>
   Widget build(BuildContext context) {
     super.build(context);
     return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 15),
-        child: GetBuilder<HomeController>(
-          builder: (_) {
-            if (_controller.isLoading) {
-              return SizedBox();
-            }
+      body: GetBuilder<HomeController>(
+        builder: (_) {
+          if (_controller.isLoading) {
+            return SizedBox();
+          }
 
-            return RefreshIndicator(
-              onRefresh: () async {
-                _controller.handleBaseResponse<List<ArticleModel>>(
-                  usecase: _controller.getAllArticleUsecase(),
-                  onSuccess: (data) => _controller.listArticle = data,
-                );
+          return RefreshIndicator(
+            onRefresh: () async {
+              _controller.handleBaseResponse<List<ArticleModel>>(
+                usecase: _controller.getAllArticleUsecase(),
+                onSuccess: (data) => _controller.listArticle = data,
+              );
+            },
+            child: ListView.builder(
+              itemCount: _controller.listArticle.length,
+              itemBuilder: (context, index) {
+                return itemArticle(_controller.listArticle[index], index);
               },
-              child: ListView.builder(
-                itemCount: _controller.listArticle.length,
-                itemBuilder: (context, index) {
-                  return itemArticle(_controller.listArticle[index], index);
-                },
-              ),
-            );
-          },
-        ),
+            ),
+          );
+        },
       ),
     );
   }
@@ -59,14 +56,14 @@ class _HomeScreenState extends State<HomeScreen>
       },
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
-        margin: EdgeInsets.only(bottom: 20.h),
+        margin: EdgeInsets.symmetric(horizontal: 15).copyWith(bottom: 20.h),
         decoration: BoxDecoration(
           color: Colors.white,
           border: Border.all(color: Color(0xffFDFDFD)),
           borderRadius: BorderRadius.circular(10),
           boxShadow: [
             BoxShadow(
-              offset: Offset(3, 3),
+              offset: Offset(0, 3),
               spreadRadius: 1.5,
               blurRadius: 4,
               color: Colors.black.withOpacity(0.2),
@@ -103,6 +100,7 @@ class _HomeScreenState extends State<HomeScreen>
                 color: Colors.black.withOpacity(0.6),
               ),
             ),
+            SizedBox(height: 2.h),
             CachedNetworkImage(
               imageUrl: item.image!,
               errorWidget: (context, _, __) => Icon(Icons.error),
