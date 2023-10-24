@@ -41,7 +41,6 @@ dependencies:
   dio: ^5.3.3
 
   # data
-  hive: ^2.2.3
   intl: ^0.18.1
   json_annotation: ^4.8.1
 

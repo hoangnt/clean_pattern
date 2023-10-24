@@ -5,11 +5,11 @@ import 'package:flutter_painter/flutter_painter.dart';
 import 'package:get/get.dart';
 
 class PostScreen extends StatelessWidget {
-  final _controller = Get.find<PostController>();
+  final _controller = Get.find<PostController>()
+    ..paintController.clearDrawables();
 
   @override
   Widget build(BuildContext context) {
-    _controller.paintController.clearDrawables();
     return Scaffold(
       appBar: AppBar(
         title: Text("Share your Ramen"),
