@@ -9,6 +9,7 @@ class PostScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    _controller.paintController.clearDrawables();
     return Scaffold(
       appBar: AppBar(
         title: Text("Share your Ramen"),
@@ -32,8 +33,22 @@ class PostScreen extends StatelessWidget {
                             FreeStyleMode.none;
                       }
                       _controller.paintController.addText();
+
+                      _controller.listDrawable.clear();
+                      _controller.listDrawable
+                          .addAll(_controller.paintController.drawables);
                     },
                     child: Text("add text"),
+                  ),
+                  Align(
+                    alignment: Alignment.bottomCenter,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        print(_controller.listDrawable.length);
+                        _controller.paintController.addDrawables(_controller.listDrawable);
+                      },
+                      child: Text("get History"),
+                    ),
                   ),
                 ],
               ),

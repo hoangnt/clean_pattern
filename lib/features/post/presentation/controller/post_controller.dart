@@ -13,6 +13,8 @@ class PostController extends BaseController {
 
   final GlobalKey captureKey = GlobalKey(debugLabel: "capture");
 
+  final List<Drawable> listDrawable = [];
+
   @override
   void onInit() {
     super.onInit();
