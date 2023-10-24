@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 
+import 'package:clean_pattern/common/constant/app_color.dart';
 import 'package:clean_pattern/common/controller/base_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -12,8 +13,10 @@ class PostController extends BaseController {
   FocusNode textFocusNode = FocusNode();
 
   final GlobalKey captureKey = GlobalKey(debugLabel: "capture");
-
   final List<Drawable> listDrawable = [];
+
+  // Color picker
+  Color backgroundColor = AppColor.primary;
 
   @override
   void onInit() {
@@ -69,5 +72,10 @@ class PostController extends BaseController {
     Uint8List imageByte = byteData.buffer.asUint8List();
     final result = await ImageGallerySaver.saveImage(imageByte);
     print(result);
+  }
+
+  void changeColor(Color color) {
+    backgroundColor = color;
+    update();
   }
 }
