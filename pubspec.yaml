@@ -52,6 +52,7 @@ dependencies:
   cached_network_image: ^3.3.0
   permission_handler: ^11.0.1
   image_gallery_saver: ^2.0.3
+  image_picker: ^1.0.4
   flutter_colorpicker: ^1.0.3
   flutter_painter:
     git: https://github.com/hoangnt/flutter_painter

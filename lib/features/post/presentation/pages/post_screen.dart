@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:clean_pattern/features/post/presentation/controller/post_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
@@ -18,21 +20,30 @@ class PostScreen extends StatelessWidget {
       body: FlutterPainter.builder(
         controller: _controller.paintController,
         builder: (context, painter) {
-          return RepaintBoundary(
-            key: _controller.captureKey,
-            child: GetBuilder<PostController>(builder: (_) {
-              return Container(
-                width: double.infinity,
-                color: _controller.backgroundColor,
-                child: Stack(
-                  children: [
-                    painter,
-                    actionPanel(),
-                  ],
+          return GetBuilder<PostController>(builder: (_) {
+            return Stack(
+              children: [
+                RepaintBoundary(
+                  key: _controller.captureKey,
+                  child: Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: _controller.backgroundColor,
+                      image: _controller.backgroundImagePath != null
+                          ? DecorationImage(
+                              image:
+                                  FileImage(_controller.backgroundImagePath!),
+                              fit: BoxFit.cover,
+                            )
+                          : null,
+                    ),
+                    child: painter,
+                  ),
                 ),
-              );
-            }),
-          );
+                if (_controller.displayPanel) actionPanel(),
+              ],
+            );
+          });
         },
       ),
     );
@@ -55,12 +66,17 @@ class PostScreen extends StatelessWidget {
                         FreeStyleMode.none;
                   }
                   _controller.paintController.addText();
-        
+
                   _controller.listDrawable.clear();
                   _controller.listDrawable
                       .addAll(_controller.paintController.drawables);
                 },
                 child: Text("add text"),
+              ),
+              SizedBox(width: 10.w),
+              ElevatedButton(
+                onPressed: _controller.changeBackground,
+                child: Text("background image picker"),
               ),
               SizedBox(width: 10.w),
               ElevatedButton(
@@ -112,6 +128,11 @@ class PostScreen extends StatelessWidget {
                   }
                 },
                 child: Text("Undo"),
+              ),
+              SizedBox(width: 10.w),
+              ElevatedButton(
+                onPressed: _controller.captureWidget,
+                child: Text("Capture"),
               ),
             ],
           ),
