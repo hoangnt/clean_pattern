@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_painter/flutter_painter.dart';
+import 'package:get/get.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -20,6 +21,8 @@ class PostController extends BaseController {
   bool displayPanel = true;
 
   // Background
+  Color textColor = Colors.black;
+  Color drawColor = Colors.red;
   Color backgroundColor = AppColor.primary;
   File? backgroundImagePath;
 
@@ -29,7 +32,7 @@ class PostController extends BaseController {
 
     Paint shapePaint = Paint()
       ..strokeWidth = 5
-      ..color = Colors.red
+      ..color = Colors.purple
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round;
 
@@ -37,14 +40,14 @@ class PostController extends BaseController {
       settings: PainterSettings(
         text: TextSettings(
           focusNode: textFocusNode,
-          textStyle: const TextStyle(
+          textStyle: TextStyle(
             fontWeight: FontWeight.bold,
-            color: Colors.red,
+            color: textColor,
             fontSize: 18,
           ),
         ),
-        freeStyle: const FreeStyleSettings(
-          color: Colors.red,
+        freeStyle: FreeStyleSettings(
+          color: drawColor,
           strokeWidth: 5,
         ),
         shape: ShapeSettings(
@@ -79,10 +82,38 @@ class PostController extends BaseController {
     final result = await ImageGallerySaver.saveImage(imageByte);
     print(result);
     EasyLoading.dismiss();
+
+    Get.snackbar("Notice", "Image saved !",
+        backgroundColor: Colors.white, snackPosition: SnackPosition.BOTTOM);
   }
 
-  void changeColor(Color color) {
-    backgroundColor = color;
+  void addText() {
+    if (paintController.freeStyleMode != FreeStyleMode.none) {
+      paintController.freeStyleMode = FreeStyleMode.none;
+    }
+    paintController.addText();
+
+    listDrawable.clear();
+    listDrawable.addAll(paintController.drawables);
+  }
+
+  void changeTextColor(Color color) {
+    textColor = color;
+    paintController.textStyle =
+        paintController.textStyle.copyWith(color: color);
+    update();
+  }
+
+  void freeDraw() {
+    paintController.freeStyleMode =
+        paintController.freeStyleMode != FreeStyleMode.draw
+            ? FreeStyleMode.draw
+            : FreeStyleMode.none;
+  }
+
+  void changeDrawColor(Color color) {
+    drawColor = color;
+    paintController.freeStyleColor = color;
     update();
   }
 
@@ -91,5 +122,20 @@ class PostController extends BaseController {
     final XFile? image = await picker.pickImage(source: ImageSource.gallery);
     backgroundImagePath = image != null ? File(image.path) : null;
     update();
+  }
+
+  void changeBackgroundColor(Color color) {
+    backgroundColor = color;
+    update();
+  }
+
+  void getHistoryDrawable() {
+    paintController.addDrawables(listDrawable);
+  }
+
+  void undo() {
+    if (paintController.canUndo) {
+      paintController.undo();
+    }
   }
 }

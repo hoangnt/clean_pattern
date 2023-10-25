@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:clean_pattern/features/post/presentation/controller/post_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
@@ -16,6 +14,62 @@ class PostScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Share your Ramen"),
+        actions: [
+          IconButton(
+            icon: GetBuilder<PostController>(builder: (context) {
+              return Icon(
+                Icons.text_format_rounded,
+                color: _controller.textColor,
+              );
+            }),
+            onPressed: () {
+              Get.dialog(
+                AlertDialog(
+                  title: const Text('Choose Text color'),
+                  actions: [
+                    TextButton(
+                      child: const Text("Done"),
+                      onPressed: () => Get.back(),
+                    ),
+                  ],
+                  content: SingleChildScrollView(
+                    child: ColorPicker(
+                      pickerColor: _controller.textColor,
+                      onColorChanged: _controller.changeTextColor,
+                    ),
+                  ),
+                ),
+              );
+            },
+          ),
+          IconButton(
+            icon: GetBuilder<PostController>(builder: (context) {
+              return Icon(
+                Icons.draw_outlined,
+                color: _controller.drawColor,
+              );
+            }),
+            onPressed: () {
+              Get.dialog(
+                AlertDialog(
+                  title: const Text('Choose Draw color'),
+                  actions: [
+                    TextButton(
+                      child: const Text("Done"),
+                      onPressed: () => Get.back(),
+                    ),
+                  ],
+                  content: SingleChildScrollView(
+                    child: ColorPicker(
+                      pickerColor: _controller.drawColor,
+                      onColorChanged: _controller.changeDrawColor,
+                    ),
+                  ),
+                ),
+              );
+            },
+          ),
+        ],
       ),
       body: FlutterPainter.builder(
         controller: _controller.paintController,
@@ -59,18 +113,7 @@ class PostScreen extends StatelessWidget {
           child: Row(
             children: [
               ElevatedButton(
-                onPressed: () {
-                  if (_controller.paintController.freeStyleMode !=
-                      FreeStyleMode.none) {
-                    _controller.paintController.freeStyleMode =
-                        FreeStyleMode.none;
-                  }
-                  _controller.paintController.addText();
-
-                  _controller.listDrawable.clear();
-                  _controller.listDrawable
-                      .addAll(_controller.paintController.drawables);
-                },
+                onPressed: _controller.addText,
                 child: Text("add text"),
               ),
               SizedBox(width: 10.w),
@@ -83,7 +126,7 @@ class PostScreen extends StatelessWidget {
                 onPressed: () {
                   Get.dialog(
                     AlertDialog(
-                      title: const Text('Pick a color!'),
+                      title: const Text('Choose background color'),
                       actions: [
                         TextButton(
                           child: const Text("Done"),
@@ -93,7 +136,7 @@ class PostScreen extends StatelessWidget {
                       content: SingleChildScrollView(
                         child: ColorPicker(
                           pickerColor: _controller.backgroundColor,
-                          onColorChanged: _controller.changeColor,
+                          onColorChanged: _controller.changeBackgroundColor,
                         ),
                       ),
                     ),
@@ -103,30 +146,17 @@ class PostScreen extends StatelessWidget {
               ),
               SizedBox(width: 10.w),
               ElevatedButton(
-                onPressed: () {
-                  _controller.paintController.freeStyleMode =
-                      _controller.paintController.freeStyleMode !=
-                              FreeStyleMode.draw
-                          ? FreeStyleMode.draw
-                          : FreeStyleMode.none;
-                },
+                onPressed: _controller.freeDraw,
                 child: Text("free draw"),
               ),
               SizedBox(width: 10.w),
               ElevatedButton(
-                onPressed: () {
-                  _controller.paintController
-                      .addDrawables(_controller.listDrawable);
-                },
+                onPressed: _controller.getHistoryDrawable,
                 child: Text("get history"),
               ),
               SizedBox(width: 10.w),
               ElevatedButton(
-                onPressed: () {
-                  if (_controller.paintController.canUndo) {
-                    _controller.paintController.undo();
-                  }
-                },
+                onPressed: _controller.undo,
                 child: Text("Undo"),
               ),
               SizedBox(width: 10.w),
