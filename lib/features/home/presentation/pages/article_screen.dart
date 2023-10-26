@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:clean_pattern/common/constant/app_color.dart';
 import 'package:clean_pattern/common/extensions/string_extension.dart';
 import 'package:clean_pattern/features/home/data/model/article_model.dart';
 import 'package:clean_pattern/features/home/presentation/controller/article_controller.dart';
@@ -6,21 +7,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-class ArticleScreen extends StatefulWidget {
-  @override
-  _ArticleScreenState createState() => _ArticleScreenState();
-}
-
-class _ArticleScreenState extends State<ArticleScreen>
-    with AutomaticKeepAliveClientMixin {
+class ArticleScreen extends StatelessWidget {
   final _controller = Get.find<ArticleController>();
 
   @override
-  bool get wantKeepAlive => true;
-
-  @override
   Widget build(BuildContext context) {
-    super.build(context);
     return Scaffold(
       body: GetBuilder<ArticleController>(
         builder: (_) {
@@ -29,6 +20,7 @@ class _ArticleScreenState extends State<ArticleScreen>
           }
 
           return RefreshIndicator(
+            color: AppColor.primary,
             onRefresh: () async {
               _controller.handleBaseResponse<List<ArticleModel>>(
                 usecase: _controller.getAllArticleUsecase(),

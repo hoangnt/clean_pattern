@@ -1,3 +1,4 @@
+import 'package:clean_pattern/common/constant/app_color.dart';
 import 'package:clean_pattern/features/home/presentation/controller/store_controller.dart';
 import 'package:clean_pattern/features/home/presentation/pages/widget/item_store_widget.dart';
 import 'package:clean_pattern/features/home/presentation/pages/widget/item_top_store_widget.dart';
@@ -12,6 +13,7 @@ class StoreScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: RefreshIndicator(
+        color: AppColor.primary,
         onRefresh: _controller.refreshData,
         child: SingleChildScrollView(
           physics: AlwaysScrollableScrollPhysics(),

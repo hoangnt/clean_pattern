@@ -71,24 +71,24 @@ class SettingsScreen extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container(
-          margin: EdgeInsets.only(top: 5.h),
-          width: 0.2.sw,
-          child: Text(
-            "Topping",
-            textAlign: TextAlign.right,
-            style: TextStyle(
-              fontSize: 12.sp,
-              fontWeight: FontWeight.w500,
+        Expanded(
+          child: Container(
+            margin: EdgeInsets.only(top: 10.h),
+            child: Text(
+              "Topping",
+              textAlign: TextAlign.right,
+              style: TextStyle(
+                fontSize: 12.sp,
+                fontWeight: FontWeight.w500,
+              ),
             ),
           ),
         ),
         SizedBox(width: 15.w),
         Expanded(
+          flex: 5,
           child: Wrap(
             alignment: WrapAlignment.spaceAround,
-            crossAxisAlignment: WrapCrossAlignment.start,
-            runAlignment: WrapAlignment.start,
             children: [
               for (var item in ToppingEnum.values)
                 AppElevatedButton(
@@ -108,8 +108,7 @@ class SettingsScreen extends StatelessWidget {
   Widget brothWidget() {
     return Row(
       children: [
-        SizedBox(
-          width: 0.2.sw,
+        Expanded(
           child: Text(
             "Broth",
             textAlign: TextAlign.right,
@@ -121,6 +120,7 @@ class SettingsScreen extends StatelessWidget {
         ),
         SizedBox(width: 15.w),
         Expanded(
+          flex: 5,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
@@ -146,8 +146,7 @@ class SettingsScreen extends StatelessWidget {
   }) {
     return Row(
       children: [
-        SizedBox(
-          width: 0.2.sw,
+        Expanded(
           child: Text(
             text,
             textAlign: TextAlign.right,
@@ -158,6 +157,7 @@ class SettingsScreen extends StatelessWidget {
           ),
         ),
         Expanded(
+          flex: 5,
           child: Slider(
             activeColor: AppColor.primary,
             inactiveColor: AppColor.primary.withOpacity(0.4),

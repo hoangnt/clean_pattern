@@ -2,6 +2,7 @@ import 'package:clean_pattern/common/constant/app_color.dart';
 import 'package:clean_pattern/config/routes.dart';
 import 'package:clean_pattern/features/home/presentation/controller/entry_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class EntryScreen extends StatelessWidget {
@@ -31,17 +32,16 @@ class EntryScreen extends StatelessWidget {
         builder: (_) => BottomNavigationBar(
           currentIndex: _controller.selectedIndex,
           onTap: _controller.onSelectBottomBar,
-          backgroundColor: Colors.transparent,
-          elevation: 0,
           unselectedItemColor: Colors.grey,
           selectedItemColor: AppColor.primary,
           showUnselectedLabels: false,
           showSelectedLabels: true,
           type: BottomNavigationBarType.fixed,
           selectedIconTheme: IconThemeData(
-            size: 25,
+            size: 20.sp,
             color: AppColor.primary,
           ),
+          selectedLabelStyle: TextStyle(fontSize: 11.sp),
           unselectedIconTheme: IconThemeData(size: 22),
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
