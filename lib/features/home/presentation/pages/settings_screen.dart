@@ -34,7 +34,7 @@ class SettingsScreen extends StatelessWidget {
               ),
               _sliderWidget(
                 text: "Noodle's tenderness",
-                value: _controller.noodleTender,
+                value: _controller.noodleTenderness,
                 onChanged: _controller.onChangeNoodleTender,
               ),
               brothWidget(),
@@ -43,10 +43,18 @@ class SettingsScreen extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: AppElevatedButton(
-                  onPressed: () {
+                  onPressed: () async {
+                    if (await _controller.saveRamenFlavor()) {
+                      Get.dialog(ResultDialog(
+                        title: "Notice",
+                        content: "Save success",
+                      ));
+                      return;
+                    }
+
                     Get.dialog(ResultDialog(
                       title: "Notice",
-                      content: "Save success",
+                      content: "Save failure",
                     ));
                   },
                   text: "Save",
@@ -78,7 +86,7 @@ class SettingsScreen extends StatelessWidget {
         SizedBox(width: 15.w),
         Expanded(
           child: Wrap(
-            alignment : WrapAlignment.spaceAround,
+            alignment: WrapAlignment.spaceAround,
             crossAxisAlignment: WrapCrossAlignment.start,
             runAlignment: WrapAlignment.start,
             children: [

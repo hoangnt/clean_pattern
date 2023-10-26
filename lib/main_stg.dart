@@ -12,11 +12,11 @@ void main() async {
   Flavor.env = Environment.stg;
   ConfigLoading.configLoading();
 
-  // injection
-  homeInjection();
-
   // permission
   PermissionUtil.getStoragePermission();
+
+  // injection
+  await dependenciesInjection();
 
   runApp(MyApp());
 }

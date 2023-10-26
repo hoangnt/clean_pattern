@@ -16,7 +16,7 @@ void main() async {
   PermissionUtil.getStoragePermission();
 
   // injection
-  homeInjection();
+  await dependenciesInjection();
 
   runApp(MyApp());
 }
