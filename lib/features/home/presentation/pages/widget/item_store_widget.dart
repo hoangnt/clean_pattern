@@ -11,7 +11,7 @@ class ItemStoreWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 15).copyWith(bottom: 10.h),
+      margin: EdgeInsets.only(bottom: 10.h),
       decoration: BoxDecoration(
         color: Colors.white,
         border: Border.all(color: Color(0xffFDFDFD)),

@@ -1,5 +1,3 @@
-import 'package:clean_pattern/common/widget/app_elevated_button.dart';
-import 'package:clean_pattern/config/routes.dart';
 import 'package:clean_pattern/features/home/presentation/controller/store_controller.dart';
 import 'package:clean_pattern/features/home/presentation/pages/widget/item_store_widget.dart';
 import 'package:clean_pattern/features/home/presentation/pages/widget/item_top_store_widget.dart';
@@ -26,28 +24,19 @@ class StoreScreen extends StatelessWidget {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    children: [
-                      SizedBox(width: 15.w),
-                      Text(
-                        "Top 10 on 10",
-                        style: TextStyle(
-                            fontSize: 12.sp, fontWeight: FontWeight.w500),
-                      ),
-                      SizedBox(width: 10.w),
-                      AppElevatedButton(
-                        onPressed: () {
-                          Get.toNamed(Routes.post);
-                        },
-                        text: "Go to Post",
-                      ),
-                    ],
+                  Padding(
+                    padding: EdgeInsets.only(left: 10.w),
+                    child: Text(
+                      "Top 10 on 10",
+                      style: TextStyle(
+                          fontSize: 12.sp, fontWeight: FontWeight.w500),
+                    ),
                   ),
                   SizedBox(
                     width: double.infinity,
                     height: 0.2.sh,
                     child: ListView.builder(
-                      padding: EdgeInsets.symmetric(horizontal: 15.w),
+                      padding: EdgeInsets.symmetric(horizontal: 10.w),
                       scrollDirection: Axis.horizontal,
                       itemCount: _controller.listTopStore.length,
                       itemBuilder: (context, index) {
@@ -58,7 +47,7 @@ class StoreScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 7.h),
                   Padding(
-                    padding: EdgeInsets.only(left: 15.w),
+                    padding: EdgeInsets.only(left: 10.w),
                     child: Text(
                       "Would you like to go?",
                       style: TextStyle(
@@ -69,6 +58,7 @@ class StoreScreen extends StatelessWidget {
                   ListView.builder(
                     physics: NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
+                    padding: EdgeInsets.symmetric(horizontal: 10.w),
                     itemCount: _controller.listStore.length,
                     itemBuilder: (context, index) {
                       return ItemStoreWidget(
