@@ -20,6 +20,13 @@ class PostScreen extends StatelessWidget {
               return Icon(
                 Icons.text_format_rounded,
                 color: _controller.textColor,
+                shadows: [
+                  BoxShadow(
+                    color: Colors.black26,
+                    blurRadius: 5,
+                    spreadRadius: 4,
+                  ),
+                ],
               );
             }),
             onPressed: () {
@@ -45,8 +52,15 @@ class PostScreen extends StatelessWidget {
           IconButton(
             icon: GetBuilder<PostController>(builder: (context) {
               return Icon(
-                Icons.draw_outlined,
+                Icons.draw_rounded,
                 color: _controller.drawColor,
+                shadows: [
+                  BoxShadow(
+                    color: Colors.black26,
+                    blurRadius: 5,
+                    spreadRadius: 4,
+                  ),
+                ],
               );
             }),
             onPressed: () {
@@ -94,7 +108,7 @@ class PostScreen extends StatelessWidget {
                     child: painter,
                   ),
                 ),
-                if (_controller.displayPanel) actionPanel(),
+                actionPanel(),
               ],
             );
           });
@@ -115,13 +129,13 @@ class PostScreen extends StatelessWidget {
               AppElevatedButton(
                 onPressed: _controller.addText,
                 text: "add text",
-                child: Icon(Icons.abc_rounded, size: 18.sp),
+                child: Icon(Icons.abc_outlined, size: 18.sp),
               ),
               SizedBox(width: 10.w),
               AppElevatedButton(
                 onPressed: _controller.changeBackground,
                 text: "background image picker",
-                child: Icon(Icons.image),
+                child: Icon(Icons.image_outlined),
               ),
               SizedBox(width: 10.w),
               AppElevatedButton(
@@ -145,13 +159,13 @@ class PostScreen extends StatelessWidget {
                   );
                 },
                 text: "background color picker",
-                child: Icon(Icons.color_lens),
+                child: Icon(Icons.color_lens_outlined),
               ),
               SizedBox(width: 10.w),
               AppElevatedButton(
                 onPressed: _controller.freeDraw,
                 text: "free draw",
-                child: Icon(Icons.draw_rounded),
+                child: Icon(Icons.draw_outlined),
               ),
               SizedBox(width: 10.w),
               AppElevatedButton(
@@ -163,19 +177,19 @@ class PostScreen extends StatelessWidget {
               AppElevatedButton(
                 onPressed: _controller.undo,
                 text: "Undo",
-                child: Icon(Icons.undo_rounded),
+                child: Icon(Icons.undo_outlined),
               ),
               SizedBox(width: 10.w),
               AppElevatedButton(
                 onPressed: _controller.captureWidget,
                 text: "Capture",
-                child: Icon(Icons.save_alt_rounded),
+                child: Icon(Icons.save_alt_outlined),
               ),
               SizedBox(width: 10.w),
               AppElevatedButton(
                 onPressed: _controller.deleteAll,
                 text: "Clear",
-                child: Icon(Icons.delete_forever_rounded),
+                child: Icon(Icons.delete_forever_outlined),
               ),
               SizedBox(width: 10.w),
               AppElevatedButton(

@@ -18,12 +18,11 @@ class PostController extends BaseController {
 
   final GlobalKey captureKey = GlobalKey(debugLabel: "capture");
   final List<Drawable> listDrawable = [];
-  bool displayPanel = true;
 
   // Background
   Color textColor = Colors.black;
   Color drawColor = Colors.red;
-  Color backgroundColor = AppColor.primary;
+  Color backgroundColor = AppColor.primary.withOpacity(0.3);
   File? backgroundImagePath;
 
   @override

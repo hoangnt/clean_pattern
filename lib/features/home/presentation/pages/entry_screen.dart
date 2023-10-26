@@ -25,7 +25,7 @@ class EntryScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () => Get.toNamed(Routes.post),
         backgroundColor: AppColor.primary,
-        child: Text("Post"),
+        child: Icon(Icons.add_a_photo_outlined),
       ),
       bottomNavigationBar: GetBuilder<EntryController>(
         builder: (_) => BottomNavigationBar(
