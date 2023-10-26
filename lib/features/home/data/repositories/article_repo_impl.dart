@@ -1,11 +1,11 @@
 import 'package:clean_pattern/common/constant/status_code.dart';
 import 'package:clean_pattern/common/network/model/base_response.dart';
-import 'package:clean_pattern/features/home/data/datasource/home_remote_datasource.dart';
+import 'package:clean_pattern/features/home/data/datasource/article_remote_datasource.dart';
 import 'package:clean_pattern/features/home/data/model/article_model.dart';
-import 'package:clean_pattern/features/home/domain/repositories/home_repo.dart';
+import 'package:clean_pattern/features/home/domain/repositories/article_repo.dart';
 
-class HomeRepoImpl implements HomeRepo {
-  final HomeRemoteDatasource remote = HomeRemoteDatasource.instance;
+class ArticleRepoImpl implements ArticleRepo {
+  final ArticleRemoteDatasource remote = ArticleRemoteDatasource.instance;
 
   @override
   Future<BaseResponse<List<ArticleModel>>> getAllArticle() async {

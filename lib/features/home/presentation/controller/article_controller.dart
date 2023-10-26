@@ -2,10 +2,10 @@ import 'package:clean_pattern/common/controller/base_controller.dart';
 import 'package:clean_pattern/features/home/data/model/article_model.dart';
 import 'package:clean_pattern/features/home/domain/usecase/get_all_article_usecase.dart';
 
-class HomeController extends BaseController {
+class ArticleController extends BaseController {
   final GetAllArticleUsecase getAllArticleUsecase;
 
-  HomeController(this.getAllArticleUsecase);
+  ArticleController(this.getAllArticleUsecase);
 
   List<ArticleModel> listArticle = [];
 

@@ -1,6 +1,6 @@
 import 'package:clean_pattern/common/constant/hive_box_key.dart';
 import 'package:clean_pattern/features/home/data/model/ramen_flavor.dart';
-import 'package:clean_pattern/features/home/data/repositories/home_repo_impl.dart';
+import 'package:clean_pattern/features/home/data/repositories/article_repo_impl.dart';
 import 'package:clean_pattern/features/home/data/repositories/store_repo_impl.dart';
 import 'package:clean_pattern/features/home/domain/usecase/get_all_article_usecase.dart';
 import 'package:clean_pattern/features/home/domain/usecase/get_all_store_usecase.dart';
@@ -17,19 +17,19 @@ Future<void> dependenciesInjection() async {
 
 void homeInjection() {
   getIt.registerSingleton<StoreRepoImpl>(StoreRepoImpl());
-  getIt.registerSingleton<HomeRepoImpl>(HomeRepoImpl());
+  getIt.registerSingleton<ArticleRepoImpl>(ArticleRepoImpl());
 
   getIt.registerSingleton<GetAllStoreUsecase>(
       GetAllStoreUsecase(getIt.get<StoreRepoImpl>()));
   getIt.registerSingleton<GetTopStoreUsecase>(
       GetTopStoreUsecase(getIt.get<StoreRepoImpl>()));
   getIt.registerSingleton<GetAllArticleUsecase>(
-      GetAllArticleUsecase(getIt.get<HomeRepoImpl>()));
+      GetAllArticleUsecase(getIt.get<ArticleRepoImpl>()));
 }
 
 Future<void> hiveBoxInjection() async {
   await Hive.initFlutter();
-  
+
   if (!Hive.isAdapterRegistered(HiveAdapterId.ramenFlavor)) {
     Hive.registerAdapter(RamenFlavorAdapter());
   }

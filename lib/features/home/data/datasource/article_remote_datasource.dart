@@ -1,9 +1,9 @@
 import 'package:clean_pattern/common/constant/status_code.dart';
 import 'package:clean_pattern/common/network/model/base_response.dart';
 
-class HomeRemoteDatasource {
-  static final HomeRemoteDatasource instance = HomeRemoteDatasource._();
-  HomeRemoteDatasource._();
+class ArticleRemoteDatasource {
+  static final ArticleRemoteDatasource instance = ArticleRemoteDatasource._();
+  ArticleRemoteDatasource._();
 
   Future<BaseResponse> getAllArticle() async {
     await Future.delayed(Duration(milliseconds: 1500));

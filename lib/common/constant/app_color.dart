@@ -7,6 +7,7 @@ class AppColor {
 
   //Button color
   static const Color buttonColor1 = Color(0xffDCE0E7);
+  static const Color buttonBorder = Color(0xffcfcccc);
 
   //Text color
   static const Color textColor1 = Color(0xff666666);

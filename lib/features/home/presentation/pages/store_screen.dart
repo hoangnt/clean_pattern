@@ -1,4 +1,4 @@
-import 'package:clean_pattern/common/constant/app_color.dart';
+import 'package:clean_pattern/common/widget/app_elevated_button.dart';
 import 'package:clean_pattern/config/routes.dart';
 import 'package:clean_pattern/features/home/presentation/controller/store_controller.dart';
 import 'package:clean_pattern/features/home/presentation/pages/widget/item_store_widget.dart';
@@ -35,14 +35,11 @@ class StoreScreen extends StatelessWidget {
                             fontSize: 12.sp, fontWeight: FontWeight.w500),
                       ),
                       SizedBox(width: 10.w),
-                      ElevatedButton(
+                      AppElevatedButton(
                         onPressed: () {
                           Get.toNamed(Routes.post);
                         },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: AppColor.primary,
-                        ),
-                        child: Text("Go to Post"),
+                        text: "Go to Post",
                       ),
                     ],
                   ),

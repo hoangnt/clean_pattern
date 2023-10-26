@@ -30,6 +30,8 @@ class PostController extends BaseController {
   void onInit() {
     super.onInit();
 
+    paintController.clearDrawables();
+
     Paint shapePaint = Paint()
       ..strokeWidth = 5
       ..color = Colors.purple
@@ -87,6 +89,10 @@ class PostController extends BaseController {
         backgroundColor: Colors.white, snackPosition: SnackPosition.BOTTOM);
   }
 
+  void doneEdit() {
+    paintController.freeStyleMode = FreeStyleMode.none;
+  }
+
   void addText() {
     if (paintController.freeStyleMode != FreeStyleMode.none) {
       paintController.freeStyleMode = FreeStyleMode.none;
@@ -137,5 +143,11 @@ class PostController extends BaseController {
     if (paintController.canUndo) {
       paintController.undo();
     }
+  }
+
+  void deleteAll() {
+    do {
+      paintController.removeLastDrawable();
+    } while (paintController.drawables.isNotEmpty);
   }
 }

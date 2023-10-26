@@ -1,19 +1,19 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:clean_pattern/common/extensions/string_extension.dart';
 import 'package:clean_pattern/features/home/data/model/article_model.dart';
-import 'package:clean_pattern/features/home/presentation/controller/home_controller.dart';
+import 'package:clean_pattern/features/home/presentation/controller/article_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-class HomeScreen extends StatefulWidget {
+class ArticleScreen extends StatefulWidget {
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _ArticleScreenState createState() => _ArticleScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen>
+class _ArticleScreenState extends State<ArticleScreen>
     with AutomaticKeepAliveClientMixin {
-  final _controller = Get.find<HomeController>();
+  final _controller = Get.find<ArticleController>();
 
   @override
   bool get wantKeepAlive => true;
@@ -22,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen>
   Widget build(BuildContext context) {
     super.build(context);
     return Scaffold(
-      body: GetBuilder<HomeController>(
+      body: GetBuilder<ArticleController>(
         builder: (_) {
           if (_controller.isLoading) {
             return SizedBox();

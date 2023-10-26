@@ -37,12 +37,12 @@ class EntryScreen extends StatelessWidget {
           unselectedIconTheme: IconThemeData(size: 22),
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
               icon: Icon(Icons.store_rounded),
               label: 'Store',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.newspaper_rounded),
+              label: 'Article',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.settings),

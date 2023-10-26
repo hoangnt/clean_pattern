@@ -1,3 +1,4 @@
+import 'package:clean_pattern/common/widget/app_elevated_button.dart';
 import 'package:clean_pattern/features/post/presentation/controller/post_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
@@ -6,8 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class PostScreen extends StatelessWidget {
-  final _controller = Get.find<PostController>()
-    ..paintController.clearDrawables();
+  final _controller = Get.find<PostController>();
 
   @override
   Widget build(BuildContext context) {
@@ -112,17 +112,19 @@ class PostScreen extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           child: Row(
             children: [
-              ElevatedButton(
+              AppElevatedButton(
                 onPressed: _controller.addText,
-                child: Text("add text"),
+                text: "add text",
+                child: Icon(Icons.abc_rounded, size: 18.sp),
               ),
               SizedBox(width: 10.w),
-              ElevatedButton(
+              AppElevatedButton(
                 onPressed: _controller.changeBackground,
-                child: Text("background image picker"),
+                text: "background image picker",
+                child: Icon(Icons.image),
               ),
               SizedBox(width: 10.w),
-              ElevatedButton(
+              AppElevatedButton(
                 onPressed: () {
                   Get.dialog(
                     AlertDialog(
@@ -142,27 +144,43 @@ class PostScreen extends StatelessWidget {
                     ),
                   );
                 },
-                child: Text("background color picker"),
+                text: "background color picker",
+                child: Icon(Icons.color_lens),
               ),
               SizedBox(width: 10.w),
-              ElevatedButton(
+              AppElevatedButton(
                 onPressed: _controller.freeDraw,
-                child: Text("free draw"),
+                text: "free draw",
+                child: Icon(Icons.draw_rounded),
               ),
               SizedBox(width: 10.w),
-              ElevatedButton(
+              AppElevatedButton(
                 onPressed: _controller.getHistoryDrawable,
-                child: Text("get history"),
+                text: "get history",
+                child: Icon(Icons.history),
               ),
               SizedBox(width: 10.w),
-              ElevatedButton(
+              AppElevatedButton(
                 onPressed: _controller.undo,
-                child: Text("Undo"),
+                text: "Undo",
+                child: Icon(Icons.undo_rounded),
               ),
               SizedBox(width: 10.w),
-              ElevatedButton(
+              AppElevatedButton(
                 onPressed: _controller.captureWidget,
-                child: Text("Capture"),
+                text: "Capture",
+                child: Icon(Icons.save_alt_rounded),
+              ),
+              SizedBox(width: 10.w),
+              AppElevatedButton(
+                onPressed: _controller.deleteAll,
+                text: "Clear",
+                child: Icon(Icons.delete_forever_rounded),
+              ),
+              SizedBox(width: 10.w),
+              AppElevatedButton(
+                onPressed: _controller.doneEdit,
+                text: "Done",
               ),
             ],
           ),
