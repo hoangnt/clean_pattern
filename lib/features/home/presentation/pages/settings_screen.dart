@@ -26,16 +26,40 @@ class SettingsScreen extends StatelessWidget {
                 text: "Salt",
                 value: _controller.salt,
                 onChanged: _controller.onChangeSalt,
+                labels: [
+                  "none",
+                  "light",
+                  "normal",
+                  "heavy",
+                  "extra heavy",
+                  "hyper"
+                ],
               ),
               _sliderWidget(
                 text: "Fat",
                 value: _controller.fat,
                 onChanged: _controller.onChangeFat,
+                labels: [
+                  "none",
+                  "light",
+                  "medium",
+                  "rich",
+                  "ultra rich",
+                  "hyper"
+                ],
               ),
               _sliderWidget(
                 text: "Noodle's tenderness",
                 value: _controller.noodleTenderness,
                 onChanged: _controller.onChangeNoodleTender,
+                labels: [
+                  "extra firm",
+                  "firm",
+                  "normal",
+                  "soft",
+                  "extra soft",
+                  "hyper"
+                ],
               ),
               brothWidget(),
               toppingListWidget(),
@@ -78,7 +102,7 @@ class SettingsScreen extends StatelessWidget {
               "Topping",
               textAlign: TextAlign.right,
               style: TextStyle(
-                fontSize: 12.sp,
+                fontSize: 11.sp,
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -113,7 +137,7 @@ class SettingsScreen extends StatelessWidget {
             "Broth",
             textAlign: TextAlign.right,
             style: TextStyle(
-              fontSize: 12.sp,
+              fontSize: 11.sp,
               fontWeight: FontWeight.w500,
             ),
           ),
@@ -143,6 +167,7 @@ class SettingsScreen extends StatelessWidget {
     required String text,
     required double value,
     required void Function(double)? onChanged,
+    List<String>? labels,
   }) {
     return Row(
       children: [
@@ -151,7 +176,7 @@ class SettingsScreen extends StatelessWidget {
             text,
             textAlign: TextAlign.right,
             style: TextStyle(
-              fontSize: 12.sp,
+              fontSize: 11.sp,
               fontWeight: FontWeight.w500,
             ),
           ),
@@ -161,6 +186,7 @@ class SettingsScreen extends StatelessWidget {
           child: Slider(
             activeColor: AppColor.primary,
             inactiveColor: AppColor.primary.withOpacity(0.4),
+            label: labels != null ? labels[value.toInt()] : null,
             max: 5,
             divisions: 5,
             value: value,

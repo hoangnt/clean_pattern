@@ -2,7 +2,6 @@ import 'dart:io';
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 
-import 'package:clean_pattern/common/constant/app_color.dart';
 import 'package:clean_pattern/common/controller/base_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -22,7 +21,7 @@ class PostController extends BaseController {
   // Background
   Color textColor = Colors.black;
   Color drawColor = Colors.red;
-  Color backgroundColor = AppColor.primary.withOpacity(0.3);
+  Color backgroundColor = Color(0xfff2d5b6);
   File? backgroundImagePath;
 
   @override
@@ -145,6 +144,10 @@ class PostController extends BaseController {
   }
 
   void deleteAll() {
+    if (paintController.drawables.isEmpty) {
+      return;
+    }
+
     do {
       paintController.removeLastDrawable();
     } while (paintController.drawables.isNotEmpty);

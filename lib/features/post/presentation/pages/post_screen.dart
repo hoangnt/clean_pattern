@@ -1,4 +1,5 @@
 import 'package:clean_pattern/common/widget/app_elevated_button.dart';
+import 'package:clean_pattern/common/widget/custom_dialog.dart';
 import 'package:clean_pattern/features/post/presentation/controller/post_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
@@ -30,23 +31,18 @@ class PostScreen extends StatelessWidget {
               );
             }),
             onPressed: () {
-              Get.dialog(
-                AlertDialog(
-                  title: const Text('Choose Text color'),
-                  actions: [
-                    TextButton(
-                      child: const Text("Done"),
-                      onPressed: () => Get.back(),
-                    ),
-                  ],
-                  content: SingleChildScrollView(
-                    child: ColorPicker(
-                      pickerColor: _controller.textColor,
-                      onColorChanged: _controller.changeTextColor,
-                    ),
+              Get.dialog(CustomDialog(
+                title: "Choose Text color",
+                onAction: Get.back,
+                disableActionButton: true,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 15.w),
+                  child: ColorPicker(
+                    pickerColor: _controller.textColor,
+                    onColorChanged: _controller.changeTextColor,
                   ),
                 ),
-              );
+              ));
             },
           ),
           IconButton(
@@ -64,23 +60,18 @@ class PostScreen extends StatelessWidget {
               );
             }),
             onPressed: () {
-              Get.dialog(
-                AlertDialog(
-                  title: const Text('Choose Draw color'),
-                  actions: [
-                    TextButton(
-                      child: const Text("Done"),
-                      onPressed: () => Get.back(),
-                    ),
-                  ],
-                  content: SingleChildScrollView(
-                    child: ColorPicker(
-                      pickerColor: _controller.drawColor,
-                      onColorChanged: _controller.changeDrawColor,
-                    ),
+              Get.dialog(CustomDialog(
+                title: "Choose Draw color",
+                onAction: Get.back,
+                disableActionButton: true,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 15.w),
+                  child: ColorPicker(
+                    pickerColor: _controller.drawColor,
+                    onColorChanged: _controller.changeDrawColor,
                   ),
                 ),
-              );
+              ));
             },
           ),
         ],
@@ -140,23 +131,18 @@ class PostScreen extends StatelessWidget {
               SizedBox(width: 10.w),
               AppElevatedButton(
                 onPressed: () {
-                  Get.dialog(
-                    AlertDialog(
-                      title: const Text('Choose background color'),
-                      actions: [
-                        TextButton(
-                          child: const Text("Done"),
-                          onPressed: () => Get.back(),
-                        ),
-                      ],
-                      content: SingleChildScrollView(
-                        child: ColorPicker(
-                          pickerColor: _controller.backgroundColor,
-                          onColorChanged: _controller.changeBackgroundColor,
-                        ),
+                  Get.dialog(CustomDialog(
+                    title: "Choose background color",
+                    onAction: Get.back,
+                    disableActionButton: true,
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 15.w),
+                      child: ColorPicker(
+                        pickerColor: _controller.backgroundColor,
+                        onColorChanged: _controller.changeBackgroundColor,
                       ),
                     ),
-                  );
+                  ));
                 },
                 text: "background color picker",
                 child: Icon(Icons.color_lens_outlined),

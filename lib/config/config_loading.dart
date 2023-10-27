@@ -14,6 +14,13 @@ class ConfigLoading {
       ..userInteractions = false
       ..fontSize = 15
       ..indicatorSize = 24
+      ..boxShadow = [
+        BoxShadow(
+          color: AppColor.primary.withOpacity(0.2),
+          blurRadius: 2,
+          spreadRadius: 4,
+        ),
+      ]
       ..dismissOnTap = false;
   }
 }

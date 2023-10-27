@@ -33,7 +33,7 @@ class ResultDialog extends StatelessWidget {
             child: Column(
               children: [
                 Container(
-                  padding: EdgeInsets.symmetric(vertical: 2.h),
+                  padding: EdgeInsets.symmetric(vertical: 5.h),
                   color: AppColor.primary,
                   width: double.infinity,
                   child: Center(
@@ -50,13 +50,19 @@ class ResultDialog extends StatelessWidget {
                 SizedBox(height: 5.h),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 12.w),
-                  child: Text(content),
+                  child: Text(
+                    content,
+                    style: TextStyle(
+                      fontSize: 12.sp,
+                    ),
+                  ),
                 ),
                 SizedBox(height: 5.h),
                 AppElevatedButton(
-                  onPressed: () => Get.back(),
+                  onPressed: Get.back,
                   text: closeTitle ?? "Close",
                 ),
+                SizedBox(height: 5.h),
               ],
             ),
           ),
