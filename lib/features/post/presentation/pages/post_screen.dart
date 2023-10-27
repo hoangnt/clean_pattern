@@ -1,6 +1,8 @@
+import 'package:clean_pattern/common/constant/app_color.dart';
 import 'package:clean_pattern/common/widget/app_elevated_button.dart';
 import 'package:clean_pattern/common/widget/custom_dialog.dart';
 import 'package:clean_pattern/features/post/presentation/controller/post_controller.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:flutter_painter/flutter_painter.dart';
@@ -66,9 +68,16 @@ class PostScreen extends StatelessWidget {
                 disableActionButton: true,
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 15.w),
-                  child: ColorPicker(
-                    pickerColor: _controller.drawColor,
-                    onColorChanged: _controller.changeDrawColor,
+                  child: Column(
+                    children: [
+                      ColorPicker(
+                        pickerColor: _controller.drawColor,
+                        onColorChanged: _controller.changeDrawColor,
+                      ),
+                      GetBuilder<PostController>(builder: (context) {
+                        return _strokeWidthWidget();
+                      })
+                    ],
                   ),
                 ),
               ));
@@ -186,6 +195,47 @@ class PostScreen extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  Widget _strokeWidthWidget() {
+    return Row(
+      children: [
+        Expanded(
+          child: Text(
+            "Stroke width",
+            textAlign: TextAlign.right,
+            style: TextStyle(
+              fontSize: 11.sp,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ),
+        Expanded(
+          flex: 5,
+          child: Row(
+            children: [
+              Expanded(
+                child: CupertinoSlider(
+                  activeColor: AppColor.primary,
+                  min: 1,
+                  max: 50,
+                  divisions: 50,
+                  value: _controller.drawStrokeWidth,
+                  onChanged: _controller.changeDrawStrokeWidth,
+                ),
+              ),
+              Text(
+                "${_controller.drawStrokeWidth.toInt()}",
+                style: TextStyle(
+                  fontSize: 12.sp,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }

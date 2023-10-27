@@ -23,6 +23,7 @@ class PostController extends BaseController {
   Color drawColor = Colors.red;
   Color backgroundColor = Color(0xfff2d5b6);
   File? backgroundImagePath;
+  double drawStrokeWidth = 7;
 
   @override
   void onInit() {
@@ -31,7 +32,7 @@ class PostController extends BaseController {
     paintController.clearDrawables();
 
     Paint shapePaint = Paint()
-      ..strokeWidth = 5
+      ..strokeWidth = drawStrokeWidth
       ..color = Colors.purple
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round;
@@ -118,6 +119,12 @@ class PostController extends BaseController {
   void changeDrawColor(Color color) {
     drawColor = color;
     paintController.freeStyleColor = color;
+    update();
+  }
+
+  void changeDrawStrokeWidth(double val) {
+    drawStrokeWidth = val;
+    paintController.freeStyleStrokeWidth = val;
     update();
   }
 
