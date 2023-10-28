@@ -18,25 +18,23 @@ class StoreController extends BaseController {
   @override
   void onInit() async {
     super.onInit();
-
-    handleBaseResponse<List<StoreModel>>(
-      usecase: getAllStoreUsecase(),
-      onSuccess: (data) => listStore = data,
-    );
-    handleBaseResponse<List<StoreModel>>(
-      usecase: getTopStoreUsecase(),
-      onSuccess: (data) => listTopStore = data,
-    );
+    fetchData();
   }
 
   Future<void> refreshData() async {
-    handleBaseResponse<List<StoreModel>>(
-      usecase: getAllStoreUsecase(),
-      onSuccess: (data) => listStore = data,
-    );
-    handleBaseResponse<List<StoreModel>>(
-      usecase: getTopStoreUsecase(),
-      onSuccess: (data) => listTopStore = data,
+    fetchData();
+  }
+
+  void fetchData() {
+    handle2BaseResponse<List<StoreModel>, List<StoreModel>>(
+      usecases: [
+        getAllStoreUsecase(),
+        getTopStoreUsecase(),
+      ],
+      onSuccess: (allStore, topStore) {
+        listStore = allStore;
+        listTopStore = topStore;
+      },
     );
   }
 }
