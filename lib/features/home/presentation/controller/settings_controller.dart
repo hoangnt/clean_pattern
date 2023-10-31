@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:clean_pattern/common/constant/hive_box_key.dart';
 import 'package:clean_pattern/features/home/data/model/ramen_flavor.dart';
 import 'package:get/get.dart';
@@ -24,9 +26,21 @@ class SettingsController extends GetxController {
   BrothEnum? broth;
   List<ToppingEnum> toppingList = [];
 
+  DateTime appTime = DateTime.now();
+  RxInt hour = 0.obs;
+  RxInt min = 0.obs;
+  RxInt sec = 0.obs;
+
   @override
   void onInit() {
     super.onInit();
+
+    // app time
+    hour.value = appTime.hour;
+    min.value = appTime.minute;
+    sec.value = appTime.second;
+
+    Timer.periodic(Duration(seconds: 1), _setTime);
 
     Box<RamenFlavor> box = Hive.box<RamenFlavor>(HiveBoxKey.ramenFlavor);
 
@@ -92,6 +106,23 @@ class SettingsController extends GetxController {
     } catch (e) {
       print(e);
       return false;
+    }
+  }
+
+  void _setTime(Timer timer) {
+    sec++;
+    if (sec.value == 59) {
+      min++;
+      sec.value = 0;
+    }
+
+    if (min.value == 59) {
+      hour++;
+      min.value = 0;
+    }
+
+    if (hour.value == 24) {
+      hour.value = 0;
     }
   }
 }

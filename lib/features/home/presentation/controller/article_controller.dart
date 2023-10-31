@@ -12,11 +12,13 @@ class ArticleController extends BaseController {
   @override
   void onInit() async {
     super.onInit();
+    fetchData();
+  }
 
-    await handleBaseResponse<List<ArticleModel>>(
+  Future<void> fetchData() async {
+    handleBaseResponse<List<ArticleModel>>(
       usecase: getAllArticleUsecase(),
       onSuccess: (data) => listArticle = data,
     );
-    update();
   }
 }

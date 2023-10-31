@@ -21,12 +21,7 @@ class ArticleScreen extends StatelessWidget {
 
           return RefreshIndicator(
             color: AppColor.primary,
-            onRefresh: () async {
-              _controller.handleBaseResponse<List<ArticleModel>>(
-                usecase: _controller.getAllArticleUsecase(),
-                onSuccess: (data) => _controller.listArticle = data,
-              );
-            },
+            onRefresh: _controller.fetchData,
             child: ListView.builder(
               itemCount: _controller.listArticle.length,
               itemBuilder: (context, index) {

@@ -14,79 +14,119 @@ class SettingsScreen extends StatelessWidget {
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 15),
-        child: GetBuilder<SettingsController>(builder: (_) {
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Set your favorite Ramen taste",
-                style: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w400),
-              ),
-              _sliderWidget(
-                text: "Salt",
-                value: _controller.salt,
-                onChanged: _controller.onChangeSalt,
-                labels: [
-                  "none",
-                  "light",
-                  "normal",
-                  "heavy",
-                  "extra heavy",
-                  "hyper"
-                ],
-              ),
-              _sliderWidget(
-                text: "Fat",
-                value: _controller.fat,
-                onChanged: _controller.onChangeFat,
-                labels: [
-                  "none",
-                  "light",
-                  "medium",
-                  "rich",
-                  "ultra rich",
-                  "hyper"
-                ],
-              ),
-              _sliderWidget(
-                text: "Noodle's tenderness",
-                value: _controller.noodleTenderness,
-                onChanged: _controller.onChangeNoodleTender,
-                labels: [
-                  "extra firm",
-                  "firm",
-                  "normal",
-                  "soft",
-                  "extra soft",
-                  "hyper"
-                ],
-              ),
-              brothWidget(),
-              toppingListWidget(),
-              SizedBox(height: 20.h),
-              SizedBox(
-                width: double.infinity,
-                child: AppElevatedButton(
-                  onPressed: () async {
-                    if (await _controller.saveRamenFlavor()) {
-                      Get.dialog(ResultDialog(
-                        title: "Notice",
-                        content: "Save success",
-                      ));
-                      return;
-                    }
+        child: Column(
+          children: [
+            GetBuilder<SettingsController>(builder: (_) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Set your favorite Ramen taste",
+                    style:
+                        TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w400),
+                  ),
+                  _sliderWidget(
+                    text: "Salt",
+                    value: _controller.salt,
+                    onChanged: _controller.onChangeSalt,
+                    labels: [
+                      "none",
+                      "light",
+                      "normal",
+                      "heavy",
+                      "extra heavy",
+                      "hyper"
+                    ],
+                  ),
+                  _sliderWidget(
+                    text: "Fat",
+                    value: _controller.fat,
+                    onChanged: _controller.onChangeFat,
+                    labels: [
+                      "none",
+                      "light",
+                      "medium",
+                      "rich",
+                      "ultra rich",
+                      "hyper"
+                    ],
+                  ),
+                  _sliderWidget(
+                    text: "Noodle's tenderness",
+                    value: _controller.noodleTenderness,
+                    onChanged: _controller.onChangeNoodleTender,
+                    labels: [
+                      "extra firm",
+                      "firm",
+                      "normal",
+                      "soft",
+                      "extra soft",
+                      "hyper"
+                    ],
+                  ),
+                  brothWidget(),
+                  toppingListWidget(),
+                  SizedBox(height: 20.h),
+                  SizedBox(
+                    width: double.infinity,
+                    child: AppElevatedButton(
+                      onPressed: () async {
+                        if (await _controller.saveRamenFlavor()) {
+                          Get.dialog(ResultDialog(
+                            title: "Notice",
+                            content: "Save success",
+                          ));
+                          return;
+                        }
 
-                    Get.dialog(ResultDialog(
-                      title: "Notice",
-                      content: "Save failure",
-                    ));
-                  },
-                  text: "Save",
+                        Get.dialog(ResultDialog(
+                          title: "Notice",
+                          content: "Save failure",
+                        ));
+                      },
+                      text: "Save",
+                    ),
+                  ),
+                ],
+              );
+            }),
+            SizedBox(height: 20.h),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Obx(
+                  () => Text(
+                    _controller.hour.toString().padLeft(2, "0"),
+                    style: TextStyle(
+                      fontSize: 30.sp,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
                 ),
-              ),
-            ],
-          );
-        }),
+                Text(":", style: TextStyle(fontSize: 16.sp)),
+                Obx(
+                  () => Text(
+                    _controller.min.toString().padLeft(2, "0"),
+                    style: TextStyle(
+                      fontSize: 30.sp,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ),
+                Text(":", style: TextStyle(fontSize: 16.sp)),
+                Obx(
+                  () => Text(
+                    _controller.sec.toString().padLeft(2, "0"),
+                    style: TextStyle(
+                      fontSize: 30.sp,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
