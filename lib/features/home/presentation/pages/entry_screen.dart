@@ -1,3 +1,4 @@
+import 'package:clean_pattern/common/constant/app_asset.dart';
 import 'package:clean_pattern/common/constant/app_color.dart';
 import 'package:clean_pattern/config/routes.dart';
 import 'package:clean_pattern/features/home/presentation/controller/entry_controller.dart';
@@ -13,7 +14,25 @@ class EntryScreen extends StatelessWidget {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       appBar: AppBar(
-        title: Text("We eat Ramen together"),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "We eat",
+              style: TextStyle(letterSpacing: 2.sp),
+            ),
+            SizedBox(width: 5.w),
+            Image.asset(
+              AppAsset.ramenOutlined,
+              height: 20.sp,
+            ),
+            SizedBox(width: 5.w),
+            Text(
+              "together",
+              style: TextStyle(letterSpacing: 2.sp),
+            ),
+          ],
+        ),
       ),
       body: GetBuilder<EntryController>(builder: (_) {
         return PageView.builder(
@@ -26,7 +45,11 @@ class EntryScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () => Get.toNamed(Routes.post),
         backgroundColor: AppColor.primary,
-        child: Icon(Icons.add_a_photo_outlined),
+        child: Image.asset(
+          AppAsset.imageShare,
+          height: 18.sp,
+          color: Colors.white,
+        ),
       ),
       bottomNavigationBar: GetBuilder<EntryController>(
         builder: (_) => BottomNavigationBar(
@@ -45,16 +68,44 @@ class EntryScreen extends StatelessWidget {
           unselectedIconTheme: IconThemeData(size: 22),
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Icon(Icons.store_rounded),
               label: 'Store',
+              icon: Image.asset(
+                AppAsset.store,
+                height: _controller.selectedIndex == 0 ? 15.sp : 13.sp,
+                color: _controller.selectedIndex == 0
+                    ? AppColor.primaryBold
+                    : AppColor.disable,
+              ),
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.newspaper_rounded),
               label: 'Article',
+              icon: Image.asset(
+                AppAsset.foodArticle,
+                height: _controller.selectedIndex == 0 ? 15.sp : 13.sp,
+                color: _controller.selectedIndex == 1
+                    ? AppColor.primaryBold
+                    : AppColor.disable,
+              ),
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
+              label: 'Flavor',
+              icon: Image.asset(
+                AppAsset.flavorSetting,
+                height: _controller.selectedIndex == 0 ? 15.sp : 13.sp,
+                color: _controller.selectedIndex == 2
+                    ? AppColor.primaryBold
+                    : AppColor.disable,
+              ),
+            ),
+            BottomNavigationBarItem(
               label: 'Settings',
+              icon: Image.asset(
+                AppAsset.settings,
+                height: _controller.selectedIndex == 3 ? 15.sp : 13.sp,
+                color: _controller.selectedIndex == 3
+                    ? AppColor.primaryBold
+                    : AppColor.disable,
+              ),
             ),
           ],
         ),

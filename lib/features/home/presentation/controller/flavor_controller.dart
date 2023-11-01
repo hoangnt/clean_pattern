@@ -19,7 +19,7 @@ enum ToppingEnum {
   matsutake
 }
 
-class SettingsController extends GetxController {
+class FlavorController extends GetxController {
   double salt = 1;
   double fat = 1;
   double noodleTenderness = 1;

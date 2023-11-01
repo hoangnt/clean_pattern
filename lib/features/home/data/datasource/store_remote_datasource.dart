@@ -62,23 +62,22 @@ class StoreRemoteDatasouce {
           "owner": "Emi Takahata",
           "bestSeller": "Tonkotsu ramen",
           "image":
-              "https://assets.epicurious.com/photos/54ad70036529d92b2c046e6b/6:4/w_884,h_589,c_limit/51187270_shoyu-ramen_1x1.jpg",
+              "https://gaijinpot.scdn3.secure.raxcdn.com/app/uploads/sites/4/2014/06/ichiran_hd-1024x640.jpg",
         },
         {
-          "name": "Kipponshi Ramen",
+          "name": "Yama-chan's Ramen",
           "address": "9 P. Phan Kế Bính, Cống Vị, Ba Đình, Hà Nội 10000",
           "owner": "Emi Takahata",
           "bestSeller": "Tonkotsu ramen",
           "image":
-              "https://a0.cdn.japantravel.com/photo/65295-219803/738x415.125!/tokyo-kipposhi-ramen-219803.jpg",
+              "https://www.japantimes.co.jp/wp-content/uploads/2016/09/p10-young-ramen-a-20160917.jpg",
         },
         {
-          "name": "Samurai Noodle",
+          "name": "Oakland's Ramen",
           "address": "10 P. Kim Mã Thượng, Cống Vị, Ba Đình, Hà Nội",
           "owner": "Jakeisha Wilmore",
           "bestSeller": "Tonkotsu ramen",
-          "image":
-              "https://cdn.vox-cdn.com/thumbor/lMpHyGdCpOjz0lfEA-NooW-DGh4=/323x22:2269x1482/1200x800/filters:focal(323x22:2269x1482)/cdn.vox-cdn.com/uploads/chorus_image/image/45805772/samurai_houston.0.0.jpg",
+          "image": "https://assets.londonist.com/uploads/2022/03/i730/dsc04191.jpg",
         },
         {
           "name": "Musashiya Ramen",

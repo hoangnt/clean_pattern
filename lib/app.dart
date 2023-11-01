@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       builder: (context, child) => GetMaterialApp(
         theme: ThemeData(
+          fontFamily: "Dosis",
           primaryColor: AppColor.primary,
           visualDensity: VisualDensity.adaptivePlatformDensity,
           appBarTheme: AppBarTheme(
@@ -20,9 +21,10 @@ class MyApp extends StatelessWidget {
             backgroundColor: Colors.transparent,
             elevation: 0,
             titleTextStyle: TextStyle(
+              fontFamily: "Dosis-Medium",
               color: Colors.black,
               fontSize: 18.sp,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w700,
             ),
             iconTheme: IconThemeData(color: Colors.black, size: 20.sp),
           ),
