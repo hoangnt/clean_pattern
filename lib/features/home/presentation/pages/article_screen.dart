@@ -43,7 +43,7 @@ class ArticleScreen extends StatelessWidget {
       },
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
-        margin: EdgeInsets.symmetric(horizontal: 15).copyWith(bottom: 20.h),
+        margin: EdgeInsets.symmetric(horizontal: 15).copyWith(top: 10.h),
         decoration: BoxDecoration(
           color: Colors.white,
           border: Border.all(color: Color(0xffFDFDFD)),

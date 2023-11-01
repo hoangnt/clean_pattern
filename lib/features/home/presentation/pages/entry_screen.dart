@@ -22,10 +22,13 @@ class EntryScreen extends StatelessWidget {
               style: TextStyle(letterSpacing: 2.sp),
             ),
             SizedBox(width: 5.w),
-            Image.asset(
-              AppAsset.ramenOutlined,
-              height: 20.sp,
-            ),
+            GetBuilder<EntryController>(builder: (_) {
+              return Image.asset(
+                AppAsset.ramenOutlined,
+                height: 20.sp,
+                color: Get.theme.iconTheme.color,
+              );
+            }),
             SizedBox(width: 5.w),
             Text(
               "together",
@@ -55,17 +58,11 @@ class EntryScreen extends StatelessWidget {
         builder: (_) => BottomNavigationBar(
           currentIndex: _controller.selectedIndex,
           onTap: _controller.onSelectBottomBar,
-          unselectedItemColor: Colors.grey,
-          selectedItemColor: AppColor.primary,
           showUnselectedLabels: false,
           showSelectedLabels: true,
           type: BottomNavigationBarType.fixed,
-          selectedIconTheme: IconThemeData(
-            size: 20.sp,
-            color: AppColor.primary,
-          ),
           selectedLabelStyle: TextStyle(fontSize: 11.sp),
-          unselectedIconTheme: IconThemeData(size: 22),
+          selectedItemColor: AppColor.primary,
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               label: 'Store',

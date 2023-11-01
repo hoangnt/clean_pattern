@@ -4,7 +4,7 @@ class AppColor {
   static const Color primary = Color(0xfff5a249);
   static const Color primaryBold = Color(0xffed8a21);
   static const Color disable = Color(0xff999999);
-  static const Color scaffoldBackground = Color(0xffeff2f6);
+  static const Color scaffoldBackground = Color(0xfff2f2f2);
 
   //Button color
   static const Color buttonColor1 = Color(0xffDCE0E7);

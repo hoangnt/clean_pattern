@@ -1,5 +1,6 @@
 import 'package:clean_pattern/features/home/presentation/pages/article_screen.dart';
 import 'package:clean_pattern/features/home/presentation/pages/flavor_screen.dart';
+import 'package:clean_pattern/features/home/presentation/pages/settings_screen.dart';
 import 'package:clean_pattern/features/home/presentation/pages/store_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -10,6 +11,7 @@ class EntryController extends GetxController {
 
   final List<Widget> listScreen = [
     StoreScreen(),
+    SizedBox(),
     SizedBox(),
     SizedBox(),
   ];
@@ -24,6 +26,11 @@ class EntryController extends GetxController {
     if (index == 2 && listScreen[index].runtimeType != FlavorScreen) {
       listScreen.removeAt(index);
       listScreen.insert(index, FlavorScreen());
+    }
+
+    if (index == 3 && listScreen[index].runtimeType != SettingsScreen) {
+      listScreen.removeAt(index);
+      listScreen.insert(index, SettingsScreen());
     }
 
     pageController.jumpToPage(index);

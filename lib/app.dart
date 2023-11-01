@@ -1,4 +1,4 @@
-import 'package:clean_pattern/common/constant/app_color.dart';
+import 'package:clean_pattern/common/constant/app_theme.dart';
 import 'package:clean_pattern/config/pages.dart';
 import 'package:clean_pattern/config/routes.dart';
 import 'package:flutter/material.dart';
@@ -11,24 +11,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       builder: (context, child) => GetMaterialApp(
-        theme: ThemeData(
-          fontFamily: "Dosis",
-          primaryColor: AppColor.primary,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-          appBarTheme: AppBarTheme(
-            centerTitle: true,
-            titleSpacing: 0,
-            backgroundColor: Colors.transparent,
-            elevation: 0,
-            titleTextStyle: TextStyle(
-              fontFamily: "Dosis-Medium",
-              color: Colors.black,
-              fontSize: 18.sp,
-              fontWeight: FontWeight.w700,
-            ),
-            iconTheme: IconThemeData(color: Colors.black, size: 20.sp),
-          ),
-        ),
+        themeMode: ThemeMode.light,
+        theme: AppTheme.lightTheme,
+        darkTheme: AppTheme.darkTheme,
         builder: EasyLoading.init(),
         getPages: Pages.instance.getPages,
         initialRoute: Routes.entry,
