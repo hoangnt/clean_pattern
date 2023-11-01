@@ -29,7 +29,7 @@ class StoreScreen extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.only(left: 10.w),
                     child: Text(
-                      "Top 10 on 10",
+                      "Top 10 on 10".tr,
                       style: TextStyle(
                           fontSize: 12.sp, fontWeight: FontWeight.w500),
                     ),
@@ -51,7 +51,7 @@ class StoreScreen extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.only(left: 10.w),
                     child: Text(
-                      "Would you like to go?",
+                      "Would you like to go?".tr,
                       style: TextStyle(
                           fontSize: 12.sp, fontWeight: FontWeight.w500),
                     ),

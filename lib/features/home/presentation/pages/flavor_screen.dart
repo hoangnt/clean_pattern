@@ -22,12 +22,12 @@ class FlavorScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Set your favorite Ramen taste",
+                    "Set your favorite Ramen taste".tr,
                     style:
                         TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w400),
                   ),
                   _sliderWidget(
-                    text: "Salt",
+                    text: "Salt".tr,
                     value: _controller.salt,
                     onChanged: _controller.onChangeSalt,
                     labels: [
@@ -36,11 +36,11 @@ class FlavorScreen extends StatelessWidget {
                       "normal",
                       "heavy",
                       "extra heavy",
-                      "hyper"
+                      "hyper",
                     ],
                   ),
                   _sliderWidget(
-                    text: "Fat",
+                    text: "Fat".tr,
                     value: _controller.fat,
                     onChanged: _controller.onChangeFat,
                     labels: [
@@ -49,11 +49,11 @@ class FlavorScreen extends StatelessWidget {
                       "medium",
                       "rich",
                       "ultra rich",
-                      "hyper"
+                      "hyper",
                     ],
                   ),
                   _sliderWidget(
-                    text: "Noodle's tenderness",
+                    text: "Noodle's tenderness".tr,
                     value: _controller.noodleTenderness,
                     onChanged: _controller.onChangeNoodleTender,
                     labels: [
@@ -62,7 +62,7 @@ class FlavorScreen extends StatelessWidget {
                       "normal",
                       "soft",
                       "extra soft",
-                      "hyper"
+                      "hyper",
                     ],
                   ),
                   brothWidget(),
@@ -85,7 +85,7 @@ class FlavorScreen extends StatelessWidget {
                           content: "Save failure",
                         ));
                       },
-                      text: "Save",
+                      text: "Save".tr,
                     ),
                   ),
                 ],
@@ -140,7 +140,7 @@ class FlavorScreen extends StatelessWidget {
           child: Container(
             margin: EdgeInsets.only(top: 10.h),
             child: Text(
-              "Topping",
+              "Topping".tr,
               textAlign: TextAlign.right,
               style: TextStyle(
                 fontSize: 11.sp,
@@ -175,7 +175,7 @@ class FlavorScreen extends StatelessWidget {
       children: [
         Expanded(
           child: Text(
-            "Broth",
+            "Broth".tr,
             textAlign: TextAlign.right,
             style: TextStyle(
               fontSize: 11.sp,
@@ -195,7 +195,7 @@ class FlavorScreen extends StatelessWidget {
                   backgroundColor: _controller.broth == item
                       ? AppColor.primary
                       : AppColor.disable,
-                  text: item.name,
+                  text: item.name.tr,
                 ),
             ],
           ),

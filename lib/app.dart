@@ -1,4 +1,5 @@
 import 'package:clean_pattern/common/constant/app_theme.dart';
+import 'package:clean_pattern/config/i18n.dart';
 import 'package:clean_pattern/config/pages.dart';
 import 'package:clean_pattern/config/routes.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       builder: (context, child) => GetMaterialApp(
+        translations: I18n(),
+        locale: Locale('en', 'US'),
+        fallbackLocale: Locale('en', 'US'),
         themeMode: ThemeMode.light,
         theme: AppTheme.lightTheme,
         darkTheme: AppTheme.darkTheme,

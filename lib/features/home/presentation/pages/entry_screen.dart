@@ -18,7 +18,7 @@ class EntryScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "We eat",
+              "We eat".tr,
               style: TextStyle(letterSpacing: 2.sp),
             ),
             SizedBox(width: 5.w),
@@ -31,7 +31,7 @@ class EntryScreen extends StatelessWidget {
             }),
             SizedBox(width: 5.w),
             Text(
-              "together",
+              "together".tr,
               style: TextStyle(letterSpacing: 2.sp),
             ),
           ],
@@ -65,7 +65,7 @@ class EntryScreen extends StatelessWidget {
           selectedItemColor: AppColor.primary,
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              label: 'Store',
+              label: "Store".tr,
               icon: Image.asset(
                 AppAsset.store,
                 height: _controller.selectedIndex == 0 ? 15.sp : 13.sp,
@@ -75,7 +75,7 @@ class EntryScreen extends StatelessWidget {
               ),
             ),
             BottomNavigationBarItem(
-              label: 'Article',
+              label: 'Article'.tr,
               icon: Image.asset(
                 AppAsset.foodArticle,
                 height: _controller.selectedIndex == 0 ? 15.sp : 13.sp,
@@ -85,7 +85,7 @@ class EntryScreen extends StatelessWidget {
               ),
             ),
             BottomNavigationBarItem(
-              label: 'Flavor',
+              label: 'Flavor'.tr,
               icon: Image.asset(
                 AppAsset.flavorSetting,
                 height: _controller.selectedIndex == 0 ? 15.sp : 13.sp,
@@ -95,7 +95,7 @@ class EntryScreen extends StatelessWidget {
               ),
             ),
             BottomNavigationBarItem(
-              label: 'Settings',
+              label: "Settings".tr,
               icon: Image.asset(
                 AppAsset.settings,
                 height: _controller.selectedIndex == 3 ? 15.sp : 13.sp,

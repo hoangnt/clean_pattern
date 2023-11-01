@@ -8,4 +8,5 @@ class AppAsset {
   static const String imageShare= "asset/icon/image_share.png";
   static const String sun= "asset/icon/sun.png";
   static const String moon= "asset/icon/moon.png";
+  static const String languages= "asset/icon/languages.png";
 }
