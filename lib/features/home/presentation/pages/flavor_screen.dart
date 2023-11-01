@@ -12,7 +12,8 @@ class FlavorScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
+      body: Container(
+        color: Colors.white,
         padding: EdgeInsets.symmetric(horizontal: 15),
         child: Column(
           children: [

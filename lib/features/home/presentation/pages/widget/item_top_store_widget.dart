@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:clean_pattern/features/home/data/model/store_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -25,7 +26,7 @@ class ItemTopStoreWidget extends StatelessWidget {
           ),
         ],
         image: DecorationImage(
-          image: NetworkImage(item.image!),
+          image: CachedNetworkImageProvider(item.image!),
           fit: BoxFit.cover,
         ),
       ),
