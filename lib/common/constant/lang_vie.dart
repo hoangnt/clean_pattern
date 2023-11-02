@@ -19,5 +19,14 @@ class LangVie {
     "Broth": "Nước dùng",
     "Topping": "Ăn kèm",
     "Save": "Lưu",
+
+    ///////////
+    "Tap to toggle light/dark theme": "Thay đổi chế độ sáng/tối",
+    "Light theme": "Chế độ ban ngày",
+    "Dark theme": "Chế độ tối",
+    "Language": "Ngôn ngữ",
+    "Choose your language": "Thay đổi ngôn ngữ",
+    "English": "Tiếng anh",
+    "Vietnamese": "Tiếng việt",
   };
 }

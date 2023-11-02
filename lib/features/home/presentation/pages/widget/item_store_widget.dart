@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:clean_pattern/features/home/data/model/store_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class ItemStoreWidget extends StatelessWidget {
   ItemStoreWidget({required this.item});
@@ -13,7 +14,7 @@ class ItemStoreWidget extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(bottom: 10.h),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Get.theme.appBarTheme.backgroundColor,
         border: Border.all(color: Color(0xffFDFDFD)),
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
@@ -64,7 +65,7 @@ class ItemStoreWidget extends StatelessWidget {
                   "Owner: ${item.owner!}",
                   style: TextStyle(
                     fontStyle: FontStyle.italic,
-                    color: Colors.black.withOpacity(0.6),
+                    color: Get.theme.iconTheme.color!.withOpacity(0.6),
                   ),
                 ),
                 SizedBox(height: 5.h),
@@ -76,7 +77,7 @@ class ItemStoreWidget extends StatelessWidget {
                     Text(
                       item.bestSeller!,
                       style: TextStyle(
-                        color: Colors.black.withOpacity(0.7),
+                        color: Get.theme.iconTheme.color!.withOpacity(0.7),
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w500,
                         shadows: [
@@ -98,7 +99,7 @@ class ItemStoreWidget extends StatelessWidget {
                       "is signature dish",
                       style: TextStyle(
                         fontStyle: FontStyle.italic,
-                        color: Colors.black.withOpacity(0.6),
+                        color: Get.theme.iconTheme.color!.withOpacity(0.6),
                       ),
                     ),
                   ],

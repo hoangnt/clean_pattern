@@ -19,5 +19,14 @@ class LangEng {
     "Broth": "Broth",
     "Topping": "Topping",
     "Save": "Save",
+
+    ///////////
+    "Tap to toggle light/dark theme": "Tap to toggle light/dark theme",
+    "Light theme": "Light theme",
+    "Dark theme": "Dark theme",
+    "Language": "Language",
+    "Choose your language": "Choose your language",
+    "English": "English",
+    "Vietnamese": "Vietnamese",
   };
 }

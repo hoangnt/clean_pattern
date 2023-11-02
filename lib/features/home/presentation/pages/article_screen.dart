@@ -45,7 +45,7 @@ class ArticleScreen extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
         margin: EdgeInsets.symmetric(horizontal: 15).copyWith(top: 10.h),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Get.theme.appBarTheme.backgroundColor,
           border: Border.all(color: Color(0xffFDFDFD)),
           borderRadius: BorderRadius.circular(10),
           boxShadow: [
@@ -75,7 +75,7 @@ class ArticleScreen extends StatelessWidget {
               "Pubished: ${item.publishedAt!.toDDMMYYYYString()}",
               style: TextStyle(
                 fontStyle: FontStyle.italic,
-                color: Colors.black.withOpacity(0.6),
+                color: Get.theme.iconTheme.color!.withOpacity(0.6),
               ),
             ),
             SizedBox(height: 2.h),
@@ -84,7 +84,7 @@ class ArticleScreen extends StatelessWidget {
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
-                color: Colors.black.withOpacity(0.6),
+                color: Get.theme.iconTheme.color!.withOpacity(0.6),
               ),
             ),
             SizedBox(height: 2.h),

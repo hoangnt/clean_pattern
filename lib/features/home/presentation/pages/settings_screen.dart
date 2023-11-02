@@ -28,10 +28,10 @@ class SettingsScreen extends StatelessWidget {
                 color: Get.theme.iconTheme.color,
               ),
               title: Text(
-                "${_controller.mode} theme",
+                "${_controller.mode} theme".tr,
                 style: TextStyle(fontWeight: FontWeight.w600),
               ),
-              subtitle: Text("Tap to toggle light/dark theme"),
+              subtitle: Text("Tap to toggle light/dark theme".tr),
             ),
             ListTile(
               onTap: _controller.toggleDisplayLanguage,
@@ -44,10 +44,10 @@ class SettingsScreen extends StatelessWidget {
                 color: Get.theme.iconTheme.color,
               ),
               title: Text(
-                "Language",
+                "Language".tr,
                 style: TextStyle(fontWeight: FontWeight.w600),
               ),
-              subtitle: Text("Choose your language"),
+              subtitle: Text("Choose your language".tr),
             ),
             Visibility(
               visible: _controller.displayLanguages,
@@ -69,7 +69,7 @@ class SettingsScreen extends StatelessWidget {
                         "ENG",
                         style: TextStyle(fontWeight: FontWeight.w600),
                       ),
-                      subtitle: Text("English"),
+                      subtitle: Text("English".tr),
                     ),
                     RadioListTile<int>.adaptive(
                       value: AppLanguage.vie,
@@ -80,7 +80,7 @@ class SettingsScreen extends StatelessWidget {
                         "VIE",
                         style: TextStyle(fontWeight: FontWeight.w600),
                       ),
-                      subtitle: Text("Vietnamese"),
+                      subtitle: Text("Vietnamese".tr),
                     ),
                   ],
                 ),

@@ -13,7 +13,7 @@ class FlavorScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Colors.white,
+        color: Get.theme.scaffoldBackgroundColor,
         padding: EdgeInsets.symmetric(horizontal: 15),
         child: Column(
           children: [
