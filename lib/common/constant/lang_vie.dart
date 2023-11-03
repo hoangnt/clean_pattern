@@ -28,5 +28,7 @@ class LangVie {
     "Choose your language": "Thay đổi ngôn ngữ",
     "English": "Tiếng anh",
     "Vietnamese": "Tiếng việt",
+    "Lucky number": "Số may mắn",
+    "Tap to get lucky number": "Lấy số may mắn nào!",
   };
 }

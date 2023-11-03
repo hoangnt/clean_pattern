@@ -28,5 +28,7 @@ class LangEng {
     "Choose your language": "Choose your language",
     "English": "English",
     "Vietnamese": "Vietnamese",
+    "Lucky number": "Lucky number",
+    "Tap to get lucky number": "Tap to get lucky number",
   };
 }

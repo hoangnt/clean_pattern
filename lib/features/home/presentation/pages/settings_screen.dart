@@ -16,21 +16,6 @@ class SettingsScreen extends StatelessWidget {
       body: GetBuilder<SettingsController>(builder: (context) {
         return Column(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Text(
-                  _controller.luckyNumber.toString().padLeft(2, "0"),
-                  style: TextStyle(
-                    fontSize: 20.sp,
-                  ),
-                ),
-                ElevatedButton(
-                  onPressed: _controller.getLuckyNumber,
-                  child: Text("get number"),
-                ),
-              ],
-            ),
             ListTile(
               onTap: _controller.toggleTheme,
               tileColor: Get.theme.appBarTheme.backgroundColor,
@@ -49,6 +34,8 @@ class SettingsScreen extends StatelessWidget {
               ),
               subtitle: Text("Tap to toggle light/dark theme".tr),
             ),
+
+            ///
             ListTile(
               onTap: _controller.toggleDisplayLanguage,
               tileColor: Get.theme.appBarTheme.backgroundColor,
@@ -101,6 +88,30 @@ class SettingsScreen extends StatelessWidget {
                   ],
                 ),
               ),
+            ),
+
+            ///
+            ListTile(
+              onTap: _controller.getLuckyNumber,
+              tileColor: Get.theme.appBarTheme.backgroundColor,
+              shape: RoundedRectangleBorder(
+                side: BorderSide(color: AppColor.buttonBorder),
+              ),
+              leading: Image.asset(
+                AppAsset.clover,
+                color: Get.theme.iconTheme.color,
+              ),
+              title: Text(
+                "Lucky number".tr,
+                style: TextStyle(fontWeight: FontWeight.w600),
+              ),
+              subtitle: Text("Tap to get lucky number".tr),
+              trailing: _controller.luckyNumber != null
+                  ? Text(
+                      _controller.luckyNumber.toString().padLeft(2, "0"),
+                      style: TextStyle(fontSize: 20.sp),
+                    )
+                  : null,
             ),
           ],
         );
