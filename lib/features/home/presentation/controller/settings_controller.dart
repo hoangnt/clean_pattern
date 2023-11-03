@@ -2,13 +2,35 @@ import 'package:clean_pattern/common/constant/app_language.dart';
 import 'package:clean_pattern/common/constant/app_theme.dart';
 import 'package:clean_pattern/features/home/presentation/controller/entry_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 class SettingsController extends GetxController {
+  final MethodChannel channel = MethodChannel("com.example.clean_pattern");
   String mode = AppThemeMode.light;
   int language = AppLanguage.eng;
 
   bool displayLanguages = false;
+
+  int? luckyNumber;
+
+  @override
+  void onInit() {
+    super.onInit();
+
+    channel.setMethodCallHandler((call) async {
+      if (call.method == "luckyNumber") {
+        luckyNumber = call.arguments as int;
+        update();
+      }
+
+      return null;
+    });
+  }
+
+  void getLuckyNumber() {
+    channel.invokeMethod("luckyNumber");
+  }
 
   void toggleTheme() async {
     if (mode == AppThemeMode.light) {

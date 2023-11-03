@@ -6,17 +6,16 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.os.BatteryManager
 import android.os.Build
-import android.os.Handler
-import androidx.annotation.NonNull
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
+import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 
 class MainActivity : FlutterActivity() {
     private val channelName = "com.example.clean_pattern"
     private lateinit var channel: MethodChannel
 
-    override fun configureFlutterEngine(@NonNull flutterEngine: FlutterEngine) {
+    override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
         channel = MethodChannel(
             flutterEngine.dartExecutor.binaryMessenger,
@@ -25,7 +24,8 @@ class MainActivity : FlutterActivity() {
         channel.setMethodCallHandler { call, result ->
             // This method is invoked on the main thread.
             when (call.method) {
-                "getBattery" -> getBatteryLevel(result)
+                "getBatteryLevel" -> getBatteryLevel(result)
+                "luckyNumber" -> luckyNumber()
                 else -> {
                     result.notImplemented()
                 }
@@ -51,5 +51,10 @@ class MainActivity : FlutterActivity() {
                 )
         }
         result.success(batteryLevel)
+    }
+
+    private fun luckyNumber() {
+        val lucky = (0..99).random()
+        channel.invokeMethod("luckyNumber", lucky)
     }
 }

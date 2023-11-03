@@ -4,6 +4,7 @@ import 'package:clean_pattern/common/constant/app_language.dart';
 import 'package:clean_pattern/common/constant/app_theme.dart';
 import 'package:clean_pattern/features/home/presentation/controller/settings_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -15,6 +16,21 @@ class SettingsScreen extends StatelessWidget {
       body: GetBuilder<SettingsController>(builder: (context) {
         return Column(
           children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text(
+                  _controller.luckyNumber.toString().padLeft(2, "0"),
+                  style: TextStyle(
+                    fontSize: 20.sp,
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: _controller.getLuckyNumber,
+                  child: Text("get number"),
+                ),
+              ],
+            ),
             ListTile(
               onTap: _controller.toggleTheme,
               tileColor: Get.theme.appBarTheme.backgroundColor,
