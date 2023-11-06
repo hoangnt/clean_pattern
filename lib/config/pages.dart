@@ -1,8 +1,12 @@
 import 'package:clean_pattern/config/routes.dart';
+import 'package:clean_pattern/features/article/presentation/binding/article_binding.dart';
+import 'package:clean_pattern/features/flavor/presentation/binding/flavor_binding.dart';
 import 'package:clean_pattern/features/home/presentation/binding/entry_binding.dart';
 import 'package:clean_pattern/features/home/presentation/pages/entry_screen.dart';
 import 'package:clean_pattern/features/post/presentation/binding/post_binding.dart';
 import 'package:clean_pattern/features/post/presentation/pages/post_screen.dart';
+import 'package:clean_pattern/features/settings/presentation/binding/settings_binding.dart';
+import 'package:clean_pattern/features/store/presentation/binding/store_binding.dart';
 import 'package:get/get.dart';
 
 class Pages {
@@ -15,7 +19,13 @@ class Pages {
       GetPage(
         name: Routes.entry,
         page: () => EntryScreen(),
-        binding: EntryBinding(),
+        bindings: [
+          EntryBinding(),
+          StoreBinding(),
+          ArticleBinding(),
+          FlavorBinding(),
+          SettingsBinding(),
+        ],
       ),
       GetPage(
         name: Routes.post,
