@@ -1,5 +1,7 @@
 import 'package:clean_pattern/config/routes.dart';
 import 'package:clean_pattern/features/article/presentation/binding/article_binding.dart';
+import 'package:clean_pattern/features/article/presentation/binding/article_detail_binding.dart';
+import 'package:clean_pattern/features/article/presentation/pages/article_detail_screen.dart';
 import 'package:clean_pattern/features/flavor/presentation/binding/flavor_binding.dart';
 import 'package:clean_pattern/features/home/presentation/binding/entry_binding.dart';
 import 'package:clean_pattern/features/home/presentation/pages/entry_screen.dart';
@@ -31,6 +33,12 @@ class Pages {
         name: Routes.post,
         page: () => PostScreen(),
         binding: PostBinding(),
+        transition: Transition.rightToLeft,
+      ),
+      GetPage(
+        name: Routes.articleDetail,
+        page: () => ArticleDetailScreen(),
+        binding: ArticleDetailBinding(),
         transition: Transition.rightToLeft,
       ),
     ];

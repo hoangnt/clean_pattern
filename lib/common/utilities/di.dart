@@ -1,5 +1,6 @@
 import 'package:clean_pattern/common/constant/hive_box_key.dart';
 import 'package:clean_pattern/features/article/data/repositories/article_repo_impl.dart';
+import 'package:clean_pattern/features/article/domain/usecase/get_article_detail_usecase.dart';
 import 'package:clean_pattern/features/flavor/data/model/ramen_flavor.dart';
 import 'package:clean_pattern/features/article/domain/usecase/get_all_article_usecase.dart';
 import 'package:clean_pattern/features/store/data/repositories/store_repo_impl.dart';
@@ -25,6 +26,8 @@ void homeInjection() {
       GetTopStoreUsecase(getIt.get<StoreRepoImpl>()));
   getIt.registerSingleton<GetAllArticleUsecase>(
       GetAllArticleUsecase(getIt.get<ArticleRepoImpl>()));
+  getIt.registerSingleton<GetArticleDetailUsecase>(
+      GetArticleDetailUsecase(getIt.get<ArticleRepoImpl>()));
 }
 
 Future<void> hiveBoxInjection() async {
