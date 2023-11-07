@@ -11,6 +11,7 @@ class BaseController extends GetxController {
     String? messageLoading,
     void Function(T)? onSuccess,
     void Function(String)? onError,
+    bool needUpdate = true,
   }) async {
     isLoading = true;
     EasyLoading.show(status: "Loading...");
@@ -26,7 +27,9 @@ class BaseController extends GetxController {
 
     isLoading = false;
     EasyLoading.dismiss();
-    update();
+    if (needUpdate) {
+      update();
+    }
   }
 
   Future<void> handle2BaseResponse<T, E>({
@@ -34,6 +37,7 @@ class BaseController extends GetxController {
     String? messageLoading,
     void Function(T, E)? onSuccess,
     void Function(List<String>)? onError,
+    bool needUpdate = true,
   }) async {
     isLoading = true;
     EasyLoading.show(status: "Loading...");
@@ -58,7 +62,9 @@ class BaseController extends GetxController {
 
     isLoading = false;
     EasyLoading.dismiss();
-    update();
+    if (needUpdate) {
+      update();
+    }
   }
 
   Future<void> handleMutiUsecaseWithoutData({
@@ -66,6 +72,7 @@ class BaseController extends GetxController {
     String? messageLoading,
     void Function()? onSuccess,
     void Function(List<String>)? onError,
+    bool needUpdate = true,
   }) async {
     isLoading = true;
     EasyLoading.show(status: "Loading...");
@@ -87,6 +94,8 @@ class BaseController extends GetxController {
 
     isLoading = false;
     EasyLoading.dismiss();
-    update();
+    if (needUpdate) {
+      update();
+    }
   }
 }
