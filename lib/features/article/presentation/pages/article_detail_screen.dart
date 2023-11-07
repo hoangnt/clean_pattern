@@ -81,37 +81,91 @@ class ArticleDetailScreen extends StatelessWidget {
                   style: TextStyle(fontSize: 12.sp),
                 ),
                 SizedBox(height: 10.h),
-                GetBuilder<ArticleDetailController>(
-                  builder: (context) {
-                    return AspectRatio(
-                      aspectRatio:
-                          _controller.videoController.value.aspectRatio,
-                      child: Stack(
-                        alignment: AlignmentDirectional.center,
-                        children: [
-                          VideoPlayer(_controller.videoController),
-                          if (!_controller.videoController.value.isPlaying)
-                            GestureDetector(
-                              onTap: _controller.playVideo,
-                              child: Icon(
-                                Icons.play_arrow_outlined,
-                                size: 60.sp,
-                              ),
-                            )
-                        ],
-                      ),
-                    );
-                  },
+                AspectRatio(
+                  aspectRatio: _controller.videoController.value.aspectRatio,
+                  child: GestureDetector(
+                    onTap: _controller.playVideo,
+                    behavior: HitTestBehavior.translucent,
+                    child: Stack(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(5.sp),
+                          child: VideoPlayer(_controller.videoController),
+                        ),
+                        if (!_controller.videoController.value.isPlaying)
+                          Align(
+                            alignment: Alignment.center,
+                            child: Icon(
+                              Icons.play_arrow_rounded,
+                              size: 60.sp,
+                            ),
+                          ),
+                        _videoPlayer(),
+                      ],
+                    ),
+                  ),
                 ),
-                SizedBox(height: 30.h),
+                SizedBox(height: 10.h),
                 Text(
                   _controller.detail!.content!,
                   style: TextStyle(fontSize: 12.sp),
                 ),
+                SizedBox(height: 20.h),
               ],
             );
           }),
         ),
+      ),
+    );
+  }
+
+  Widget _videoPlayer() {
+    String hour = _controller.videoController.value.position.inHours.toString();
+    String minute = _controller.videoController.value.position.inMinutes
+        .toString()
+        .padLeft(2, "0");
+    String second = _controller.videoController.value.position.inSeconds
+        .toString()
+        .padLeft(2, "0");
+
+    return Align(
+      alignment: Alignment.bottomCenter,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          SizedBox(width: 5.w),
+          (_controller.videoController.value.isPlaying)
+              ? Icon(Icons.play_arrow_rounded, size: 17.sp)
+              : Icon(Icons.pause, size: 17.sp),
+          SizedBox(width: 5.w),
+          Expanded(
+            child: SizedBox(
+              height: 10.h,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(5.sp),
+                child: VideoProgressIndicator(
+                  _controller.videoController,
+                  allowScrubbing: true,
+                  padding: EdgeInsets.zero,
+                  colors: VideoProgressColors(
+                    backgroundColor: AppColor.disable,
+                    bufferedColor: AppColor.textColor1,
+                    playedColor: AppColor.primary,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          SizedBox(width: 5.w),
+          Text(
+            "${hour != "0" ? "$hour :" : ""} $minute : $second",
+            style: TextStyle(
+              fontSize: 12.sp,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          SizedBox(width: 5.w),
+        ],
       ),
     );
   }

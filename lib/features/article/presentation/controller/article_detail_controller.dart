@@ -38,6 +38,11 @@ class ArticleDetailController extends BaseController {
   }
 
   void playVideo() {
-    videoController.play();
+    if (videoController.value.isPlaying) {
+      videoController.pause();
+    } else {
+      videoController.play();
+    }
+    update();
   }
 }

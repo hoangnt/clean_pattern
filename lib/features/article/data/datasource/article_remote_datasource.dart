@@ -111,7 +111,7 @@ class ArticleRemoteDatasource {
           "https://picsum.photos/1024/768",
         ],
         "video":
-            "https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4",
+            "https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4",
       }
     };
 
