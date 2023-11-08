@@ -7,7 +7,7 @@ class ArticleDetailBinding extends Bindings {
   void dependencies() {
     Get.lazyPut<ArticleDetailController>(
       () => ArticleDetailController(getIt()),
-      tag: Get.parameters["controller"]
+      tag: Get.parameters["tag"]
     );
   }
 }

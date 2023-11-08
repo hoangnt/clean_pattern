@@ -9,7 +9,7 @@ import 'package:get/get.dart';
 
 class ArticleDetailScreen extends StatelessWidget {
   final _controller =
-      Get.find<ArticleDetailController>(tag: Get.parameters["controller"]);
+      Get.find<ArticleDetailController>(tag: Get.parameters["tag"]);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class ArticleDetailScreen extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 10.w),
         child: SingleChildScrollView(
           child: GetBuilder<ArticleDetailController>(
-            tag: Get.parameters["controller"],
+            tag: Get.parameters["tag"],
             builder: (context) {
               if (_controller.isLoading) {
                 return SizedBox();
@@ -64,23 +64,16 @@ class ArticleDetailScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 10.h),
-                  Draggable(
-                    feedback: Image.network(
-                      "https://picsum.photos/233/322",
-                      height: 0.3.sh,
-                      fit: BoxFit.cover,
-                    ),
-                    child: CachedNetworkImage(
-                      imageUrl: _controller.detail!.images.first,
-                      errorWidget: (context, _, __) => Icon(Icons.error),
-                      imageBuilder: (context, imageProvider) => Container(
-                        height: 0.5.sh,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          image: DecorationImage(
-                            image: imageProvider,
-                            fit: BoxFit.cover,
-                          ),
+                  CachedNetworkImage(
+                    imageUrl: _controller.detail!.images.first,
+                    errorWidget: (context, _, __) => Icon(Icons.error),
+                    imageBuilder: (context, imageProvider) => Container(
+                      height: 0.5.sh,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        image: DecorationImage(
+                          image: imageProvider,
+                          fit: BoxFit.cover,
                         ),
                       ),
                     ),
