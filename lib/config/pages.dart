@@ -33,7 +33,7 @@ class Pages {
         name: Routes.post,
         page: () => PostScreen(),
         binding: PostBinding(),
-        transition: Transition.rightToLeft,
+        transition: Transition.zoom,
       ),
       GetPage(
         name: Routes.articleDetail,

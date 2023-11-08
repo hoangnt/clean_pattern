@@ -2,13 +2,15 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:chewie/chewie.dart';
 import 'package:clean_pattern/common/constant/app_color.dart';
 import 'package:clean_pattern/common/extensions/string_extension.dart';
+import 'package:clean_pattern/config/routes.dart';
 import 'package:clean_pattern/features/article/presentation/controller/article_detail_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class ArticleDetailScreen extends StatelessWidget {
-  final _controller = Get.find<ArticleDetailController>();
+  final _controller =
+      Get.find<ArticleDetailController>(tag: Get.parameters["controller"]);
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +30,16 @@ class ArticleDetailScreen extends StatelessWidget {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                ElevatedButton(
+                  onPressed: () {
+                    Get.toNamed(
+                      Routes.articleDetail,
+                      preventDuplicates: false,
+                      parameters: {"controller": "1"},
+                    );
+                  },
+                  child: Text("to"),
+                ),
                 Text(
                   _controller.detail!.title!,
                   style: TextStyle(
