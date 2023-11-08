@@ -61,16 +61,23 @@ class ArticleDetailScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 10.h),
-                CachedNetworkImage(
-                  imageUrl: _controller.detail!.images.first,
-                  errorWidget: (context, _, __) => Icon(Icons.error),
-                  imageBuilder: (context, imageProvider) => Container(
-                    height: 0.5.sh,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      image: DecorationImage(
-                        image: imageProvider,
-                        fit: BoxFit.cover,
+                Draggable(
+                  feedback: Image.network(
+                    "https://picsum.photos/233/322",
+                    height: 0.3.sh,
+                    fit: BoxFit.cover,
+                  ),
+                  child: CachedNetworkImage(
+                    imageUrl: _controller.detail!.images.first,
+                    errorWidget: (context, _, __) => Icon(Icons.error),
+                    imageBuilder: (context, imageProvider) => Container(
+                      height: 0.5.sh,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        image: DecorationImage(
+                          image: imageProvider,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                   ),
