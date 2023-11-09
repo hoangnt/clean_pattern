@@ -102,7 +102,7 @@ class StoreDetailScreen extends StatelessWidget {
                                   max: 5,
                                   divisions: 50,
                                   label: _controller.rate.toStringAsFixed(1),
-                                  value: _controller.data.rating!,
+                                  value: _controller.rate.value,
                                   onChanged: _controller.rating,
                                 ),
                               ),
