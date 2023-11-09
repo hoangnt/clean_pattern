@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:clean_pattern/common/constant/status_code.dart';
 import 'package:clean_pattern/common/network/model/base_response.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -9,9 +11,8 @@ class BaseController extends GetxController {
   Future<void> handleBaseResponse<T>({
     required Future<BaseResponse<T>> usecase,
     String? messageLoading,
-    void Function(T)? onSuccess,
+    FutureOr<void> Function(T)? onSuccess,
     void Function(String)? onError,
-    bool needUpdate = true,
   }) async {
     isLoading = true;
     EasyLoading.show(status: "Loading...");
@@ -22,14 +23,12 @@ class BaseController extends GetxController {
     }
 
     if (onSuccess != null) {
-      onSuccess(res.data as T);
+      await onSuccess(res.data as T);
     }
 
     isLoading = false;
     EasyLoading.dismiss();
-    if (needUpdate) {
-      update();
-    }
+    update();
   }
 
   Future<void> handle2BaseResponse<T, E>({

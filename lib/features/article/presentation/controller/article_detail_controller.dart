@@ -19,11 +19,14 @@ class ArticleDetailController extends BaseController {
   void onInit() async {
     super.onInit();
 
-    await handleBaseResponse(
+    handleBaseResponse(
       usecase: getArticleDetailUsecase(),
-      onSuccess: (data) => detail = data,
-      needUpdate: false,
+      onSuccess: initDetailData,
     );
+  }
+
+  Future<void> initDetailData(ArticleDetailModel? data) async {
+    detail = data;
 
     videoController = VideoPlayerController.networkUrl(
       Uri.parse(detail!.video!),
@@ -45,6 +48,5 @@ class ArticleDetailController extends BaseController {
         playedColor: AppColor.primary,
       ),
     );
-    update();
   }
 }
