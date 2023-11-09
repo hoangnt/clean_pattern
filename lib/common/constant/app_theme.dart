@@ -14,6 +14,9 @@ class AppTheme {
     primaryColor: AppColor.primary,
     scaffoldBackgroundColor: AppColor.scaffoldBackground,
     visualDensity: VisualDensity.adaptivePlatformDensity,
+    sliderTheme: SliderThemeData(
+      overlayShape: SliderComponentShape.noThumb,
+    ),
     appBarTheme: AppBarTheme(
       centerTitle: true,
       titleSpacing: 0,
@@ -36,6 +39,9 @@ class AppTheme {
     primaryColor: AppColor.primary,
     visualDensity: VisualDensity.adaptivePlatformDensity,
     scaffoldBackgroundColor: AppColor.disable,
+    sliderTheme: SliderThemeData(
+      overlayShape: SliderComponentShape.noThumb,
+    ),
     iconTheme: IconThemeData(
       color: Colors.white,
     ),

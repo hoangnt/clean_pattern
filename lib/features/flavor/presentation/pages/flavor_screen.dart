@@ -26,6 +26,7 @@ class FlavorScreen extends StatelessWidget {
                     style:
                         TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w400),
                   ),
+                  SizedBox(height: 10.h),
                   _sliderWidget(
                     text: "Salt".tr,
                     value: _controller.salt,
@@ -39,6 +40,7 @@ class FlavorScreen extends StatelessWidget {
                       "hyper",
                     ],
                   ),
+                  SizedBox(height: 10.h),
                   _sliderWidget(
                     text: "Fat".tr,
                     value: _controller.fat,
@@ -52,6 +54,7 @@ class FlavorScreen extends StatelessWidget {
                       "hyper",
                     ],
                   ),
+                  SizedBox(height: 10.h),
                   _sliderWidget(
                     text: "Noodle's tenderness".tr,
                     value: _controller.noodleTenderness,

@@ -9,6 +9,8 @@ import 'package:clean_pattern/features/post/presentation/binding/post_binding.da
 import 'package:clean_pattern/features/post/presentation/pages/post_screen.dart';
 import 'package:clean_pattern/features/settings/presentation/binding/settings_binding.dart';
 import 'package:clean_pattern/features/store/presentation/binding/store_binding.dart';
+import 'package:clean_pattern/features/store/presentation/binding/store_detail_binding.dart';
+import 'package:clean_pattern/features/store/presentation/pages/store_detail_screen.dart';
 import 'package:get/get.dart';
 
 class Pages {
@@ -39,6 +41,12 @@ class Pages {
         name: Routes.articleDetail,
         page: () => ArticleDetailScreen(),
         binding: ArticleDetailBinding(),
+        transition: Transition.rightToLeft,
+      ),
+       GetPage(
+        name: Routes.storeDetail,
+        page: () => StoreDetailScreen(),
+        binding: StoreDetailBinding(),
         transition: Transition.rightToLeft,
       ),
     ];

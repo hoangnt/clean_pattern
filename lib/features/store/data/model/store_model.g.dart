@@ -12,13 +12,17 @@ StoreModel _$StoreModelFromJson(Map<String, dynamic> json) => StoreModel(
       owner: json['owner'] as String?,
       bestSeller: json['bestSeller'] as String?,
       image: json['image'] as String?,
+      phone: json['phone'] as String?,
+      rating: (json['rating'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$StoreModelToJson(StoreModel instance) =>
     <String, dynamic>{
       'name': instance.name,
       'address': instance.address,
+      'phone': instance.phone,
       'owner': instance.owner,
       'bestSeller': instance.bestSeller,
       'image': instance.image,
+      'rating': instance.rating,
     };

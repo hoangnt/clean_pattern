@@ -6,9 +6,11 @@ part 'store_model.g.dart';
 class StoreModel {
   String? name;
   String? address;
+  String? phone;
   String? owner;
   String? bestSeller;
   String? image;
+  double? rating;
 
   StoreModel({
     required this.name,
@@ -16,6 +18,8 @@ class StoreModel {
     required this.owner,
     this.bestSeller,
     this.image,
+    this.phone,
+    this.rating,
   });
 
   factory StoreModel.fromJson(Map<String, dynamic> json) =>
