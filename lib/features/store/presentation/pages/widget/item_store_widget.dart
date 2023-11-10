@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:clean_pattern/common/widget/app_progress_indicator.dart';
 import 'package:clean_pattern/config/routes.dart';
 import 'package:clean_pattern/features/store/data/model/store_model.dart';
 import 'package:flutter/material.dart';
@@ -35,6 +36,17 @@ class ItemStoreWidget extends StatelessWidget {
             CachedNetworkImage(
               imageUrl: item.image!,
               errorWidget: (context, _, __) => Icon(Icons.error),
+              progressIndicatorBuilder: (_, __, progress) => Container(
+                width: 180.w,
+                height: 150.h,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(10),
+                    bottomLeft: Radius.circular(10),
+                  ),
+                ),
+                child: AppProgressIndicator(progress.progress),
+              ),
               imageBuilder: (context, imageProvider) => Container(
                 width: 180.w,
                 height: 150.h,

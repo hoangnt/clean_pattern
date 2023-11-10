@@ -1,6 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:clean_pattern/common/constant/app_asset.dart';
 import 'package:clean_pattern/common/constant/app_color.dart';
 import 'package:clean_pattern/common/widget/app_elevated_button.dart';
+import 'package:clean_pattern/common/widget/app_progress_indicator.dart';
 import 'package:clean_pattern/features/store/presentation/controller/store_detail_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -67,7 +69,36 @@ class StoreDetailScreen extends StatelessWidget {
               SizedBox(height: 10.h),
               ClipRRect(
                 borderRadius: BorderRadius.circular(5.sp),
-                child: Image.network(_controller.data.image!),
+                child: CachedNetworkImage(
+                  imageUrl: _controller.data.image!,
+                  errorWidget: (context, _, __) => Icon(Icons.error),
+                  progressIndicatorBuilder: (_, __, progress) => Container(
+                    width: double.infinity,
+                    height: 0.45.sh,
+                    decoration: BoxDecoration(
+                      color: AppColor.placeHolder,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(10),
+                        bottomLeft: Radius.circular(10),
+                      ),
+                    ),
+                    child: AppProgressIndicator(progress.progress),
+                  ),
+                  imageBuilder: (context, imageProvider) => Container(
+                    width: double.infinity,
+                    height: 0.45.sh,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(10),
+                        bottomLeft: Radius.circular(10),
+                      ),
+                      image: DecorationImage(
+                        image: imageProvider,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                ),
               ),
               SizedBox(height: 25.h),
               Align(
