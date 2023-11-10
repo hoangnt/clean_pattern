@@ -10,7 +10,9 @@ import 'package:clean_pattern/features/post/presentation/pages/post_screen.dart'
 import 'package:clean_pattern/features/settings/presentation/binding/settings_binding.dart';
 import 'package:clean_pattern/features/store/presentation/binding/store_binding.dart';
 import 'package:clean_pattern/features/store/presentation/binding/store_detail_binding.dart';
+import 'package:clean_pattern/features/store/presentation/binding/store_story_binding.dart';
 import 'package:clean_pattern/features/store/presentation/pages/store_detail_screen.dart';
+import 'package:clean_pattern/features/store/presentation/pages/store_story_screen.dart';
 import 'package:get/get.dart';
 
 class Pages {
@@ -43,11 +45,17 @@ class Pages {
         binding: ArticleDetailBinding(),
         transition: Transition.rightToLeft,
       ),
-       GetPage(
+      GetPage(
         name: Routes.storeDetail,
         page: () => StoreDetailScreen(),
         binding: StoreDetailBinding(),
         transition: Transition.rightToLeft,
+      ),
+      GetPage(
+        name: Routes.storeStory,
+        page: () => StoreStoryScreen(),
+        binding: StoreStoryBinding(),
+        transition: Transition.rightToLeftWithFade,
       ),
     ];
   }

@@ -75,23 +75,13 @@ class StoreDetailScreen extends StatelessWidget {
                   progressIndicatorBuilder: (_, __, progress) => Container(
                     width: double.infinity,
                     height: 0.45.sh,
-                    decoration: BoxDecoration(
-                      color: AppColor.placeHolder,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(10),
-                        bottomLeft: Radius.circular(10),
-                      ),
-                    ),
+                    color: AppColor.placeHolder,
                     child: AppProgressIndicator(progress.progress),
                   ),
                   imageBuilder: (context, imageProvider) => Container(
                     width: double.infinity,
                     height: 0.45.sh,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(10),
-                        bottomLeft: Radius.circular(10),
-                      ),
                       image: DecorationImage(
                         image: imageProvider,
                         fit: BoxFit.cover,

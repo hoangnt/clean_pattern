@@ -25,6 +25,11 @@ class ArticleDetailController extends BaseController {
     );
   }
 
+  @override
+  void onClose() {
+    chewieController.dispose();
+  }
+
   Future<void> initDetailData(ArticleDetailModel? data) async {
     detail = data;
 

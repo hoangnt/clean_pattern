@@ -43,7 +43,9 @@ class StoreScreen extends StatelessWidget {
                       itemCount: _controller.listTopStore.length,
                       itemBuilder: (context, index) {
                         return ItemTopStoreWidget(
-                            item: _controller.listTopStore[index]);
+                          item: _controller.listTopStore[index],
+                          index: index,
+                        );
                       },
                     ),
                   ),

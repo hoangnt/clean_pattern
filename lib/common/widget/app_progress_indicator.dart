@@ -13,11 +13,11 @@ class AppProgressIndicator extends StatelessWidget {
           ? CircularProgressIndicator(
               value: progress!,
               backgroundColor: AppColor.disable.withOpacity(0.5),
-              color: AppColor.primary.withOpacity(0.7),
+              color: AppColor.primary,
             )
           : CircularProgressIndicator(
               backgroundColor: AppColor.disable.withOpacity(0.5),
-              color: AppColor.primary.withOpacity(0.7),
+              color: AppColor.primary,
             ),
     );
   }
