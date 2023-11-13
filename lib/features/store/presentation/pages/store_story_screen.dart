@@ -14,7 +14,7 @@ class StoreStoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: _controller.onBack,
+      onWillPop: _controller.onBackPhysics,
       child: Scaffold(
         backgroundColor: Colors.black54,
         body: SafeArea(
@@ -44,6 +44,25 @@ class StoreStoryScreen extends StatelessWidget {
                     ),
                   );
                 },
+              ),
+              GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                onTap: () => _controller.goPreviousStory(),
+                child: SizedBox(
+                  height: 1.sh,
+                  width: 0.2.sw,
+                ),
+              ),
+              Align(
+                alignment: Alignment.centerRight,
+                child: GestureDetector(
+                  behavior: HitTestBehavior.opaque,
+                  onTap: () => _controller.goNextStory(),
+                  child: SizedBox(
+                    height: 1.sh,
+                    width: 0.2.sw,
+                  ),
+                ),
               ),
               Container(
                 width: double.infinity,
@@ -79,7 +98,7 @@ class StoreStoryScreen extends StatelessWidget {
                       ),
                       Spacer(),
                       InkWell(
-                        onTap: _controller.back,
+                        onTap: _controller.onBack,
                         child: Image.asset(
                           AppAsset.close,
                           height: 30.h,

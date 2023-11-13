@@ -26,8 +26,9 @@ class StoreStoryController extends GetxController {
     storyTimer = Timer.periodic(
       Duration(milliseconds: 1000),
       (timer) {
+        print("Tick: ${timer.tick} - index $index");
         if (timer.tick == defaultStoryTime + 1) {
-          goNextStory(timer);
+          goNextStory();
           return;
         }
         storyTiming.value = timer.tick.toDouble();
@@ -36,14 +37,14 @@ class StoreStoryController extends GetxController {
     );
   }
 
-  void goNextStory(Timer timer) {
+  void goNextStory() {
     if (index == _storeController.listTopStore.length - 1) {
+      storyTimer.cancel();
       Get.back();
-      timer.cancel();
       return;
     }
 
-    timer.cancel();
+    storyTimer.cancel();
     Get.offNamed(
       Routes.storeStory,
       arguments: {
@@ -54,12 +55,30 @@ class StoreStoryController extends GetxController {
     );
   }
 
-  void back() {
-    onBack();
+  void goPreviousStory() {
+    if (index == 0) {
+      storyTimer.cancel();
+      Get.back();
+      return;
+    }
+
+    storyTimer.cancel();
+    Get.offNamed(
+      Routes.storeStory,
+      arguments: {
+        "data": _storeController.listTopStore[index - 1],
+        "index": index - 1,
+      },
+      preventDuplicates: false,
+    );
+  }
+
+  void onBack() {
+    storyTimer.cancel();
     Get.back();
   }
 
-  Future<bool> onBack() async {
+  Future<bool> onBackPhysics() async {
     storyTimer.cancel();
     return true;
   }
