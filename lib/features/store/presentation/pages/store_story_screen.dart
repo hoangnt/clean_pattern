@@ -45,14 +45,6 @@ class StoreStoryScreen extends StatelessWidget {
                   );
                 },
               ),
-              GestureDetector(
-                behavior: HitTestBehavior.opaque,
-                onTap: () => _controller.goPreviousStory(),
-                child: SizedBox(
-                  height: 1.sh,
-                  width: 0.2.sw,
-                ),
-              ),
               Align(
                 alignment: Alignment.centerRight,
                 child: GestureDetector(

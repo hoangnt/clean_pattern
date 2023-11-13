@@ -55,24 +55,6 @@ class StoreStoryController extends GetxController {
     );
   }
 
-  void goPreviousStory() {
-    if (index == 0) {
-      storyTimer.cancel();
-      Get.back();
-      return;
-    }
-
-    storyTimer.cancel();
-    Get.offNamed(
-      Routes.storeStory,
-      arguments: {
-        "data": _storeController.listTopStore[index - 1],
-        "index": index - 1,
-      },
-      preventDuplicates: false,
-    );
-  }
-
   void onBack() {
     storyTimer.cancel();
     Get.back();
