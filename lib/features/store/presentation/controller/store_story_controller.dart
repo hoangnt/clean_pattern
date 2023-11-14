@@ -11,7 +11,7 @@ class StoreStoryController extends GetxController {
 
   late StoreModel data;
   late int index;
-  late Timer storyTimer;
+  late Timer? storyTimer;
 
   RxDouble storyTiming = 0.0.obs;
 
@@ -39,12 +39,12 @@ class StoreStoryController extends GetxController {
 
   void goNextStory() {
     if (index == _storeController.listTopStore.length - 1) {
-      storyTimer.cancel();
+      storyTimer?.cancel();
       Get.back();
       return;
     }
 
-    storyTimer.cancel();
+    storyTimer?.cancel();
     Get.offNamed(
       Routes.storeStory,
       arguments: {
@@ -56,12 +56,12 @@ class StoreStoryController extends GetxController {
   }
 
   void onBack() {
-    storyTimer.cancel();
+    storyTimer?.cancel();
     Get.back();
   }
 
   Future<bool> onBackPhysics() async {
-    storyTimer.cancel();
+    storyTimer?.cancel();
     return true;
   }
 }

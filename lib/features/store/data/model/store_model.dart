@@ -10,6 +10,7 @@ class StoreModel {
   String? owner;
   String? bestSeller;
   String? image;
+  List<String>? allImage;
   double? rating;
 
   StoreModel({
@@ -18,6 +19,7 @@ class StoreModel {
     required this.owner,
     this.bestSeller,
     this.image,
+    this.allImage,
     this.phone,
     this.rating,
   });

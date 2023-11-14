@@ -12,6 +12,9 @@ StoreModel _$StoreModelFromJson(Map<String, dynamic> json) => StoreModel(
       owner: json['owner'] as String?,
       bestSeller: json['bestSeller'] as String?,
       image: json['image'] as String?,
+      allImage: (json['allImage'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
       phone: json['phone'] as String?,
       rating: (json['rating'] as num?)?.toDouble(),
     );
@@ -24,5 +27,6 @@ Map<String, dynamic> _$StoreModelToJson(StoreModel instance) =>
       'owner': instance.owner,
       'bestSeller': instance.bestSeller,
       'image': instance.image,
+      'allImage': instance.allImage,
       'rating': instance.rating,
     };

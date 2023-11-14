@@ -18,6 +18,13 @@ class StoreRemoteDatasouce {
           "rating": 3.4,
           "image":
               "https://thesmartlocal.co.th/wp-content/uploads/2023/03/donut__nattaya-posts-2022-09-25-19.29-POSTID_1_4-309047578_413285770879444_6125526682658968584_n.jpg",
+          "allImage": [
+            "https://picsum.photos/1024/769",
+            "https://picsum.photos/1025/769",
+            "https://picsum.photos/1024/2023",
+            "https://picsum.photos/2000/1025",
+            "https://picsum.photos/1021/2000",
+          ],
         },
         {
           "name": "Naruto Kairen Ramen",
@@ -28,6 +35,13 @@ class StoreRemoteDatasouce {
           "rating": 3.8,
           "image":
               "https://images.unsplash.com/photo-1486533803613-e0ce3d009238?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+          "allImage": [
+            "https://picsum.photos/1024/768",
+            "https://picsum.photos/2048/1080",
+            "https://picsum.photos/1026/768",
+            "https://picsum.photos/1920/1080",
+            "https://picsum.photos/1028/768",
+          ],
         },
         {
           "name": "Kotetsu's Ramen",
@@ -38,6 +52,13 @@ class StoreRemoteDatasouce {
           "rating": 4.8,
           "image":
               "https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/01/a0001973/img/en/a0001973_parts_5a964bd0102bc.jpg?20201225172208&q=80",
+          "allImage": [
+            "https://picsum.photos/1034/769",
+            "https://picsum.photos/1921/1081",
+            "https://picsum.photos/1076/770",
+            "https://picsum.photos/2048/1081",
+            "https://picsum.photos/1098/772",
+          ],
         },
       ],
     };
