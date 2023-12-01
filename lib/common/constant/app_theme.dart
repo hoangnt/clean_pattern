@@ -38,7 +38,10 @@ class AppTheme {
     brightness: Brightness.dark,
     primaryColor: AppColor.primary,
     visualDensity: VisualDensity.adaptivePlatformDensity,
-    scaffoldBackgroundColor: AppColor.disable,
+    scaffoldBackgroundColor: AppColor.scaffoldBackgroundDark,
+    dialogTheme: DialogTheme(
+      backgroundColor: AppColor.scaffoldBackgroundDark,
+    ),
     sliderTheme: SliderThemeData(
       overlayShape: SliderComponentShape.noThumb,
     ),

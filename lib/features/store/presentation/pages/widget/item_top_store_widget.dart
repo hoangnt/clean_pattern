@@ -47,7 +47,7 @@ class ItemTopStoreWidget extends StatelessWidget {
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
           style: TextStyle(
-            fontSize: 9.sp,
+            fontSize: 11.sp,
             color: Colors.white,
             shadows: [
               BoxShadow(

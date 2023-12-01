@@ -18,13 +18,13 @@ class ResultDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      backgroundColor: Colors.transparent,
+      // backgroundColor: Colors.transparent,
       shape: ContinuousRectangleBorder(
         borderRadius: BorderRadius.circular(50),
       ),
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Get.theme.scaffoldBackgroundColor,
           borderRadius: BorderRadius.circular(15),
         ),
         child: IntrinsicHeight(

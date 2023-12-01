@@ -26,17 +26,21 @@ class StoreScreen extends StatelessWidget {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  SizedBox(height: 5.h),
                   Padding(
                     padding: EdgeInsets.only(left: 10.w),
                     child: Text(
                       "Top 10 on 10".tr,
                       style: TextStyle(
-                          fontSize: 12.sp, fontWeight: FontWeight.w500),
+                        fontSize: 15.sp,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                   ),
+                  SizedBox(height: 5.h),
                   SizedBox(
                     width: double.infinity,
-                    height: 0.2.sh,
+                    height: 0.17.sh,
                     child: ListView.builder(
                       padding: EdgeInsets.symmetric(horizontal: 10.w),
                       scrollDirection: Axis.horizontal,
@@ -55,10 +59,12 @@ class StoreScreen extends StatelessWidget {
                     child: Text(
                       "Would you like to go?".tr,
                       style: TextStyle(
-                          fontSize: 12.sp, fontWeight: FontWeight.w500),
+                        fontSize: 15.sp,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                   ),
-                  SizedBox(height: 4.h),
+                  SizedBox(height: 5.h),
                   ListView.builder(
                     physics: NeverScrollableScrollPhysics(),
                     shrinkWrap: true,

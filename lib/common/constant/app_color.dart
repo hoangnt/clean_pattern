@@ -15,4 +15,7 @@ class AppColor {
   static const Color textColor1 = Color(0xff666666);
   static const Color textColor2 = Color(0xff242424);
   static const Color textColorWarning = Color(0xfff73434);
+
+  //Dark theme color
+  static const Color scaffoldBackgroundDark = Color.fromARGB(255, 80, 80, 80);
 }

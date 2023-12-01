@@ -57,56 +57,59 @@ class EntryScreen extends StatelessWidget {
           ),
         ),
         bottomNavigationBar: GetBuilder<EntryController>(
-          builder: (_) => BottomNavigationBar(
-            currentIndex: _controller.selectedIndex,
-            onTap: _controller.onSelectBottomBar,
-            showUnselectedLabels: false,
-            showSelectedLabels: true,
-            type: BottomNavigationBarType.fixed,
-            selectedLabelStyle: TextStyle(fontSize: 11.sp),
-            selectedItemColor: AppColor.primary,
-            items: <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                label: "Store".tr,
-                icon: Image.asset(
-                  AppAsset.store,
-                  height: _controller.selectedIndex == 0 ? 15.sp : 13.sp,
-                  color: _controller.selectedIndex == 0
-                      ? AppColor.primaryBold
-                      : AppColor.disable,
+          builder: (_) => SizedBox(
+            height: 50.h,
+            child: BottomNavigationBar(
+              currentIndex: _controller.selectedIndex,
+              onTap: _controller.onSelectBottomBar,
+              showUnselectedLabels: false,
+              showSelectedLabels: true,
+              type: BottomNavigationBarType.fixed,
+              selectedLabelStyle: TextStyle(fontSize: 14.sp),
+              selectedItemColor: AppColor.primary,
+              items: <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                  label: "Store".tr,
+                  icon: Image.asset(
+                    AppAsset.store,
+                    height: _controller.selectedIndex == 0 ? 20.sp : 17.sp,
+                    color: _controller.selectedIndex == 0
+                        ? AppColor.primaryBold
+                        : AppColor.disable,
+                  ),
                 ),
-              ),
-              BottomNavigationBarItem(
-                label: 'Article'.tr,
-                icon: Image.asset(
-                  AppAsset.foodArticle,
-                  height: _controller.selectedIndex == 0 ? 15.sp : 13.sp,
-                  color: _controller.selectedIndex == 1
-                      ? AppColor.primaryBold
-                      : AppColor.disable,
+                BottomNavigationBarItem(
+                  label: 'Article'.tr,
+                  icon: Image.asset(
+                    AppAsset.foodArticle,
+                    height: _controller.selectedIndex == 0 ? 20.sp : 17.sp,
+                    color: _controller.selectedIndex == 1
+                        ? AppColor.primaryBold
+                        : AppColor.disable,
+                  ),
                 ),
-              ),
-              BottomNavigationBarItem(
-                label: 'Flavor'.tr,
-                icon: Image.asset(
-                  AppAsset.flavorSetting,
-                  height: _controller.selectedIndex == 0 ? 15.sp : 13.sp,
-                  color: _controller.selectedIndex == 2
-                      ? AppColor.primaryBold
-                      : AppColor.disable,
+                BottomNavigationBarItem(
+                  label: 'Flavor'.tr,
+                  icon: Image.asset(
+                    AppAsset.flavorSetting,
+                    height: _controller.selectedIndex == 0 ? 20.sp : 17.sp,
+                    color: _controller.selectedIndex == 2
+                        ? AppColor.primaryBold
+                        : AppColor.disable,
+                  ),
                 ),
-              ),
-              BottomNavigationBarItem(
-                label: "Settings".tr,
-                icon: Image.asset(
-                  AppAsset.settings,
-                  height: _controller.selectedIndex == 3 ? 15.sp : 13.sp,
-                  color: _controller.selectedIndex == 3
-                      ? AppColor.primaryBold
-                      : AppColor.disable,
+                BottomNavigationBarItem(
+                  label: "Settings".tr,
+                  icon: Image.asset(
+                    AppAsset.settings,
+                    height: _controller.selectedIndex == 3 ? 20.sp : 17.sp,
+                    color: _controller.selectedIndex == 3
+                        ? AppColor.primaryBold
+                        : AppColor.disable,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
