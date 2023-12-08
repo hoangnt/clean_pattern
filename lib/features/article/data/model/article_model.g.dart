@@ -13,6 +13,7 @@ ArticleModel _$ArticleModelFromJson(Map<String, dynamic> json) => ArticleModel(
       publishedAt:
           const ParseDateUtil().fromJson(json['publishedAt'] as String?),
       image: json['image'] as String?,
+      isLiked: json['isLiked'] as bool?,
     );
 
 Map<String, dynamic> _$ArticleModelToJson(ArticleModel instance) =>
@@ -22,4 +23,5 @@ Map<String, dynamic> _$ArticleModelToJson(ArticleModel instance) =>
       'author': instance.author,
       'publishedAt': const ParseDateUtil().toJson(instance.publishedAt),
       'image': instance.image,
+      'isLiked': instance.isLiked,
     };

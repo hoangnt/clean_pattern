@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:clean_pattern/common/constant/app_asset.dart';
 import 'package:clean_pattern/common/constant/app_color.dart';
 import 'package:clean_pattern/common/extensions/string_extension.dart';
 import 'package:clean_pattern/config/routes.dart';
@@ -69,17 +70,21 @@ class ArticleScreen extends StatelessWidget {
                 item.title!,
                 style: TextStyle(
                   letterSpacing: 1,
-                  fontSize: 13.sp,
+                  fontSize: 15.sp,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               SizedBox(height: 5.h),
-              Text("Author: ${item.author!}"),
+              Text(
+                "Author: ${item.author!}",
+                style: TextStyle(fontSize: 13.sp),
+              ),
               SizedBox(height: 2.h),
               Text(
                 "Pubished: ${item.publishedAt!.toDDMMYYYYString()}",
                 style: TextStyle(
                   fontStyle: FontStyle.italic,
+                  fontSize: 13.sp,
                   color: Get.theme.iconTheme.color!.withOpacity(0.6),
                 ),
               ),
@@ -90,6 +95,7 @@ class ArticleScreen extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                   color: Get.theme.iconTheme.color!.withOpacity(0.6),
+                  fontSize: 13.sp,
                 ),
               ),
               SizedBox(height: 2.h),
@@ -106,6 +112,36 @@ class ArticleScreen extends StatelessWidget {
                     ),
                   ),
                 ),
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    "Is this useful ?",
+                    style: TextStyle(fontSize: 18.sp),
+                  ),
+                  Spacer(),
+                  IconButton(
+                    onPressed: () => _controller.likeArticle(index),
+                    icon: Image.asset(
+                      AppAsset.like,
+                      width: 25.w,
+                      color: item.isLiked == true
+                          ? AppColor.iconColorBlue
+                          : Get.theme.iconTheme.color,
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: () => _controller.dislikeArticle(index),
+                    icon: Image.asset(
+                      AppAsset.dislike,
+                      width: 22.w,
+                      color: item.isLiked == false
+                          ? AppColor.iconColorRed
+                          : Get.theme.iconTheme.color,
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

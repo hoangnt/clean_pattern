@@ -12,6 +12,7 @@ class ArticleModel {
   @ParseDateUtil()
   DateTime? publishedAt;
   String? image;
+  bool? isLiked;
 
   ArticleModel({
     this.title,
@@ -19,6 +20,7 @@ class ArticleModel {
     this.author,
     this.publishedAt,
     this.image,
+    this.isLiked,
   });
 
   factory ArticleModel.fromJson(Map<String, dynamic> json) =>

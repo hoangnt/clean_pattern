@@ -16,6 +16,10 @@ class AppColor {
   static const Color textColor2 = Color(0xff242424);
   static const Color textColorWarning = Color(0xfff73434);
 
+  //Icon color
+  static const Color iconColorBlue = Color(0xff62abe3);
+  static const Color iconColorRed = Color(0xffe06565);
+
   //Dark theme color
   static const Color scaffoldBackgroundDark = Color.fromARGB(255, 80, 80, 80);
 }

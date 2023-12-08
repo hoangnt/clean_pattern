@@ -21,4 +21,14 @@ class ArticleController extends BaseController {
       onSuccess: (data) => listArticle = data,
     );
   }
+
+  void likeArticle(int index) {
+    listArticle[index].isLiked = true;
+    update();
+  }
+
+  void dislikeArticle(int index) {
+    listArticle[index].isLiked = false;
+    update();
+  }
 }

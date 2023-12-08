@@ -12,4 +12,6 @@ class AppAsset {
   static const String clover = "asset/icon/clover.png";
   static const String star = "asset/icon/star.png";
   static const String close = "asset/icon/close.png";
+  static const String like = "asset/icon/like.png";
+  static const String dislike = "asset/icon/dislike.png";
 }

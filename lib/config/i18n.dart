@@ -1,5 +1,5 @@
-import 'package:clean_pattern/common/constant/lang_eng.dart';
-import 'package:clean_pattern/common/constant/lang_vie.dart';
+import 'package:clean_pattern/common/lang/lang_eng.dart';
+import 'package:clean_pattern/common/lang/lang_vie.dart';
 import 'package:get/get.dart';
 
 class I18n extends Translations {

@@ -41,6 +41,7 @@ dependencies:
   dio: ^5.4.0
 
   # data
+  shared_preferences: ^2.2.2
   intl: ^0.18.1
   json_annotation: ^4.8.1
   hive_flutter: ^1.1.0

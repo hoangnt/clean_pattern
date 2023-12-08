@@ -18,6 +18,7 @@ class ArticleRemoteDatasource {
           "publishedAt": "13/08/1995",
           "image":
               "https://images.foody.vn/res/g118/1172338/prof/s640x400/foody-upload-api-foody-mobile-an-345488e9-230529180034.jpeg",
+          "isLiked": true,
         },
         {
           "title": "Koketsu's Ramen, the new unicorn store ?",
@@ -27,6 +28,7 @@ class ArticleRemoteDatasource {
           "publishedAt": "13/08/1995",
           "image":
               "https://i0.wp.com/tokyotreatblog.wpcomstaging.com/wp-content/uploads/2022/05/Shutterstock_751789537-min.jpg?fit=4096%2C2731&ssl=1",
+          "isLiked": true,
         },
         {
           "title": "Naruto Kairen Ramen, Vietnamese's Ramen store from manga",
@@ -36,6 +38,7 @@ class ArticleRemoteDatasource {
           "publishedAt": "13/08/1995",
           "image":
               "https://stat.ameba.jp/user_images/20221124/12/tripwithkids/36/6e/j/o1080144015207372336.jpg",
+          "isLiked": false,
         },
         {
           "title": "The Iroha Ramen, warm and chill store in Old quarter Hanoi",
