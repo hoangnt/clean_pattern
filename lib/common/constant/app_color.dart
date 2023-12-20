@@ -22,4 +22,5 @@ class AppColor {
 
   //Dark theme color
   static const Color scaffoldBackgroundDark = Color.fromARGB(255, 80, 80, 80);
+  static const Color appBarBackground = Color(0xff242424);
 }

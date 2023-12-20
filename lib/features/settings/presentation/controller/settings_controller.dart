@@ -1,6 +1,7 @@
 import 'package:clean_pattern/common/constant/app_language.dart';
 import 'package:clean_pattern/common/constant/app_local_storage.dart';
 import 'package:clean_pattern/common/constant/app_theme.dart';
+import 'package:clean_pattern/config/config_loading.dart';
 import 'package:clean_pattern/features/home/presentation/controller/entry_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -37,11 +38,13 @@ class SettingsController extends GetxController {
     if (mode == AppThemeMode.light) {
       mode = AppThemeMode.dark;
       Get.changeTheme(AppTheme.darkTheme);
+      ConfigLoading.dark();
     } else {
       mode = AppThemeMode.light;
       Get.changeTheme(AppTheme.lightTheme);
+      ConfigLoading.light();
     }
-    
+
     await AppLocalStorage.instance.saveTheme(mode);
 
     // Delay for color change in getx super controller

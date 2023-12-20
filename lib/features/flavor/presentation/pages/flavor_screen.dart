@@ -13,7 +13,7 @@ class FlavorScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Get.theme.appBarTheme.backgroundColor,
+        color: Get.theme.scaffoldBackgroundColor,
         padding: EdgeInsets.symmetric(horizontal: 15),
         child: Column(
           children: [
@@ -21,10 +21,13 @@ class FlavorScreen extends StatelessWidget {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  SizedBox(height: 10.h),
                   Text(
                     "Set your favorite Ramen taste".tr,
-                    style:
-                        TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w400),
+                    style: TextStyle(
+                      fontSize: 12.sp,
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
                   SizedBox(height: 10.h),
                   _sliderWidget(

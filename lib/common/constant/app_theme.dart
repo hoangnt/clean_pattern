@@ -48,10 +48,13 @@ class AppTheme {
     iconTheme: IconThemeData(
       color: Colors.white,
     ),
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      backgroundColor: AppColor.appBarBackground,
+    ),
     appBarTheme: AppBarTheme(
       centerTitle: true,
       titleSpacing: 0,
-      backgroundColor: Colors.black45,
+      backgroundColor: AppColor.appBarBackground,
       elevation: 0,
       titleTextStyle: TextStyle(
         fontFamily: "Dosis-Medium",

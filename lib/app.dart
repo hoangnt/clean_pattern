@@ -1,5 +1,6 @@
 import 'package:clean_pattern/common/constant/app_local_storage.dart';
 import 'package:clean_pattern/common/constant/app_theme.dart';
+import 'package:clean_pattern/config/config_loading.dart';
 import 'package:clean_pattern/config/i18n.dart';
 import 'package:clean_pattern/config/pages.dart';
 import 'package:clean_pattern/config/routes.dart';
@@ -26,12 +27,15 @@ class MyApp extends StatelessWidget {
         onReady: () {
           var settingController = Get.find<SettingsController>();
           var theme = AppLocalStorage.instance.getTheme();
+
           if (theme == AppThemeMode.dark) {
             settingController.mode = AppThemeMode.dark;
             Get.changeTheme(AppTheme.darkTheme);
+            ConfigLoading.dark();
           } else {
             settingController.mode = AppThemeMode.light;
             Get.changeTheme(AppTheme.lightTheme);
+            ConfigLoading.light();
           }
         },
       ),

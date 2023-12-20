@@ -1,5 +1,4 @@
 import 'package:clean_pattern/app.dart';
-import 'package:clean_pattern/config/config_loading.dart';
 import 'package:clean_pattern/config/flavor.dart';
 import 'package:flutter/material.dart';
 
@@ -8,7 +7,6 @@ void main() async {
 
   // config
   Flavor.env = Environment.dev;
-  ConfigLoading.configLoading();
 
   runApp(MyApp());
 }
