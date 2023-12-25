@@ -5,6 +5,13 @@ import 'package:clean_pattern/features/store/presentation/pages/store_screen.dar
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+class HomeTabIndex {
+  static const int store = 0;
+  static const int article = 1;
+  static const int flavor = 2;
+  static const int setting = 3;
+}
+
 class EntryController extends GetxController {
   int selectedIndex = 0;
   final PageController pageController = PageController();
@@ -18,17 +25,20 @@ class EntryController extends GetxController {
 
   void onSelectBottomBar(int index) {
     selectedIndex = index;
-    if (index == 1 && listScreen[index].runtimeType != ArticleScreen) {
+    if (index == HomeTabIndex.article &&
+        listScreen[index].runtimeType != ArticleScreen) {
       listScreen.removeAt(index);
       listScreen.insert(index, ArticleScreen());
     }
 
-    if (index == 2 && listScreen[index].runtimeType != FlavorScreen) {
+    if (index == HomeTabIndex.flavor &&
+        listScreen[index].runtimeType != FlavorScreen) {
       listScreen.removeAt(index);
       listScreen.insert(index, FlavorScreen());
     }
 
-    if (index == 3 && listScreen[index].runtimeType != SettingsScreen) {
+    if (index == HomeTabIndex.setting &&
+        listScreen[index].runtimeType != SettingsScreen) {
       listScreen.removeAt(index);
       listScreen.insert(index, SettingsScreen());
     }

@@ -72,9 +72,11 @@ class StoreScreen extends StatelessWidget {
                     itemCount: _controller.listStore.length,
                     itemBuilder: (context, index) {
                       return ItemStoreWidget(
-                          item: _controller.listStore[index]);
+                        item: _controller.listStore[index],
+                      );
                     },
                   ),
+                  SizedBox(height: kBottomNavigationBarHeight)
                 ],
               );
             },

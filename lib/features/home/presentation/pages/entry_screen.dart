@@ -14,7 +14,17 @@ class EntryScreen extends StatelessWidget {
     return WillPopScope(
       onWillPop: _controller.onBackDevice,
       child: Scaffold(
-        floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+        extendBody: true,
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButton: FloatingActionButton(
+          onPressed: () => Get.toNamed(Routes.post),
+          backgroundColor: AppColor.primary,
+          child: Image.asset(
+            AppAsset.imageShare,
+            height: 18.sp,
+            color: Colors.white,
+          ),
+        ),
         appBar: AppBar(
           title: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -47,70 +57,72 @@ class EntryScreen extends StatelessWidget {
             itemBuilder: (context, index) => _controller.listScreen[index],
           );
         }),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () => Get.toNamed(Routes.post),
-          backgroundColor: AppColor.primary,
-          child: Image.asset(
-            AppAsset.imageShare,
-            height: 18.sp,
-            color: Colors.white,
-          ),
-        ),
         bottomNavigationBar: GetBuilder<EntryController>(
-          builder: (_) => SizedBox(
+          builder: (_) => BottomAppBar(
             height: 50.h,
-            child: BottomNavigationBar(
-              currentIndex: _controller.selectedIndex,
-              onTap: _controller.onSelectBottomBar,
-              showUnselectedLabels: false,
-              showSelectedLabels: true,
-              type: BottomNavigationBarType.fixed,
-              selectedLabelStyle: TextStyle(fontSize: 14.sp),
-              selectedItemColor: AppColor.primary,
-              items: <BottomNavigationBarItem>[
-                BottomNavigationBarItem(
-                  label: "Store".tr,
-                  icon: Image.asset(
-                    AppAsset.store,
-                    height: _controller.selectedIndex == 0 ? 20.sp : 17.sp,
-                    color: _controller.selectedIndex == 0
-                        ? AppColor.primaryBold
-                        : AppColor.disable,
-                  ),
+            shape: CircularNotchedRectangle(),
+            notchMargin: 7.sp,
+            child: Row(
+              children: [
+                _bottomBarItem(
+                  index: HomeTabIndex.store,
+                  image: AppAsset.store,
+                  text: "Store".tr,
                 ),
-                BottomNavigationBarItem(
-                  label: 'Article'.tr,
-                  icon: Image.asset(
-                    AppAsset.foodArticle,
-                    height: _controller.selectedIndex == 0 ? 20.sp : 17.sp,
-                    color: _controller.selectedIndex == 1
-                        ? AppColor.primaryBold
-                        : AppColor.disable,
-                  ),
+                _bottomBarItem(
+                  index: HomeTabIndex.article,
+                  image: AppAsset.foodArticle,
+                  text: "Article".tr,
                 ),
-                BottomNavigationBarItem(
-                  label: 'Flavor'.tr,
-                  icon: Image.asset(
-                    AppAsset.flavorSetting,
-                    height: _controller.selectedIndex == 0 ? 20.sp : 17.sp,
-                    color: _controller.selectedIndex == 2
-                        ? AppColor.primaryBold
-                        : AppColor.disable,
-                  ),
+                SizedBox(width: 10.w),
+                _bottomBarItem(
+                  index: HomeTabIndex.flavor,
+                  image: AppAsset.flavorSetting,
+                  text: "Flavor".tr,
                 ),
-                BottomNavigationBarItem(
-                  label: "Settings".tr,
-                  icon: Image.asset(
-                    AppAsset.settings,
-                    height: _controller.selectedIndex == 3 ? 20.sp : 17.sp,
-                    color: _controller.selectedIndex == 3
-                        ? AppColor.primaryBold
-                        : AppColor.disable,
-                  ),
+                _bottomBarItem(
+                  index: HomeTabIndex.setting,
+                  image: AppAsset.settings,
+                  text: "Settings".tr,
                 ),
               ],
             ),
           ),
+        ),
+      ),
+    );
+  }
+
+  Widget _bottomBarItem({
+    required int index,
+    required String image,
+    required String text,
+  }) {
+    return Expanded(
+      child: InkWell(
+        onTap: () => _controller.onSelectBottomBar(index),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              image,
+              height: _controller.selectedIndex == index ? 20.sp : 17.sp,
+              color: _controller.selectedIndex == index
+                  ? AppColor.primaryBold
+                  : AppColor.disable,
+            ),
+            AnimatedCrossFade(
+              duration: Duration(milliseconds: 200),
+              firstChild: Text(
+                text,
+                style: TextStyle(color: AppColor.primaryBold, fontSize: 14.sp),
+              ),
+              secondChild: SizedBox(),
+              crossFadeState: (_controller.selectedIndex == index)
+                  ? CrossFadeState.showFirst
+                  : CrossFadeState.showSecond,
+            ),
+          ],
         ),
       ),
     );

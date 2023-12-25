@@ -1,6 +1,6 @@
 import 'package:clean_pattern/common/constant/app_color.dart';
-import 'package:clean_pattern/common/widget/app_elevated_button.dart';
-import 'package:clean_pattern/common/widget/custom_dialog.dart';
+import 'package:clean_pattern/common/widget/button/app_elevated_button.dart';
+import 'package:clean_pattern/common/widget/dialog/custom_dialog.dart';
 import 'package:clean_pattern/features/post/presentation/controller/post_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:clean_pattern/common/constant/app_asset.dart';
 import 'package:clean_pattern/common/constant/app_color.dart';
 import 'package:clean_pattern/common/extensions/string_extension.dart';
+import 'package:clean_pattern/common/widget/button/app_scroll_to_top_button.dart';
 import 'package:clean_pattern/config/routes.dart';
 import 'package:clean_pattern/features/article/data/model/article_model.dart';
 import 'package:clean_pattern/features/article/presentation/controller/article_controller.dart';
@@ -15,6 +16,21 @@ class ArticleScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: Obx(() {
+        return AnimatedCrossFade(
+          duration: Duration(milliseconds: 300),
+          firstChild: AppScrollToTopButton(
+            controller: _controller.scrollController,
+          ),
+          secondChild: SizedBox(
+            width: 40.w,
+            height: 40.w,
+          ),
+          crossFadeState: _controller.displayScrollToTop.value
+              ? CrossFadeState.showFirst
+              : CrossFadeState.showSecond,
+        );
+      }),
       body: GetBuilder<ArticleController>(
         builder: (_) {
           if (_controller.isLoading) {
@@ -25,6 +41,7 @@ class ArticleScreen extends StatelessWidget {
             color: AppColor.primary,
             onRefresh: _controller.fetchData,
             child: ListView.builder(
+              controller: _controller.scrollController,
               itemCount: _controller.listArticle.length,
               itemBuilder: (context, index) {
                 return itemArticle(_controller.listArticle[index], index);

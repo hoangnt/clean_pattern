@@ -1,5 +1,5 @@
 import 'package:clean_pattern/common/constant/app_color.dart';
-import 'package:clean_pattern/common/widget/app_elevated_button.dart';
+import 'package:clean_pattern/common/widget/button/app_elevated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';

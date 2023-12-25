@@ -17,6 +17,9 @@ class AppTheme {
     sliderTheme: SliderThemeData(
       overlayShape: SliderComponentShape.noThumb,
     ),
+    bottomAppBarTheme: BottomAppBarTheme(
+      color: Colors.white,
+    ),
     appBarTheme: AppBarTheme(
       centerTitle: true,
       titleSpacing: 0,
@@ -50,6 +53,9 @@ class AppTheme {
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: AppColor.appBarBackground,
+    ),
+    bottomAppBarTheme: BottomAppBarTheme(
+      color: AppColor.appBarBackground,
     ),
     appBarTheme: AppBarTheme(
       centerTitle: true,
