@@ -30,5 +30,8 @@ class LangVie {
     "Vietnamese": "Tiếng việt",
     "Lucky number": "Số may mắn",
     "Tap to get lucky number": "Lấy số may mắn nào!",
+    "Background music": "Nhạc nền",
+    "Tap to pause/play, long press to change BGM":
+        "Chạm để tạm dừng, giữ để đổi nhạc nha :v",
   };
 }

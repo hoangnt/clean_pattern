@@ -30,5 +30,8 @@ class LangEng {
     "Vietnamese": "Vietnamese",
     "Lucky number": "Lucky number",
     "Tap to get lucky number": "Tap to get lucky number",
+    "Background music": "Background music",
+    "Tap to pause/play, long press to change BGM":
+        "Tap to pause/play, long press to change BGM",
   };
 }

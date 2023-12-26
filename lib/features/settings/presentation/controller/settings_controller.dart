@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:clean_pattern/common/constant/app_language.dart';
 import 'package:clean_pattern/common/constant/app_local_storage.dart';
 import 'package:clean_pattern/common/constant/app_theme.dart';
@@ -9,6 +10,14 @@ import 'package:get/get.dart';
 
 class SettingsController extends GetxController {
   final MethodChannel channel = MethodChannel("com.example.clean_pattern");
+  late AudioPlayer _audioPlayer;
+  final List<String> _listBgm = [
+    "asset/bgm/bgm1.mp3",
+    "asset/bgm/bgm2.mp3",
+    "asset/bgm/bgm3.mp3",
+  ];
+  int _indexBgm = 0;
+
   String mode = AppThemeMode.light;
   int language = AppLanguage.eng;
 
@@ -19,6 +28,16 @@ class SettingsController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+
+    AudioCache.instance = AudioCache(prefix: '');
+    _audioPlayer = AudioPlayer();
+    _audioPlayer.eventStream.listen((event) {
+      if (event.eventType == AudioEventType.complete) {
+        _audioPlayer.play(
+          AssetSource(_listBgm[_indexBgm]),
+        );
+      }
+    });
 
     channel.setMethodCallHandler((call) async {
       if (call.method == "luckyNumber") {
@@ -67,5 +86,32 @@ class SettingsController extends GetxController {
   void toggleDisplayLanguage() {
     displayLanguages = !displayLanguages;
     update();
+  }
+
+  void togglePlayBgm() {
+    if (_audioPlayer.state == PlayerState.playing) {
+      _audioPlayer.pause();
+      return;
+    }
+
+    if (_audioPlayer.state == PlayerState.paused) {
+      _audioPlayer.resume();
+      return;
+    }
+
+    _audioPlayer.play(
+      AssetSource(_listBgm[_indexBgm]),
+    );
+  }
+
+  Future<void> changeBgm() async {
+    _indexBgm++;
+    if (_indexBgm > _listBgm.length - 1) {
+      _indexBgm = 0;
+    }
+    await _audioPlayer.stop();
+    _audioPlayer.play(
+      AssetSource(_listBgm[_indexBgm]),
+    );
   }
 }

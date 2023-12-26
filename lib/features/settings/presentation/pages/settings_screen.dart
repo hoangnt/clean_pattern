@@ -113,6 +113,25 @@ class SettingsScreen extends StatelessWidget {
                     )
                   : null,
             ),
+
+            ///
+            ListTile(
+              onTap: _controller.togglePlayBgm,
+              onLongPress: _controller.changeBgm,
+              tileColor: Get.theme.appBarTheme.backgroundColor,
+              shape: RoundedRectangleBorder(
+                side: BorderSide(color: AppColor.buttonBorder),
+              ),
+              leading: Image.asset(
+                AppAsset.guitar,
+                color: Get.theme.iconTheme.color,
+              ),
+              title: Text(
+                "Background music".tr,
+                style: TextStyle(fontWeight: FontWeight.w600),
+              ),
+              subtitle: Text("Tap to pause/play, long press to change BGM".tr),
+            ),
           ],
         );
       }),
