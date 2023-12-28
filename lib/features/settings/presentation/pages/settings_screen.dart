@@ -130,7 +130,8 @@ class SettingsScreen extends StatelessWidget {
                 "Background music".tr,
                 style: TextStyle(fontWeight: FontWeight.w600),
               ),
-              subtitle: Text("Tap to pause/play, long press to change BGM".tr),
+              subtitle:
+                  Text("Tap to pause/play, long press to change BGM".tr),
             ),
           ],
         );
