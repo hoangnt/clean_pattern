@@ -2,10 +2,13 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:clean_pattern/common/constant/app_language.dart';
 import 'package:clean_pattern/common/constant/app_local_storage.dart';
 import 'package:clean_pattern/common/constant/app_theme.dart';
+import 'package:clean_pattern/common/widget/dialog/custom_dialog.dart';
 import 'package:clean_pattern/config/config_loading.dart';
+import 'package:clean_pattern/config/routes.dart';
 import 'package:clean_pattern/features/home/presentation/controller/entry_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class SettingsController extends GetxController {
@@ -113,5 +116,22 @@ class SettingsController extends GetxController {
     _audioPlayer.play(
       AssetSource(_listBgm[_indexBgm]),
     );
+  }
+
+  void exitToLogin() {
+    Get.dialog(CustomDialog(
+      title: "Are you sure ?",
+      onAction: () {
+        AppLocalStorage.instance.saveToken("");
+        Get.offAllNamed(Routes.login);
+      },
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 15.w).copyWith(top: 10.h),
+        child: Text(
+          "Exit to login screen will delete session !",
+          style: TextStyle(fontSize: 17.sp),
+        ),
+      ),
+    ));
   }
 }

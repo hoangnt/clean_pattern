@@ -1,5 +1,11 @@
 class LangEng {
   static const Map<String, String> lang = {
+    "Hello": "Hello",
+    "Login and Enjoy your food trip !": "Login and Enjoy your food trip !",
+    "Password": "Password",
+    "Login": "Login",
+
+    ///////////
     "We eat": "We eat",
     "together": "together",
     'Store': 'Store',
@@ -33,5 +39,7 @@ class LangEng {
     "Background music": "Background music",
     "Tap to pause/play, long press to change BGM":
         "Tap to pause/play, long press to change BGM",
+    "Logout": "Logout",
+    "Exit to login screen": "Exit to login screen",
   };
 }

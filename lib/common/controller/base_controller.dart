@@ -20,6 +20,10 @@ class BaseController extends GetxController {
 
     if (res.statusCode != StatusCode.success && onError != null) {
       onError(res.message ?? "Something went wrong !");
+      isLoading = false;
+      EasyLoading.dismiss();
+      update();
+      return;
     }
 
     if (onSuccess != null) {
@@ -57,6 +61,9 @@ class BaseController extends GetxController {
         res[0].data as T,
         res[1].data as E,
       );
+      isLoading = false;
+      EasyLoading.dismiss();
+      update();
     }
 
     isLoading = false;
@@ -85,6 +92,9 @@ class BaseController extends GetxController {
           .map((val) => val.message ?? "Something went wrong !")
           .toList();
       onError(listMessageError);
+      isLoading = false;
+      EasyLoading.dismiss();
+      update();
     }
 
     if (onSuccess != null) {

@@ -1,5 +1,11 @@
 class LangVie {
   static const Map<String, String> lang = {
+    "Hello": "Xin chào",
+    "Login and Enjoy your food trip !": "Đăng nhập rồi đi ăn nào",
+    "Password": "Mật khẩu",
+    "Login": "Đăng nhập",
+
+    ///////////
     "We eat": "Đi ăn",
     "together": "cùng nhau",
     'Store': 'Cửa hàng',
@@ -33,5 +39,7 @@ class LangVie {
     "Background music": "Nhạc nền",
     "Tap to pause/play, long press to change BGM":
         "Chạm để tạm dừng, giữ để đổi nhạc nha :v",
+    "Logout": "Đăng xuất",
+    "Exit to login screen": "Thoát ra màn hình đăng nhập",
   };
 }

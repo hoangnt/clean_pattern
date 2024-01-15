@@ -130,8 +130,27 @@ class SettingsScreen extends StatelessWidget {
                 "Background music".tr,
                 style: TextStyle(fontWeight: FontWeight.w600),
               ),
-              subtitle:
-                  Text("Tap to pause/play, long press to change BGM".tr),
+              subtitle: Text("Tap to pause/play, long press to change BGM".tr),
+            ),
+
+            SizedBox(height: 20.h),
+
+            ///
+            ListTile(
+              onTap: _controller.exitToLogin,
+              tileColor: Get.theme.appBarTheme.backgroundColor,
+              shape: RoundedRectangleBorder(
+                side: BorderSide(color: AppColor.buttonBorder),
+              ),
+              leading: Image.asset(
+                AppAsset.logout,
+                color: Get.theme.iconTheme.color,
+              ),
+              title: Text(
+                "Logout".tr,
+                style: TextStyle(fontWeight: FontWeight.w600),
+              ),
+              subtitle: Text("Exit to login screen".tr),
             ),
           ],
         );

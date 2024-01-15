@@ -1,8 +1,10 @@
 import 'package:clean_pattern/common/constant/hive_box_key.dart';
 import 'package:clean_pattern/features/article/data/repositories/article_repo_impl.dart';
 import 'package:clean_pattern/features/article/domain/usecase/get_article_detail_usecase.dart';
+import 'package:clean_pattern/features/auth/data/repositories/auth_repo_impl.dart';
 import 'package:clean_pattern/features/flavor/data/model/ramen_flavor.dart';
 import 'package:clean_pattern/features/article/domain/usecase/get_all_article_usecase.dart';
+import 'package:clean_pattern/features/auth/domain/usecase/login_usecase.dart';
 import 'package:clean_pattern/features/store/data/repositories/store_repo_impl.dart';
 import 'package:clean_pattern/features/store/domain/usecase/get_all_store_usecase.dart';
 import 'package:clean_pattern/features/store/domain/usecase/get_top_store_usecase.dart';
@@ -13,7 +15,14 @@ final getIt = GetIt.instance;
 
 Future<void> dependenciesInjection() async {
   homeInjection();
+  loginInjection();
   await hiveBoxInjection();
+}
+
+void loginInjection() {
+  getIt.registerSingleton<AuthRepoImpl>(AuthRepoImpl());
+  getIt.registerSingleton<LoginUsecase>(
+      LoginUsecase(getIt.get<AuthRepoImpl>()));
 }
 
 void homeInjection() {

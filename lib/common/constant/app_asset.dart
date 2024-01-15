@@ -15,4 +15,5 @@ class AppAsset {
   static const String like = "asset/icon/like.png";
   static const String dislike = "asset/icon/dislike.png";
   static const String guitar = "asset/icon/guitar.png";
+  static const String logout = "asset/icon/logout.png";
 }

@@ -7,6 +7,11 @@ class AppColor {
   static const Color scaffoldBackground = Color(0xfff2f2f2);
   static const Color placeHolder = Color(0xfff0f0f0);
 
+  //Textfield color
+  static const Color textFieldBorderColor = Color(0xff9c9c9c);
+  static const Color textFieldErrorBorderColor = Color(0xffff4545);
+  static const Color textFieldErrorFocusBorderColor = Color(0xffe33636);
+
   //Button color
   static const Color buttonColor1 = Color(0xffDCE0E7);
   static const Color buttonBorder = Color(0xffcfcccc);

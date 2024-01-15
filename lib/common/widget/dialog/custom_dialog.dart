@@ -33,7 +33,7 @@ class CustomDialog extends StatelessWidget {
       ),
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Get.theme.scaffoldBackgroundColor,
           borderRadius: BorderRadius.circular(15),
         ),
         child: IntrinsicHeight(
@@ -71,8 +71,8 @@ class CustomDialog extends StatelessWidget {
                         AppElevatedButton(
                           onPressed: Get.back,
                           text: closeTitle ?? "Close",
-                          backgroundColor: Colors.white,
-                          textColor: AppColor.primary,
+                          backgroundColor: Get.theme.scaffoldBackgroundColor,
+                          textColor: Get.theme.textTheme.bodyMedium!.color,
                         ),
                     ],
                   ),

@@ -22,8 +22,11 @@ class MyApp extends StatelessWidget {
         theme: AppTheme.lightTheme,
         darkTheme: AppTheme.darkTheme,
         getPages: Pages.instance.getPages,
-        initialRoute: Routes.entry,
         builder: EasyLoading.init(),
+        initialRoute: AppLocalStorage.instance.getToken() != null &&
+                AppLocalStorage.instance.getToken()!.isNotEmpty
+            ? Routes.entry
+            : Routes.login,
         onReady: () {
           var settingController = Get.find<SettingsController>();
           var theme = AppLocalStorage.instance.getTheme();

@@ -5,6 +5,8 @@ import 'package:clean_pattern/features/article/presentation/pages/article_detail
 import 'package:clean_pattern/features/flavor/presentation/binding/flavor_binding.dart';
 import 'package:clean_pattern/features/home/presentation/binding/entry_binding.dart';
 import 'package:clean_pattern/features/home/presentation/pages/entry_screen.dart';
+import 'package:clean_pattern/features/auth/presentation/binding/login_binding.dart';
+import 'package:clean_pattern/features/auth/presentation/screen/login_screen.dart';
 import 'package:clean_pattern/features/post/presentation/binding/post_binding.dart';
 import 'package:clean_pattern/features/post/presentation/pages/post_screen.dart';
 import 'package:clean_pattern/features/settings/presentation/binding/settings_binding.dart';
@@ -22,6 +24,15 @@ class Pages {
 
   Pages._() {
     getPages = [
+      GetPage(
+        name: Routes.login,
+        page: () => LoginScreen(),
+        bindings: [
+          LoginBinding(),
+          SettingsBinding(),
+        ],
+        transition: Transition.leftToRightWithFade,
+      ),
       GetPage(
         name: Routes.entry,
         page: () => EntryScreen(),
