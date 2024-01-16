@@ -4,6 +4,8 @@ class LangVie {
     "Login and Enjoy your food trip !": "Đăng nhập rồi đi ăn nào",
     "Password": "Mật khẩu",
     "Login": "Đăng nhập",
+    "Remember me": "Lưu tài khoản",
+    "Forgot password?": "Quên mật khẩu?",
 
     ///////////
     "We eat": "Đi ăn",

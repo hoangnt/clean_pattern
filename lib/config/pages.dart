@@ -2,6 +2,8 @@ import 'package:clean_pattern/config/routes.dart';
 import 'package:clean_pattern/features/article/presentation/binding/article_binding.dart';
 import 'package:clean_pattern/features/article/presentation/binding/article_detail_binding.dart';
 import 'package:clean_pattern/features/article/presentation/pages/article_detail_screen.dart';
+import 'package:clean_pattern/features/auth/presentation/binding/forgot_password_binding.dart';
+import 'package:clean_pattern/features/auth/presentation/screen/forgot_password_screen.dart';
 import 'package:clean_pattern/features/flavor/presentation/binding/flavor_binding.dart';
 import 'package:clean_pattern/features/home/presentation/binding/entry_binding.dart';
 import 'package:clean_pattern/features/home/presentation/pages/entry_screen.dart';
@@ -32,6 +34,14 @@ class Pages {
           SettingsBinding(),
         ],
         transition: Transition.leftToRightWithFade,
+      ),
+      GetPage(
+        name: Routes.forgotPassword,
+        page: () => ForgotPasswordScreen(),
+        bindings: [
+          ForgotPasswordBinding(),
+        ],
+        transition: Transition.rightToLeftWithFade,
       ),
       GetPage(
         name: Routes.entry,

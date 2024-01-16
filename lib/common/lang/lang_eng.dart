@@ -4,6 +4,8 @@ class LangEng {
     "Login and Enjoy your food trip !": "Login and Enjoy your food trip !",
     "Password": "Password",
     "Login": "Login",
+    "Remember me": "Remember me",
+    "Forgot password?": "Forgot password?",
 
     ///////////
     "We eat": "We eat",

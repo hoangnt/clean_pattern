@@ -17,6 +17,7 @@ class LoginController extends BaseController {
   final TextEditingController passwordController = TextEditingController();
 
   bool displayPassword = true;
+  bool rememberMe = false;
 
   @override
   void onInit() {
@@ -30,6 +31,10 @@ class LoginController extends BaseController {
     if (AppLocalStorage.instance.getPassword() != null &&
         AppLocalStorage.instance.getPassword()!.isNotEmpty) {
       passwordController.text = AppLocalStorage.instance.getPassword()!;
+    }
+
+    if (AppLocalStorage.instance.getRememberMe() != null) {
+      rememberMe = AppLocalStorage.instance.getRememberMe()!;
     }
   }
 
@@ -50,8 +55,10 @@ class LoginController extends BaseController {
         password: passwordController.text.trim(),
       ),
       onSuccess: (data) async {
-        await AppLocalStorage.instance.saveEmail(emailController.text);
-        await AppLocalStorage.instance.savePassword(passwordController.text);
+        if (rememberMe) {
+          await AppLocalStorage.instance.saveEmail(emailController.text);
+          await AppLocalStorage.instance.savePassword(passwordController.text);
+        }
         await AppLocalStorage.instance.saveToken("Bearer token");
         Get.offAllNamed(Routes.entry);
       },
@@ -70,6 +77,12 @@ class LoginController extends BaseController {
 
   void toggleDisplayPassword() {
     displayPassword = !displayPassword;
+    update();
+  }
+
+  Future<void> toggleRememberMe(bool val) async {
+    await AppLocalStorage.instance.saveRememberMe(val);
+    rememberMe = val;
     update();
   }
 }
