@@ -98,13 +98,13 @@ class ForgotPasswordScreen extends StatelessWidget {
                         hintText: "weloveramen@mail.com",
                         prefixIcon: Icon(
                           Icons.mail_outline_rounded,
-                          color: AppColor.textFieldBorderColor,
+                          color: Get.theme.iconTheme.color,
                         ),
                         suffixIcon: GestureDetector(
                           onTap: _controller.clearEmail,
                           child: Icon(
                             Icons.close_rounded,
-                            color: AppColor.textFieldBorderColor,
+                            color: Get.theme.iconTheme.color,
                           ),
                         ),
                       ),
