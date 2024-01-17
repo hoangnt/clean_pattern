@@ -13,6 +13,7 @@ class AppTextField extends StatelessWidget {
     this.prefixIcon,
     this.suffixIcon,
     this.obscureText = false,
+    this.textInputAction,
   });
 
   final String? hintText;
@@ -24,6 +25,7 @@ class AppTextField extends StatelessWidget {
   final Widget? prefixIcon;
   final Widget? suffixIcon;
   final bool obscureText;
+  final TextInputAction? textInputAction;
 
   @override
   Widget build(BuildContext context) {
@@ -36,13 +38,14 @@ class AppTextField extends StatelessWidget {
       style: TextStyle(
         fontSize: 16.sp,
       ),
+      textInputAction: textInputAction,
       decoration: InputDecoration(
         contentPadding: EdgeInsets.symmetric(horizontal: 15.w),
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
         hintText: hintText,
         hintStyle: TextStyle(
-          color: AppColor.textColor1.withOpacity(0.6),
+          color: AppColor.textPlaceholder,
         ),
         errorText: errorText,
         errorStyle: TextStyle(

@@ -6,6 +6,14 @@ class LangVie {
     "Login": "Đăng nhập",
     "Remember me": "Lưu tài khoản",
     "Forgot password?": "Quên mật khẩu?",
+    "We will reset password and send to your email":
+        "Chúng tôi sẽ tạo mật khẩu mới và gửi về email cho bạn nhé !",
+    "Write down your email here": "Viết email vào ô dưới này nè",
+    "Send": "Gửi",
+    "Back": "Quay lại",
+    "or": "hay",
+    "You have an account, don't you ?": "Bạn có tài khoản chưa ?",
+    "Sign up here": "Đăng ký ở đây",
 
     ///////////
     "We eat": "Đi ăn",

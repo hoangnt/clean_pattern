@@ -6,6 +6,14 @@ class LangEng {
     "Login": "Login",
     "Remember me": "Remember me",
     "Forgot password?": "Forgot password?",
+    "We will reset password and send to your email":
+        "We will reset your password and send to your email",
+    "Write down your email here": "Write down your email here",
+    "Send": "Send",
+    "Back": "Back",
+    "or": "or",
+    "You have an account, don't you ?": "You have an account, don't you ?",
+    "Sign up here": "Sign up here",
 
     ///////////
     "We eat": "We eat",

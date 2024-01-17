@@ -8,6 +8,7 @@ import 'package:clean_pattern/common/widget/button/app_elevated_button.dart';
 import 'package:clean_pattern/config/routes.dart';
 import 'package:clean_pattern/features/auth/presentation/controller/login_controller.dart';
 import 'package:clean_pattern/features/settings/presentation/controller/settings_controller.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -42,18 +43,24 @@ class LoginScreen extends StatelessWidget {
                           _settingController.language == AppLanguage.eng
                               ? "ENG"
                               : "VIE",
-                          style: TextStyle(
-                            fontSize: 15.sp,
-                            color: Colors.black,
-                          ),
+                          style: TextStyle(fontSize: 15.sp),
                         ),
                       ),
                     ),
                   ),
                 ),
                 SizedBox(height: 0.1.sh),
-                Align(
-                  alignment: Alignment.center,
+                Hero(
+                  tag: "colorfulLogo",
+                  flightShuttleBuilder: (flightContext, animation,
+                      flightDirection, fromHeroContext, toHeroContext) {
+                    final scaleTween = Tween(begin: 1.0, end: 1.5);
+                    final anim = scaleTween.animate(animation);
+                    return ScaleTransition(
+                      scale: anim,
+                      child: Image.asset(AppAsset.ramenColorful),
+                    );
+                  },
                   child: Image.asset(AppAsset.ramenColorful),
                 ),
                 SizedBox(height: 30.h),
@@ -83,15 +90,16 @@ class LoginScreen extends StatelessWidget {
                           controller: _controller.emailController,
                           validator: ValidateUtil.instance.validateEmail,
                           hintText: "weloveramen@mail.com",
+                          textInputAction: TextInputAction.next,
                           prefixIcon: Icon(
                             Icons.person_2_outlined,
-                            color: AppColor.textFieldBorderColor,
+                            color: Get.theme.iconTheme.color,
                           ),
                           suffixIcon: GestureDetector(
                             onTap: _controller.clearEmail,
                             child: Icon(
                               Icons.close_rounded,
-                              color: AppColor.textFieldBorderColor,
+                              color: Get.theme.iconTheme.color,
                             ),
                           ),
                         ),
@@ -103,7 +111,7 @@ class LoginScreen extends StatelessWidget {
                           hintText: "Password".tr,
                           prefixIcon: Icon(
                             Icons.lock_open_rounded,
-                            color: AppColor.textFieldBorderColor,
+                            color: Get.theme.iconTheme.color,
                           ),
                           suffixIcon: GestureDetector(
                             onTap: _controller.toggleDisplayPassword,
@@ -111,7 +119,7 @@ class LoginScreen extends StatelessWidget {
                               _controller.displayPassword
                                   ? Icons.remove_red_eye_outlined
                                   : Icons.remove_red_eye_rounded,
-                              color: AppColor.textFieldBorderColor,
+                              color: Get.theme.iconTheme.color,
                             ),
                           ),
                         ),
@@ -131,7 +139,7 @@ class LoginScreen extends StatelessWidget {
                       ),
                       Spacer(),
                       InkWell(
-                        onTap: () => Get.toNamed(Routes.forgotPassword),
+                        onTap: () => Get.offNamed(Routes.forgotPassword),
                         child: Text(
                           "Forgot password?".tr,
                           style: TextStyle(fontSize: 14.sp),
@@ -152,10 +160,101 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                 ),
+                SizedBox(height: 15.h),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: Divider(color: AppColor.disable, thickness: 2),
+                      ),
+                      SizedBox(width: 5.w),
+                      Text(
+                        "or".tr,
+                        style: TextStyle(fontSize: 15.sp),
+                      ),
+                      SizedBox(width: 5.w),
+                      Expanded(
+                        child: Divider(color: AppColor.disable, thickness: 2),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 15.h),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      _platformLogin(
+                        onTap: () {
+                          print("facebook login");
+                        },
+                        icon: AppAsset.facebook,
+                      ),
+                      _platformLogin(
+                        onTap: () {
+                          print("google login");
+                        },
+                        icon: AppAsset.google,
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 30.h),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
+                  child: RichText(
+                    text: TextSpan(
+                      style: Get.theme.textTheme.bodyMedium!
+                          .copyWith(fontSize: 15.sp),
+                      children: [
+                        TextSpan(text: "You have an account, don't you ?".tr),
+                        WidgetSpan(
+                          child: SizedBox(width: 5.w),
+                        ),
+                        TextSpan(
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              print("sign up here");
+                            },
+                          text: "Sign up here".tr,
+                          style: TextStyle(
+                            color: AppColor.textAvailable,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ],
             ),
           );
         }),
+      ),
+    );
+  }
+
+  Widget _platformLogin({void Function()? onTap, required String icon}) {
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 5.h),
+        decoration: BoxDecoration(
+          color: Get.theme.scaffoldBackgroundColor,
+          border: Border.all(color: AppColor.buttonBorder),
+          borderRadius: BorderRadius.circular(5.sp),
+          boxShadow: [
+            BoxShadow(
+              offset: Offset(1.5, 4),
+              blurRadius: 3,
+              spreadRadius: 1,
+              color: AppColor.disable.withOpacity(0.7),
+            ),
+          ],
+        ),
+        child: Image.asset(icon, height: 30.h),
       ),
     );
   }
