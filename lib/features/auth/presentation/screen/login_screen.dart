@@ -23,6 +23,7 @@ class LoginScreen extends StatelessWidget {
       behavior: HitTestBehavior.opaque,
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
+        backgroundColor: Get.theme.appBarTheme.backgroundColor,
         body: GetBuilder<LoginController>(builder: (controller) {
           return SingleChildScrollView(
             child: Column(

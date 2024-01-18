@@ -1,6 +1,8 @@
 import 'dart:async';
 
+import 'package:clean_pattern/common/constant/app_local_storage.dart';
 import 'package:clean_pattern/common/constant/hive_box_key.dart';
+import 'package:clean_pattern/features/auth/data/model/user_model.dart';
 import 'package:clean_pattern/features/flavor/data/model/ramen_flavor.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -20,6 +22,7 @@ enum ToppingEnum {
 }
 
 class FlavorController extends GetxController {
+  UserModel? userInfor;
   double salt = 1;
   double fat = 1;
   double noodleTenderness = 1;
@@ -39,7 +42,6 @@ class FlavorController extends GetxController {
     hour.value = appTime.hour;
     min.value = appTime.minute;
     sec.value = appTime.second;
-
     Timer.periodic(Duration(seconds: 1), _setTime);
 
     Box<RamenFlavor> box = Hive.box<RamenFlavor>(HiveBoxKey.ramenFlavor);
@@ -58,6 +60,8 @@ class FlavorController extends GetxController {
     toppingList = ToppingEnum.values
         .where((val) => data.toppingList.contains(val.name))
         .toList();
+
+    userInfor = AppLocalStorage.instance.getUserInfor();
   }
 
   void onChangeSalt(double val) {

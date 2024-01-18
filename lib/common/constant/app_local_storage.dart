@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:clean_pattern/features/auth/data/model/user_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AppLocalStorage {
@@ -14,6 +17,7 @@ class AppLocalStorage {
   static const String _password = "password";
   static const String _rememberMe = "rememberMe";
   static const String _token = "token";
+  static const String _userInfor = "userInfor";
 
   Future<bool> saveTheme(String theme) async =>
       await _prefs.setString(_theme, theme);
@@ -34,4 +38,19 @@ class AppLocalStorage {
   Future<bool> saveToken(String token) async =>
       await _prefs.setString(_token, token);
   String? getToken() => _prefs.getString(_token);
+
+  Future<bool> saveUserInfor(UserModel profile) async {
+    String data = json.encode(profile);
+    return await _prefs.setString(_userInfor, data);
+  }
+  
+  UserModel? getUserInfor() {
+    final data = _prefs.getString(_userInfor);
+
+    if (data == null) {
+      return null;
+    }
+
+    return UserModel.fromJson(json.decode(data));
+  }
 }

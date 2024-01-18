@@ -120,7 +120,7 @@ class SettingsController extends GetxController {
 
   void exitToLogin() {
     Get.dialog(CustomDialog(
-      title: "Are you sure ?",
+      title: "Are you sure ?".tr,
       onAction: () {
         AppLocalStorage.instance.saveToken("");
         Get.offAllNamed(Routes.login);
@@ -128,7 +128,7 @@ class SettingsController extends GetxController {
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 15.w).copyWith(top: 10.h),
         child: Text(
-          "Exit to login screen will delete session !",
+          "Exit to login screen will delete session !".tr,
           style: TextStyle(fontSize: 17.sp),
         ),
       ),

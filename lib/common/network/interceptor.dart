@@ -1,3 +1,4 @@
+import 'package:clean_pattern/common/constant/app_local_storage.dart';
 import 'package:dio/dio.dart';
 
 class TokenInterceptor extends InterceptorsWrapper {
@@ -5,7 +6,7 @@ class TokenInterceptor extends InterceptorsWrapper {
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     options.headers.addAll({
       Headers.contentTypeHeader: 'application/json',
-      Headers.wwwAuthenticateHeader: 'Bearer token_here'
+      Headers.wwwAuthenticateHeader: 'Bearer ${AppLocalStorage.instance.getToken()}'
     });
     super.onRequest(options, handler);
   }

@@ -58,8 +58,13 @@ class LoginController extends BaseController {
         if (rememberMe) {
           await AppLocalStorage.instance.saveEmail(emailController.text);
           await AppLocalStorage.instance.savePassword(passwordController.text);
+        } else {
+          await AppLocalStorage.instance.saveEmail("");
+          await AppLocalStorage.instance.savePassword("");
         }
-        await AppLocalStorage.instance.saveToken("Bearer token");
+
+        await AppLocalStorage.instance.saveToken("thisIsBearerTokenICreated");
+        await AppLocalStorage.instance.saveUserInfor(data!);
         Get.offAllNamed(Routes.entry);
       },
       onError: (message) {

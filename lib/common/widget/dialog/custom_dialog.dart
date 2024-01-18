@@ -65,12 +65,12 @@ class CustomDialog extends StatelessWidget {
                       if (!disableActionButton)
                         AppElevatedButton(
                           onPressed: onAction,
-                          text: actionTitle ?? "Confirm",
+                          text: actionTitle ?? "Confirm".tr,
                         ),
                       if (!disableCloseButton)
                         AppElevatedButton(
                           onPressed: Get.back,
-                          text: closeTitle ?? "Close",
+                          text: closeTitle ?? "Close".tr,
                           backgroundColor: Get.theme.scaffoldBackgroundColor,
                           textColor: Get.theme.textTheme.bodyMedium!.color,
                         ),

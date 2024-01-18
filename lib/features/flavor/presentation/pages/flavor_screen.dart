@@ -1,4 +1,7 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:clean_pattern/common/constant/app_color.dart';
+import 'package:clean_pattern/common/extensions/string_extension.dart';
+import 'package:clean_pattern/common/widget/app_progress_indicator.dart';
 import 'package:clean_pattern/common/widget/button/app_elevated_button.dart';
 import 'package:clean_pattern/common/widget/dialog/result_dialog.dart';
 import 'package:clean_pattern/features/flavor/presentation/controller/flavor_controller.dart';
@@ -12,22 +15,56 @@ class FlavorScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        color: Get.theme.scaffoldBackgroundColor,
-        padding: EdgeInsets.symmetric(horizontal: 15),
-        child: Column(
-          children: [
-            GetBuilder<FlavorController>(builder: (_) {
-              return Column(
+      body: Column(
+        children: [
+          _userInforWidget(),
+          GetBuilder<FlavorController>(builder: (_) {
+            return Padding(
+              padding: EdgeInsets.symmetric(horizontal: 15.w),
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(height: 10.h),
-                  Text(
-                    "Set your favorite Ramen taste".tr,
-                    style: TextStyle(
-                      fontSize: 12.sp,
-                      fontWeight: FontWeight.w400,
-                    ),
+                  Row(
+                    children: [
+                      Text(
+                        "Set your favorite Ramen taste".tr,
+                        style: TextStyle(
+                          fontSize: 15.sp,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      Spacer(),
+                      Obx(
+                        () => Text(
+                          _controller.hour.toString().padLeft(2, "0"),
+                          style: TextStyle(
+                            fontSize: 15.sp,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                      ),
+                      Text(":", style: TextStyle(fontSize: 15.sp)),
+                      Obx(
+                        () => Text(
+                          _controller.min.toString().padLeft(2, "0"),
+                          style: TextStyle(
+                            fontSize: 15.sp,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                      ),
+                      Text(":", style: TextStyle(fontSize: 15.sp)),
+                      Obx(
+                        () => Text(
+                          _controller.sec.toString().padLeft(2, "0"),
+                          style: TextStyle(
+                            fontSize: 15.sp,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                   SizedBox(height: 10.h),
                   _sliderWidget(
@@ -81,59 +118,108 @@ class FlavorScreen extends StatelessWidget {
                         if (await _controller.saveRamenFlavor()) {
                           Get.dialog(ResultDialog(
                             title: "Notice",
-                            content: "Save success",
+                            content: "Save flavor success",
                           ));
                           return;
                         }
 
                         Get.dialog(ResultDialog(
                           title: "Notice",
-                          content: "Save failure",
+                          content: "Save flavor failure",
                         ));
                       },
                       text: "Save".tr,
                     ),
                   ),
                 ],
-              );
-            }),
-            SizedBox(height: 20.h),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Obx(
-                  () => Text(
-                    _controller.hour.toString().padLeft(2, "0"),
-                    style: TextStyle(
-                      fontSize: 30.sp,
-                      fontWeight: FontWeight.w400,
-                    ),
+              ),
+            );
+          }),
+        ],
+      ),
+    );
+  }
+
+  Widget _userInforWidget() {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 10.h),
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: Get.theme.appBarTheme.backgroundColor,
+        borderRadius: BorderRadius.circular(5.sp),
+      ),
+      child: Stack(
+        alignment: AlignmentDirectional.topEnd,
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CachedNetworkImage(
+                imageUrl: "https://picsum.photos/1921/1086",
+                errorWidget: (context, _, __) => Center(
+                  child: Icon(Icons.error),
+                ),
+                progressIndicatorBuilder: (_, __, progress) => Container(
+                  width: 80.w,
+                  height: 80.w,
+                  clipBehavior: Clip.hardEdge,
+                  decoration: BoxDecoration(
+                    color: Get.theme.scaffoldBackgroundColor,
+                    shape: BoxShape.circle,
+                  ),
+                  child: AppProgressIndicator(progress.progress),
+                ),
+                imageBuilder: (context, imageProvider) => Container(
+                  width: 80.w,
+                  height: 80.w,
+                  clipBehavior: Clip.hardEdge,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                  ),
+                  child: Image(
+                    image: imageProvider,
+                    fit: BoxFit.cover,
                   ),
                 ),
-                Text(":", style: TextStyle(fontSize: 16.sp)),
-                Obx(
-                  () => Text(
-                    _controller.min.toString().padLeft(2, "0"),
+              ),
+              SizedBox(width: 10.w),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    _controller.userInfor!.name!,
                     style: TextStyle(
-                      fontSize: 30.sp,
-                      fontWeight: FontWeight.w400,
+                      fontSize: 20.sp,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
-                ),
-                Text(":", style: TextStyle(fontSize: 16.sp)),
-                Obx(
-                  () => Text(
-                    _controller.sec.toString().padLeft(2, "0"),
+                  SizedBox(height: 2.h),
+                  Text(
+                    _controller.userInfor!.birthday!.toDDMMYYYYString(),
                     style: TextStyle(
-                      fontSize: 30.sp,
-                      fontWeight: FontWeight.w400,
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
-                ),
-              ],
-            ),
-          ],
-        ),
+                  SizedBox(height: 2.h),
+                  Text(
+                    _controller.userInfor!.email!,
+                    style: TextStyle(
+                      fontSize: 14.sp,
+                      color: AppColor.textColor1,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          InkWell(
+            onTap: () {
+              print("edit info");
+            },
+            child: Icon(Icons.edit, size: 20.sp),
+          ),
+        ],
       ),
     );
   }
@@ -149,7 +235,7 @@ class FlavorScreen extends StatelessWidget {
               "Topping".tr,
               textAlign: TextAlign.right,
               style: TextStyle(
-                fontSize: 11.sp,
+                fontSize: 13.sp,
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -184,7 +270,7 @@ class FlavorScreen extends StatelessWidget {
             "Broth".tr,
             textAlign: TextAlign.right,
             style: TextStyle(
-              fontSize: 11.sp,
+              fontSize: 13.sp,
               fontWeight: FontWeight.w500,
             ),
           ),
@@ -193,7 +279,6 @@ class FlavorScreen extends StatelessWidget {
         Expanded(
           flex: 5,
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               for (var item in BrothEnum.values)
                 AppElevatedButton(
@@ -223,7 +308,7 @@ class FlavorScreen extends StatelessWidget {
             text,
             textAlign: TextAlign.right,
             style: TextStyle(
-              fontSize: 11.sp,
+              fontSize: 13.sp,
               fontWeight: FontWeight.w500,
             ),
           ),
