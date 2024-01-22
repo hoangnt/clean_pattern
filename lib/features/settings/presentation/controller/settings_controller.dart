@@ -2,16 +2,23 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:clean_pattern/common/constant/app_language.dart';
 import 'package:clean_pattern/common/constant/app_local_storage.dart';
 import 'package:clean_pattern/common/constant/app_theme.dart';
+import 'package:clean_pattern/common/controller/base_controller.dart';
 import 'package:clean_pattern/common/widget/dialog/custom_dialog.dart';
+import 'package:clean_pattern/common/widget/dialog/result_dialog.dart';
 import 'package:clean_pattern/config/config_loading.dart';
 import 'package:clean_pattern/config/routes.dart';
+import 'package:clean_pattern/features/auth/domain/usecase/logout_usecase.dart';
 import 'package:clean_pattern/features/home/presentation/controller/entry_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-class SettingsController extends GetxController {
+class SettingsController extends BaseController {
+  final LogoutUsecase logoutUsecase;
+
+  SettingsController(this.logoutUsecase);
+
   final MethodChannel channel = MethodChannel("com.example.clean_pattern");
   late AudioPlayer _audioPlayer;
   final List<String> _listBgm = [
@@ -118,13 +125,31 @@ class SettingsController extends GetxController {
     );
   }
 
+  Future<void> logout() async {
+    handleBaseResponse<bool?>(
+      usecase: logoutUsecase(),
+      onSuccess: (data) {
+        if (data != true) {
+          return;
+        }
+
+        AppLocalStorage.instance.saveAccessToken("");
+        AppLocalStorage.instance.saveRefreshToken("");
+        Get.offAllNamed(Routes.login);
+      },
+      onError: (message) {
+        Get.dialog(ResultDialog(
+          title: "Notice".tr,
+          content: message,
+        ));
+      },
+    );
+  }
+
   void exitToLogin() {
     Get.dialog(CustomDialog(
       title: "Are you sure ?".tr,
-      onAction: () {
-        AppLocalStorage.instance.saveToken("");
-        Get.offAllNamed(Routes.login);
-      },
+      onAction: logout,
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 15.w).copyWith(top: 10.h),
         child: Text(

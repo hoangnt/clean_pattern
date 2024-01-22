@@ -8,7 +8,7 @@ class AuthRepoImpl implements AuthRepo {
   final AuthRemoteDatasource remote = AuthRemoteDatasource.instance;
 
   @override
-  Future<BaseResponse<UserModel?>> login({
+  Future<BaseResponse<Map<String, String>>> login({
     required String email,
     required String password,
   }) async {
@@ -25,7 +25,62 @@ class AuthRepoImpl implements AuthRepo {
     return BaseResponse(
       statusCode: res.statusCode,
       message: res.message,
+      data: res.data as Map<String, String>,
+    );
+  }
+
+  @override
+  Future<BaseResponse<UserModel?>> getUserProfile() async {
+    final res = await remote.getUserProfile();
+
+    if (res.statusCode != StatusCode.success) {
+      return BaseResponse(
+        statusCode: res.statusCode,
+        message: res.message,
+        data: null,
+      );
+    }
+
+    return BaseResponse(
+      statusCode: res.statusCode,
+      message: res.message,
       data: UserModel.fromJson(res.data),
     );
   }
+
+  @override
+  Future<BaseResponse<bool?>> logout() async {
+    final res = await remote.logout();
+
+    if (res.statusCode != StatusCode.success) {
+      return BaseResponse(
+        statusCode: res.statusCode,
+        message: res.message,
+        data: null,
+      );
+    }
+
+    return BaseResponse(
+      statusCode: res.statusCode,
+      message: res.message,
+      data: res.data as bool,
+    );
+  }
+
+  // @override
+  // Future<BaseResponse<String>> refreshToken({
+  //   required String refreshToken,
+  // }) async {
+  //   final res = await remote.refreshToken(refreshToken: refreshToken);
+
+  //   if (res.statusCode != StatusCode.success) {
+  //     return BaseResponse(
+  //       statusCode: res.statusCode,
+  //       message: res.message,
+  //       data: null,
+  //     );
+  //   }
+
+  //   return
+  // }
 }

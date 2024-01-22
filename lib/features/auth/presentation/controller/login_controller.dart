@@ -3,14 +3,19 @@ import 'package:clean_pattern/common/controller/base_controller.dart';
 import 'package:clean_pattern/common/widget/dialog/result_dialog.dart';
 import 'package:clean_pattern/config/routes.dart';
 import 'package:clean_pattern/features/auth/data/model/user_model.dart';
+import 'package:clean_pattern/features/auth/domain/usecase/get_user_profile_usecase.dart';
 import 'package:clean_pattern/features/auth/domain/usecase/login_usecase.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
 class LoginController extends BaseController {
   final LoginUsecase loginUsecase;
+  final GetUserProfileUsecase getUserProfileUsecase;
 
-  LoginController(this.loginUsecase);
+  LoginController(
+    this.loginUsecase,
+    this.getUserProfileUsecase,
+  );
 
   final loginKey = GlobalKey<FormState>(debugLabel: "login_process");
   final TextEditingController emailController = TextEditingController();
@@ -49,7 +54,7 @@ class LoginController extends BaseController {
       return;
     }
 
-    handleBaseResponse<UserModel?>(
+    await handleBaseResponse<Map<String, String>>(
       usecase: loginUsecase(
         email: emailController.text.trim(),
         password: passwordController.text.trim(),
@@ -63,13 +68,28 @@ class LoginController extends BaseController {
           await AppLocalStorage.instance.savePassword("");
         }
 
-        await AppLocalStorage.instance.saveToken("thisIsBearerTokenICreated");
-        await AppLocalStorage.instance.saveUserInfor(data!);
+        await AppLocalStorage.instance.saveAccessToken(data["accessToken"]!);
+        await AppLocalStorage.instance.saveRefreshToken(data["refreshToken"]!);
+
+        // go to home
         Get.offAllNamed(Routes.entry);
       },
       onError: (message) {
         Get.dialog(ResultDialog(
-          title: "Notice",
+          title: "Notice".tr,
+          content: message,
+        ));
+      },
+    );
+
+    handleBaseResponse<UserModel?>(
+      usecase: getUserProfileUsecase(),
+      onSuccess: (data) async {
+        AppLocalStorage.instance.saveUserInfor(data!);
+      },
+      onError: (message) {
+        Get.dialog(ResultDialog(
+          title: "Notice".tr,
           content: message,
         ));
       },

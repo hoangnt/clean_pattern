@@ -15,6 +15,7 @@ class LangVie {
     "or": "hay",
     "You have an account, don't you ?": "Bạn có tài khoản chưa ?",
     "Sign up here": "Đăng ký ở đây",
+    "Notice": "Thông báo",
 
     // Entry
     "We eat": "Đi ăn",

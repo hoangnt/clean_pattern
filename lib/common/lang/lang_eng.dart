@@ -15,6 +15,7 @@ class LangEng {
     "or": "or",
     "You have an account, don't you ?": "You have an account, don't you ?",
     "Sign up here": "Sign up here",
+    "Notice": "Notice",
 
     // Entry
     "We eat": "We eat",

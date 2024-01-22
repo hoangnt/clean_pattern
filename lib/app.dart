@@ -23,8 +23,8 @@ class MyApp extends StatelessWidget {
         darkTheme: AppTheme.darkTheme,
         getPages: Pages.instance.getPages,
         builder: EasyLoading.init(),
-        initialRoute: AppLocalStorage.instance.getToken() != null &&
-                AppLocalStorage.instance.getToken()!.isNotEmpty
+        initialRoute: AppLocalStorage.instance.getAccessToken() != null &&
+                AppLocalStorage.instance.getAccessToken()!.isNotEmpty
             ? Routes.entry
             : Routes.login,
         onReady: () {

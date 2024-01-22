@@ -38,6 +38,8 @@ class FlavorController extends GetxController {
   void onInit() {
     super.onInit();
 
+    userInfor = AppLocalStorage.instance.getUserInfor();
+
     // app time
     hour.value = appTime.hour;
     min.value = appTime.minute;
@@ -45,23 +47,18 @@ class FlavorController extends GetxController {
     Timer.periodic(Duration(seconds: 1), _setTime);
 
     Box<RamenFlavor> box = Hive.box<RamenFlavor>(HiveBoxKey.ramenFlavor);
-
-    if (box.isEmpty) {
-      return;
+    if (box.isNotEmpty) {
+      RamenFlavor data = box.values.first;
+      salt = data.salt ?? this.salt;
+      fat = data.fat ?? this.fat;
+      noodleTenderness = data.noodleTenderness ?? this.noodleTenderness;
+      broth = data.broth != null
+          ? BrothEnum.values.where((val) => val.name == data.broth).first
+          : null;
+      toppingList = ToppingEnum.values
+          .where((val) => data.toppingList.contains(val.name))
+          .toList();
     }
-
-    RamenFlavor data = box.values.first;
-    salt = data.salt ?? this.salt;
-    fat = data.fat ?? this.fat;
-    noodleTenderness = data.noodleTenderness ?? this.noodleTenderness;
-    broth = data.broth != null
-        ? BrothEnum.values.where((val) => val.name == data.broth).first
-        : null;
-    toppingList = ToppingEnum.values
-        .where((val) => data.toppingList.contains(val.name))
-        .toList();
-
-    userInfor = AppLocalStorage.instance.getUserInfor();
   }
 
   void onChangeSalt(double val) {
