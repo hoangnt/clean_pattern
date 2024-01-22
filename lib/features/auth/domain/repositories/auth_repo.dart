@@ -11,5 +11,6 @@ abstract class AuthRepo {
 
   Future<BaseResponse<bool?>> logout();
 
-  // Future<BaseResponse<String>> refreshToken({required String refreshToken});
+  Future<BaseResponse<Map<String, String>>> refreshToken(
+      {required String refreshToken});
 }

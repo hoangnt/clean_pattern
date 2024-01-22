@@ -14,6 +14,8 @@ class ApiController {
     _dio = Dio(apiOption);
     _dio.interceptors.addAll([
       TokenInterceptor(),
+      ExpiredRefreshTokenInterceptor(),
+      RefreshTokenInterceptor(),
     ]);
   }
   factory ApiController() => _instance;

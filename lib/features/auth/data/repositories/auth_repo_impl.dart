@@ -67,20 +67,24 @@ class AuthRepoImpl implements AuthRepo {
     );
   }
 
-  // @override
-  // Future<BaseResponse<String>> refreshToken({
-  //   required String refreshToken,
-  // }) async {
-  //   final res = await remote.refreshToken(refreshToken: refreshToken);
+  @override
+  Future<BaseResponse<Map<String, String>>> refreshToken({
+    required String refreshToken,
+  }) async {
+    final res = await remote.refreshToken(refreshToken: refreshToken);
 
-  //   if (res.statusCode != StatusCode.success) {
-  //     return BaseResponse(
-  //       statusCode: res.statusCode,
-  //       message: res.message,
-  //       data: null,
-  //     );
-  //   }
+    if (res.statusCode != StatusCode.success) {
+      return BaseResponse(
+        statusCode: res.statusCode,
+        message: res.message,
+        data: null,
+      );
+    }
 
-  //   return
-  // }
+    return BaseResponse(
+      statusCode: res.statusCode,
+      message: res.message,
+      data: res.data as Map<String, String>,
+    );
+  }
 }
