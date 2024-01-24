@@ -110,9 +110,7 @@ class EditUserInfoScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 10.h),
                   AppTextField(
-                    onTap: () {
-                      print("dialog date");
-                    },
+                    onTap: () => _controller.birthdayPicker(context),
                     readOnly: true,
                     controller: _controller.birthdayController,
                     validator: ValidateUtil.instance.validateEmpty,

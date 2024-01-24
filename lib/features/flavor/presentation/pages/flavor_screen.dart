@@ -16,11 +16,11 @@ class FlavorScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          _userInforWidget(),
-          GetBuilder<FlavorController>(builder: (_) {
-            return Padding(
+      body: GetBuilder<FlavorController>(builder: (context) {
+        return Column(
+          children: [
+            _userInforWidget(),
+            Padding(
               padding: EdgeInsets.symmetric(horizontal: 15.w),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -134,10 +134,10 @@ class FlavorScreen extends StatelessWidget {
                   ),
                 ],
               ),
-            );
-          }),
-        ],
-      ),
+            ),
+          ],
+        );
+      }),
     );
   }
 
