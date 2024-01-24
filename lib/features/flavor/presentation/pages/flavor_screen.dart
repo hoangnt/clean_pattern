@@ -4,6 +4,7 @@ import 'package:clean_pattern/common/extensions/string_extension.dart';
 import 'package:clean_pattern/common/widget/app_progress_indicator.dart';
 import 'package:clean_pattern/common/widget/button/app_elevated_button.dart';
 import 'package:clean_pattern/common/widget/dialog/result_dialog.dart';
+import 'package:clean_pattern/config/routes.dart';
 import 'package:clean_pattern/features/flavor/presentation/controller/flavor_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -146,7 +147,6 @@ class FlavorScreen extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(
         color: Get.theme.appBarTheme.backgroundColor,
-        borderRadius: BorderRadius.circular(5.sp),
       ),
       child: Stack(
         alignment: AlignmentDirectional.topEnd,
@@ -154,40 +154,51 @@ class FlavorScreen extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CachedNetworkImage(
-                imageUrl: "https://picsum.photos/1921/1086",
-                errorWidget: (context, _, __) => Center(
-                  child: Icon(Icons.error),
-                ),
-                progressIndicatorBuilder: (_, __, progress) => Container(
-                  width: 80.w,
-                  height: 80.w,
-                  clipBehavior: Clip.hardEdge,
-                  decoration: BoxDecoration(
-                    color: Get.theme.scaffoldBackgroundColor,
-                    shape: BoxShape.circle,
-                  ),
-                  child: AppProgressIndicator(progress.progress),
-                ),
-                imageBuilder: (context, imageProvider) => Container(
-                  width: 80.w,
-                  height: 80.w,
-                  clipBehavior: Clip.hardEdge,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                  ),
-                  child: Image(
-                    image: imageProvider,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
+              _controller.userInfo!.avatarUrl != null
+                  ? CachedNetworkImage(
+                      imageUrl: _controller.userInfo!.avatarUrl!,
+                      errorWidget: (context, _, __) => Center(
+                        child: Icon(Icons.error),
+                      ),
+                      progressIndicatorBuilder: (_, __, progress) => Container(
+                        width: 80.w,
+                        height: 80.w,
+                        clipBehavior: Clip.hardEdge,
+                        decoration: BoxDecoration(
+                          color: Get.theme.scaffoldBackgroundColor,
+                          shape: BoxShape.circle,
+                        ),
+                        child: AppProgressIndicator(progress.progress),
+                      ),
+                      imageBuilder: (context, imageProvider) => Container(
+                        width: 80.w,
+                        height: 80.w,
+                        clipBehavior: Clip.hardEdge,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                        ),
+                        child: Image(
+                          image: imageProvider,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    )
+                  : Container(
+                      width: 80.w,
+                      height: 80.w,
+                      clipBehavior: Clip.hardEdge,
+                      decoration: BoxDecoration(
+                        color: AppColor.disable,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Icon(Icons.person_3_outlined, size: 35.w),
+                    ),
               SizedBox(width: 10.w),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    _controller.userInfor!.name!,
+                    _controller.userInfo!.name!,
                     style: TextStyle(
                       fontSize: 20.sp,
                       fontWeight: FontWeight.w600,
@@ -195,7 +206,7 @@ class FlavorScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 2.h),
                   Text(
-                    _controller.userInfor!.birthday!.toDDMMYYYYString(),
+                    _controller.userInfo!.birthday!.toDDMMYYYYString(),
                     style: TextStyle(
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w600,
@@ -203,7 +214,7 @@ class FlavorScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 2.h),
                   Text(
-                    _controller.userInfor!.email!,
+                    _controller.userInfo!.email!,
                     style: TextStyle(
                       fontSize: 14.sp,
                       color: AppColor.textColor1,
@@ -214,9 +225,7 @@ class FlavorScreen extends StatelessWidget {
             ],
           ),
           InkWell(
-            onTap: () {
-              print("edit info");
-            },
+            onTap: () => Get.toNamed(Routes.editUserInfo),
             child: Icon(Icons.edit, size: 20.sp),
           ),
         ],

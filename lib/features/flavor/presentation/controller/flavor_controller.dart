@@ -22,7 +22,7 @@ enum ToppingEnum {
 }
 
 class FlavorController extends GetxController {
-  UserModel? userInfor;
+  UserModel? userInfo;
   double salt = 1;
   double fat = 1;
   double noodleTenderness = 1;
@@ -38,7 +38,7 @@ class FlavorController extends GetxController {
   void onInit() {
     super.onInit();
 
-    userInfor = AppLocalStorage.instance.getUserInfor();
+    userInfo = AppLocalStorage.instance.getUserInfo();
 
     // app time
     hour.value = appTime.hour;

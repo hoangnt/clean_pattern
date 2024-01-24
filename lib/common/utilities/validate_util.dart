@@ -30,4 +30,12 @@ class ValidateUtil {
 
     return null;
   }
+
+  String? validateEmpty(String? value) {
+    if (value == null || value.isEmpty) {
+      return "This is empty !".tr;
+    }
+
+    return null;
+  }
 }

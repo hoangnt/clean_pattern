@@ -85,7 +85,7 @@ class LoginController extends BaseController {
     handleBaseResponse<UserModel?>(
       usecase: getUserProfileUsecase(),
       onSuccess: (data) async {
-        AppLocalStorage.instance.saveUserInfor(data!);
+        AppLocalStorage.instance.saveUserInfo(data!);
       },
       onError: (message) {
         Get.dialog(ResultDialog(

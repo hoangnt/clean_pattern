@@ -16,6 +16,7 @@ class LangEng {
     "You have an account, don't you ?": "You have an account, don't you ?",
     "Sign up here": "Sign up here",
     "Notice": "Notice",
+    "This is empty": "This is empty",
 
     // Entry
     "We eat": "We eat",

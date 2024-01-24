@@ -7,6 +7,7 @@ part 'user_model.g.dart';
 class UserModel {
   String? name;
   String? email;
+  String? avatarUrl;
 
   @ParseDateUtil()
   DateTime? birthday;
@@ -17,6 +18,7 @@ class UserModel {
     this.email,
     this.gender,
     this.name,
+    this.avatarUrl,
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) =>

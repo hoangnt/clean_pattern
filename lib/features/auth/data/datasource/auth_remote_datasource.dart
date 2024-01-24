@@ -38,7 +38,8 @@ class AuthRemoteDatasource {
     dynamic data = {
       "data": {
         "name": "Nguyen The Nao",
-        "email": "weloveramen@gmail.com",
+        "email": "nthoang1308@gmail.com",
+        "avatarUrl": "https://picsum.photos/1921/1086",
         "birthday": "13/08/1995",
         "gender": 1,
       },

@@ -41,6 +41,7 @@ class ArticleScreen extends StatelessWidget {
             color: AppColor.primary,
             onRefresh: _controller.fetchData,
             child: ListView.builder(
+              physics: AlwaysScrollableScrollPhysics(),
               controller: _controller.scrollController,
               itemCount: _controller.listArticle.length,
               itemBuilder: (context, index) {

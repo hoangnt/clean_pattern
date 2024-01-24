@@ -2,7 +2,9 @@ import 'package:clean_pattern/config/routes.dart';
 import 'package:clean_pattern/features/article/presentation/binding/article_binding.dart';
 import 'package:clean_pattern/features/article/presentation/binding/article_detail_binding.dart';
 import 'package:clean_pattern/features/article/presentation/pages/article_detail_screen.dart';
+import 'package:clean_pattern/features/auth/presentation/binding/edit_user_info_binding.dart';
 import 'package:clean_pattern/features/auth/presentation/binding/forgot_password_binding.dart';
+import 'package:clean_pattern/features/auth/presentation/screen/edit_user_info_screen.dart';
 import 'package:clean_pattern/features/auth/presentation/screen/forgot_password_screen.dart';
 import 'package:clean_pattern/features/flavor/presentation/binding/flavor_binding.dart';
 import 'package:clean_pattern/features/home/presentation/binding/entry_binding.dart';
@@ -38,9 +40,13 @@ class Pages {
       GetPage(
         name: Routes.forgotPassword,
         page: () => ForgotPasswordScreen(),
-        bindings: [
-          ForgotPasswordBinding(),
-        ],
+        binding: ForgotPasswordBinding(),
+        transition: Transition.rightToLeftWithFade,
+      ),
+      GetPage(
+        name: Routes.editUserInfo,
+        page: () => EditUserInfoScreen(),
+        binding: EditUserInfoBinding(),
         transition: Transition.rightToLeftWithFade,
       ),
       GetPage(

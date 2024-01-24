@@ -14,6 +14,8 @@ class AppTextField extends StatelessWidget {
     this.suffixIcon,
     this.obscureText = false,
     this.textInputAction,
+    this.readOnly = false,
+    this.onTap,
   });
 
   final String? hintText;
@@ -26,15 +28,22 @@ class AppTextField extends StatelessWidget {
   final Widget? suffixIcon;
   final bool obscureText;
   final TextInputAction? textInputAction;
+  final bool readOnly;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onTap: onTap,
+      readOnly: readOnly,
       controller: controller,
       onChanged: onChanged,
       onSaved: onSaved,
       validator: validator,
       obscureText: obscureText,
+      onTapOutside: (event) {
+        FocusScope.of(context).unfocus();
+      },
       style: TextStyle(
         fontSize: 16.sp,
       ),

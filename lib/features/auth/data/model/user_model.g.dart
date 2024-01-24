@@ -11,11 +11,13 @@ UserModel _$UserModelFromJson(Map<String, dynamic> json) => UserModel(
       email: json['email'] as String?,
       gender: json['gender'] as int?,
       name: json['name'] as String?,
+      avatarUrl: json['avatarUrl'] as String?,
     );
 
 Map<String, dynamic> _$UserModelToJson(UserModel instance) => <String, dynamic>{
       'name': instance.name,
       'email': instance.email,
+      'avatarUrl': instance.avatarUrl,
       'birthday': const ParseDateUtil().toJson(instance.birthday),
       'gender': instance.gender,
     };

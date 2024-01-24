@@ -16,6 +16,7 @@ class LangVie {
     "You have an account, don't you ?": "Bạn có tài khoản chưa ?",
     "Sign up here": "Đăng ký ở đây",
     "Notice": "Thông báo",
+    "This is empty": "Đang trống nè !",
 
     // Entry
     "We eat": "Đi ăn",

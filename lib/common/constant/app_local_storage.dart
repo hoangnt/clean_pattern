@@ -18,7 +18,7 @@ class AppLocalStorage {
   static const String _rememberMe = "rememberMe";
   static const String _accessToken = "accessToken";
   static const String _refreshToken = "refreshToken";
-  static const String _userInfor = "userInfor";
+  static const String _userInfo = "userInfo";
 
   Future<bool> saveTheme(String theme) async =>
       await _prefs.setString(_theme, theme);
@@ -44,13 +44,13 @@ class AppLocalStorage {
       await _prefs.setString(_refreshToken, token);
   String? getRefreshToken() => _prefs.getString(_refreshToken);
 
-  Future<bool> saveUserInfor(UserModel profile) async {
+  Future<bool> saveUserInfo(UserModel profile) async {
     String data = json.encode(profile);
-    return await _prefs.setString(_userInfor, data);
+    return await _prefs.setString(_userInfo, data);
   }
 
-  UserModel? getUserInfor() {
-    final data = _prefs.getString(_userInfor);
+  UserModel? getUserInfo() {
+    final data = _prefs.getString(_userInfo);
 
     if (data == null) {
       return null;
