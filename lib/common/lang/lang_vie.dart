@@ -17,6 +17,8 @@ class LangVie {
     "Sign up here": "Đăng ký ở đây",
     "Notice": "Thông báo",
     "This is empty": "Đang trống nè !",
+    "Take a picture": "Chụp ảnh",
+    "Choose in library": "Chọn trong thư viện ảnh",
 
     // Entry
     "We eat": "Đi ăn",

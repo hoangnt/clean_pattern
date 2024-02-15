@@ -68,9 +68,7 @@ class EditUserInfoScreen extends StatelessWidget {
                           child: Icon(Icons.person_3_outlined, size: 35.w),
                         ),
                   InkWell(
-                    onTap: () {
-                      print("camera avatar");
-                    },
+                    onTap: _controller.changeAvatar,
                     child: Icon(
                       Icons.camera_alt_outlined,
                       size: 30.sp,

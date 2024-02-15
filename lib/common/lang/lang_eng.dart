@@ -17,6 +17,8 @@ class LangEng {
     "Sign up here": "Sign up here",
     "Notice": "Notice",
     "This is empty": "This is empty",
+    "Take a picture": "Take a picture",
+    "Choose in library": "Choose in library",
 
     // Entry
     "We eat": "We eat",

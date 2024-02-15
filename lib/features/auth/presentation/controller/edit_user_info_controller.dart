@@ -1,9 +1,11 @@
 import 'package:clean_pattern/common/constant/app_local_storage.dart';
 import 'package:clean_pattern/common/extensions/string_extension.dart';
+import 'package:clean_pattern/common/widget/dialog/bottom_dialog.dart';
 import 'package:clean_pattern/common/widget/dialog/result_dialog.dart';
 import 'package:clean_pattern/features/auth/data/model/user_model.dart';
 import 'package:clean_pattern/features/flavor/presentation/controller/flavor_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
@@ -68,10 +70,44 @@ class EditUserInfoController extends GetxController {
     var flavorController = Get.find<FlavorController>();
     flavorController.userInfo = AppLocalStorage.instance.getUserInfo();
     flavorController.update();
-    
+
     Get.dialog(ResultDialog(
       title: "Notice",
       content: "Save user info success",
+    ));
+  }
+
+  Future<void> changeAvatar() async {
+    Get.bottomSheet(BottomDialog(
+      child: Column(
+        children: [
+          InkWell(
+            onTap: () {
+              print("Take a picture");
+            },
+            child: Text(
+              "Take a picture".tr,
+              style: TextStyle(
+                fontSize: 15.sp,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ),
+          Divider(thickness: 1.5),
+          InkWell(
+            onTap: () {
+              print("Choose in library");
+            },
+            child: Text(
+              "Choose in library".tr,
+              style: TextStyle(
+                fontSize: 15.sp,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ),
+        ],
+      ),
     ));
   }
 }
