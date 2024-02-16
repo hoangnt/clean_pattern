@@ -7,4 +7,16 @@ class PermissionUtil {
       Permission.storage.request();
     }
   }
+
+  static Future<void> getCameraAndPhotoPermission() async {
+    bool cameraIsGranted = await Permission.camera.isGranted;
+    if (!cameraIsGranted) {
+      await Permission.camera.request();
+    }
+
+    bool storageIsGranted = await Permission.storage.isGranted;
+    if (!storageIsGranted) {
+      await Permission.photos.request();
+    }
+  }
 }

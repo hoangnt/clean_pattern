@@ -1,5 +1,6 @@
 import 'package:clean_pattern/common/constant/app_local_storage.dart';
 import 'package:clean_pattern/common/extensions/string_extension.dart';
+import 'package:clean_pattern/common/utilities/permission_util.dart';
 import 'package:clean_pattern/common/widget/dialog/bottom_dialog.dart';
 import 'package:clean_pattern/common/widget/dialog/result_dialog.dart';
 import 'package:clean_pattern/features/auth/data/model/user_model.dart';
@@ -7,6 +8,7 @@ import 'package:clean_pattern/features/flavor/presentation/controller/flavor_con
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 
 class EditUserInfoController extends GetxController {
@@ -78,30 +80,40 @@ class EditUserInfoController extends GetxController {
   }
 
   Future<void> changeAvatar() async {
+    await PermissionUtil.getCameraAndPhotoPermission();
+
     Get.bottomSheet(BottomDialog(
       child: Column(
         children: [
           InkWell(
-            onTap: () {
-              print("Take a picture");
+            onTap: () async {
+              Get.back();
+              final ImagePicker picker = ImagePicker();
+              final XFile? image =
+                  await picker.pickImage(source: ImageSource.camera);
+              print(image);
             },
             child: Text(
               "Take a picture".tr,
               style: TextStyle(
-                fontSize: 15.sp,
+                fontSize: 17.sp,
                 fontWeight: FontWeight.w500,
               ),
             ),
           ),
           Divider(thickness: 1.5),
           InkWell(
-            onTap: () {
-              print("Choose in library");
+            onTap: () async {
+              Get.back();
+              final ImagePicker picker = ImagePicker();
+              final XFile? image =
+                  await picker.pickImage(source: ImageSource.gallery);
+              print(image);
             },
             child: Text(
               "Choose in library".tr,
               style: TextStyle(
-                fontSize: 15.sp,
+                fontSize: 17.sp,
                 fontWeight: FontWeight.w500,
               ),
             ),
