@@ -14,22 +14,22 @@ class StoreMenuWidget extends StatelessWidget {
       price: 5,
     ),
     DishModel(
-      name: "Ramen",
+      name: "Tsukemen",
       image: "https://picsum.photos/555/544",
       price: 4,
     ),
     DishModel(
-      name: "Ramen",
+      name: "Adamame",
       image: "https://picsum.photos/600/555",
       price: 7.2,
     ),
     DishModel(
-      name: "Ramen",
+      name: "Takoyaki",
       image: "https://picsum.photos/601/555",
       price: 7.2,
     ),
     DishModel(
-      name: "Ramen",
+      name: "Butadon",
       image: "https://picsum.photos/600/523",
       price: 7.2,
     ),

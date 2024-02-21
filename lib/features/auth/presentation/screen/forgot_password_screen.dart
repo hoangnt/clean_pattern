@@ -26,6 +26,7 @@ class ForgotPasswordScreen extends StatelessWidget {
         behavior: HitTestBehavior.opaque,
         onTap: () => FocusScope.of(context).unfocus(),
         child: Scaffold(
+          backgroundColor: Get.theme.appBarTheme.backgroundColor,
           body: Column(
             children: [
               Align(
