@@ -47,7 +47,8 @@ class LangVie {
     "Choose your language": "Thay đổi ngôn ngữ",
     "English": "Tiếng anh",
     "Vietnamese": "Tiếng việt",
-    "Lucky number": "Số may mắn",
+    "Lucky number (in-app)": "Số may mắn (in-app)",
+    "Lucky number (plugin)": "Số may mắn (plugin)",
     "Tap to get lucky number": "Lấy số may mắn nào!",
     "Background music": "Nhạc nền",
     "Tap to pause/play, long press to change BGM":

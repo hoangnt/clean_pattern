@@ -92,7 +92,7 @@ class SettingsScreen extends StatelessWidget {
 
             ///
             ListTile(
-              onTap: _controller.getLuckyNumber,
+              onTap: _controller.getLuckyNumberInApp,
               tileColor: Get.theme.appBarTheme.backgroundColor,
               shape: RoundedRectangleBorder(
                 side: BorderSide(color: AppColor.buttonBorder),
@@ -102,13 +102,41 @@ class SettingsScreen extends StatelessWidget {
                 color: Get.theme.iconTheme.color,
               ),
               title: Text(
-                "Lucky number".tr,
+                "Lucky number (in-app)".tr,
                 style: TextStyle(fontWeight: FontWeight.w600),
               ),
               subtitle: Text("Tap to get lucky number".tr),
-              trailing: _controller.luckyNumber != null
+              trailing: _controller.luckyNumberInApp != null
                   ? Text(
-                      _controller.luckyNumber.toString().padLeft(2, "0"),
+                      _controller.luckyNumberInApp
+                          .toString()
+                          .padLeft(2, "0"),
+                      style: TextStyle(fontSize: 20.sp),
+                    )
+                  : null,
+            ),
+
+            ///
+            ListTile(
+              onTap: _controller.getLuckyNumberPlugin,
+              tileColor: Get.theme.appBarTheme.backgroundColor,
+              shape: RoundedRectangleBorder(
+                side: BorderSide(color: AppColor.buttonBorder),
+              ),
+              leading: Image.asset(
+                AppAsset.clover,
+                color: Get.theme.iconTheme.color,
+              ),
+              title: Text(
+                "Lucky number (plugin)".tr,
+                style: TextStyle(fontWeight: FontWeight.w600),
+              ),
+              subtitle: Text("Tap to get lucky number".tr),
+              trailing: _controller.luckyNumberPlugin != null
+                  ? Text(
+                      _controller.luckyNumberPlugin
+                          .toString()
+                          .padLeft(2, "0"),
                       style: TextStyle(fontSize: 20.sp),
                     )
                   : null,

@@ -47,8 +47,8 @@ class LangEng {
     "Choose your language": "Choose your language",
     "English": "English",
     "Vietnamese": "Vietnamese",
-    "Lucky number": "Lucky number",
-    "Tap to get lucky number": "Tap to get lucky number",
+    "Lucky number (in-app)": "Lucky number (in-app)",
+    "Lucky number (plugin)": "Lucky number (plugin)",
     "Background music": "Background music",
     "Tap to pause/play, long press to change BGM":
         "Tap to pause/play, long press to change BGM",

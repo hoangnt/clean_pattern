@@ -13,6 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:random_number/random_number.dart';
 
 class SettingsController extends BaseController {
   final LogoutUsecase logoutUsecase;
@@ -33,7 +34,8 @@ class SettingsController extends BaseController {
 
   bool displayLanguages = false;
 
-  int? luckyNumber;
+  int? luckyNumberInApp;
+  int? luckyNumberPlugin;
 
   @override
   void onInit() {
@@ -51,7 +53,7 @@ class SettingsController extends BaseController {
 
     channel.setMethodCallHandler((call) async {
       if (call.method == "luckyNumber") {
-        luckyNumber = call.arguments as int;
+        luckyNumberInApp = call.arguments as int;
         update();
       }
 
@@ -59,8 +61,13 @@ class SettingsController extends BaseController {
     });
   }
 
-  void getLuckyNumber() {
+  void getLuckyNumberInApp() {
     channel.invokeMethod("luckyNumber");
+  }
+
+  void getLuckyNumberPlugin() async {
+    luckyNumberPlugin = await RandomNumber.instance.luckyNumber();
+    update();
   }
 
   void toggleTheme() async {
