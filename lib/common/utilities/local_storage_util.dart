@@ -3,9 +3,9 @@ import 'dart:convert';
 import 'package:clean_pattern/features/auth/data/model/user_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class AppLocalStorage {
-  static final AppLocalStorage instance = AppLocalStorage._();
-  AppLocalStorage._();
+class LocalStorageUtil {
+  static final LocalStorageUtil instance = LocalStorageUtil._();
+  LocalStorageUtil._();
 
   late SharedPreferences _prefs;
   Future<void> init() async {

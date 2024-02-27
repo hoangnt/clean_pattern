@@ -30,24 +30,18 @@ class BaseResponse<T> {
 
 class Paging {
   int? totalRecords;
-  int? pageIndex;
-  int? pageSize;
   int? totalPages;
 
-  Paging({this.totalRecords, this.pageIndex, this.pageSize, this.totalPages});
+  Paging({this.totalRecords, this.totalPages});
 
   Paging.fromJson(Map<String, dynamic> json) {
     totalRecords = json['totalRecords'];
-    pageIndex = json['pageIndex'];
-    pageSize = json['pageSize'];
     totalPages = json['totalPages'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
     data['totalRecords'] = this.totalRecords;
-    data['pageIndex'] = this.pageIndex;
-    data['pageSize'] = this.pageSize;
     data['totalPages'] = this.totalPages;
     return data;
   }

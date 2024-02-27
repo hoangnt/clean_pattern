@@ -1,4 +1,4 @@
-import 'package:clean_pattern/common/constant/app_local_storage.dart';
+import 'package:clean_pattern/common/utilities/local_storage_util.dart';
 import 'package:clean_pattern/common/controller/base_controller.dart';
 import 'package:clean_pattern/common/widget/dialog/result_dialog.dart';
 import 'package:clean_pattern/config/routes.dart';
@@ -28,18 +28,18 @@ class LoginController extends BaseController {
   void onInit() {
     super.onInit();
 
-    if (AppLocalStorage.instance.getEmail() != null &&
-        AppLocalStorage.instance.getEmail()!.isNotEmpty) {
-      emailController.text = AppLocalStorage.instance.getEmail()!;
+    if (LocalStorageUtil.instance.getEmail() != null &&
+        LocalStorageUtil.instance.getEmail()!.isNotEmpty) {
+      emailController.text = LocalStorageUtil.instance.getEmail()!;
     }
 
-    if (AppLocalStorage.instance.getPassword() != null &&
-        AppLocalStorage.instance.getPassword()!.isNotEmpty) {
-      passwordController.text = AppLocalStorage.instance.getPassword()!;
+    if (LocalStorageUtil.instance.getPassword() != null &&
+        LocalStorageUtil.instance.getPassword()!.isNotEmpty) {
+      passwordController.text = LocalStorageUtil.instance.getPassword()!;
     }
 
-    if (AppLocalStorage.instance.getRememberMe() != null) {
-      rememberMe = AppLocalStorage.instance.getRememberMe()!;
+    if (LocalStorageUtil.instance.getRememberMe() != null) {
+      rememberMe = LocalStorageUtil.instance.getRememberMe()!;
     }
   }
 
@@ -61,15 +61,15 @@ class LoginController extends BaseController {
       ),
       onSuccess: (data) async {
         if (rememberMe) {
-          await AppLocalStorage.instance.saveEmail(emailController.text);
-          await AppLocalStorage.instance.savePassword(passwordController.text);
+          await LocalStorageUtil.instance.saveEmail(emailController.text);
+          await LocalStorageUtil.instance.savePassword(passwordController.text);
         } else {
-          await AppLocalStorage.instance.saveEmail("");
-          await AppLocalStorage.instance.savePassword("");
+          await LocalStorageUtil.instance.saveEmail("");
+          await LocalStorageUtil.instance.savePassword("");
         }
 
-        await AppLocalStorage.instance.saveAccessToken(data["accessToken"]!);
-        await AppLocalStorage.instance.saveRefreshToken(data["refreshToken"]!);
+        await LocalStorageUtil.instance.saveAccessToken(data["accessToken"]!);
+        await LocalStorageUtil.instance.saveRefreshToken(data["refreshToken"]!);
 
         // go to home
         Get.offAllNamed(Routes.entry);
@@ -85,7 +85,7 @@ class LoginController extends BaseController {
     handleBaseResponse<UserModel?>(
       usecase: getUserProfileUsecase(),
       onSuccess: (data) async {
-        AppLocalStorage.instance.saveUserInfo(data!);
+        LocalStorageUtil.instance.saveUserInfo(data!);
       },
       onError: (message) {
         Get.dialog(ResultDialog(
@@ -106,7 +106,7 @@ class LoginController extends BaseController {
   }
 
   Future<void> toggleRememberMe(bool val) async {
-    await AppLocalStorage.instance.saveRememberMe(val);
+    await LocalStorageUtil.instance.saveRememberMe(val);
     rememberMe = val;
     update();
   }

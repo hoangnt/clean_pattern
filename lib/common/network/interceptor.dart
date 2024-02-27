@@ -1,4 +1,4 @@
-import 'package:clean_pattern/common/constant/app_local_storage.dart';
+import 'package:clean_pattern/common/utilities/local_storage_util.dart';
 import 'package:clean_pattern/common/constant/status_code.dart';
 import 'package:clean_pattern/features/auth/data/repositories/auth_repo_impl.dart';
 import 'package:clean_pattern/features/auth/domain/repositories/auth_repo.dart';
@@ -10,7 +10,7 @@ class TokenInterceptor extends InterceptorsWrapper {
     options.headers.addAll({
       Headers.contentTypeHeader: 'application/json',
       Headers.wwwAuthenticateHeader:
-          'Bearer ${AppLocalStorage.instance.getAccessToken()}'
+          'Bearer ${LocalStorageUtil.instance.getAccessToken()}'
     });
     super.onRequest(options, handler);
   }
@@ -35,19 +35,19 @@ class RefreshTokenInterceptor extends QueuedInterceptorsWrapper {
     if (err.response?.data["message"] == "Token is expired") {
       final AuthRepo authRepo = AuthRepoImpl();
       final res = await authRepo.refreshToken(
-        refreshToken: AppLocalStorage.instance.getRefreshToken()!,
+        refreshToken: LocalStorageUtil.instance.getRefreshToken()!,
       );
 
       if (res.statusCode == StatusCode.success) {
-        await AppLocalStorage.instance
+        await LocalStorageUtil.instance
             .saveAccessToken(res.data!["accessToken"]!);
-        await AppLocalStorage.instance
+        await LocalStorageUtil.instance
             .saveRefreshToken(res.data!["refreshToken"]!);
       }
       err.requestOptions.headers.addAll({
         Headers.contentTypeHeader: 'application/json',
         Headers.wwwAuthenticateHeader:
-            'Bearer ${AppLocalStorage.instance.getAccessToken()}'
+            'Bearer ${LocalStorageUtil.instance.getAccessToken()}'
       });
 
       return handler.resolve(await Dio().fetch(err.requestOptions));

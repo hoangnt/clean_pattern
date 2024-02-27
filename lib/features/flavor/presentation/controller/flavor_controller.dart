@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:clean_pattern/common/constant/app_local_storage.dart';
+import 'package:clean_pattern/common/utilities/local_storage_util.dart';
 import 'package:clean_pattern/common/constant/hive_box_key.dart';
 import 'package:clean_pattern/features/auth/data/model/user_model.dart';
 import 'package:clean_pattern/features/flavor/data/model/ramen_flavor.dart';
@@ -38,7 +38,7 @@ class FlavorController extends GetxController {
   void onInit() {
     super.onInit();
 
-    userInfo = AppLocalStorage.instance.getUserInfo();
+    userInfo = LocalStorageUtil.instance.getUserInfo();
 
     // app time
     hour.value = appTime.hour;

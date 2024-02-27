@@ -7,6 +7,8 @@ import 'package:get/get.dart';
 
 class BaseController extends GetxController {
   bool isLoading = false;
+  int totalPage = 0;
+  int totalRecord = 0;
 
   Future<void> handleBaseResponse<T>({
     required Future<BaseResponse<T>> usecase,
@@ -28,6 +30,11 @@ class BaseController extends GetxController {
 
     if (onSuccess != null) {
       await onSuccess(res.data as T);
+    }
+
+    if (res.paging != null) {
+      totalPage = res.paging!.totalPages!;
+      totalRecord = res.paging!.totalRecords!;
     }
 
     isLoading = false;

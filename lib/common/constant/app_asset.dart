@@ -18,6 +18,8 @@ class AppAsset {
   static const String logout = "asset/icon/logout.png";
   static const String facebook = "asset/icon/facebook.png";
   static const String google = "asset/icon/google.png";
+  static const String empty = "asset/icon/empty.png";
+
 
   // gif
   static const String snowing = "asset/gif/snowing.gif";

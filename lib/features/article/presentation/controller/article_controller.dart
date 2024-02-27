@@ -15,6 +15,7 @@ class ArticleController extends BaseController {
   RxBool displayScrollToTop = false.obs;
 
   List<ArticleModel> listArticle = [];
+  int _page = 0;
 
   @override
   void onInit() async {
@@ -36,6 +37,14 @@ class ArticleController extends BaseController {
       usecase: getAllArticleUsecase(),
       onSuccess: (data) => listArticle = data,
     );
+  }
+
+  Future<void> onLoad() async {
+    if (totalPage != 0 && _page == totalPage) {
+      return;
+    }
+    _page += 1;
+    fetchData();
   }
 
   void likeArticle(int index) {

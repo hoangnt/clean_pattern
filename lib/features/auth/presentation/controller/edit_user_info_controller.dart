@@ -1,4 +1,4 @@
-import 'package:clean_pattern/common/constant/app_local_storage.dart';
+import 'package:clean_pattern/common/utilities/local_storage_util.dart';
 import 'package:clean_pattern/common/extensions/string_extension.dart';
 import 'package:clean_pattern/common/utilities/permission_util.dart';
 import 'package:clean_pattern/common/widget/dialog/bottom_dialog.dart';
@@ -23,7 +23,7 @@ class EditUserInfoController extends GetxController {
   void onInit() {
     super.onInit();
 
-    userInfo = AppLocalStorage.instance.getUserInfo();
+    userInfo = LocalStorageUtil.instance.getUserInfo();
     nameController.text = userInfo!.name ?? "";
     emailController.text = userInfo!.email ?? "";
     birthdayController.text = userInfo!.birthday != null
@@ -67,10 +67,10 @@ class EditUserInfoController extends GetxController {
     userInfo!.email = emailController.text;
     userInfo!.birthday =
         DateFormat("dd/MM/yyyy").parse(birthdayController.text);
-    await AppLocalStorage.instance.saveUserInfo(userInfo!);
+    await LocalStorageUtil.instance.saveUserInfo(userInfo!);
 
     var flavorController = Get.find<FlavorController>();
-    flavorController.userInfo = AppLocalStorage.instance.getUserInfo();
+    flavorController.userInfo = LocalStorageUtil.instance.getUserInfo();
     flavorController.update();
 
     Get.dialog(ResultDialog(

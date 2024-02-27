@@ -1,6 +1,6 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:clean_pattern/common/constant/app_language.dart';
-import 'package:clean_pattern/common/constant/app_local_storage.dart';
+import 'package:clean_pattern/common/utilities/local_storage_util.dart';
 import 'package:clean_pattern/common/constant/app_theme.dart';
 import 'package:clean_pattern/common/controller/base_controller.dart';
 import 'package:clean_pattern/common/widget/dialog/custom_dialog.dart';
@@ -81,7 +81,7 @@ class SettingsController extends BaseController {
       ConfigLoading.light();
     }
 
-    await AppLocalStorage.instance.saveTheme(mode);
+    await LocalStorageUtil.instance.saveTheme(mode);
 
     // Delay for color change in getx super controller
     await Future.delayed(Duration(milliseconds: 200));
@@ -140,8 +140,8 @@ class SettingsController extends BaseController {
           return;
         }
 
-        AppLocalStorage.instance.saveAccessToken("");
-        AppLocalStorage.instance.saveRefreshToken("");
+        LocalStorageUtil.instance.saveAccessToken("");
+        LocalStorageUtil.instance.saveRefreshToken("");
         Get.offAllNamed(Routes.login);
       },
       onError: (message) {
