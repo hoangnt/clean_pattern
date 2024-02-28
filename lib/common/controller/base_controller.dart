@@ -6,7 +6,7 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 
 class BaseController extends GetxController {
-  bool isLoading = false;
+  RxBool isLoading = RxBool(false);
   int totalPage = 0;
   int totalRecord = 0;
 
@@ -16,13 +16,13 @@ class BaseController extends GetxController {
     FutureOr<void> Function(T)? onSuccess,
     void Function(String)? onError,
   }) async {
-    isLoading = true;
+    isLoading.value = true;
     EasyLoading.show(status: "Loading...");
     final res = await usecase;
 
     if (res.statusCode != StatusCode.success && onError != null) {
       onError(res.message ?? "Something went wrong !");
-      isLoading = false;
+      isLoading.value = false;
       EasyLoading.dismiss();
       update();
       return;
@@ -37,7 +37,7 @@ class BaseController extends GetxController {
       totalRecord = res.paging!.totalRecords!;
     }
 
-    isLoading = false;
+    isLoading.value = false;
     EasyLoading.dismiss();
     update();
   }
@@ -49,7 +49,7 @@ class BaseController extends GetxController {
     void Function(List<String>)? onError,
     bool needUpdate = true,
   }) async {
-    isLoading = true;
+    isLoading.value = true;
     EasyLoading.show(status: "Loading...");
 
     final res = await Future.wait(usecases);
@@ -68,12 +68,12 @@ class BaseController extends GetxController {
         res[0].data as T,
         res[1].data as E,
       );
-      isLoading = false;
+      isLoading.value = false;
       EasyLoading.dismiss();
       update();
     }
 
-    isLoading = false;
+    isLoading.value = false;
     EasyLoading.dismiss();
     if (needUpdate) {
       update();
@@ -87,7 +87,7 @@ class BaseController extends GetxController {
     void Function(List<String>)? onError,
     bool needUpdate = true,
   }) async {
-    isLoading = true;
+    isLoading.value = true;
     EasyLoading.show(status: "Loading...");
 
     final res = await Future.wait(usecases);
@@ -99,7 +99,7 @@ class BaseController extends GetxController {
           .map((val) => val.message ?? "Something went wrong !")
           .toList();
       onError(listMessageError);
-      isLoading = false;
+      isLoading.value = false;
       EasyLoading.dismiss();
       update();
     }
@@ -108,7 +108,7 @@ class BaseController extends GetxController {
       onSuccess();
     }
 
-    isLoading = false;
+    isLoading.value = false;
     EasyLoading.dismiss();
     if (needUpdate) {
       update();

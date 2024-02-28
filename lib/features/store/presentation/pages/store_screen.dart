@@ -1,4 +1,5 @@
 import 'package:clean_pattern/common/constant/app_color.dart';
+import 'package:clean_pattern/common/widget/app_empty_data_widget.dart';
 import 'package:clean_pattern/features/store/presentation/controller/store_controller.dart';
 import 'package:clean_pattern/features/store/presentation/pages/widget/item_store_widget.dart';
 import 'package:clean_pattern/features/store/presentation/pages/widget/item_top_store_widget.dart';
@@ -17,9 +18,11 @@ class StoreScreen extends StatelessWidget {
         onRefresh: _controller.refreshData,
         child: SingleChildScrollView(
           physics: AlwaysScrollableScrollPhysics(),
-          child: GetBuilder<StoreController>(
-            builder: (_) {
-              if (_controller.isLoading) {
+          child: Obx(
+            () {
+              if (_controller.isLoading.value &&
+                  _controller.listStore.isEmpty &&
+                  _controller.listTopStore.isEmpty) {
                 return SizedBox();
               }
 
@@ -65,18 +68,20 @@ class StoreScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 5.h),
-                  ListView.builder(
-                    physics: NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    padding: EdgeInsets.symmetric(horizontal: 10.w),
-                    itemCount: _controller.listStore.length,
-                    itemBuilder: (context, index) {
-                      return ItemStoreWidget(
-                        item: _controller.listStore[index],
-                      );
-                    },
-                  ),
-                  SizedBox(height: kBottomNavigationBarHeight)
+                  (_controller.listStore.isNotEmpty)
+                      ? ListView.builder(
+                          physics: NeverScrollableScrollPhysics(),
+                          shrinkWrap: true,
+                          padding: EdgeInsets.symmetric(horizontal: 10.w),
+                          itemCount: _controller.listStore.length,
+                          itemBuilder: (context, index) {
+                            return ItemStoreWidget(
+                              item: _controller.listStore[index],
+                            );
+                          },
+                        )
+                      : AppEmptyDataWidget(height: 500.h),
+                  SizedBox(height: kBottomNavigationBarHeight),
                 ],
               );
             },

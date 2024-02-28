@@ -24,7 +24,7 @@ class ArticleDetailScreen extends StatelessWidget {
           child: GetBuilder<ArticleDetailController>(
             tag: Get.parameters["tag"],
             builder: (context) {
-              if (_controller.isLoading) {
+              if (_controller.isLoading.value) {
                 return SizedBox();
               }
 

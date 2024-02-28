@@ -14,7 +14,7 @@ class ArticleController extends BaseController {
   final double _offset = 100.h;
   RxBool displayScrollToTop = false.obs;
 
-  List<ArticleModel> listArticle = [];
+  RxList<ArticleModel> listArticle = RxList<ArticleModel>();
   int _page = 0;
 
   @override
@@ -28,6 +28,11 @@ class ArticleController extends BaseController {
       } else {
         displayScrollToTop.value = false;
       }
+
+      // if (scrollController.offset > scrollController.position.maxScrollExtent &&
+      //     !isLoading.value) {
+      //   onLoad();
+      // }
       update();
     });
   }
@@ -35,7 +40,7 @@ class ArticleController extends BaseController {
   Future<void> fetchData() async {
     handleBaseResponse<List<ArticleModel>>(
       usecase: getAllArticleUsecase(),
-      onSuccess: (data) => listArticle = data,
+      onSuccess: (data) => listArticle.value = data,
     );
   }
 
@@ -49,11 +54,11 @@ class ArticleController extends BaseController {
 
   void likeArticle(int index) {
     listArticle[index].isLiked = true;
-    update();
+    listArticle.refresh();
   }
 
   void dislikeArticle(int index) {
     listArticle[index].isLiked = false;
-    update();
+    listArticle.refresh();
   }
 }
