@@ -44,13 +44,20 @@ class RefreshTokenInterceptor extends QueuedInterceptorsWrapper {
         await LocalStorageUtil.instance
             .saveRefreshToken(res.data!["refreshToken"]!);
       }
+
+      err.requestOptions.headers.clear();
       err.requestOptions.headers.addAll({
         Headers.contentTypeHeader: 'application/json',
         Headers.wwwAuthenticateHeader:
             'Bearer ${LocalStorageUtil.instance.getAccessToken()}'
       });
 
-      return handler.resolve(await Dio().fetch(err.requestOptions));
+      final cloneRequest = await Dio().request(
+        err.requestOptions.path,
+        data: err.requestOptions.data,
+        queryParameters: err.requestOptions.queryParameters,
+      );
+      return handler.resolve(cloneRequest);
     }
 
     return handler.next(err);
