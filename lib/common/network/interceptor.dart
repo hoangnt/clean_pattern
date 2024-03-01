@@ -39,10 +39,10 @@ class RefreshTokenInterceptor extends QueuedInterceptorsWrapper {
       );
 
       if (res.statusCode == StatusCode.success) {
-        await LocalStorageUtil.instance
-            .saveAccessToken(res.data!["accessToken"]!);
-        await LocalStorageUtil.instance
-            .saveRefreshToken(res.data!["refreshToken"]!);
+        await Future.wait([
+          LocalStorageUtil.instance.saveAccessToken(res.data!["accessToken"]!),
+          LocalStorageUtil.instance.saveRefreshToken(res.data!["refreshToken"]!)
+        ]);
       }
 
       err.requestOptions.headers.clear();
