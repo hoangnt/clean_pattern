@@ -56,6 +56,7 @@ class RefreshTokenInterceptor extends QueuedInterceptorsWrapper {
         err.requestOptions.path,
         data: err.requestOptions.data,
         queryParameters: err.requestOptions.queryParameters,
+        options: Options(method: err.requestOptions.method),
       );
       return handler.resolve(cloneRequest);
     }
