@@ -8,9 +8,7 @@ class TokenInterceptor extends InterceptorsWrapper {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     options.headers.addAll({
-      Headers.contentTypeHeader: 'application/json',
-      Headers.wwwAuthenticateHeader:
-          'Bearer ${LocalStorageUtil.instance.getAccessToken()}'
+      "Authorization": 'Bearer ${LocalStorageUtil.instance.getAccessToken()}'
     });
     super.onRequest(options, handler);
   }
@@ -47,9 +45,7 @@ class RefreshTokenInterceptor extends QueuedInterceptorsWrapper {
 
       err.requestOptions.headers.clear();
       err.requestOptions.headers.addAll({
-        Headers.contentTypeHeader: 'application/json',
-        Headers.wwwAuthenticateHeader:
-            'Bearer ${LocalStorageUtil.instance.getAccessToken()}'
+        "Authorization": 'Bearer ${LocalStorageUtil.instance.getAccessToken()}'
       });
 
       final cloneRequest = await Dio().request(
