@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:chewie/chewie.dart';
 import 'package:clean_pattern/common/constant/app_color.dart';
-import 'package:clean_pattern/common/extensions/string_extension.dart';
+import 'package:clean_pattern/common/extensions/datetime_extension.dart';
 import 'package:clean_pattern/features/article/presentation/controller/article_detail_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

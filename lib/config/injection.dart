@@ -27,8 +27,8 @@ void loginInjection() {
       .registerSingleton<LoginUsecase>(LoginUsecase(getIt.get<AuthRepoImpl>()));
   getIt.registerSingleton<GetUserProfileUsecase>(
       GetUserProfileUsecase(getIt.get<AuthRepoImpl>()));
-  getIt.registerLazySingleton<LogoutUsecase>(
-      () => LogoutUsecase(getIt.get<AuthRepoImpl>()));
+  getIt.registerSingleton<LogoutUsecase>(
+      LogoutUsecase(getIt.get<AuthRepoImpl>()));
 }
 
 void homeInjection() {
