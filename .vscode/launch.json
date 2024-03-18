@@ -9,8 +9,8 @@
             "request": "launch",
             "type": "dart",
             "program": "lib/main_dev.dart",
+            "flutterMode": "debug",
             "args": [
-                "--debug",
                 "--flavor",
                 "dev"
             ]
@@ -20,8 +20,8 @@
             "request": "launch",
             "type": "dart",
             "program": "lib/main_stg.dart",
+            "flutterMode": "debug",
             "args": [
-                "--debug",
                 "--flavor",
                 "stg"
             ]
@@ -31,8 +31,8 @@
             "request": "launch",
             "type": "dart",
             "program": "lib/main_prod.dart",
+            "flutterMode": "release",
             "args": [
-                "--debug",
                 "--flavor",
                 "prod"
             ]
