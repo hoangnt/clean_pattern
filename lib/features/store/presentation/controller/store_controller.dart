@@ -16,8 +16,6 @@ class StoreController extends BaseController {
   RxList<StoreModel> listStore = RxList<StoreModel>();
   RxList<StoreModel> listTopStore = RxList<StoreModel>();
 
-  int _page = 0;
-
   @override
   void onInit() async {
     super.onInit();
@@ -25,14 +23,6 @@ class StoreController extends BaseController {
   }
 
   Future<void> refreshData() async {
-    fetchData();
-  }
-
-  Future<void> onLoad() async {
-    if (totalPage != 0 && _page == totalPage) {
-      return;
-    }
-    _page += 1;
     fetchData();
   }
 

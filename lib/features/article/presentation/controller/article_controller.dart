@@ -52,6 +52,11 @@ class ArticleController extends BaseController {
     fetchData();
   }
 
+  void removeArticle(int index) {
+    listArticle.removeAt(index);
+    listArticle.refresh();
+  }
+
   void likeArticle(int index) {
     listArticle[index].isLiked = true;
     listArticle.refresh();

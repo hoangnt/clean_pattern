@@ -65,10 +65,7 @@ class ArticleScreen extends StatelessWidget {
   Widget itemArticle(ArticleModel item, int index) {
     return Dismissible(
       key: UniqueKey(),
-      onDismissed: (_) {
-        _controller.listArticle.removeAt(index);
-        _controller.update();
-      },
+      onDismissed: (_) => _controller.removeArticle(index),
       child: GestureDetector(
         onTap: () async {
           Get.toNamed(Routes.articleDetail);
