@@ -35,8 +35,8 @@ class EditUserInfoScreen extends StatelessWidget {
                           ),
                           progressIndicatorBuilder: (_, __, progress) =>
                               Container(
-                            width: 100.w,
-                            height: 100.w,
+                            width: 120.w,
+                            height: 120.w,
                             clipBehavior: Clip.hardEdge,
                             decoration: BoxDecoration(
                               color: Get.theme.scaffoldBackgroundColor,
@@ -45,8 +45,8 @@ class EditUserInfoScreen extends StatelessWidget {
                             child: AppProgressIndicator(progress.progress),
                           ),
                           imageBuilder: (context, imageProvider) => Container(
-                            width: 100.w,
-                            height: 100.w,
+                            width: 120.w,
+                            height: 120.w,
                             clipBehavior: Clip.hardEdge,
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
@@ -58,8 +58,8 @@ class EditUserInfoScreen extends StatelessWidget {
                           ),
                         )
                       : Container(
-                          width: 100.w,
-                          height: 100.w,
+                          width: 120.w,
+                          height: 120.w,
                           clipBehavior: Clip.hardEdge,
                           decoration: BoxDecoration(
                             color: AppColor.disable,
@@ -71,14 +71,14 @@ class EditUserInfoScreen extends StatelessWidget {
                     onTap: _controller.changeAvatar,
                     child: Icon(
                       Icons.camera_alt_outlined,
-                      size: 30.sp,
+                      size: 34.sp,
                     ),
                   ),
                 ],
               ),
             ),
           ),
-          SizedBox(height: 30.h),
+          SizedBox(height: 35.h),
           Form(
             key: _controller.editKeyForm,
             child: Padding(
@@ -95,7 +95,7 @@ class EditUserInfoScreen extends StatelessWidget {
                       color: Get.theme.iconTheme.color,
                     ),
                   ),
-                  SizedBox(height: 10.h),
+                  SizedBox(height: 14.h),
                   AppTextField(
                     controller: _controller.emailController,
                     validator: ValidateUtil.instance.validateEmail,
@@ -106,7 +106,7 @@ class EditUserInfoScreen extends StatelessWidget {
                       color: Get.theme.iconTheme.color,
                     ),
                   ),
-                  SizedBox(height: 10.h),
+                  SizedBox(height: 14.h),
                   AppTextField(
                     onTap: () => _controller.birthdayPicker(context),
                     readOnly: true,
@@ -127,7 +127,7 @@ class EditUserInfoScreen extends StatelessWidget {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.w),
             child: SizedBox(
-              height: 30.h,
+              height: 35.h,
               width: double.infinity,
               child: AppElevatedButton(
                 onPressed: _controller.saveUserInfo,

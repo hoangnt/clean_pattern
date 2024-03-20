@@ -19,7 +19,7 @@ class ArticleDetailScreen extends StatelessWidget {
         title: Text("Detail of article"),
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 10.w),
+        padding: EdgeInsets.symmetric(horizontal: 14.w),
         child: SingleChildScrollView(
           child: GetBuilder<ArticleDetailController>(
             tag: Get.parameters["tag"],
@@ -35,12 +35,15 @@ class ArticleDetailScreen extends StatelessWidget {
                     _controller.detail!.title!,
                     style: TextStyle(
                       letterSpacing: 2,
-                      fontSize: 18.sp,
+                      fontSize: 20.sp,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
+                  SizedBox(height: 2.h),
                   Text(
-                      "Author: ${_controller.detail!.author!} - ${_controller.detail!.publishedAt!.toDDMMYYYYString()}"),
+                    "Author: ${_controller.detail!.author!} - ${_controller.detail!.publishedAt!.toDDMMYYYYString()}",
+                    style: TextStyle(fontSize: 16.sp),
+                  ),
                   SizedBox(height: 10.h),
                   IntrinsicHeight(
                     child: Row(
@@ -57,13 +60,13 @@ class ArticleDetailScreen extends StatelessWidget {
                         Expanded(
                           child: Text(
                             _controller.detail!.subTitle!,
-                            style: TextStyle(letterSpacing: 1, fontSize: 13.sp),
+                            style: TextStyle(letterSpacing: 1, fontSize: 14.sp),
                           ),
                         ),
                       ],
                     ),
                   ),
-                  SizedBox(height: 10.h),
+                  SizedBox(height: 12.h),
                   CachedNetworkImage(
                     imageUrl: _controller.detail!.images.first,
                     errorWidget: (context, _, __) => Icon(Icons.error),
@@ -81,7 +84,7 @@ class ArticleDetailScreen extends StatelessWidget {
                   SizedBox(height: 10.h),
                   Text(
                     _controller.detail!.content!,
-                    style: TextStyle(fontSize: 12.sp),
+                    style: TextStyle(fontSize: 16.sp),
                   ),
                   SizedBox(height: 10.h),
                   AspectRatio(
@@ -94,7 +97,7 @@ class ArticleDetailScreen extends StatelessWidget {
                   SizedBox(height: 10.h),
                   Text(
                     _controller.detail!.content!,
-                    style: TextStyle(fontSize: 12.sp),
+                    style: TextStyle(fontSize: 16.sp),
                   ),
                   SizedBox(height: 20.h),
                 ],

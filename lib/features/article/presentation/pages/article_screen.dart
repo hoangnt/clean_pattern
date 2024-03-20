@@ -24,8 +24,8 @@ class ArticleScreen extends StatelessWidget {
             controller: _controller.scrollController,
           ),
           secondChild: SizedBox(
-            width: 40.w,
-            height: 40.w,
+            width: 45.w,
+            height: 45.w,
           ),
           crossFadeState: _controller.displayScrollToTop.value
               ? CrossFadeState.showFirst
@@ -71,12 +71,12 @@ class ArticleScreen extends StatelessWidget {
           Get.toNamed(Routes.articleDetail);
         },
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
-          margin: EdgeInsets.symmetric(horizontal: 15).copyWith(top: 10.h),
+          padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 7.h),
+          margin: EdgeInsets.symmetric(horizontal: 16).copyWith(top: 12.h),
           decoration: BoxDecoration(
             color: Get.theme.appBarTheme.backgroundColor,
             border: Border.all(color: Color(0xffFDFDFD)),
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(10.sp),
             boxShadow: [
               BoxShadow(
                 offset: Offset(0, 3),
@@ -93,21 +93,21 @@ class ArticleScreen extends StatelessWidget {
                 item.title!,
                 style: TextStyle(
                   letterSpacing: 1,
-                  fontSize: 15.sp,
+                  fontSize: 16.sp,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               SizedBox(height: 5.h),
               Text(
                 "Author: ${item.author!}",
-                style: TextStyle(fontSize: 13.sp),
+                style: TextStyle(fontSize: 14.sp),
               ),
               SizedBox(height: 2.h),
               Text(
                 "Pubished: ${item.publishedAt!.toDDMMYYYYString()}",
                 style: TextStyle(
                   fontStyle: FontStyle.italic,
-                  fontSize: 13.sp,
+                  fontSize: 14.sp,
                   color: Get.theme.iconTheme.color!.withOpacity(0.6),
                 ),
               ),
@@ -118,15 +118,15 @@ class ArticleScreen extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                   color: Get.theme.iconTheme.color!.withOpacity(0.6),
-                  fontSize: 13.sp,
+                  fontSize: 14.sp,
                 ),
               ),
-              SizedBox(height: 2.h),
+              SizedBox(height: 5.h),
               CachedNetworkImage(
                 imageUrl: item.image!,
                 errorWidget: (context, _, __) => Icon(Icons.error),
                 imageBuilder: (context, imageProvider) => Container(
-                  height: 100.h,
+                  height: 140.h,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     image: DecorationImage(
@@ -148,7 +148,7 @@ class ArticleScreen extends StatelessWidget {
                     onPressed: () => _controller.likeArticle(index),
                     icon: Image.asset(
                       AppAsset.like,
-                      width: 25.w,
+                      width: 27.w,
                       color: item.isLiked == true
                           ? AppColor.iconColorBlue
                           : Get.theme.iconTheme.color,
@@ -158,7 +158,7 @@ class ArticleScreen extends StatelessWidget {
                     onPressed: () => _controller.dislikeArticle(index),
                     icon: Image.asset(
                       AppAsset.dislike,
-                      width: 22.w,
+                      width: 23.w,
                       color: item.isLiked == false
                           ? AppColor.iconColorRed
                           : Get.theme.iconTheme.color,

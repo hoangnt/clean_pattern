@@ -28,11 +28,11 @@ class AppTheme {
       titleTextStyle: TextStyle(
         fontFamily: "Dosis-Medium",
         color: Colors.black,
-        fontSize: 18.sp,
+        fontSize: 20.sp,
         fontWeight: FontWeight.w700,
         letterSpacing: 2.sp,
       ),
-      iconTheme: IconThemeData(color: Colors.black, size: 20.sp),
+      iconTheme: IconThemeData(color: Colors.black, size: 22.sp),
     ),
   );
 
@@ -65,11 +65,11 @@ class AppTheme {
       titleTextStyle: TextStyle(
         fontFamily: "Dosis-Medium",
         color: Colors.white,
-        fontSize: 18.sp,
+        fontSize: 20.sp,
         fontWeight: FontWeight.w700,
         letterSpacing: 2.sp,
       ),
-      iconTheme: IconThemeData(color: Colors.white, size: 20.sp),
+      iconTheme: IconThemeData(color: Colors.white, size: 22.sp),
     ),
   );
 }

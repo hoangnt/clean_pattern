@@ -96,7 +96,7 @@ class EditUserInfoController extends GetxController {
             child: Text(
               "Take a picture".tr,
               style: TextStyle(
-                fontSize: 17.sp,
+                fontSize: 18.sp,
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -113,7 +113,7 @@ class EditUserInfoController extends GetxController {
             child: Text(
               "Choose in library".tr,
               style: TextStyle(
-                fontSize: 17.sp,
+                fontSize: 18.sp,
                 fontWeight: FontWeight.w500,
               ),
             ),

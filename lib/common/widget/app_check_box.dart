@@ -26,12 +26,12 @@ class AppCheckBox extends StatelessWidget {
                 value ? CrossFadeState.showFirst : CrossFadeState.showSecond,
             firstChild: Icon(
               Icons.check_box,
-              size: 22.sp,
+              size: 24.sp,
               color: AppColor.primary,
             ),
             secondChild: Icon(
               Icons.check_box_outline_blank,
-              size: 22.sp,
+              size: 24.sp,
               color: AppColor.disable,
             ),
           ),
@@ -39,7 +39,7 @@ class AppCheckBox extends StatelessWidget {
           if (text != null && text!.isNotEmpty)
             Text(
               text!,
-              style: TextStyle(fontSize: 14.sp),
+              style: TextStyle(fontSize: 16.sp),
             ),
         ],
       ),

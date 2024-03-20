@@ -33,7 +33,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                 alignment: Alignment.topRight,
                 child: SafeArea(
                   child: Container(
-                    margin: EdgeInsets.only(top: 10.h, right: 20.w),
+                    margin: EdgeInsets.only(top: 12.h, right: 20.w),
                     padding: EdgeInsets.symmetric(horizontal: 5.w),
                     decoration: BoxDecoration(
                       border: Border.all(color: AppColor.primary, width: 2),
@@ -45,7 +45,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                         _settingController.language == AppLanguage.eng
                             ? "ENG"
                             : "VIE",
-                        style: TextStyle(fontSize: 15.sp),
+                        style: TextStyle(fontSize: 16.sp),
                       ),
                     ),
                   ),
@@ -72,7 +72,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                   "We will reset password and send to your email".tr,
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 20.sp,
+                    fontSize: 22.sp,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -81,7 +81,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                 "Write down your email here".tr,
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 20.sp,
+                  fontSize: 22.sp,
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -120,7 +120,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                   children: [
                     Expanded(
                       child: SizedBox(
-                        height: 30.h,
+                        height: 35.h,
                         child: AppElevatedButton(
                           onPressed: _controller.sendNewPassword,
                           text: "Send".tr,
@@ -130,7 +130,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                     SizedBox(width: 10.w),
                     Expanded(
                       child: SizedBox(
-                        height: 30.h,
+                        height: 35.h,
                         child: AppElevatedButton(
                           onPressed: () => Get.offNamed(Routes.login),
                           backgroundColor: Get.theme.scaffoldBackgroundColor,

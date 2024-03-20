@@ -41,7 +41,7 @@ class ResultDialog extends StatelessWidget {
                       title,
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 15.sp,
+                        fontSize: 16.sp,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
@@ -53,7 +53,7 @@ class ResultDialog extends StatelessWidget {
                   child: Text(
                     content,
                     style: TextStyle(
-                      fontSize: 12.sp,
+                      fontSize: 14.sp,
                     ),
                   ),
                 ),

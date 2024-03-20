@@ -21,7 +21,7 @@ class FlavorScreen extends StatelessWidget {
           children: [
             _userInforWidget(),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 15.w),
+              padding: EdgeInsets.symmetric(horizontal: 16.w),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -31,7 +31,7 @@ class FlavorScreen extends StatelessWidget {
                       Text(
                         "Set your favorite Ramen taste".tr,
                         style: TextStyle(
-                          fontSize: 15.sp,
+                          fontSize: 16.sp,
                           fontWeight: FontWeight.w700,
                         ),
                       ),
@@ -40,27 +40,27 @@ class FlavorScreen extends StatelessWidget {
                         () => Text(
                           _controller.hour.toString().padLeft(2, "0"),
                           style: TextStyle(
-                            fontSize: 15.sp,
+                            fontSize: 16.sp,
                             fontWeight: FontWeight.w700,
                           ),
                         ),
                       ),
-                      Text(":", style: TextStyle(fontSize: 15.sp)),
+                      Text(":", style: TextStyle(fontSize: 16.sp)),
                       Obx(
                         () => Text(
                           _controller.min.toString().padLeft(2, "0"),
                           style: TextStyle(
-                            fontSize: 15.sp,
+                            fontSize: 16.sp,
                             fontWeight: FontWeight.w700,
                           ),
                         ),
                       ),
-                      Text(":", style: TextStyle(fontSize: 15.sp)),
+                      Text(":", style: TextStyle(fontSize: 16.sp)),
                       Obx(
                         () => Text(
                           _controller.sec.toString().padLeft(2, "0"),
                           style: TextStyle(
-                            fontSize: 15.sp,
+                            fontSize: 16.sp,
                             fontWeight: FontWeight.w700,
                           ),
                         ),
@@ -81,7 +81,7 @@ class FlavorScreen extends StatelessWidget {
                       "hyper",
                     ],
                   ),
-                  SizedBox(height: 10.h),
+                  SizedBox(height: 14.h),
                   _sliderWidget(
                     text: "Fat".tr,
                     value: _controller.fat,
@@ -95,7 +95,7 @@ class FlavorScreen extends StatelessWidget {
                       "hyper",
                     ],
                   ),
-                  SizedBox(height: 10.h),
+                  SizedBox(height: 14.h),
                   _sliderWidget(
                     text: "Noodle's tenderness".tr,
                     value: _controller.noodleTenderness,
@@ -111,7 +111,7 @@ class FlavorScreen extends StatelessWidget {
                   ),
                   brothWidget(),
                   toppingListWidget(),
-                  SizedBox(height: 20.h),
+                  SizedBox(height: 30.h),
                   SizedBox(
                     width: double.infinity,
                     child: AppElevatedButton(
@@ -143,7 +143,7 @@ class FlavorScreen extends StatelessWidget {
 
   Widget _userInforWidget() {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 10.h),
+      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
       width: double.infinity,
       decoration: BoxDecoration(
         color: Get.theme.appBarTheme.backgroundColor,
@@ -161,8 +161,8 @@ class FlavorScreen extends StatelessWidget {
                         child: Icon(Icons.error),
                       ),
                       progressIndicatorBuilder: (_, __, progress) => Container(
-                        width: 80.w,
-                        height: 80.w,
+                        width: 90.w,
+                        height: 90.w,
                         clipBehavior: Clip.hardEdge,
                         decoration: BoxDecoration(
                           color: Get.theme.scaffoldBackgroundColor,
@@ -171,8 +171,8 @@ class FlavorScreen extends StatelessWidget {
                         child: AppProgressIndicator(progress.progress),
                       ),
                       imageBuilder: (context, imageProvider) => Container(
-                        width: 80.w,
-                        height: 80.w,
+                        width: 90.w,
+                        height: 90.w,
                         clipBehavior: Clip.hardEdge,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
@@ -184,8 +184,8 @@ class FlavorScreen extends StatelessWidget {
                       ),
                     )
                   : Container(
-                      width: 80.w,
-                      height: 80.w,
+                      width: 90.w,
+                      height: 90.w,
                       clipBehavior: Clip.hardEdge,
                       decoration: BoxDecoration(
                         color: AppColor.disable,
@@ -193,30 +193,30 @@ class FlavorScreen extends StatelessWidget {
                       ),
                       child: Icon(Icons.person_3_outlined, size: 35.w),
                     ),
-              SizedBox(width: 10.w),
+              SizedBox(width: 12.w),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     _controller.userInfo!.name!,
                     style: TextStyle(
-                      fontSize: 20.sp,
+                      fontSize: 22.sp,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  SizedBox(height: 2.h),
+                  SizedBox(height: 4.h),
                   Text(
                     _controller.userInfo!.birthday!.toDDMMYYYYString(),
                     style: TextStyle(
-                      fontSize: 14.sp,
+                      fontSize: 16.sp,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  SizedBox(height: 2.h),
+                  SizedBox(height: 4.h),
                   Text(
                     _controller.userInfo!.email!,
                     style: TextStyle(
-                      fontSize: 14.sp,
+                      fontSize: 16.sp,
                       color: AppColor.textColor1,
                     ),
                   ),
@@ -226,7 +226,7 @@ class FlavorScreen extends StatelessWidget {
           ),
           InkWell(
             onTap: () => Get.toNamed(Routes.editUserInfo),
-            child: Icon(Icons.edit, size: 20.sp),
+            child: Icon(Icons.edit, size: 22.sp),
           ),
         ],
       ),
@@ -244,7 +244,7 @@ class FlavorScreen extends StatelessWidget {
               "Topping".tr,
               textAlign: TextAlign.right,
               style: TextStyle(
-                fontSize: 13.sp,
+                fontSize: 16.sp,
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -279,7 +279,7 @@ class FlavorScreen extends StatelessWidget {
             "Broth".tr,
             textAlign: TextAlign.right,
             style: TextStyle(
-              fontSize: 13.sp,
+              fontSize: 16.sp,
               fontWeight: FontWeight.w500,
             ),
           ),
@@ -317,7 +317,7 @@ class FlavorScreen extends StatelessWidget {
             text,
             textAlign: TextAlign.right,
             style: TextStyle(
-              fontSize: 13.sp,
+              fontSize: 16.sp,
               fontWeight: FontWeight.w500,
             ),
           ),
@@ -337,7 +337,7 @@ class FlavorScreen extends StatelessWidget {
         Text(
           "${value.toInt()}",
           style: TextStyle(
-            fontSize: 12.sp,
+            fontSize: 16.sp,
             fontWeight: FontWeight.w500,
           ),
         ),

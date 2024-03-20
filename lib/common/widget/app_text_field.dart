@@ -58,7 +58,7 @@ class AppTextField extends StatelessWidget {
         ),
         errorText: errorText,
         errorStyle: TextStyle(
-          fontSize: 12.sp,
+          fontSize: 14.sp,
           color: AppColor.textColorWarning,
         ),
         border: OutlineInputBorder(

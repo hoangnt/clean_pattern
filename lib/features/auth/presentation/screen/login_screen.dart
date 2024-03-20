@@ -29,7 +29,7 @@ class LoginScreen extends StatelessWidget {
                 alignment: Alignment.topRight,
                 child: SafeArea(
                   child: Container(
-                    margin: EdgeInsets.only(top: 10.h, right: 20.w),
+                    margin: EdgeInsets.only(top: 12.h, right: 20.w),
                     padding: EdgeInsets.symmetric(horizontal: 5.w),
                     decoration: BoxDecoration(
                       border: Border.all(color: AppColor.primary, width: 2),
@@ -41,7 +41,7 @@ class LoginScreen extends StatelessWidget {
                         _settingController.language == AppLanguage.eng
                             ? "ENG"
                             : "VIE",
-                        style: TextStyle(fontSize: 15.sp),
+                        style: TextStyle(fontSize: 16.sp),
                       ),
                     ),
                   ),
@@ -65,18 +65,18 @@ class LoginScreen extends StatelessWidget {
               Text(
                 "Hello".tr,
                 style: TextStyle(
-                  fontSize: 20.sp,
+                  fontSize: 22.sp,
                   fontWeight: FontWeight.w600,
                 ),
               ),
               Text(
                 "Login and Enjoy your food trip !".tr,
                 style: TextStyle(
-                  fontSize: 20.sp,
+                  fontSize: 22.sp,
                   fontWeight: FontWeight.w600,
                 ),
               ),
-              SizedBox(height: 20.h),
+              SizedBox(height: 25.h),
               Form(
                 autovalidateMode: AutovalidateMode.disabled,
                 key: _controller.loginKey,
@@ -101,7 +101,7 @@ class LoginScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(height: 10.h),
+                      SizedBox(height: 15.h),
                       AppTextField(
                         controller: _controller.passwordController,
                         obscureText: _controller.displayPassword,
@@ -125,7 +125,7 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 10.h),
+              SizedBox(height: 15.h),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.w),
                 child: Row(
@@ -140,7 +140,7 @@ class LoginScreen extends StatelessWidget {
                       onTap: () => Get.offNamed(Routes.forgotPassword),
                       child: Text(
                         "Forgot password?".tr,
-                        style: TextStyle(fontSize: 14.sp),
+                        style: TextStyle(fontSize: 16.sp),
                       ),
                     ),
                   ],
@@ -150,7 +150,7 @@ class LoginScreen extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.w),
                 child: SizedBox(
-                  height: 30.h,
+                  height: 35.h,
                   width: double.infinity,
                   child: AppElevatedButton(
                     onPressed: _controller.login,
@@ -170,7 +170,7 @@ class LoginScreen extends StatelessWidget {
                     SizedBox(width: 5.w),
                     Text(
                       "or".tr,
-                      style: TextStyle(fontSize: 15.sp),
+                      style: TextStyle(fontSize: 16.sp),
                     ),
                     SizedBox(width: 5.w),
                     Expanded(
@@ -206,7 +206,7 @@ class LoginScreen extends StatelessWidget {
                 child: RichText(
                   text: TextSpan(
                     style: Get.theme.textTheme.bodyMedium!
-                        .copyWith(fontSize: 15.sp),
+                        .copyWith(fontSize: 16.sp),
                     children: [
                       TextSpan(text: "You have an account, don't you ?".tr),
                       WidgetSpan(

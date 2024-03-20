@@ -51,7 +51,7 @@ class CustomDialog extends StatelessWidget {
                         title,
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 14.sp,
+                          fontSize: 16.sp,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -76,7 +76,7 @@ class CustomDialog extends StatelessWidget {
                         ),
                     ],
                   ),
-                  SizedBox(height: 10.h),
+                  SizedBox(height: 12.h),
                 ],
               ),
             ),

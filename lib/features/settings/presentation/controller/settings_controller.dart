@@ -158,10 +158,10 @@ class SettingsController extends BaseController {
       title: "Are you sure ?".tr,
       onAction: logout,
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 15.w).copyWith(top: 10.h),
+        padding: EdgeInsets.symmetric(horizontal: 16.w).copyWith(top: 10.h),
         child: Text(
           "Exit to login screen will delete session !".tr,
-          style: TextStyle(fontSize: 17.sp),
+          style: TextStyle(fontSize: 16.sp),
         ),
       ),
     ));
