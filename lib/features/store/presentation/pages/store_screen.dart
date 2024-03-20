@@ -29,13 +29,13 @@ class StoreScreen extends StatelessWidget {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 5.h),
+                  SizedBox(height: 8.h),
                   Padding(
                     padding: EdgeInsets.only(left: 10.w),
                     child: Text(
                       "Top 10 on 10".tr,
                       style: TextStyle(
-                        fontSize: 15.sp,
+                        fontSize: 18.sp,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
@@ -62,7 +62,7 @@ class StoreScreen extends StatelessWidget {
                     child: Text(
                       "Would you like to go?".tr,
                       style: TextStyle(
-                        fontSize: 15.sp,
+                        fontSize: 18.sp,
                         fontWeight: FontWeight.w500,
                       ),
                     ),

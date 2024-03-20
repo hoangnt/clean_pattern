@@ -24,7 +24,7 @@ class ItemTopStoreWidget extends StatelessWidget {
       child: Container(
         alignment: Alignment.topCenter,
         padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 3.h),
-        width: 80.w,
+        width: 100.w,
         decoration: BoxDecoration(
           border: Border.all(color: Color(0xffFDFDFD)),
           borderRadius: BorderRadius.circular(10),
@@ -47,8 +47,9 @@ class ItemTopStoreWidget extends StatelessWidget {
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
           style: TextStyle(
-            fontSize: 11.sp,
+            fontSize: 14.sp,
             color: Colors.white,
+            fontWeight: FontWeight.w600,
             shadows: [
               BoxShadow(
                 offset: Offset(3, 3),

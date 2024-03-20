@@ -33,14 +33,17 @@ class StoreDetailScreen extends StatelessWidget {
                     _controller.data.name!,
                     style: TextStyle(
                       letterSpacing: 2,
-                      fontSize: 18.sp,
+                      fontSize: 20.sp,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 10.w),
-                  child: Text("Owner: ${_controller.data.owner}"),
+                  child: Text(
+                    "Owner: ${_controller.data.owner}",
+                    style: TextStyle(fontSize: 15.sp),
+                  ),
                 ),
                 SizedBox(height: 5.h),
                 Padding(
@@ -69,7 +72,7 @@ class StoreDetailScreen extends StatelessWidget {
                                   _storeInfo("Rated: ",
                                       _controller.data.rating!.toString()),
                                   SizedBox(width: 5.w),
-                                  Image.asset(AppAsset.star, height: 15.h)
+                                  Image.asset(AppAsset.star, height: 16.h)
                                 ],
                               ),
                             ],
@@ -108,9 +111,7 @@ class StoreDetailScreen extends StatelessWidget {
                           spotlight: true,
                         ),
                       ),
-                SizedBox(
-                  height: 20.h,
-                ),
+                SizedBox(height: 20.h),
                 if (_controller.data.allImage != null &&
                     _controller.data.allImage!.isNotEmpty)
                   Center(
@@ -125,7 +126,7 @@ class StoreDetailScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                SizedBox(height: 15.h),
+                SizedBox(height: 20.h),
                 Align(
                   alignment: Alignment.topCenter,
                   child: IntrinsicWidth(
@@ -135,11 +136,11 @@ class StoreDetailScreen extends StatelessWidget {
                           "Rate this restaurant",
                           style: TextStyle(
                             letterSpacing: 2,
-                            fontSize: 18.sp,
+                            fontSize: 20.sp,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        SizedBox(height: 10.h),
+                        SizedBox(height: 15.h),
                         Row(
                           children: [
                             Image.asset(AppAsset.star, height: 25.h),
@@ -211,7 +212,7 @@ class StoreDetailScreen extends StatelessWidget {
             ? EdgeInsets.zero
             : EdgeInsets.symmetric(horizontal: 10.w, vertical: 25.h),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(5.sp),
+          borderRadius: BorderRadius.circular(7.sp),
         ),
         child: CachedNetworkImage(
           imageUrl: image,
@@ -238,11 +239,11 @@ class StoreDetailScreen extends StatelessWidget {
       children: [
         Text(
           text,
-          style: TextStyle(fontWeight: FontWeight.w600, fontSize: 13.sp),
+          style: TextStyle(fontWeight: FontWeight.w600, fontSize: 15.sp),
         ),
         Text(
           info,
-          style: TextStyle(letterSpacing: 1, fontSize: 13.sp),
+          style: TextStyle(letterSpacing: 1, fontSize: 15.sp),
         ),
       ],
     );

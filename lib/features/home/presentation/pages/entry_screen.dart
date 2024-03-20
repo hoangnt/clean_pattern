@@ -21,7 +21,7 @@ class EntryScreen extends StatelessWidget {
           backgroundColor: AppColor.primary,
           child: Image.asset(
             AppAsset.imageShare,
-            height: 18.sp,
+            height: 20.sp,
             color: Colors.white,
           ),
         ),
@@ -59,9 +59,9 @@ class EntryScreen extends StatelessWidget {
         }),
         bottomNavigationBar: GetBuilder<EntryController>(
           builder: (_) => BottomAppBar(
-            height: 50.h,
+            height: 60.h,
             shape: CircularNotchedRectangle(),
-            notchMargin: 7.sp,
+            notchMargin: 9.sp,
             child: Row(
               children: [
                 _bottomBarItem(
@@ -106,7 +106,7 @@ class EntryScreen extends StatelessWidget {
           children: [
             Image.asset(
               image,
-              height: _controller.selectedIndex == index ? 20.sp : 17.sp,
+              height: _controller.selectedIndex == index ? 23.sp : 20.sp,
               color: _controller.selectedIndex == index
                   ? AppColor.primaryBold
                   : AppColor.disable,

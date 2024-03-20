@@ -23,7 +23,7 @@ class AppElevatedButton extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         elevation: 3,
-        minimumSize: Size(45.w, 25.h),
+        minimumSize: Size(55.w, 30.h),
         backgroundColor: backgroundColor ?? AppColor.primary,
         padding: EdgeInsets.symmetric(horizontal: 8.w),
         shape: RoundedRectangleBorder(
@@ -35,7 +35,7 @@ class AppElevatedButton extends StatelessWidget {
               ? Text(
                   text!,
                   style: TextStyle(
-                    fontSize: 15.sp,
+                    fontSize: 16.sp,
                     color: textColor,
                   ),
                 )

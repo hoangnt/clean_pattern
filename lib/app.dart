@@ -14,10 +14,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      // designSize: Size(
-      //   MediaQuery.of(context).size.width,
-      //   MediaQuery.of(context).size.height,
-      // ),
+      designSize: Size(
+        MediaQuery.of(context).size.width,
+        MediaQuery.of(context).size.height,
+      ),
       builder: (_, child) => GetMaterialApp(
         translations: I18n(),
         locale: Locale('en', 'US'),

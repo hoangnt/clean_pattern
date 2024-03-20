@@ -78,6 +78,7 @@ class StoreMenuWidget extends StatelessWidget {
                   style: TextStyle(
                     letterSpacing: 2,
                     fontWeight: FontWeight.w600,
+                    fontSize: 15.sp
                   ),
                 ),
                 SizedBox(height: 5.h),
@@ -100,10 +101,10 @@ class StoreMenuWidget extends StatelessWidget {
   Widget _dishWidget(DishModel meal) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 10.w).copyWith(bottom: 10.h),
-      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
+      padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
       decoration: BoxDecoration(
         color: Get.theme.appBarTheme.backgroundColor,
-        borderRadius: BorderRadius.circular(5.sp),
+        borderRadius: BorderRadius.circular(7.sp),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,

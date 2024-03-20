@@ -16,11 +16,11 @@ class ItemStoreWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () => Get.toNamed(Routes.storeDetail, arguments: item),
       child: Container(
-        margin: EdgeInsets.only(bottom: 10.h),
+        margin: EdgeInsets.only(bottom: 12.h),
         decoration: BoxDecoration(
           color: Get.theme.appBarTheme.backgroundColor,
           border: Border.all(color: Color(0xffFDFDFD)),
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(10.sp),
           boxShadow: [
             BoxShadow(
               offset: Offset(0, 3),
@@ -37,8 +37,8 @@ class ItemStoreWidget extends StatelessWidget {
               imageUrl: item.image!,
               errorWidget: (context, _, __) => Icon(Icons.error),
               progressIndicatorBuilder: (_, __, progress) => Container(
-                width: 180.w,
-                height: 150.h,
+                width: 200.w,
+                height: 170.h,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(10),
@@ -48,8 +48,8 @@ class ItemStoreWidget extends StatelessWidget {
                 child: AppProgressIndicator(progress.progress),
               ),
               imageBuilder: (context, imageProvider) => Container(
-                width: 180.w,
-                height: 150.h,
+                width: 200.w,
+                height: 170.h,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(10),
@@ -62,17 +62,17 @@ class ItemStoreWidget extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(width: 5.w),
+            SizedBox(width: 8.w),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 5.h),
+                  SizedBox(height: 6.h),
                   Text(
                     item.name!,
                     style: TextStyle(
                       letterSpacing: 1,
-                      fontSize: 15.sp,
+                      fontSize: 16.sp,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -93,7 +93,7 @@ class ItemStoreWidget extends StatelessWidget {
                         item.bestSeller!,
                         style: TextStyle(
                           color: Get.theme.iconTheme.color!.withOpacity(0.7),
-                          fontSize: 14.sp,
+                          fontSize: 16.sp,
                           fontWeight: FontWeight.w500,
                           shadows: [
                             BoxShadow(

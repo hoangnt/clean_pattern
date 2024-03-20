@@ -58,7 +58,7 @@ class StoreStoryScreen extends StatelessWidget {
               ),
               Container(
                 width: double.infinity,
-                padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 7.h),
+                padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h),
                 decoration: BoxDecoration(
                   color: Colors.black.withOpacity(0.3),
                 ),
@@ -74,7 +74,7 @@ class StoreStoryScreen extends StatelessWidget {
                             style: TextStyle(
                               color: Colors.white,
                               letterSpacing: 2,
-                              fontSize: 15.sp,
+                              fontSize: 16.sp,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -82,7 +82,7 @@ class StoreStoryScreen extends StatelessWidget {
                             "Owner: ${_controller.data.owner!}",
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 11.sp,
+                              fontSize: 14.sp,
                               fontWeight: FontWeight.w400,
                             ),
                           ),
