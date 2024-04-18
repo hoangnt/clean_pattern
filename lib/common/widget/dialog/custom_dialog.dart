@@ -28,9 +28,6 @@ class CustomDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return Dialog(
       backgroundColor: Colors.transparent,
-      shape: ContinuousRectangleBorder(
-        borderRadius: BorderRadius.circular(50),
-      ),
       child: Container(
         decoration: BoxDecoration(
           color: Get.theme.scaffoldBackgroundColor,
