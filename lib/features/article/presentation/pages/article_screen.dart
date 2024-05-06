@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:clean_pattern/common/constant/app_asset.dart';
-import 'package:clean_pattern/common/constant/app_color.dart';
+import 'package:clean_pattern/common/core_ui/app_style.dart';
 import 'package:clean_pattern/common/extensions/datetime_extension.dart';
 import 'package:clean_pattern/common/widget/app_empty_data_widget.dart';
 import 'package:clean_pattern/common/widget/button/app_scroll_to_top_button.dart';
@@ -91,23 +90,18 @@ class ArticleScreen extends StatelessWidget {
             children: [
               Text(
                 item.title!,
-                style: TextStyle(
-                  letterSpacing: 1,
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: AppTextStyle.w700(16.sp).copyWith(letterSpacing: 1),
               ),
               SizedBox(height: 5.h),
               Text(
                 "Author: ${item.author!}",
-                style: TextStyle(fontSize: 14.sp),
+                style: AppTextStyle.normal(14.sp),
               ),
               SizedBox(height: 2.h),
               Text(
-                "Pubished: ${item.publishedAt!.toDDMMYYYYString()}",
-                style: TextStyle(
+                "Pubished: ${item.publishedAt!.toDDMMYYYYString}",
+                style: AppTextStyle.normal(14.sp).copyWith(
                   fontStyle: FontStyle.italic,
-                  fontSize: 14.sp,
                   color: Get.theme.iconTheme.color!.withOpacity(0.6),
                 ),
               ),
@@ -116,9 +110,8 @@ class ArticleScreen extends StatelessWidget {
                 item.content!,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
-                style: TextStyle(
+                style: AppTextStyle.normal(14.sp).copyWith(
                   color: Get.theme.iconTheme.color!.withOpacity(0.6),
-                  fontSize: 14.sp,
                 ),
               ),
               SizedBox(height: 5.h),
@@ -141,7 +134,7 @@ class ArticleScreen extends StatelessWidget {
                 children: [
                   Text(
                     "Is this useful ?",
-                    style: TextStyle(fontSize: 18.sp),
+                    style: AppTextStyle.normal(18.sp),
                   ),
                   Spacer(),
                   IconButton(

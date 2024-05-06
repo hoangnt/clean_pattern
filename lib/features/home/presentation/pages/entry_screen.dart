@@ -1,5 +1,4 @@
-import 'package:clean_pattern/common/constant/app_asset.dart';
-import 'package:clean_pattern/common/constant/app_color.dart';
+import 'package:clean_pattern/common/core_ui/app_style.dart';
 import 'package:clean_pattern/config/routes.dart';
 import 'package:clean_pattern/features/home/presentation/controller/entry_controller.dart';
 import 'package:flutter/material.dart';
@@ -115,7 +114,7 @@ class EntryScreen extends StatelessWidget {
               duration: Duration(milliseconds: 200),
               firstChild: Text(
                 text,
-                style: TextStyle(color: AppColor.primaryBold, fontSize: 14.sp),
+                style: AppTextStyle.normal(14.sp).primaryColor,
               ),
               secondChild: SizedBox(),
               crossFadeState: (_controller.selectedIndex == index)

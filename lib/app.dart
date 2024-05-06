@@ -1,5 +1,5 @@
 import 'package:clean_pattern/common/utilities/local_storage_util.dart';
-import 'package:clean_pattern/common/constant/app_theme.dart';
+import 'package:clean_pattern/common/core_ui/app_theme.dart';
 import 'package:clean_pattern/config/config_loading.dart';
 import 'package:clean_pattern/config/i18n.dart';
 import 'package:clean_pattern/config/pages.dart';

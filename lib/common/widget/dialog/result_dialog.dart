@@ -1,4 +1,4 @@
-import 'package:clean_pattern/common/constant/app_color.dart';
+import 'package:clean_pattern/common/core_ui/app_style.dart';
 import 'package:clean_pattern/common/widget/button/app_elevated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -36,11 +36,7 @@ class ResultDialog extends StatelessWidget {
                   child: Center(
                     child: Text(
                       title,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.w500,
-                      ),
+                      style: AppTextStyle.w500(16.sp).white,
                     ),
                   ),
                 ),
@@ -49,9 +45,7 @@ class ResultDialog extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: 12.w),
                   child: Text(
                     content,
-                    style: TextStyle(
-                      fontSize: 14.sp,
-                    ),
+                    style: AppTextStyle.normal(14.sp),
                   ),
                 ),
                 SizedBox(height: 5.h),

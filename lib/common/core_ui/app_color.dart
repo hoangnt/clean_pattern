@@ -20,7 +20,7 @@ class AppColor {
   static const Color textColor1 = Color(0xff666666);
   static const Color textColor2 = Color(0xff242424);
   static const Color textPlaceholder= Color(0xff999999);
-  static const Color textColorWarning = Color(0xfff73434);
+  static const Color textWarning = Color(0xfff73434);
   static const Color textAvailable = Color(0xff3491ed);
 
   //Icon color

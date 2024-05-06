@@ -1,7 +1,7 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:clean_pattern/common/constant/app_language.dart';
 import 'package:clean_pattern/common/utilities/local_storage_util.dart';
-import 'package:clean_pattern/common/constant/app_theme.dart';
+import 'package:clean_pattern/common/core_ui/app_theme.dart';
 import 'package:clean_pattern/common/controller/base_controller.dart';
 import 'package:clean_pattern/common/widget/dialog/custom_dialog.dart';
 import 'package:clean_pattern/common/widget/dialog/result_dialog.dart';

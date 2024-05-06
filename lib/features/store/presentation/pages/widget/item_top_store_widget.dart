@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:clean_pattern/common/core_ui/app_style.dart';
 import 'package:clean_pattern/config/routes.dart';
 import 'package:clean_pattern/features/store/data/model/store_model.dart';
 import 'package:flutter/material.dart';
@@ -46,10 +47,7 @@ class ItemTopStoreWidget extends StatelessWidget {
           item.name!,
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
-          style: TextStyle(
-            fontSize: 14.sp,
-            color: Colors.white,
-            fontWeight: FontWeight.w600,
+          style: AppTextStyle.w600(14.sp).white.copyWith(
             shadows: [
               BoxShadow(
                 offset: Offset(3, 3),

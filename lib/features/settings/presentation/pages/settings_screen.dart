@@ -1,7 +1,8 @@
-import 'package:clean_pattern/common/constant/app_asset.dart';
-import 'package:clean_pattern/common/constant/app_color.dart';
+import 'package:clean_pattern/common/core_ui/app_asset.dart';
+import 'package:clean_pattern/common/core_ui/app_color.dart';
 import 'package:clean_pattern/common/constant/app_language.dart';
-import 'package:clean_pattern/common/constant/app_theme.dart';
+import 'package:clean_pattern/common/core_ui/app_textstyle.dart';
+import 'package:clean_pattern/common/core_ui/app_theme.dart';
 import 'package:clean_pattern/features/settings/presentation/controller/settings_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -30,7 +31,7 @@ class SettingsScreen extends StatelessWidget {
               ),
               title: Text(
                 "${_controller.mode} theme".tr,
-                style: TextStyle(fontWeight: FontWeight.w600),
+                style: AppTextStyle.w600(),
               ),
               subtitle: Text("Tap to toggle light/dark theme".tr),
             ),
@@ -48,7 +49,7 @@ class SettingsScreen extends StatelessWidget {
               ),
               title: Text(
                 "Language".tr,
-                style: TextStyle(fontWeight: FontWeight.w600),
+                style: AppTextStyle.w600(),
               ),
               subtitle: Text("Choose your language".tr),
             ),
@@ -81,7 +82,7 @@ class SettingsScreen extends StatelessWidget {
                       activeColor: AppColor.primary,
                       title: Text(
                         "VIE",
-                        style: TextStyle(fontWeight: FontWeight.w600),
+                        style: AppTextStyle.w600(),
                       ),
                       subtitle: Text("Vietnamese".tr),
                     ),
@@ -103,15 +104,13 @@ class SettingsScreen extends StatelessWidget {
               ),
               title: Text(
                 "Lucky number (in-app)".tr,
-                style: TextStyle(fontWeight: FontWeight.w600),
+                style: AppTextStyle.w600(),
               ),
               subtitle: Text("Tap to get lucky number".tr),
               trailing: _controller.luckyNumberInApp != null
                   ? Text(
-                      _controller.luckyNumberInApp
-                          .toString()
-                          .padLeft(2, "0"),
-                      style: TextStyle(fontSize: 20.sp),
+                      _controller.luckyNumberInApp.toString().padLeft(2, "0"),
+                      style: AppTextStyle.normal(20.sp),
                     )
                   : null,
             ),
@@ -129,16 +128,13 @@ class SettingsScreen extends StatelessWidget {
               ),
               title: Text(
                 "Lucky number (plugin)".tr,
-                style: TextStyle(fontWeight: FontWeight.w600),
+                style: AppTextStyle.w600(),
               ),
               subtitle: Text("Tap to get lucky number".tr),
               trailing: _controller.luckyNumberPlugin != null
                   ? Text(
-                      _controller.luckyNumberPlugin
-                          .toString()
-                          .padLeft(2, "0"),
-                      style: TextStyle(fontSize: 20.sp),
-                    )
+                      _controller.luckyNumberPlugin.toString().padLeft(2, "0"),
+                      style: AppTextStyle.normal(20.sp))
                   : null,
             ),
 
@@ -156,7 +152,7 @@ class SettingsScreen extends StatelessWidget {
               ),
               title: Text(
                 "Background music".tr,
-                style: TextStyle(fontWeight: FontWeight.w600),
+                style: AppTextStyle.w600(),
               ),
               subtitle: Text("Tap to pause/play, long press to change BGM".tr),
             ),
@@ -176,7 +172,7 @@ class SettingsScreen extends StatelessWidget {
               ),
               title: Text(
                 "Logout".tr,
-                style: TextStyle(fontWeight: FontWeight.w600),
+                style: AppTextStyle.w600(),
               ),
               subtitle: Text("Exit to login screen".tr),
             ),

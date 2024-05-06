@@ -1,5 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:clean_pattern/common/constant/app_color.dart';
+import 'package:clean_pattern/common/core_ui/app_style.dart';
 import 'package:clean_pattern/common/extensions/datetime_extension.dart';
 import 'package:clean_pattern/common/widget/app_progress_indicator.dart';
 import 'package:clean_pattern/common/widget/button/app_elevated_button.dart';
@@ -30,39 +30,27 @@ class FlavorScreen extends StatelessWidget {
                     children: [
                       Text(
                         "Set your favorite Ramen taste".tr,
-                        style: TextStyle(
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w700,
-                        ),
+                        style: AppTextStyle.w700(16.sp),
                       ),
                       Spacer(),
                       Obx(
                         () => Text(
                           _controller.hour.toString().padLeft(2, "0"),
-                          style: TextStyle(
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w700,
-                          ),
+                          style: AppTextStyle.w700(16.sp),
                         ),
                       ),
-                      Text(":", style: TextStyle(fontSize: 16.sp)),
+                      Text(":", style: AppTextStyle.normal(16.sp)),
                       Obx(
                         () => Text(
                           _controller.min.toString().padLeft(2, "0"),
-                          style: TextStyle(
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w700,
-                          ),
+                          style: AppTextStyle.w700(16.sp),
                         ),
                       ),
-                      Text(":", style: TextStyle(fontSize: 16.sp)),
+                      Text(":", style: AppTextStyle.normal(16.sp)),
                       Obx(
                         () => Text(
                           _controller.sec.toString().padLeft(2, "0"),
-                          style: TextStyle(
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w700,
-                          ),
+                          style: AppTextStyle.w700(16.sp),
                         ),
                       ),
                     ],
@@ -199,24 +187,17 @@ class FlavorScreen extends StatelessWidget {
                 children: [
                   Text(
                     _controller.userInfo!.name!,
-                    style: TextStyle(
-                      fontSize: 22.sp,
-                      fontWeight: FontWeight.w600,
-                    ),
+                    style: AppTextStyle.w600(22.sp),
                   ),
                   SizedBox(height: 4.h),
                   Text(
-                    _controller.userInfo!.birthday!.toDDMMYYYYString(),
-                    style: TextStyle(
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w600,
-                    ),
+                    _controller.userInfo!.birthday!.toDDMMYYYYString,
+                    style: AppTextStyle.w600(16.sp),
                   ),
                   SizedBox(height: 4.h),
                   Text(
                     _controller.userInfo!.email!,
-                    style: TextStyle(
-                      fontSize: 16.sp,
+                    style: AppTextStyle.w600(16.sp).copyWith(
                       color: AppColor.textColor1,
                     ),
                   ),
@@ -243,10 +224,7 @@ class FlavorScreen extends StatelessWidget {
             child: Text(
               "Topping".tr,
               textAlign: TextAlign.right,
-              style: TextStyle(
-                fontSize: 16.sp,
-                fontWeight: FontWeight.w500,
-              ),
+              style: AppTextStyle.w500(16.sp),
             ),
           ),
         ),
@@ -278,10 +256,7 @@ class FlavorScreen extends StatelessWidget {
           child: Text(
             "Broth".tr,
             textAlign: TextAlign.right,
-            style: TextStyle(
-              fontSize: 16.sp,
-              fontWeight: FontWeight.w500,
-            ),
+            style: AppTextStyle.w500(16.sp),
           ),
         ),
         SizedBox(width: 15.w),
@@ -316,10 +291,7 @@ class FlavorScreen extends StatelessWidget {
           child: Text(
             text,
             textAlign: TextAlign.right,
-            style: TextStyle(
-              fontSize: 16.sp,
-              fontWeight: FontWeight.w500,
-            ),
+            style: AppTextStyle.w500(16.sp),
           ),
         ),
         Expanded(
@@ -336,10 +308,7 @@ class FlavorScreen extends StatelessWidget {
         ),
         Text(
           "${value.toInt()}",
-          style: TextStyle(
-            fontSize: 16.sp,
-            fontWeight: FontWeight.w500,
-          ),
+          style: AppTextStyle.w500(16.sp),
         ),
       ],
     );

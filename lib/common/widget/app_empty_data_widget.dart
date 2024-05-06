@@ -1,5 +1,4 @@
-import 'package:clean_pattern/common/constant/app_asset.dart';
-import 'package:clean_pattern/common/constant/app_color.dart';
+import 'package:clean_pattern/common/core_ui/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -35,9 +34,7 @@ class AppEmptyDataWidget extends StatelessWidget {
                 ),
                 Text(
                   text ?? "No data.",
-                  style: TextStyle(
-                    fontSize: 22.sp,
-                    fontWeight: FontWeight.w500,
+                  style: AppTextStyle.w500(22.sp).copyWith(
                     color: AppColor.disable,
                   ),
                 ),

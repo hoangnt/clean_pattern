@@ -1,4 +1,4 @@
-import 'package:clean_pattern/common/constant/app_color.dart';
+import 'package:clean_pattern/common/core_ui/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -44,9 +44,7 @@ class AppTextField extends StatelessWidget {
       onTapOutside: (event) {
         FocusScope.of(context).unfocus();
       },
-      style: TextStyle(
-        fontSize: 16.sp,
-      ),
+      style: AppTextStyle.normal(16.sp),
       textInputAction: textInputAction,
       decoration: InputDecoration(
         contentPadding: EdgeInsets.symmetric(horizontal: 15.w),
@@ -57,9 +55,8 @@ class AppTextField extends StatelessWidget {
           color: AppColor.textPlaceholder,
         ),
         errorText: errorText,
-        errorStyle: TextStyle(
-          fontSize: 14.sp,
-          color: AppColor.textColorWarning,
+        errorStyle: AppTextStyle.normal(14.sp).copyWith(
+          color: AppColor.textWarning,
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(20.sp),

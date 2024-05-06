@@ -1,4 +1,4 @@
-import 'package:clean_pattern/common/constant/app_color.dart';
+import 'package:clean_pattern/common/core_ui/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -31,13 +31,11 @@ class AppElevatedButton extends StatelessWidget {
           side: BorderSide(color: AppColor.buttonBorder),
         ),
       ),
-      child: child ?? (text != null
+      child: child ??
+          (text != null
               ? Text(
                   text!,
-                  style: TextStyle(
-                    fontSize: 16.sp,
-                    color: textColor,
-                  ),
+                  style: AppTextStyle.normal(16.sp).copyWith(color: textColor),
                 )
               : SizedBox()),
     );

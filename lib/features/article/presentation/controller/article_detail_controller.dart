@@ -1,5 +1,5 @@
 import 'package:chewie/chewie.dart';
-import 'package:clean_pattern/common/constant/app_color.dart';
+import 'package:clean_pattern/common/core_ui/app_color.dart';
 import 'package:clean_pattern/common/controller/base_controller.dart';
 import 'package:clean_pattern/features/article/data/model/article_detail_model.dart';
 import 'package:clean_pattern/features/article/domain/usecase/get_article_detail_usecase.dart';

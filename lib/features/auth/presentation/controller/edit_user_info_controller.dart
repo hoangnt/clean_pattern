@@ -26,9 +26,8 @@ class EditUserInfoController extends GetxController {
     userInfo = LocalStorageUtil.instance.getUserInfo();
     nameController.text = userInfo!.name ?? "";
     emailController.text = userInfo!.email ?? "";
-    birthdayController.text = userInfo!.birthday != null
-        ? userInfo!.birthday!.toDDMMYYYYString()
-        : "";
+    birthdayController.text =
+        userInfo!.birthday != null ? userInfo!.birthday!.toDDMMYYYYString : "";
   }
 
   Future<void> birthdayPicker(BuildContext context) async {
@@ -44,7 +43,7 @@ class EditUserInfoController extends GetxController {
       return;
     }
 
-    birthdayController.text = selectedDate.toDDMMYYYYString();
+    birthdayController.text = selectedDate.toDDMMYYYYString;
   }
 
   Future<void> saveUserInfo() async {

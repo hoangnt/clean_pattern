@@ -1,4 +1,4 @@
-import 'package:clean_pattern/common/constant/app_color.dart';
+import 'package:clean_pattern/common/core_ui/app_style.dart';
 import 'package:clean_pattern/common/widget/button/app_elevated_button.dart';
 import 'package:clean_pattern/common/widget/dialog/custom_dialog.dart';
 import 'package:clean_pattern/features/post/presentation/controller/post_controller.dart';
@@ -205,10 +205,7 @@ class PostScreen extends StatelessWidget {
           child: Text(
             "Stroke width",
             textAlign: TextAlign.right,
-            style: TextStyle(
-              fontSize: 11.sp,
-              fontWeight: FontWeight.w500,
-            ),
+            style: AppTextStyle.w500(11.sp),
           ),
         ),
         Expanded(
@@ -227,10 +224,7 @@ class PostScreen extends StatelessWidget {
               ),
               Text(
                 "${_controller.drawStrokeWidth.toInt()}",
-                style: TextStyle(
-                  fontSize: 12.sp,
-                  fontWeight: FontWeight.w500,
-                ),
+                style: AppTextStyle.w500(12.sp),
               ),
             ],
           ),

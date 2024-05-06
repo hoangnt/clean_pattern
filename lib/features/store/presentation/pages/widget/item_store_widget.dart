@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:clean_pattern/common/core_ui/app_textstyle.dart';
 import 'package:clean_pattern/common/widget/app_progress_indicator.dart';
 import 'package:clean_pattern/config/routes.dart';
 import 'package:clean_pattern/features/store/data/model/store_model.dart';
@@ -70,10 +71,8 @@ class ItemStoreWidget extends StatelessWidget {
                   SizedBox(height: 6.h),
                   Text(
                     item.name!,
-                    style: TextStyle(
+                    style: AppTextStyle.w700(16.sp).copyWith(
                       letterSpacing: 1,
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.bold,
                     ),
                   ),
                   Text(
@@ -91,10 +90,8 @@ class ItemStoreWidget extends StatelessWidget {
                     children: [
                       Text(
                         item.bestSeller!,
-                        style: TextStyle(
+                        style: AppTextStyle.w500(16.sp).copyWith(
                           color: Get.theme.iconTheme.color!.withOpacity(0.7),
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w500,
                           shadows: [
                             BoxShadow(
                               offset: Offset(3, 3),

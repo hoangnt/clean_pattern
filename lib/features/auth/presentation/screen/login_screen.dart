@@ -1,6 +1,5 @@
-import 'package:clean_pattern/common/constant/app_asset.dart';
-import 'package:clean_pattern/common/constant/app_color.dart';
 import 'package:clean_pattern/common/constant/app_language.dart';
+import 'package:clean_pattern/common/core_ui/app_style.dart';
 import 'package:clean_pattern/common/utilities/validate_util.dart';
 import 'package:clean_pattern/common/widget/app_check_box.dart';
 import 'package:clean_pattern/common/widget/app_text_field.dart';
@@ -41,7 +40,7 @@ class LoginScreen extends StatelessWidget {
                         _settingController.language == AppLanguage.eng
                             ? "ENG"
                             : "VIE",
-                        style: TextStyle(fontSize: 16.sp),
+                        style: AppTextStyle.normal(16.sp),
                       ),
                     ),
                   ),
@@ -64,17 +63,11 @@ class LoginScreen extends StatelessWidget {
               SizedBox(height: 30.h),
               Text(
                 "Hello".tr,
-                style: TextStyle(
-                  fontSize: 22.sp,
-                  fontWeight: FontWeight.w600,
-                ),
+                style: AppTextStyle.w600(22.sp),
               ),
               Text(
                 "Login and Enjoy your food trip !".tr,
-                style: TextStyle(
-                  fontSize: 22.sp,
-                  fontWeight: FontWeight.w600,
-                ),
+                style: AppTextStyle.w600(22.sp),
               ),
               SizedBox(height: 25.h),
               Form(
@@ -140,7 +133,7 @@ class LoginScreen extends StatelessWidget {
                       onTap: () => Get.offNamed(Routes.forgotPassword),
                       child: Text(
                         "Forgot password?".tr,
-                        style: TextStyle(fontSize: 16.sp),
+                        style: AppTextStyle.normal(16.sp),
                       ),
                     ),
                   ],
@@ -170,7 +163,7 @@ class LoginScreen extends StatelessWidget {
                     SizedBox(width: 5.w),
                     Text(
                       "or".tr,
-                      style: TextStyle(fontSize: 16.sp),
+                      style: AppTextStyle.normal(16.sp),
                     ),
                     SizedBox(width: 5.w),
                     Expanded(

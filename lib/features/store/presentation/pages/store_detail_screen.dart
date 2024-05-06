@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:clean_pattern/common/constant/app_asset.dart';
-import 'package:clean_pattern/common/constant/app_color.dart';
+import 'package:clean_pattern/common/core_ui/app_style.dart';
 import 'package:clean_pattern/common/widget/button/app_elevated_button.dart';
 import 'package:clean_pattern/common/widget/app_progress_indicator.dart';
 import 'package:clean_pattern/common/widget/image_view_screen.dart';
@@ -31,18 +30,14 @@ class StoreDetailScreen extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: 10.w),
                   child: Text(
                     _controller.data.name!,
-                    style: TextStyle(
-                      letterSpacing: 2,
-                      fontSize: 20.sp,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: AppTextStyle.w700(20.sp).copyWith(letterSpacing: 2),
                   ),
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 10.w),
                   child: Text(
                     "Owner: ${_controller.data.owner}",
-                    style: TextStyle(fontSize: 15.sp),
+                    style: AppTextStyle.normal(15.sp),
                   ),
                 ),
                 SizedBox(height: 5.h),
@@ -134,11 +129,8 @@ class StoreDetailScreen extends StatelessWidget {
                       children: [
                         Text(
                           "Rate this restaurant",
-                          style: TextStyle(
-                            letterSpacing: 2,
-                            fontSize: 20.sp,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          style: AppTextStyle.w700(20.sp)
+                              .copyWith(letterSpacing: 2),
                         ),
                         SizedBox(height: 15.h),
                         Row(
@@ -239,11 +231,11 @@ class StoreDetailScreen extends StatelessWidget {
       children: [
         Text(
           text,
-          style: TextStyle(fontWeight: FontWeight.w600, fontSize: 15.sp),
+          style: AppTextStyle.w600(15.sp),
         ),
         Text(
           info,
-          style: TextStyle(letterSpacing: 1, fontSize: 15.sp),
+          style: AppTextStyle.normal(15.sp).copyWith(letterSpacing: 1),
         ),
       ],
     );

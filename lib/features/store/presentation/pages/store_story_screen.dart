@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:clean_pattern/common/constant/app_asset.dart';
-import 'package:clean_pattern/common/constant/app_color.dart';
+import 'package:clean_pattern/common/core_ui/app_style.dart';
 import 'package:clean_pattern/common/widget/app_progress_indicator.dart';
 import 'package:clean_pattern/features/store/presentation/controller/store_story_controller.dart';
 import 'package:flutter/material.dart';
@@ -71,20 +70,13 @@ class StoreStoryScreen extends StatelessWidget {
                         children: [
                           Text(
                             _controller.data.name!,
-                            style: TextStyle(
-                              color: Colors.white,
-                              letterSpacing: 2,
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.w600,
-                            ),
+                            style: AppTextStyle.w600(16.sp).white.copyWith(
+                                  letterSpacing: 2,
+                                ),
                           ),
                           Text(
                             "Owner: ${_controller.data.owner!}",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 14.sp,
-                              fontWeight: FontWeight.w400,
-                            ),
+                            style: AppTextStyle.normal(14.sp).white,
                           ),
                         ],
                       ),

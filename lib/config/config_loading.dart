@@ -1,4 +1,4 @@
-import 'package:clean_pattern/common/constant/app_color.dart';
+import 'package:clean_pattern/common/core_ui/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
@@ -24,7 +24,7 @@ class ConfigLoading {
       ..dismissOnTap = false;
   }
 
-   static void dark() {
+  static void dark() {
     EasyLoading.instance
       ..animationStyle = EasyLoadingAnimationStyle.scale
       ..indicatorType = EasyLoadingIndicatorType.ring

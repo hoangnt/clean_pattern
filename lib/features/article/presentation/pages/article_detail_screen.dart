@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:chewie/chewie.dart';
-import 'package:clean_pattern/common/constant/app_color.dart';
+import 'package:clean_pattern/common/core_ui/app_style.dart';
 import 'package:clean_pattern/common/extensions/datetime_extension.dart';
 import 'package:clean_pattern/features/article/presentation/controller/article_detail_controller.dart';
 import 'package:flutter/material.dart';
@@ -33,16 +33,12 @@ class ArticleDetailScreen extends StatelessWidget {
                 children: [
                   Text(
                     _controller.detail!.title!,
-                    style: TextStyle(
-                      letterSpacing: 2,
-                      fontSize: 20.sp,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: AppTextStyle.w700(20.sp).copyWith(letterSpacing: 2),
                   ),
                   SizedBox(height: 2.h),
                   Text(
-                    "Author: ${_controller.detail!.author!} - ${_controller.detail!.publishedAt!.toDDMMYYYYString()}",
-                    style: TextStyle(fontSize: 16.sp),
+                    "Author: ${_controller.detail!.author!} - ${_controller.detail!.publishedAt!.toDDMMYYYYString}",
+                    style: AppTextStyle.normal(16.sp),
                   ),
                   SizedBox(height: 10.h),
                   IntrinsicHeight(
@@ -60,7 +56,8 @@ class ArticleDetailScreen extends StatelessWidget {
                         Expanded(
                           child: Text(
                             _controller.detail!.subTitle!,
-                            style: TextStyle(letterSpacing: 1, fontSize: 14.sp),
+                            style: AppTextStyle.normal(14.sp)
+                                .copyWith(letterSpacing: 1),
                           ),
                         ),
                       ],
@@ -84,7 +81,7 @@ class ArticleDetailScreen extends StatelessWidget {
                   SizedBox(height: 10.h),
                   Text(
                     _controller.detail!.content!,
-                    style: TextStyle(fontSize: 16.sp),
+                    style: AppTextStyle.normal(16.sp),
                   ),
                   SizedBox(height: 10.h),
                   AspectRatio(
@@ -97,7 +94,7 @@ class ArticleDetailScreen extends StatelessWidget {
                   SizedBox(height: 10.h),
                   Text(
                     _controller.detail!.content!,
-                    style: TextStyle(fontSize: 16.sp),
+                    style: AppTextStyle.normal(16.sp),
                   ),
                   SizedBox(height: 20.h),
                 ],

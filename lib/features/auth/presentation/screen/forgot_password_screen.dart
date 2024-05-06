@@ -1,6 +1,5 @@
-import 'package:clean_pattern/common/constant/app_asset.dart';
-import 'package:clean_pattern/common/constant/app_color.dart';
 import 'package:clean_pattern/common/constant/app_language.dart';
+import 'package:clean_pattern/common/core_ui/app_style.dart';
 import 'package:clean_pattern/common/utilities/validate_util.dart';
 import 'package:clean_pattern/common/widget/app_text_field.dart';
 import 'package:clean_pattern/common/widget/button/app_elevated_button.dart';
@@ -45,7 +44,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                         _settingController.language == AppLanguage.eng
                             ? "ENG"
                             : "VIE",
-                        style: TextStyle(fontSize: 16.sp),
+                        style: AppTextStyle.normal(16.sp),
                       ),
                     ),
                   ),
@@ -71,19 +70,13 @@ class ForgotPasswordScreen extends StatelessWidget {
                 child: Text(
                   "We will reset password and send to your email".tr,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 22.sp,
-                    fontWeight: FontWeight.w600,
-                  ),
+                  style: AppTextStyle.w600(22.sp),
                 ),
               ),
               Text(
                 "Write down your email here".tr,
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 22.sp,
-                  fontWeight: FontWeight.w600,
-                ),
+                style: AppTextStyle.w600(22.sp),
               ),
               SizedBox(height: 20.h),
               Form(

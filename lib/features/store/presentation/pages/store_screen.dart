@@ -1,4 +1,4 @@
-import 'package:clean_pattern/common/constant/app_color.dart';
+import 'package:clean_pattern/common/core_ui/app_style.dart';
 import 'package:clean_pattern/common/widget/app_empty_data_widget.dart';
 import 'package:clean_pattern/features/store/presentation/controller/store_controller.dart';
 import 'package:clean_pattern/features/store/presentation/pages/widget/item_store_widget.dart';
@@ -34,10 +34,7 @@ class StoreScreen extends StatelessWidget {
                     padding: EdgeInsets.only(left: 10.w),
                     child: Text(
                       "Top 10 on 10".tr,
-                      style: TextStyle(
-                        fontSize: 18.sp,
-                        fontWeight: FontWeight.w500,
-                      ),
+                      style: AppTextStyle.w500(18.sp),
                     ),
                   ),
                   SizedBox(height: 5.h),
@@ -61,10 +58,7 @@ class StoreScreen extends StatelessWidget {
                     padding: EdgeInsets.only(left: 10.w),
                     child: Text(
                       "Would you like to go?".tr,
-                      style: TextStyle(
-                        fontSize: 18.sp,
-                        fontWeight: FontWeight.w500,
-                      ),
+                      style: AppTextStyle.w500(18.sp),
                     ),
                   ),
                   SizedBox(height: 5.h),
