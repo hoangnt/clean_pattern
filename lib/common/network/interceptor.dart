@@ -2,7 +2,9 @@ import 'package:clean_pattern/common/utilities/local_storage_util.dart';
 import 'package:clean_pattern/common/constant/status_code.dart';
 import 'package:clean_pattern/features/auth/data/repositories/auth_repo_impl.dart';
 import 'package:clean_pattern/features/auth/domain/repositories/auth_repo.dart';
+import 'package:clean_pattern/features/settings/presentation/controller/settings_controller.dart';
 import 'package:dio/dio.dart';
+import 'package:get/get.dart';
 
 class TokenInterceptor extends InterceptorsWrapper {
   @override
@@ -14,28 +16,23 @@ class TokenInterceptor extends InterceptorsWrapper {
   }
 }
 
-class ExpiredRefreshTokenInterceptor extends QueuedInterceptorsWrapper {
-  @override
-  void onResponse(Response response, ResponseInterceptorHandler handler) {
-    if (response.data["message"] == "Refresh token is expired") {
-      return handler.reject(DioException(
-        requestOptions: response.requestOptions,
-        response: response.data,
-      ));
-    }
-    super.onResponse(response, handler);
-  }
-}
-
 class RefreshTokenInterceptor extends QueuedInterceptorsWrapper {
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) async {
-    if (err.response?.data["message"] == "Token is expired") {
+    if (err.response?.data["message"] == "Token is expired" &&
+        LocalStorageUtil.instance.getAccessToken() != null) {
       final AuthRepo authRepo = AuthRepoImpl();
       final res = await authRepo.refreshToken(
         refreshToken: LocalStorageUtil.instance.getRefreshToken()!,
       );
 
+      // Refresh token expired
+      if (res.statusCode == StatusCode.unauthorized) {
+        Get.find<SettingsController>().logout();
+        return handler.resolve(err.response!);
+      }
+
+      // Refresh token success
       if (res.statusCode == StatusCode.success) {
         await Future.wait([
           LocalStorageUtil.instance.saveAccessToken(res.data!["accessToken"]!),
@@ -53,7 +50,7 @@ class RefreshTokenInterceptor extends QueuedInterceptorsWrapper {
         data: err.requestOptions.data,
         queryParameters: err.requestOptions.queryParameters,
         options: Options(
-          method: err.requestOptions.method,
+          method: err.requestOptions.method.toUpperCase(),
           headers: err.requestOptions.headers,
         ),
       );

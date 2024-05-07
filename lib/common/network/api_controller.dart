@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:clean_pattern/common/constant/status_code.dart';
@@ -14,7 +13,6 @@ class ApiController {
     _dio = Dio(apiOption);
     _dio.interceptors.addAll([
       TokenInterceptor(),
-      ExpiredRefreshTokenInterceptor(),
       RefreshTokenInterceptor(),
     ]);
   }
@@ -100,7 +98,7 @@ class ApiController {
 
     Map<String, dynamic>? jsonData = Map<String, dynamic>();
     try {
-      jsonData = json.decode(response.data);
+      jsonData = Map.from(response.data);
     } catch (e) {
       jsonData = null;
     }
@@ -116,6 +114,7 @@ class ApiController {
 
     print("===== Response: ${response.realUri} ======");
     print(data.toJson());
+    print("==========================================");
 
     return data;
   }
