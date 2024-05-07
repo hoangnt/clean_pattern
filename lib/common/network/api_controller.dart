@@ -22,7 +22,7 @@ class ApiController {
 
   late Dio _dio;
   final BaseOptions apiOption = BaseOptions(
-    baseUrl: BaseUrl.getServerUrl(),
+    baseUrl: BaseUrl.serverUrl,
     connectTimeout: Duration(seconds: 10),
   );
 
@@ -77,7 +77,7 @@ class ApiController {
         ),
       });
       final res = await _dio.post(
-        "${BaseUrl.getServerUrl()}$endpoint",
+        "${BaseUrl.serverUrl}$endpoint",
         data: params,
         options: Options(method: "POST"),
       );
@@ -105,7 +105,7 @@ class ApiController {
       jsonData = null;
     }
 
-    return BaseResponse(
+    final data = BaseResponse(
       statusCode: response.statusCode ?? StatusCode.crash,
       data: jsonData != null ? jsonData["data"] : null,
       message: jsonData != null ? jsonData["message"] : null,
@@ -113,5 +113,10 @@ class ApiController {
           ? Paging.fromJson(jsonData["paging"])
           : null,
     );
+
+    print("===== Response: ${response.realUri} ======");
+    print(data.toJson());
+
+    return data;
   }
 }

@@ -5,16 +5,9 @@ class BaseUrl {
   static const String _stgUrl = 'https://stg.com.vn';
   static const String _devUrl = 'https://dev.com.vn';
 
-  static String getServerUrl() {
-    switch (Flavor.env) {
-      case Environment.prod:
-        return _prdUrl;
-      case Environment.stg:
-        return _stgUrl;
-      case Environment.dev:
-        return _devUrl;
-      default:
-        return '';
-    }
-  }
+  static String get serverUrl => switch (Flavor.env) {
+        Environment.prod => _prdUrl,
+        Environment.stg => _stgUrl,
+        Environment.dev => _devUrl,
+      };
 }
