@@ -233,7 +233,7 @@ class StoreDetailScreen extends StatelessWidget {
           text,
           style: AppTextStyle.w600(15.sp),
         ),
-        Text(
+        SelectableText(
           info,
           style: AppTextStyle.normal(15.sp).copyWith(letterSpacing: 1),
         ),

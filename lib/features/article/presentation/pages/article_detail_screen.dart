@@ -31,7 +31,7 @@ class ArticleDetailScreen extends StatelessWidget {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  SelectableText(
                     _controller.detail!.title!,
                     style: AppTextStyle.w700(20.sp).copyWith(letterSpacing: 2),
                   ),
@@ -54,7 +54,7 @@ class ArticleDetailScreen extends StatelessWidget {
                         ),
                         SizedBox(width: 5.w),
                         Expanded(
-                          child: Text(
+                          child: SelectableText(
                             _controller.detail!.subTitle!,
                             style: AppTextStyle.normal(14.sp)
                                 .copyWith(letterSpacing: 1),
@@ -79,7 +79,7 @@ class ArticleDetailScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 10.h),
-                  Text(
+                  SelectableText(
                     _controller.detail!.content!,
                     style: AppTextStyle.normal(16.sp),
                   ),
@@ -92,7 +92,7 @@ class ArticleDetailScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 10.h),
-                  Text(
+                  SelectableText(
                     _controller.detail!.content!,
                     style: AppTextStyle.normal(16.sp),
                   ),
