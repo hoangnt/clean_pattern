@@ -29,49 +29,47 @@ class CustomDialog extends StatelessWidget {
     return Dialog(
       backgroundColor: Colors.transparent,
       child: Container(
+        clipBehavior: Clip.hardEdge,
         decoration: BoxDecoration(
           color: Get.theme.scaffoldBackgroundColor,
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(10),
         ),
         child: IntrinsicHeight(
           child: IntrinsicWidth(
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(15),
-              child: Column(
-                children: [
-                  Container(
-                    padding: EdgeInsets.symmetric(vertical: 5.h),
-                    color: AppColor.primary,
-                    width: double.infinity,
-                    child: Center(
-                      child: Text(
-                        title,
-                        style: AppTextStyle.w500(16.sp).white,
-                      ),
+            child: Column(
+              children: [
+                Container(
+                  padding: EdgeInsets.symmetric(vertical: 5.h),
+                  color: AppColor.primary,
+                  width: double.infinity,
+                  child: Center(
+                    child: Text(
+                      title,
+                      style: AppTextStyle.w500(16.sp).white,
                     ),
                   ),
-                  child ?? SizedBox(),
-                  SizedBox(height: 5.h),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      if (!disableActionButton)
-                        AppElevatedButton(
-                          onPressed: onAction,
-                          text: actionTitle ?? "Confirm".tr,
-                        ),
-                      if (!disableCloseButton)
-                        AppElevatedButton(
-                          onPressed: Get.back,
-                          text: closeTitle ?? "Close".tr,
-                          backgroundColor: Get.theme.scaffoldBackgroundColor,
-                          textColor: Get.theme.textTheme.bodyMedium!.color,
-                        ),
-                    ],
-                  ),
-                  SizedBox(height: 12.h),
-                ],
-              ),
+                ),
+                child ?? SizedBox(),
+                SizedBox(height: 5.h),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    if (!disableActionButton)
+                      AppElevatedButton(
+                        onPressed: onAction,
+                        text: actionTitle ?? "Confirm".tr,
+                      ),
+                    if (!disableCloseButton)
+                      AppElevatedButton(
+                        onPressed: Get.back,
+                        text: closeTitle ?? "Close".tr,
+                        backgroundColor: Get.theme.scaffoldBackgroundColor,
+                        textColor: Get.theme.textTheme.bodyMedium!.color,
+                      ),
+                  ],
+                ),
+                SizedBox(height: 12.h),
+              ],
             ),
           ),
         ),

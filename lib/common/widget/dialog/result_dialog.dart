@@ -20,42 +20,40 @@ class ResultDialog extends StatelessWidget {
     return Dialog(
       backgroundColor: Colors.transparent,
       child: Container(
+        clipBehavior: Clip.hardEdge,
         decoration: BoxDecoration(
           color: Get.theme.scaffoldBackgroundColor,
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(10),
         ),
         child: IntrinsicHeight(
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(15),
-            child: Column(
-              children: [
-                Container(
-                  padding: EdgeInsets.symmetric(vertical: 5.h),
-                  color: AppColor.primary,
-                  width: double.infinity,
-                  child: Center(
-                    child: Text(
-                      title,
-                      style: AppTextStyle.w500(16.sp).white,
-                    ),
-                  ),
-                ),
-                SizedBox(height: 5.h),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 12.w),
+          child: Column(
+            children: [
+              Container(
+                padding: EdgeInsets.symmetric(vertical: 5.h),
+                color: AppColor.primary,
+                width: double.infinity,
+                child: Center(
                   child: Text(
-                    content,
-                    style: AppTextStyle.normal(14.sp),
+                    title,
+                    style: AppTextStyle.w500(16.sp).white,
                   ),
                 ),
-                SizedBox(height: 5.h),
-                AppElevatedButton(
-                  onPressed: Get.back,
-                  text: closeTitle ?? "Close",
+              ),
+              SizedBox(height: 5.h),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 12.w),
+                child: Text(
+                  content,
+                  style: AppTextStyle.normal(14.sp),
                 ),
-                SizedBox(height: 5.h),
-              ],
-            ),
+              ),
+              SizedBox(height: 5.h),
+              AppElevatedButton(
+                onPressed: Get.back,
+                text: closeTitle ?? "Close",
+              ),
+              SizedBox(height: 5.h),
+            ],
           ),
         ),
       ),
