@@ -12,12 +12,12 @@ class BaseController extends GetxController {
 
   Future<void> handleBaseResponse<T>({
     required Future<BaseResponse<T>> usecase,
-    String? messageLoading,
+    String? loadingText,
     FutureOr<void> Function(T)? onSuccess,
     void Function(String)? onError,
   }) async {
     isLoading.value = true;
-    EasyLoading.show(status: "Loading...");
+    EasyLoading.show(status: loadingText ?? "Loading...");
     final res = await usecase;
 
     if (res.statusCode != StatusCode.success && onError != null) {
@@ -44,13 +44,13 @@ class BaseController extends GetxController {
 
   Future<void> handle2BaseResponse<T, E>({
     required List<Future<BaseResponse<T>>> usecases,
-    String? messageLoading,
+    String? loadingText,
     void Function(T, E)? onSuccess,
     void Function(List<String>)? onError,
     bool needUpdate = true,
   }) async {
     isLoading.value = true;
-    EasyLoading.show(status: "Loading...");
+    EasyLoading.show(status: loadingText ?? "Loading...");
 
     final res = await Future.wait(usecases);
 
@@ -61,6 +61,7 @@ class BaseController extends GetxController {
           .map((val) => val.message ?? "Something went wrong !")
           .toList();
       onError(listMessageError);
+      return;
     }
 
     if (onSuccess != null) {
@@ -68,9 +69,6 @@ class BaseController extends GetxController {
         res[0].data as T,
         res[1].data as E,
       );
-      isLoading.value = false;
-      EasyLoading.dismiss();
-      update();
     }
 
     isLoading.value = false;
@@ -82,13 +80,13 @@ class BaseController extends GetxController {
 
   Future<void> handleMutiUsecaseWithoutData({
     required List<Future<BaseResponse>> usecases,
-    String? messageLoading,
+    String? loadingText,
     void Function()? onSuccess,
     void Function(List<String>)? onError,
     bool needUpdate = true,
   }) async {
     isLoading.value = true;
-    EasyLoading.show(status: "Loading...");
+    EasyLoading.show(status: loadingText ?? "Loading...");
 
     final res = await Future.wait(usecases);
 
@@ -102,6 +100,7 @@ class BaseController extends GetxController {
       isLoading.value = false;
       EasyLoading.dismiss();
       update();
+      return;
     }
 
     if (onSuccess != null) {

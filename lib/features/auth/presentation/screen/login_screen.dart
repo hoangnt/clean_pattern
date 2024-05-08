@@ -79,7 +79,7 @@ class LoginScreen extends StatelessWidget {
                     children: [
                       AppTextField(
                         controller: _controller.emailController,
-                        validator: ValidateUtil.instance.validateEmail,
+                        validator: ValidateUtil.validateEmail,
                         hintText: "weloveramen@mail.com",
                         textInputAction: TextInputAction.next,
                         prefixIcon: Icon(
@@ -98,7 +98,7 @@ class LoginScreen extends StatelessWidget {
                       AppTextField(
                         controller: _controller.passwordController,
                         obscureText: _controller.displayPassword,
-                        validator: ValidateUtil.instance.validatePassword,
+                        validator: ValidateUtil.validatePassword,
                         hintText: "Password".tr,
                         prefixIcon: Icon(
                           Icons.lock_open_rounded,

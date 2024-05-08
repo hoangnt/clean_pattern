@@ -87,7 +87,7 @@ class EditUserInfoScreen extends StatelessWidget {
                 children: [
                   AppTextField(
                     controller: _controller.nameController,
-                    validator: ValidateUtil.instance.validateEmpty,
+                    validator: ValidateUtil.validateEmpty,
                     hintText: "We Love Ramen",
                     textInputAction: TextInputAction.done,
                     prefixIcon: Icon(
@@ -98,7 +98,7 @@ class EditUserInfoScreen extends StatelessWidget {
                   SizedBox(height: 14.h),
                   AppTextField(
                     controller: _controller.emailController,
-                    validator: ValidateUtil.instance.validateEmail,
+                    validator: ValidateUtil.validateEmail,
                     hintText: "weloveramen@gmail.com",
                     textInputAction: TextInputAction.done,
                     prefixIcon: Icon(
@@ -111,7 +111,7 @@ class EditUserInfoScreen extends StatelessWidget {
                     onTap: () => _controller.birthdayPicker(context),
                     readOnly: true,
                     controller: _controller.birthdayController,
-                    validator: ValidateUtil.instance.validateEmpty,
+                    validator: ValidateUtil.validateEmpty,
                     hintText: "13/08/1995",
                     textInputAction: TextInputAction.done,
                     prefixIcon: Icon(

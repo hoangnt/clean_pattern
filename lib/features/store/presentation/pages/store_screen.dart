@@ -15,7 +15,7 @@ class StoreScreen extends StatelessWidget {
     return Scaffold(
       body: RefreshIndicator(
         color: AppColor.primary,
-        onRefresh: _controller.refreshData,
+        onRefresh: _controller.fetchData,
         child: SingleChildScrollView(
           physics: AlwaysScrollableScrollPhysics(),
           child: Obx(

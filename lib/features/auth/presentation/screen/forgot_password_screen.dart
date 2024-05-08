@@ -88,7 +88,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                     children: [
                       AppTextField(
                         controller: _controller.emailController,
-                        validator: ValidateUtil.instance.validateEmail,
+                        validator: ValidateUtil.validateEmail,
                         hintText: "weloveramen@mail.com",
                         prefixIcon: Icon(
                           Icons.mail_outline_rounded,

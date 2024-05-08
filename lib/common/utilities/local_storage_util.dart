@@ -12,13 +12,13 @@ class LocalStorageUtil {
     _prefs = await SharedPreferences.getInstance();
   }
 
-  static const String _theme = "theme";
-  static const String _email = "email";
-  static const String _password = "password";
-  static const String _rememberMe = "rememberMe";
-  static const String _accessToken = "accessToken";
-  static const String _refreshToken = "refreshToken";
-  static const String _userInfo = "userInfo";
+  final String _theme = "theme";
+  final String _email = "email";
+  final String _password = "password";
+  final String _rememberMe = "rememberMe";
+  final String _accessToken = "accessToken";
+  final String _refreshToken = "refreshToken";
+  final String _userInfo = "userInfo";
 
   Future<bool> saveTheme(String theme) async =>
       await _prefs.setString(_theme, theme);

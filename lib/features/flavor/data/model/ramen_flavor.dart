@@ -1,5 +1,6 @@
 import 'package:clean_pattern/common/constant/hive_box_key.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+
 part 'ramen_flavor.g.dart';
 
 @HiveType(typeId: HiveAdapterId.ramenFlavor)

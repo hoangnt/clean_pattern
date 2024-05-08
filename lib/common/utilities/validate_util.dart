@@ -1,10 +1,7 @@
 import 'package:get/get.dart';
 
 class ValidateUtil {
-  static final ValidateUtil instance = ValidateUtil._();
-  ValidateUtil._();
-
-  String? validateEmail(String? email) {
+  static String? validateEmail(String? email) {
     final regex = RegExp(
         r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
 
@@ -19,7 +16,7 @@ class ValidateUtil {
     return null;
   }
 
-  String? validatePassword(String? password) {
+  static String? validatePassword(String? password) {
     if (password == null || password.isEmpty) {
       return "Put your password here !".tr;
     }
@@ -31,7 +28,7 @@ class ValidateUtil {
     return null;
   }
 
-  String? validateEmpty(String? value) {
+  static String? validateEmpty(String? value) {
     if (value == null || value.isEmpty) {
       return "This is empty !".tr;
     }

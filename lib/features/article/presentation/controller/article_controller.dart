@@ -29,15 +29,17 @@ class ArticleController extends BaseController {
         displayScrollToTop.value = false;
       }
 
-      // if (scrollController.offset > scrollController.position.maxScrollExtent &&
-      //     !isLoading.value) {
-      //   onLoad();
-      // }
+      if (scrollController.offset >=
+              scrollController.position.maxScrollExtent &&
+          !isLoading.value) {
+        onLoad();
+      }
       update();
     });
   }
 
   Future<void> fetchData() async {
+    listArticle.clear();
     handleBaseResponse<List<ArticleModel>>(
       usecase: getAllArticleUsecase(),
       onSuccess: (data) => listArticle.value = data,
@@ -45,11 +47,19 @@ class ArticleController extends BaseController {
   }
 
   Future<void> onLoad() async {
+    if (totalPage == 0) {
+      return;
+    }
+    
     if (totalPage != 0 && _page == totalPage) {
       return;
     }
+
     _page += 1;
-    fetchData();
+    handleBaseResponse<List<ArticleModel>>(
+      usecase: getAllArticleUsecase(),
+      onSuccess: (data) => listArticle.value += data,
+    );
   }
 
   void removeArticle(int index) {

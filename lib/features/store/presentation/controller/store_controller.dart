@@ -22,11 +22,10 @@ class StoreController extends BaseController {
     fetchData();
   }
 
-  Future<void> refreshData() async {
-    fetchData();
-  }
+  Future<void> fetchData() async {
+    listStore.clear;
+    listTopStore.clear();
 
-  void fetchData() {
     handle2BaseResponse<List<StoreModel>, List<StoreModel>>(
       needUpdate: false,
       usecases: [
