@@ -10,8 +10,12 @@ class AppThemeMode {
 class AppTheme {
   static ThemeData lightTheme = ThemeData(
     fontFamily: "Dosis",
-    brightness: Brightness.light,
     primaryColor: AppColor.primary,
+    colorScheme: ColorScheme.fromSeed(
+      brightness: Brightness.light,
+      seedColor: AppColor.primary,
+      secondary: AppColor.primaryLight,
+    ),
     scaffoldBackgroundColor: AppColor.scaffoldBackground,
     visualDensity: VisualDensity.adaptivePlatformDensity,
     sliderTheme: SliderThemeData(
@@ -38,8 +42,12 @@ class AppTheme {
 
   static ThemeData darkTheme = ThemeData(
     fontFamily: "Dosis",
-    brightness: Brightness.dark,
     primaryColor: AppColor.primary,
+    colorScheme: ColorScheme.fromSeed(
+      brightness: Brightness.dark,
+      seedColor: AppColor.primary,
+      secondary: AppColor.primaryLight,
+    ),
     visualDensity: VisualDensity.adaptivePlatformDensity,
     scaffoldBackgroundColor: AppColor.scaffoldBackgroundDark,
     dialogTheme: DialogTheme(

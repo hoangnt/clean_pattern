@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppColor {
   static const Color primary = Color(0xfff5a249);
+  static const Color primaryLight = Color(0xffffc07d);
   static const Color primaryBold = Color(0xffed8a21);
   static const Color disable = Color(0xff999999);
   static const Color scaffoldBackground = Color(0xfff2f2f2);
@@ -19,7 +20,7 @@ class AppColor {
   //Text color
   static const Color textColor1 = Color(0xff666666);
   static const Color textColor2 = Color(0xff242424);
-  static const Color textPlaceholder= Color(0xff999999);
+  static const Color textPlaceholder = Color(0xff999999);
   static const Color textWarning = Color(0xfff73434);
   static const Color textAvailable = Color(0xff3491ed);
 
