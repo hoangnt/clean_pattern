@@ -35,7 +35,9 @@ class AppElevatedButton extends StatelessWidget {
           (text != null
               ? Text(
                   text!,
-                  style: AppTextStyle.normal(16.sp).copyWith(color: textColor),
+                  style: AppTextStyle.normal(16.sp).copyWith(
+                    color: textColor ?? Colors.white,
+                  ),
                 )
               : SizedBox()),
     );
