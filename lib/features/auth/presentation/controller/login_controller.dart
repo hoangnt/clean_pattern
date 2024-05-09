@@ -20,6 +20,7 @@ class LoginController extends BaseController {
   final loginKey = GlobalKey<FormState>(debugLabel: "login_process");
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController serverController = TextEditingController();
 
   bool displayPassword = true;
   bool rememberMe = false;
