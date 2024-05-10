@@ -74,7 +74,7 @@ class ApiController {
           filename: file.path.split("/").last,
         ),
       });
-      final res = await _dio.post(
+      final res = await _dio.request(
         "${BaseUrl.serverUrl}$endpoint",
         data: params,
         options: Options(method: "POST"),
