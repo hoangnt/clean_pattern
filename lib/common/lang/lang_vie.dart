@@ -30,6 +30,9 @@ class LangVie {
     "Top 10 on 10": "10 quán ngon nhất",
     "Would you like to go?": "Bạn muốn đến quán này không?",
 
+    // Article
+    "Detail of article": "Bài viết",
+
     // Flavor
     "Set your favorite Ramen taste": "Điều chỉnh vị Ramen ưa thích",
     "Salt": "Độ mặn",

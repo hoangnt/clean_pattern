@@ -1,6 +1,7 @@
 import 'package:clean_pattern/common/core_ui/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class AppTextField extends StatelessWidget {
   AppTextField({
@@ -47,6 +48,8 @@ class AppTextField extends StatelessWidget {
       style: AppTextStyle.normal(16.sp),
       textInputAction: textInputAction,
       decoration: InputDecoration(
+        filled: true,
+        fillColor: Get.theme.scaffoldBackgroundColor,
         contentPadding: EdgeInsets.symmetric(horizontal: 15.w),
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,

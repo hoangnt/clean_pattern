@@ -6,7 +6,9 @@ import 'package:clean_pattern/features/auth/presentation/binding/edit_user_info_
 import 'package:clean_pattern/features/auth/presentation/binding/forgot_password_binding.dart';
 import 'package:clean_pattern/features/auth/presentation/screen/edit_user_info_screen.dart';
 import 'package:clean_pattern/features/auth/presentation/screen/forgot_password_screen.dart';
+import 'package:clean_pattern/features/flavor/presentation/binding/customer_services_binding.dart';
 import 'package:clean_pattern/features/flavor/presentation/binding/flavor_binding.dart';
+import 'package:clean_pattern/features/flavor/presentation/pages/customer_services_screen.dart';
 import 'package:clean_pattern/features/home/presentation/binding/entry_binding.dart';
 import 'package:clean_pattern/features/home/presentation/pages/entry_screen.dart';
 import 'package:clean_pattern/features/auth/presentation/binding/login_binding.dart';
@@ -83,6 +85,12 @@ class Pages {
         page: () => StoreStoryScreen(),
         binding: StoreStoryBinding(),
         transition: Transition.rightToLeftWithFade,
+      ),
+      GetPage(
+        name: Routes.customerServices,
+        page: () => CustomerServicesScreen(),
+        binding: CustomerServicesBinding(),
+        transition: Transition.rightToLeft,
       ),
     ];
   }

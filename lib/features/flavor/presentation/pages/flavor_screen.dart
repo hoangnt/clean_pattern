@@ -120,6 +120,17 @@ class FlavorScreen extends StatelessWidget {
                       text: "Save".tr,
                     ),
                   ),
+                  SizedBox(height: 10.h),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: InkWell(
+                      onTap: () => Get.toNamed(Routes.customerServices),
+                      child: Text(
+                        "Help ?",
+                        style: AppTextStyle.normal(16.sp),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),

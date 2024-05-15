@@ -8,6 +8,8 @@ class AppElevatedButton extends StatelessWidget {
     this.text,
     this.backgroundColor,
     this.textColor,
+    this.height,
+    this.width,
     this.child,
   });
 
@@ -16,6 +18,8 @@ class AppElevatedButton extends StatelessWidget {
   final Color? backgroundColor;
   final Color? textColor;
   final Widget? child;
+  final double? width;
+  final double? height;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +27,7 @@ class AppElevatedButton extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         elevation: 3,
-        minimumSize: Size(55.w, 30.h),
+        minimumSize: Size(width ?? 55.w, height ?? 30.h),
         backgroundColor: backgroundColor ?? AppColor.primary,
         padding: EdgeInsets.symmetric(horizontal: 8.w),
         shape: RoundedRectangleBorder(

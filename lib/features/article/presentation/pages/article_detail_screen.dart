@@ -16,7 +16,7 @@ class ArticleDetailScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Get.theme.appBarTheme.backgroundColor,
       appBar: AppBar(
-        title: Text("Detail of article"),
+        title: Text("Detail of article".tr),
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 14.w),
