@@ -32,9 +32,10 @@ class AppDropdownMenu<T> extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DropdownMenu<T>(
+      initialSelection: initialSelection,
       controller: controller,
-      width: width ?? 150.w,
       onSelected: onSelected,
+      width: width ?? 150.w,
       enableFilter: true,
       enableSearch: false,
       requestFocusOnTap: enableSearch,
@@ -44,12 +45,18 @@ class AppDropdownMenu<T> extends StatelessWidget {
             offset: Offset(3, -5),
             child: trailingIcon ?? Icon(Icons.keyboard_arrow_down_rounded),
           ),
-      initialSelection: initialSelection,
+      menuStyle: MenuStyle(
+        elevation: MaterialStateProperty.all(0),
+        padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.zero),
+      ),
       dropdownMenuEntries: listOption
           .map(
             (val) => DropdownMenuEntry<T>(
               value: val,
               label: val.toString(),
+              style: TextButton.styleFrom(
+                side: BorderSide(color: Colors.black26),
+              ),
             ),
           )
           .toList(),
