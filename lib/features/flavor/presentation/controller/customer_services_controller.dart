@@ -5,6 +5,7 @@ import 'package:web_socket_channel/web_socket_channel.dart';
 
 class CustomerServicesController extends BaseController {
   final TextEditingController msgController = TextEditingController();
+  final ScrollController scrollController = ScrollController();
 
   final wsUrl = "wss://echo.websocket.org";
   late WebSocketChannel channel;
@@ -24,9 +25,23 @@ class CustomerServicesController extends BaseController {
     });
   }
 
+  @override
+  void onClose() {
+    channel.sink.close();
+    super.onClose();
+  }
+
   void sendMessage() {
     final msg = msgController.text;
     channel.sink.add(msg);
     msgController.clear();
+
+    Future.delayed(Duration(milliseconds: 1000), () {
+      scrollController.animateTo(
+        scrollController.position.maxScrollExtent,
+        duration: Duration(milliseconds: 300),
+        curve: Curves.easeOutQuint,
+      );
+    });
   }
 }

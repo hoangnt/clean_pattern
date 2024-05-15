@@ -28,22 +28,33 @@ class CustomerServicesScreen extends StatelessWidget {
           children: [
             Expanded(
               child: ListView.builder(
-                padding: EdgeInsets.only(top: 10.h),
+                padding:
+                    EdgeInsets.symmetric(horizontal: 15.w).copyWith(top: 10.h),
+                controller: _controller.scrollController,
                 itemCount: _controller.chatData.length,
                 itemBuilder: (context, index) {
-                  return Container(
-                    margin: EdgeInsets.only(bottom: 10.h),
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10.sp),
-                      border: Border.all(color: AppColor.disable),
-                    ),
-                    child: Text(
-                      _controller.chatData[index],
-                      style: AppTextStyle.normal(),
-                    ),
+                  return Row(
+                    children: [
+                      LimitedBox(
+                        maxWidth: 280.w,
+                        child: Container(
+                          margin: EdgeInsets.only(bottom: 10.h),
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 14.w,
+                            vertical: 12.h,
+                          ),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(30.sp),
+                            border: Border.all(color: AppColor.disable),
+                          ),
+                          child: Text(
+                            _controller.chatData[index],
+                            style: AppTextStyle.normal(18.sp),
+                          ),
+                        ),
+                      ),
+                    ],
                   );
                 },
               ),
@@ -66,6 +77,7 @@ class CustomerServicesScreen extends StatelessWidget {
             child: AppTextField(
               controller: _controller.msgController,
               hintText: "Something confused, just ask me.",
+              maxLines: null,
             ),
           ),
           SizedBox(width: 20.w),

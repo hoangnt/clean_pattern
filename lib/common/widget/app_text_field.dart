@@ -17,6 +17,7 @@ class AppTextField extends StatelessWidget {
     this.textInputAction,
     this.readOnly = false,
     this.onTap,
+    this.maxLines = 1,
   });
 
   final String? hintText;
@@ -31,6 +32,7 @@ class AppTextField extends StatelessWidget {
   final TextInputAction? textInputAction;
   final bool readOnly;
   final void Function()? onTap;
+  final int? maxLines;
 
   @override
   Widget build(BuildContext context) {
@@ -45,12 +47,13 @@ class AppTextField extends StatelessWidget {
       onTapOutside: (event) {
         FocusScope.of(context).unfocus();
       },
+      maxLines: maxLines,
       style: AppTextStyle.normal(16.sp),
       textInputAction: textInputAction,
       decoration: InputDecoration(
         filled: true,
         fillColor: Get.theme.scaffoldBackgroundColor,
-        contentPadding: EdgeInsets.symmetric(horizontal: 15.w),
+        contentPadding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 8.h),
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
         hintText: hintText,
