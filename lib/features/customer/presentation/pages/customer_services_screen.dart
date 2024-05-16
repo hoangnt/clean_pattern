@@ -2,7 +2,7 @@ import 'package:clean_pattern/common/core_ui/app_style.dart';
 import 'package:clean_pattern/common/widget/app_empty_data_widget.dart';
 import 'package:clean_pattern/common/widget/app_text_field.dart';
 import 'package:clean_pattern/common/widget/button/app_elevated_button.dart';
-import 'package:clean_pattern/features/flavor/presentation/controller/customer_services_controller.dart';
+import 'package:clean_pattern/features/customer/presentation/controller/customer_services_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';

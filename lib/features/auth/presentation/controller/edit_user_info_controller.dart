@@ -4,7 +4,7 @@ import 'package:clean_pattern/common/utilities/permission_util.dart';
 import 'package:clean_pattern/common/widget/dialog/bottom_dialog.dart';
 import 'package:clean_pattern/common/widget/dialog/result_dialog.dart';
 import 'package:clean_pattern/features/auth/data/model/user_model.dart';
-import 'package:clean_pattern/features/flavor/presentation/controller/flavor_controller.dart';
+import 'package:clean_pattern/features/customer/presentation/controller/customer_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -68,7 +68,7 @@ class EditUserInfoController extends GetxController {
         DateFormat("dd/MM/yyyy").parse(birthdayController.text);
     await LocalStorageUtil.instance.saveUserInfo(userInfo!);
 
-    var flavorController = Get.find<FlavorController>();
+    var flavorController = Get.find<CustomerController>();
     flavorController.userInfo = LocalStorageUtil.instance.getUserInfo();
     flavorController.update();
 

@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:clean_pattern/common/utilities/local_storage_util.dart';
 import 'package:clean_pattern/common/constant/hive_box_key.dart';
 import 'package:clean_pattern/features/auth/data/model/user_model.dart';
-import 'package:clean_pattern/features/flavor/data/model/ramen_flavor.dart';
+import 'package:clean_pattern/features/customer/data/model/ramen_flavor.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -21,7 +21,7 @@ enum ToppingEnum {
   matsutake
 }
 
-class FlavorController extends GetxController {
+class CustomerController extends GetxController {
   UserModel? userInfo;
   double salt = 1;
   double fat = 1;

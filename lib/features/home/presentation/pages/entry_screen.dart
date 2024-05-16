@@ -76,8 +76,8 @@ class EntryScreen extends StatelessWidget {
                 SizedBox(width: 10.w),
                 _bottomBarItem(
                   index: HomeTabIndex.flavor,
-                  image: AppAsset.flavorSetting,
-                  text: "Flavor".tr,
+                  image: AppAsset.user,
+                  text: "Me".tr,
                 ),
                 _bottomBarItem(
                   index: HomeTabIndex.setting,

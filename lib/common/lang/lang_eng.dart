@@ -25,7 +25,7 @@ class LangEng {
     "together": "together",
     'Store': 'Store',
     'Article': "Article",
-    "Flavor": "Flavor",
+    "Me": "Me",
     "Settings": "Settings",
     "Top 10 on 10": "Top 10 on 10",
     "Would you like to go?": "Would you like to go?",
@@ -33,7 +33,7 @@ class LangEng {
     // Article
     "Detail of article": "Detail of article",
 
-    // Flavor
+    // Customer
     "Set your favorite Ramen taste": "Set your favorite Ramen taste",
     "Salt": "Salt",
     "Fat": "Fat",

@@ -1,5 +1,5 @@
 import 'package:clean_pattern/features/article/presentation/pages/article_screen.dart';
-import 'package:clean_pattern/features/flavor/presentation/pages/flavor_screen.dart';
+import 'package:clean_pattern/features/customer/presentation/pages/customer_screen.dart';
 import 'package:clean_pattern/features/settings/presentation/pages/settings_screen.dart';
 import 'package:clean_pattern/features/store/presentation/pages/store_screen.dart';
 import 'package:flutter/material.dart';
@@ -32,9 +32,9 @@ class EntryController extends GetxController {
     }
 
     if (index == HomeTabIndex.flavor &&
-        listScreen[index].runtimeType != FlavorScreen) {
+        listScreen[index].runtimeType != CustomerScreen) {
       listScreen.removeAt(index);
-      listScreen.insert(index, FlavorScreen());
+      listScreen.insert(index, CustomerScreen());
     }
 
     if (index == HomeTabIndex.setting &&

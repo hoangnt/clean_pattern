@@ -5,18 +5,18 @@ import 'package:clean_pattern/common/widget/app_progress_indicator.dart';
 import 'package:clean_pattern/common/widget/button/app_elevated_button.dart';
 import 'package:clean_pattern/common/widget/dialog/result_dialog.dart';
 import 'package:clean_pattern/config/routes.dart';
-import 'package:clean_pattern/features/flavor/presentation/controller/flavor_controller.dart';
+import 'package:clean_pattern/features/customer/presentation/controller/customer_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-class FlavorScreen extends StatelessWidget {
-  final _controller = Get.find<FlavorController>();
+class CustomerScreen extends StatelessWidget {
+  final _controller = Get.find<CustomerController>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GetBuilder<FlavorController>(builder: (context) {
+      body: GetBuilder<CustomerController>(builder: (context) {
         return Column(
           children: [
             _userInforWidget(),

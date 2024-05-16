@@ -1,5 +1,5 @@
 import 'package:clean_pattern/common/controller/base_controller.dart';
-import 'package:clean_pattern/features/flavor/data/model/chat_message_model.dart';
+import 'package:clean_pattern/features/customer/data/model/chat_message_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';

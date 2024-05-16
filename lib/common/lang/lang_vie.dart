@@ -25,7 +25,7 @@ class LangVie {
     "together": "cùng nhau",
     'Store': 'Cửa hàng',
     'Article': "Bài viết",
-    "Flavor": "Gia vị",
+    "Me": "Tôi",
     "Settings": "Cài đặt",
     "Top 10 on 10": "10 quán ngon nhất",
     "Would you like to go?": "Bạn muốn đến quán này không?",
@@ -33,7 +33,7 @@ class LangVie {
     // Article
     "Detail of article": "Bài viết",
 
-    // Flavor
+    // Customer
     "Set your favorite Ramen taste": "Điều chỉnh vị Ramen ưa thích",
     "Salt": "Độ mặn",
     "Fat": "Độ béo",
