@@ -1,6 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:clean_pattern/common/constant/gender.dart';
 import 'package:clean_pattern/common/core_ui/app_style.dart';
 import 'package:clean_pattern/common/utilities/validate_util.dart';
+import 'package:clean_pattern/common/widget/app_drop_down_field.dart';
 import 'package:clean_pattern/common/widget/app_progress_indicator.dart';
 import 'package:clean_pattern/common/widget/app_text_field.dart';
 import 'package:clean_pattern/common/widget/button/app_elevated_button.dart';
@@ -16,7 +18,7 @@ class EditUserInfoScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Edit user info"),
+        title: Text("Edit user info".tr),
       ),
       body: Column(
         children: [
@@ -118,6 +120,18 @@ class EditUserInfoScreen extends StatelessWidget {
                       Icons.cake_outlined,
                       color: Get.theme.iconTheme.color,
                     ),
+                  ),
+                  SizedBox(height: 14.h),
+                  AppDropDownField<int>(
+                    value: _controller.userInfo!.gender,
+                    hintText: "Choose gender".tr,
+                    prefixIcon: Icon(Icons.transgender_rounded),
+                    suffixIcon: Icon(Icons.keyboard_arrow_down_outlined),
+                    listOption: [
+                      DropDownModel(label: "Male".tr, value: Gender.male),
+                      DropDownModel(label: "Female".tr, value: Gender.female),
+                    ],
+                    onChanged: (val) => _controller.userInfo!.gender = val,
                   ),
                 ],
               ),

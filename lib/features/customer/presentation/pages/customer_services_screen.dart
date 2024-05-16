@@ -16,7 +16,7 @@ class CustomerServicesScreen extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
-        title: Text("Customer Services"),
+        title: Text("Chat to us".tr),
       ),
       body: Obx(() {
         if (_controller.chatData.isEmpty) {
@@ -94,7 +94,7 @@ class CustomerServicesScreen extends StatelessWidget {
             flex: 4,
             child: AppTextField(
               controller: _controller.msgController,
-              hintText: "Something confused, just ask me.",
+              hintText: "Something confused, just ask.".tr,
               maxLines: null,
             ),
           ),

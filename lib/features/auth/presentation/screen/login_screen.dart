@@ -2,7 +2,6 @@ import 'package:clean_pattern/common/constant/app_language.dart';
 import 'package:clean_pattern/common/core_ui/app_style.dart';
 import 'package:clean_pattern/common/utilities/validate_util.dart';
 import 'package:clean_pattern/common/widget/app_check_box.dart';
-import 'package:clean_pattern/common/widget/app_drop_down_menu.dart';
 import 'package:clean_pattern/common/widget/app_text_field.dart';
 import 'package:clean_pattern/common/widget/button/app_elevated_button.dart';
 import 'package:clean_pattern/config/routes.dart';
@@ -30,14 +29,6 @@ class LoginScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    AppDropdownMenu<String>(
-                      hintText: "Server",
-                      controller: _controller.serverController,
-                      listOption: ["SCUTE-1", "SCUTE-3", "SCUTE-25"],
-                      onSelected: (val) {
-                        _controller.serverController.text = val!;
-                      },
-                    ),
                     Container(
                       margin: EdgeInsets.only(top: 5.h, right: 20.w),
                       padding: EdgeInsets.symmetric(horizontal: 5.w),

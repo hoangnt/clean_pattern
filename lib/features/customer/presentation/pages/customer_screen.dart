@@ -126,7 +126,7 @@ class CustomerScreen extends StatelessWidget {
                     child: InkWell(
                       onTap: () => Get.toNamed(Routes.customerServices),
                       child: Text(
-                        "Help ?",
+                        "Help ?".tr,
                         style: AppTextStyle.normal(16.sp),
                       ),
                     ),

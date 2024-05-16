@@ -19,6 +19,9 @@ class LangVie {
     "This is empty": "Đang trống nè !",
     "Take a picture": "Chụp ảnh",
     "Choose in library": "Chọn trong thư viện ảnh",
+    "Edit user info": "Thay đổi thông tin",
+    "Male": "Nam",
+    "Female": "Nữ",
 
     // Entry
     "We eat": "Đi ăn",
@@ -41,6 +44,9 @@ class LangVie {
     "Broth": "Nước dùng",
     "Topping": "Ăn kèm",
     "Save": "Lưu",
+    "Help ?": "Giúp đỡ ?",
+    "Chat to us": "Nói chuyện chút nhé",
+    "Something confused, just ask.": "Có gì khó, cứ hỏi.",
 
     // Settings
     "Tap to toggle light/dark theme": "Thay đổi chế độ sáng/tối",

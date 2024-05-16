@@ -19,6 +19,9 @@ class LangEng {
     "This is empty": "This is empty",
     "Take a picture": "Take a picture",
     "Choose in library": "Choose in library",
+    "Edit user info": "Edit user info",
+    "Male": "Male",
+    "Female": "Female",
 
     // Entry
     "We eat": "We eat",
@@ -41,6 +44,9 @@ class LangEng {
     "Broth": "Broth",
     "Topping": "Topping",
     "Save": "Save",
+    "Help ?": "Help ?",
+    "Chat to us": "Chat to us",
+    "Something confused, just ask.": "Something confused, just ask.",
 
     // Settings
     "Tap to toggle light/dark theme": "Tap to toggle light/dark theme",

@@ -1,5 +1,7 @@
+import 'package:clean_pattern/common/constant/gender.dart';
 import 'package:clean_pattern/common/core_ui/app_style.dart';
 import 'package:clean_pattern/config/routes.dart';
+import 'package:clean_pattern/features/customer/presentation/controller/customer_controller.dart';
 import 'package:clean_pattern/features/home/presentation/controller/entry_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -7,6 +9,7 @@ import 'package:get/get.dart';
 
 class EntryScreen extends StatelessWidget {
   final _controller = Get.find<EntryController>();
+  final _customerController = Get.find<CustomerController>();
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +79,11 @@ class EntryScreen extends StatelessWidget {
                 SizedBox(width: 10.w),
                 _bottomBarItem(
                   index: HomeTabIndex.flavor,
-                  image: AppAsset.user,
+                  image: switch (_customerController.userInfo!.gender) {
+                    Gender.male => AppAsset.man,
+                    Gender.female => AppAsset.woman,
+                    _ => AppAsset.user,
+                  },
                   text: "Me".tr,
                 ),
                 _bottomBarItem(

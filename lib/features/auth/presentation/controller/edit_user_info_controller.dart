@@ -5,6 +5,7 @@ import 'package:clean_pattern/common/widget/dialog/bottom_dialog.dart';
 import 'package:clean_pattern/common/widget/dialog/result_dialog.dart';
 import 'package:clean_pattern/features/auth/data/model/user_model.dart';
 import 'package:clean_pattern/features/customer/presentation/controller/customer_controller.dart';
+import 'package:clean_pattern/features/home/presentation/controller/entry_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -71,6 +72,7 @@ class EditUserInfoController extends GetxController {
     var flavorController = Get.find<CustomerController>();
     flavorController.userInfo = LocalStorageUtil.instance.getUserInfo();
     flavorController.update();
+    Get.find<EntryController>().update(); // update icon navigation bar
 
     Get.dialog(ResultDialog(
       title: "Notice",
