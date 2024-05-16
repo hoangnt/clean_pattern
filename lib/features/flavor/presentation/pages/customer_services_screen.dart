@@ -6,6 +6,7 @@ import 'package:clean_pattern/features/flavor/presentation/controller/customer_s
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:clean_pattern/common/extensions/datetime_extension.dart';
 
 class CustomerServicesScreen extends StatelessWidget {
   final _controller = Get.find<CustomerServicesController>();
@@ -35,22 +36,39 @@ class CustomerServicesScreen extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return Row(
                     children: [
+                      if (_controller.chatData[index].isOwner) Spacer(),
                       LimitedBox(
                         maxWidth: 280.w,
                         child: Container(
                           margin: EdgeInsets.only(bottom: 10.h),
                           padding: EdgeInsets.symmetric(
                             horizontal: 14.w,
-                            vertical: 12.h,
+                            vertical: 10.h,
                           ),
                           decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(30.sp),
+                            color: _controller.chatData[index].isOwner
+                                ? AppColor.primaryLight
+                                : Colors.white,
+                            borderRadius: BorderRadius.circular(15.sp),
                             border: Border.all(color: AppColor.disable),
                           ),
-                          child: Text(
-                            _controller.chatData[index],
-                            style: AppTextStyle.normal(18.sp),
+                          child: IntrinsicWidth(
+                            child: Column(
+                              children: [
+                                Text(
+                                  _controller.chatData[index].text ?? "",
+                                  style: AppTextStyle.normal(18.sp),
+                                ),
+                                Align(
+                                  alignment: Alignment.bottomRight,
+                                  child: Text(
+                                    _controller
+                                        .chatData[index].sentAt!.toHHmmString,
+                                    style: AppTextStyle.w200(12.sp),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),

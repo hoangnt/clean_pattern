@@ -1,4 +1,5 @@
 import 'package:clean_pattern/common/controller/base_controller.dart';
+import 'package:clean_pattern/features/flavor/data/model/chat_message_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
@@ -10,7 +11,7 @@ class CustomerServicesController extends BaseController {
   final wsUrl = "wss://echo.websocket.org";
   late WebSocketChannel channel;
 
-  final RxList<String> chatData = <String>[].obs;
+  final RxList<ChatMessageModel> chatData = <ChatMessageModel>[].obs;
 
   @override
   void onInit() async {
@@ -20,8 +21,17 @@ class CustomerServicesController extends BaseController {
     await channel.ready;
 
     channel.stream.listen((message) {
-      chatData.add(message);
-      chatData.refresh();
+      final chatMessage = ChatMessageModel.fromJson({
+        "isOwner": false,
+        "text": message,
+        "sentAt": DateTime.now().millisecondsSinceEpoch
+      });
+
+      chatData.add(chatMessage);
+
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        _scrollToBottom();
+      });
     });
   }
 
@@ -32,14 +42,21 @@ class CustomerServicesController extends BaseController {
   }
 
   void sendMessage() {
-    final msg = msgController.text;
-    channel.sink.add(msg);
+    final msg = ChatMessageModel(
+      text: msgController.text,
+      sentAt: DateTime.now(),
+    );
+    chatData.add(msg);
+    channel.sink.add(msgController.text);
     msgController.clear();
+    _scrollToBottom();
+  }
 
-    Future.delayed(Duration(milliseconds: 1000), () {
+  void _scrollToBottom() {
+    Future.delayed(Duration(milliseconds: 500), () {
       scrollController.animateTo(
         scrollController.position.maxScrollExtent,
-        duration: Duration(milliseconds: 300),
+        duration: Duration(milliseconds: 500),
         curve: Curves.easeOutQuint,
       );
     });
