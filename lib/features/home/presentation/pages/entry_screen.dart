@@ -79,7 +79,7 @@ class EntryScreen extends StatelessWidget {
                 SizedBox(width: 10.w),
                 _bottomBarItem(
                   index: HomeTabIndex.flavor,
-                  image: switch (_customerController.userInfo!.gender) {
+                  image: switch (_customerController.userInfo?.gender) {
                     Gender.male => AppAsset.man,
                     Gender.female => AppAsset.woman,
                     _ => AppAsset.user,

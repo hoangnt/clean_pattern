@@ -153,7 +153,7 @@ class CustomerScreen extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _controller.userInfo!.avatarUrl != null
+              _controller.userInfo?.avatarUrl != null
                   ? CachedNetworkImage(
                       imageUrl: _controller.userInfo!.avatarUrl!,
                       errorWidget: (context, _, __) => Center(
@@ -197,17 +197,19 @@ class CustomerScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    _controller.userInfo!.name!,
+                    _controller.userInfo?.name ?? "",
                     style: AppTextStyle.w600(22.sp),
                   ),
                   SizedBox(height: 4.h),
                   Text(
-                    _controller.userInfo!.birthday!.toDDMMYYYYString,
+                    _controller.userInfo?.birthday != null
+                        ? _controller.userInfo!.birthday!.toDDMMYYYYString
+                        : "",
                     style: AppTextStyle.w600(16.sp),
                   ),
                   SizedBox(height: 4.h),
                   Text(
-                    _controller.userInfo!.email!,
+                    _controller.userInfo?.email ?? "",
                     style: AppTextStyle.w600(16.sp).copyWith(
                       color: AppColor.textColor1,
                     ),
