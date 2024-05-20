@@ -14,7 +14,6 @@ class CustomerServicesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: true,
       appBar: AppBar(
         title: Text("Chat to us".tr),
       ),

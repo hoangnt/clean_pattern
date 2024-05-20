@@ -30,7 +30,7 @@ class LoginScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      margin: EdgeInsets.only(top: 5.h, right: 20.w),
+                      margin: EdgeInsets.only(top: 5.h, left: 20.w),
                       padding: EdgeInsets.symmetric(horizontal: 5.w),
                       decoration: BoxDecoration(
                         border: Border.all(color: AppColor.primary, width: 2),

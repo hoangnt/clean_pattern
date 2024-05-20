@@ -43,11 +43,11 @@ class CustomerServicesController extends BaseController {
 
   void sendMessage() {
     final msg = ChatMessageModel(
-      text: msgController.text,
+      text: msgController.text.trim(),
       sentAt: DateTime.now(),
     );
     chatData.add(msg);
-    channel.sink.add(msgController.text);
+    channel.sink.add(msgController.text.trim());
     msgController.clear();
     _scrollToBottom();
   }
