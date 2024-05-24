@@ -12,7 +12,7 @@ enum BrothEnum { tonkotsu, shoyu, miso, shio, tantan }
 enum ToppingEnum {
   chashu,
   menma,
-  ajimata,
+  ajitama,
   kamaboko,
   nori,
   paro,
