@@ -8,5 +8,5 @@ void main() async {
   // config
   Flavor.env = Environment.dev;
 
-  runApp(MyApp());
+  runApp(MyApp(""));
 }

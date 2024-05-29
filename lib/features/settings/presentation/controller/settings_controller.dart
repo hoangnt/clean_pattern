@@ -1,5 +1,6 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:clean_pattern/common/constant/app_language.dart';
+import 'package:clean_pattern/common/utilities/local_secure_storage_util.dart';
 import 'package:clean_pattern/common/utilities/local_storage_util.dart';
 import 'package:clean_pattern/common/core_ui/app_theme.dart';
 import 'package:clean_pattern/common/controller/base_controller.dart';
@@ -132,16 +133,16 @@ class SettingsController extends BaseController {
     );
   }
 
-  Future<void> logout() async {
+  void logout() {
     handleBaseResponse<bool?>(
       usecase: logoutUsecase(),
-      onSuccess: (data) {
+      onSuccess: (data) async {
         if (data != true) {
           return;
         }
 
-        LocalStorageUtil.instance.saveAccessToken("");
-        LocalStorageUtil.instance.saveRefreshToken("");
+        await LocalSecureStorageUtil.instance.saveAccessToken("");
+        await LocalSecureStorageUtil.instance.saveRefreshToken("");
         Get.offAllNamed(Routes.login);
       },
       onError: (message) {

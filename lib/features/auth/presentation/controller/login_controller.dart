@@ -1,3 +1,4 @@
+import 'package:clean_pattern/common/utilities/local_secure_storage_util.dart';
 import 'package:clean_pattern/common/utilities/local_storage_util.dart';
 import 'package:clean_pattern/common/controller/base_controller.dart';
 import 'package:clean_pattern/common/widget/dialog/result_dialog.dart';
@@ -26,21 +27,23 @@ class LoginController extends BaseController {
   bool rememberMe = false;
 
   @override
-  void onInit() {
+  void onInit() async {
     super.onInit();
 
-    if (LocalStorageUtil.instance.getEmail() != null &&
-        LocalStorageUtil.instance.getEmail()!.isNotEmpty) {
-      emailController.text = LocalStorageUtil.instance.getEmail()!;
+    final email = await LocalSecureStorageUtil.instance.getEmail();
+    final password = await LocalSecureStorageUtil.instance.getPassword();
+
+    if (email != null && email.isNotEmpty) {
+      emailController.text = email;
     }
 
-    if (LocalStorageUtil.instance.getPassword() != null &&
-        LocalStorageUtil.instance.getPassword()!.isNotEmpty) {
-      passwordController.text = LocalStorageUtil.instance.getPassword()!;
+    if (password != null && password.isNotEmpty) {
+      passwordController.text = password;
     }
 
     if (LocalStorageUtil.instance.getRememberMe() != null) {
       rememberMe = LocalStorageUtil.instance.getRememberMe()!;
+      update();
     }
   }
 
@@ -62,15 +65,18 @@ class LoginController extends BaseController {
       ),
       onSuccess: (data) async {
         if (rememberMe) {
-          await LocalStorageUtil.instance.saveEmail(emailController.text);
-          await LocalStorageUtil.instance.savePassword(passwordController.text);
+          await LocalSecureStorageUtil.instance.saveEmail(emailController.text);
+          await LocalSecureStorageUtil.instance
+              .savePassword(passwordController.text);
         } else {
-          await LocalStorageUtil.instance.saveEmail("");
-          await LocalStorageUtil.instance.savePassword("");
+          await LocalSecureStorageUtil.instance.saveEmail("");
+          await LocalSecureStorageUtil.instance.savePassword("");
         }
 
-        await LocalStorageUtil.instance.saveAccessToken(data["accessToken"]!);
-        await LocalStorageUtil.instance.saveRefreshToken(data["refreshToken"]!);
+        await LocalSecureStorageUtil.instance
+            .saveAccessToken(data["accessToken"]!);
+        await LocalSecureStorageUtil.instance
+            .saveRefreshToken(data["refreshToken"]!);
 
         // go to home
         Get.offAllNamed(Routes.entry);

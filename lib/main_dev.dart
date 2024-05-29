@@ -1,4 +1,5 @@
 import 'package:clean_pattern/app.dart';
+import 'package:clean_pattern/common/utilities/local_secure_storage_util.dart';
 import 'package:clean_pattern/common/utilities/local_storage_util.dart';
 import 'package:clean_pattern/config/injection.dart';
 import 'package:clean_pattern/common/utilities/permission_util.dart';
@@ -16,7 +17,8 @@ void main() async {
 
   // injection
   await LocalStorageUtil.instance.init();
+  final accessToken = await LocalSecureStorageUtil.instance.getAccessToken();
   await dependenciesInjection();
 
-  runApp(MyApp());
+  runApp(MyApp(accessToken));
 }

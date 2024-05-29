@@ -1,4 +1,4 @@
-import 'package:clean_pattern/common/utilities/local_storage_util.dart';
+import 'package:clean_pattern/common/utilities/local_secure_storage_util.dart';
 import 'package:clean_pattern/common/constant/status_code.dart';
 import 'package:clean_pattern/features/auth/data/repositories/auth_repo_impl.dart';
 import 'package:clean_pattern/features/auth/domain/repositories/auth_repo.dart';
@@ -8,10 +8,10 @@ import 'package:get/get.dart';
 
 class TokenInterceptor extends InterceptorsWrapper {
   @override
-  void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    options.headers.addAll({
-      "Authorization": 'Bearer ${LocalStorageUtil.instance.getAccessToken()}'
-    });
+  void onRequest(
+      RequestOptions options, RequestInterceptorHandler handler) async {
+    final accessToken = await LocalSecureStorageUtil.instance.getAccessToken();
+    options.headers.addAll({"Authorization": 'Bearer $accessToken'});
     super.onRequest(options, handler);
   }
 }
@@ -19,12 +19,13 @@ class TokenInterceptor extends InterceptorsWrapper {
 class RefreshTokenInterceptor extends QueuedInterceptorsWrapper {
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) async {
+    final accessToken = await LocalSecureStorageUtil.instance.getAccessToken();
     if (err.response?.data["message"] == "Token is expired" &&
-        LocalStorageUtil.instance.getAccessToken() != null) {
+        accessToken != null) {
       final AuthRepo authRepo = AuthRepoImpl();
-      final res = await authRepo.refreshToken(
-        refreshToken: LocalStorageUtil.instance.getRefreshToken()!,
-      );
+      final refreshToken =
+          await LocalSecureStorageUtil.instance.getAccessToken();
+      final res = await authRepo.refreshToken(refreshToken: refreshToken!);
 
       // Refresh token expired
       if (res.statusCode == StatusCode.unauthorized) {
@@ -35,15 +36,18 @@ class RefreshTokenInterceptor extends QueuedInterceptorsWrapper {
       // Refresh token success
       if (res.statusCode == StatusCode.success) {
         await Future.wait([
-          LocalStorageUtil.instance.saveAccessToken(res.data!["accessToken"]!),
-          LocalStorageUtil.instance.saveRefreshToken(res.data!["refreshToken"]!)
+          LocalSecureStorageUtil.instance
+              .saveAccessToken(res.data!["accessToken"]!),
+          LocalSecureStorageUtil.instance
+              .saveRefreshToken(res.data!["refreshToken"]!)
         ]);
       }
 
+      final newAccessToken =
+          await LocalSecureStorageUtil.instance.getAccessToken();
       err.requestOptions.headers.clear();
-      err.requestOptions.headers.addAll({
-        "Authorization": 'Bearer ${LocalStorageUtil.instance.getAccessToken()}'
-      });
+      err.requestOptions.headers
+          .addAll({"Authorization": 'Bearer $newAccessToken'});
 
       final cloneRequest = await Dio().request(
         err.requestOptions.path,

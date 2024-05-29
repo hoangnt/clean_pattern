@@ -11,6 +11,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class MyApp extends StatelessWidget {
+  MyApp(this.accessToken);
+
+  final String? accessToken;
+
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -27,8 +31,7 @@ class MyApp extends StatelessWidget {
         darkTheme: AppTheme.darkTheme,
         getPages: Pages.instance.getPages,
         builder: EasyLoading.init(),
-        initialRoute: LocalStorageUtil.instance.getAccessToken() != null &&
-                LocalStorageUtil.instance.getAccessToken()!.isNotEmpty
+        initialRoute: accessToken != null && accessToken!.isNotEmpty
             ? Routes.entry
             : Routes.login,
         onReady: () {
