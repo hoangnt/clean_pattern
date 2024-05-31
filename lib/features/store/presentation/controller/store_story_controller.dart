@@ -60,8 +60,7 @@ class StoreStoryController extends GetxController {
     Get.back();
   }
 
-  Future<bool> onBackPhysics() async {
+  void onBackPhysics(bool didPop) async {
     storyTimer?.cancel();
-    return true;
   }
 }

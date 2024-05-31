@@ -47,7 +47,7 @@ class CustomerServicesScreen extends StatelessWidget {
                           decoration: BoxDecoration(
                             color: _controller.chatData[index].isOwner
                                 ? AppColor.primaryLight
-                                : Colors.white,
+                                : Get.theme.bottomAppBarTheme.color,
                             borderRadius: BorderRadius.circular(15.sp),
                             border: Border.all(color: AppColor.disable),
                           ),
@@ -86,7 +86,7 @@ class CustomerServicesScreen extends StatelessWidget {
   Widget _sendMessageWidget() {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 15.h),
-      color: Colors.white,
+      color: Get.theme.bottomAppBarTheme.color,
       child: Row(
         children: [
           Expanded(

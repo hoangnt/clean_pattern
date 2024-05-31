@@ -16,10 +16,10 @@ class ForgotPasswordScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async {
+    return PopScope(
+      canPop: false,
+      onPopInvoked: (didPop) {
         Get.offNamed(Routes.login);
-        return false;
       },
       child: GestureDetector(
         behavior: HitTestBehavior.opaque,

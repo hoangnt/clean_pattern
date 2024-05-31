@@ -13,12 +13,14 @@ class EntryScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: _controller.onBackDevice,
+    return PopScope(
+      canPop: false,
+      onPopInvoked: _controller.onBackDevice,
       child: Scaffold(
         extendBody: true,
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: FloatingActionButton(
+          shape: CircleBorder(),
           onPressed: () => Get.toNamed(Routes.post),
           backgroundColor: AppColor.primary,
           child: Image.asset(
@@ -61,9 +63,11 @@ class EntryScreen extends StatelessWidget {
         }),
         bottomNavigationBar: GetBuilder<EntryController>(
           builder: (_) => BottomAppBar(
-            height: 60.h,
+            elevation: 0,
+            height: 68.h,
             shape: CircularNotchedRectangle(),
-            notchMargin: 9.sp,
+            padding: EdgeInsets.zero,
+            notchMargin: 10.sp,
             child: Row(
               children: [
                 _bottomBarItem(
@@ -105,7 +109,8 @@ class EntryScreen extends StatelessWidget {
     required String text,
   }) {
     return Expanded(
-      child: InkWell(
+      child: GestureDetector(
+        behavior: HitTestBehavior.opaque,
         onTap: () => _controller.onSelectBottomBar(index),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

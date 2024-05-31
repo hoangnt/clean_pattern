@@ -47,13 +47,12 @@ class EntryController extends GetxController {
     update();
   }
 
-  Future<bool> onBackDevice() async {
+  void onBackDevice(bool didPop) async {
     if (selectedIndex == 0) {
-      return true;
+      return;
     }
     selectedIndex = 0;
     pageController.jumpToPage(0);
     update();
-    return false;
   }
 }

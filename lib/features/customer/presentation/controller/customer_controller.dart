@@ -99,7 +99,7 @@ class CustomerController extends GetxController {
         salt: salt,
         fat: fat,
         noodleTenderness: noodleTenderness,
-        broth: broth != null ? broth!.name : null,
+        broth: broth?.name,
         toppingList: toppingList.map((val) => val.name).toList(),
       );
       await box.add(data);

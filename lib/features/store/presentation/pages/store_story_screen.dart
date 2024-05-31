@@ -12,8 +12,9 @@ class StoreStoryScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: _controller.onBackPhysics,
+    return PopScope(
+      canPop: false,
+      onPopInvoked: _controller.onBackPhysics,
       child: Scaffold(
         backgroundColor: Colors.black54,
         body: SafeArea(

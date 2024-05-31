@@ -23,6 +23,7 @@ class AppTheme {
     ),
     bottomAppBarTheme: BottomAppBarTheme(
       color: Colors.white,
+      elevation: 0,
     ),
     appBarTheme: AppBarTheme(
       centerTitle: true,
@@ -64,6 +65,7 @@ class AppTheme {
     ),
     bottomAppBarTheme: BottomAppBarTheme(
       color: AppColor.appBarBackground,
+      elevation: 0,
     ),
     appBarTheme: AppBarTheme(
       centerTitle: true,
