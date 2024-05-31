@@ -25,14 +25,10 @@ class ConnectionInterceptor extends QueuedInterceptorsWrapper {
     final List<ConnectivityResult> connection =
         await Connectivity().checkConnectivity();
 
-    if (connection.any((val) =>
+    if (!connection.any((val) =>
         val == ConnectivityResult.mobile || val == ConnectivityResult.wifi)) {
       ToastMessageUtil.show(getx.Get.context!,
           message: "No internet connection !");
-      handler.resolve(Response(
-        requestOptions: options,
-        data: null,
-      ));
     }
 
     super.onRequest(options, handler);
@@ -43,7 +39,7 @@ class RefreshTokenInterceptor extends QueuedInterceptorsWrapper {
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) async {
     final accessToken = await LocalSecureStorageUtil.instance.getAccessToken();
-    if (err.response?.data["message"] == "Token is expired" &&
+    if (err.response?.statusCode == StatusCode.unauthorized &&
         accessToken != null) {
       final AuthRepo authRepo = AuthRepoImpl();
       final refreshToken =

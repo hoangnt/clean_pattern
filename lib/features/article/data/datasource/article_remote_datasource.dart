@@ -1,9 +1,23 @@
 import 'package:clean_pattern/common/constant/status_code.dart';
+import 'package:clean_pattern/common/network/api_controller.dart';
 import 'package:clean_pattern/common/network/model/base_response.dart';
 
 class ArticleRemoteDatasource {
   static final ArticleRemoteDatasource instance = ArticleRemoteDatasource._();
   ArticleRemoteDatasource._();
+
+  // TODO: Sample datasource
+  Future<BaseResponse> sampleDatasource() async {
+    final res = await ApiController().get(
+      endpoint: "/endpoint",
+      params: {},
+    );
+    return BaseResponse(
+      statusCode: StatusCode.success,
+      data: res.data,
+      message: res.data["message"], // if has
+    );
+  }
 
   Future<BaseResponse> getAllArticle() async {
     await Future.delayed(Duration(milliseconds: 1500));
