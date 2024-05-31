@@ -12,6 +12,7 @@ class ApiController {
   ApiController._() {
     _dio = Dio(apiOption);
     _dio.interceptors.addAll([
+      ConnectionInterceptor(),
       TokenInterceptor(),
       RefreshTokenInterceptor(),
     ]);

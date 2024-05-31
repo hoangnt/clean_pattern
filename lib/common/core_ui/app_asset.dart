@@ -21,6 +21,7 @@ class AppAsset {
   static const String empty = "asset/icon/empty.png";
   static const String man = "asset/icon/man.png";
   static const String woman = "asset/icon/woman.png";
+  static const String mobileError = "asset/icon/mobile_error.png";
 
   // gif
   static const String snowing = "asset/gif/snowing.gif";

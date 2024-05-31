@@ -1,10 +1,12 @@
 import 'package:clean_pattern/common/utilities/local_secure_storage_util.dart';
 import 'package:clean_pattern/common/constant/status_code.dart';
+import 'package:clean_pattern/common/utilities/toast_message_util.dart';
 import 'package:clean_pattern/features/auth/data/repositories/auth_repo_impl.dart';
 import 'package:clean_pattern/features/auth/domain/repositories/auth_repo.dart';
 import 'package:clean_pattern/features/settings/presentation/controller/settings_controller.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
-import 'package:get/get.dart';
+import 'package:get/get.dart' as getx;
 
 class TokenInterceptor extends InterceptorsWrapper {
   @override
@@ -12,6 +14,27 @@ class TokenInterceptor extends InterceptorsWrapper {
       RequestOptions options, RequestInterceptorHandler handler) async {
     final accessToken = await LocalSecureStorageUtil.instance.getAccessToken();
     options.headers.addAll({"Authorization": 'Bearer $accessToken'});
+    super.onRequest(options, handler);
+  }
+}
+
+class ConnectionInterceptor extends QueuedInterceptorsWrapper {
+  @override
+  void onRequest(
+      RequestOptions options, RequestInterceptorHandler handler) async {
+    final List<ConnectivityResult> connection =
+        await Connectivity().checkConnectivity();
+
+    if (connection.any((val) =>
+        val == ConnectivityResult.mobile || val == ConnectivityResult.wifi)) {
+      ToastMessageUtil.show(getx.Get.context!,
+          message: "No internet connection !");
+      handler.resolve(Response(
+        requestOptions: options,
+        data: null,
+      ));
+    }
+
     super.onRequest(options, handler);
   }
 }
@@ -29,7 +52,7 @@ class RefreshTokenInterceptor extends QueuedInterceptorsWrapper {
 
       // Refresh token expired
       if (res.statusCode == StatusCode.unauthorized) {
-        Get.find<SettingsController>().logout();
+        getx.Get.find<SettingsController>().logout();
         return handler.resolve(err.response!);
       }
 
