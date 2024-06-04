@@ -3,6 +3,7 @@ import 'dart:typed_data';
 import 'dart:ui' as ui;
 
 import 'package:clean_pattern/common/controller/base_controller.dart';
+import 'package:clean_pattern/common/utilities/toast_message_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -84,8 +85,7 @@ class PostController extends BaseController {
     print(result);
     EasyLoading.dismiss();
 
-    Get.snackbar("Notice", "Image saved !",
-        backgroundColor: Colors.white, snackPosition: SnackPosition.BOTTOM);
+    ToastMessageUtil.show(Get.context!, message: "Image saved !");
   }
 
   void doneEdit() {
