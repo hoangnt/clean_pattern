@@ -91,9 +91,9 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter_gen:
-  output: lib/gen/ # Optional (default: lib/gen/)
+  output: lib/generated/ # Optional (default: lib/gen/)
   line_length: 80 # Optional (default: 80)
-  
+
 flutter:
 
   # The following line ensures that the Material Icons font is
