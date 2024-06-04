@@ -1,4 +1,5 @@
 import 'package:clean_pattern/common/core_ui/app_style.dart';
+import 'package:clean_pattern/generated/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -14,8 +15,7 @@ class ToastMessageUtil {
       margin: EdgeInsets.symmetric(horizontal: 20.w).copyWith(bottom: 50.h),
       content: Row(
         children: [
-          Image.asset(
-            AppAsset.mobileError,
+          Assets.icon.mobileError.image(
             height: 25.h,
             color: Get.theme.appBarTheme.backgroundColor,
           ),

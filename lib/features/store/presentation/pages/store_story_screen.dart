@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:clean_pattern/common/core_ui/app_style.dart';
 import 'package:clean_pattern/common/widget/app_progress_indicator.dart';
 import 'package:clean_pattern/features/store/presentation/controller/store_story_controller.dart';
+import 'package:clean_pattern/generated/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -84,8 +85,7 @@ class StoreStoryScreen extends StatelessWidget {
                       Spacer(),
                       InkWell(
                         onTap: _controller.onBack,
-                        child: Image.asset(
-                          AppAsset.close,
+                        child: Assets.icon.close.image(
                           height: 30.h,
                           color: Colors.white,
                         ),

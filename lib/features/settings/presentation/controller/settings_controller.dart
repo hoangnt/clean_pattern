@@ -10,6 +10,7 @@ import 'package:clean_pattern/config/config_loading.dart';
 import 'package:clean_pattern/config/routes.dart';
 import 'package:clean_pattern/features/auth/domain/usecase/logout_usecase.dart';
 import 'package:clean_pattern/features/home/presentation/controller/entry_controller.dart';
+import 'package:clean_pattern/generated/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -24,9 +25,9 @@ class SettingsController extends BaseController {
   final MethodChannel channel = MethodChannel("com.example.clean_pattern");
   late AudioPlayer _audioPlayer;
   final List<String> _listBgm = [
-    "asset/bgm/bgm1.mp3",
-    "asset/bgm/bgm2.mp3",
-    "asset/bgm/bgm3.mp3",
+    Assets.bgm.bgm1,
+    Assets.bgm.bgm2,
+    Assets.bgm.bgm3,
   ];
   int _indexBgm = 0;
 

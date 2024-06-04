@@ -5,6 +5,7 @@ import 'package:clean_pattern/common/widget/app_progress_indicator.dart';
 import 'package:clean_pattern/common/widget/image_view_screen.dart';
 import 'package:clean_pattern/features/store/presentation/controller/store_detail_controller.dart';
 import 'package:clean_pattern/features/store/presentation/pages/widget/store_menu_widget.dart';
+import 'package:clean_pattern/generated/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -67,7 +68,7 @@ class StoreDetailScreen extends StatelessWidget {
                                   _storeInfo("Rated: ",
                                       _controller.data.rating!.toString()),
                                   SizedBox(width: 5.w),
-                                  Image.asset(AppAsset.star, height: 16.h)
+                                  Assets.icon.star.image(height: 16.h)
                                 ],
                               ),
                             ],
@@ -135,7 +136,7 @@ class StoreDetailScreen extends StatelessWidget {
                         SizedBox(height: 15.h),
                         Row(
                           children: [
-                            Image.asset(AppAsset.star, height: 25.h),
+                            Assets.icon.star.image(height: 25.h),
                             Obx(
                               () => Expanded(
                                 child: SliderTheme(

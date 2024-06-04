@@ -3,6 +3,7 @@ import 'package:clean_pattern/common/core_ui/app_style.dart';
 import 'package:clean_pattern/config/routes.dart';
 import 'package:clean_pattern/features/customer/presentation/controller/customer_controller.dart';
 import 'package:clean_pattern/features/home/presentation/controller/entry_controller.dart';
+import 'package:clean_pattern/generated/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -23,8 +24,7 @@ class EntryScreen extends StatelessWidget {
           shape: CircleBorder(),
           onPressed: () => Get.toNamed(Routes.post),
           backgroundColor: AppColor.primary,
-          child: Image.asset(
-            AppAsset.imageShare,
+          child: Assets.icon.imageShare.image(
             height: 20.sp,
             color: Colors.white,
           ),
@@ -39,8 +39,7 @@ class EntryScreen extends StatelessWidget {
               ),
               SizedBox(width: 5.w),
               GetBuilder<EntryController>(builder: (_) {
-                return Image.asset(
-                  AppAsset.ramenOutlined,
+                return Assets.icon.ramenOutlined.image(
                   height: 20.sp,
                   color: Get.theme.iconTheme.color,
                 );
@@ -72,27 +71,27 @@ class EntryScreen extends StatelessWidget {
               children: [
                 _bottomBarItem(
                   index: HomeTabIndex.store,
-                  image: AppAsset.store,
+                  image: Assets.icon.store.path,
                   text: "Store".tr,
                 ),
                 _bottomBarItem(
                   index: HomeTabIndex.article,
-                  image: AppAsset.foodArticle,
+                  image: Assets.icon.foodArticle.path,
                   text: "Article".tr,
                 ),
                 SizedBox(width: 10.w),
                 _bottomBarItem(
                   index: HomeTabIndex.flavor,
                   image: switch (_customerController.userInfo?.gender) {
-                    Gender.male => AppAsset.man,
-                    Gender.female => AppAsset.woman,
-                    _ => AppAsset.user,
+                    Gender.male => Assets.icon.man.path,
+                    Gender.female => Assets.icon.woman.path,
+                    _ => Assets.icon.user.path,
                   },
                   text: "Me".tr,
                 ),
                 _bottomBarItem(
                   index: HomeTabIndex.setting,
-                  image: AppAsset.settings,
+                  image: Assets.icon.settings.path,
                   text: "Settings".tr,
                 ),
               ],

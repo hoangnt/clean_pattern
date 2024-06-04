@@ -1,9 +1,9 @@
-import 'package:clean_pattern/common/core_ui/app_asset.dart';
 import 'package:clean_pattern/common/core_ui/app_color.dart';
 import 'package:clean_pattern/common/constant/app_language.dart';
 import 'package:clean_pattern/common/core_ui/app_textstyle.dart';
 import 'package:clean_pattern/common/core_ui/app_theme.dart';
 import 'package:clean_pattern/features/settings/presentation/controller/settings_controller.dart';
+import 'package:clean_pattern/generated/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -25,8 +25,8 @@ class SettingsScreen extends StatelessWidget {
               ),
               leading: Image.asset(
                 _controller.mode == AppThemeMode.light
-                    ? AppAsset.sun
-                    : AppAsset.moon,
+                    ? Assets.icon.sun.path
+                    : Assets.icon.moon.path,
                 color: Get.theme.iconTheme.color,
               ),
               title: Text(
@@ -43,8 +43,7 @@ class SettingsScreen extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 side: BorderSide(color: AppColor.buttonBorder),
               ),
-              leading: Image.asset(
-                AppAsset.languages,
+              leading: Assets.icon.languages.image(
                 color: Get.theme.iconTheme.color,
               ),
               title: Text(
@@ -98,8 +97,7 @@ class SettingsScreen extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 side: BorderSide(color: AppColor.buttonBorder),
               ),
-              leading: Image.asset(
-                AppAsset.clover,
+              leading: Assets.icon.clover.image(
                 color: Get.theme.iconTheme.color,
               ),
               title: Text(
@@ -122,8 +120,7 @@ class SettingsScreen extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 side: BorderSide(color: AppColor.buttonBorder),
               ),
-              leading: Image.asset(
-                AppAsset.clover,
+              leading: Assets.icon.clover.image(
                 color: Get.theme.iconTheme.color,
               ),
               title: Text(
@@ -146,8 +143,7 @@ class SettingsScreen extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 side: BorderSide(color: AppColor.buttonBorder),
               ),
-              leading: Image.asset(
-                AppAsset.guitar,
+              leading: Assets.icon.guitar.image(
                 color: Get.theme.iconTheme.color,
               ),
               title: Text(
@@ -166,8 +162,7 @@ class SettingsScreen extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 side: BorderSide(color: AppColor.buttonBorder),
               ),
-              leading: Image.asset(
-                AppAsset.logout,
+              leading: Assets.icon.logout.image(
                 color: Get.theme.iconTheme.color,
               ),
               title: Text(

@@ -6,6 +6,7 @@ import 'package:clean_pattern/common/widget/button/app_scroll_to_top_button.dart
 import 'package:clean_pattern/config/routes.dart';
 import 'package:clean_pattern/features/article/data/model/article_model.dart';
 import 'package:clean_pattern/features/article/presentation/controller/article_controller.dart';
+import 'package:clean_pattern/generated/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -139,8 +140,7 @@ class ArticleScreen extends StatelessWidget {
                   Spacer(),
                   IconButton(
                     onPressed: () => _controller.likeArticle(index),
-                    icon: Image.asset(
-                      AppAsset.like,
+                    icon: Assets.icon.like.image(
                       width: 27.w,
                       color: item.isLiked == true
                           ? AppColor.iconColorBlue
@@ -149,8 +149,7 @@ class ArticleScreen extends StatelessWidget {
                   ),
                   IconButton(
                     onPressed: () => _controller.dislikeArticle(index),
-                    icon: Image.asset(
-                      AppAsset.dislike,
+                    icon: Assets.icon.dislike.image(
                       width: 23.w,
                       color: item.isLiked == false
                           ? AppColor.iconColorRed

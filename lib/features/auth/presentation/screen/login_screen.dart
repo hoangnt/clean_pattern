@@ -7,6 +7,7 @@ import 'package:clean_pattern/common/widget/button/app_elevated_button.dart';
 import 'package:clean_pattern/config/routes.dart';
 import 'package:clean_pattern/features/auth/presentation/controller/login_controller.dart';
 import 'package:clean_pattern/features/settings/presentation/controller/settings_controller.dart';
+import 'package:clean_pattern/generated/assets.gen.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -58,10 +59,10 @@ class LoginScreen extends StatelessWidget {
                   final anim = scaleTween.animate(animation);
                   return ScaleTransition(
                     scale: anim,
-                    child: Image.asset(AppAsset.ramenColorful),
+                    child: Assets.icon.ramenColorful.image(),
                   );
                 },
-                child: Image.asset(AppAsset.ramenColorful),
+                child: Assets.icon.ramenColorful.image(),
               ),
               SizedBox(height: 30.h),
               Text(
@@ -185,13 +186,13 @@ class LoginScreen extends StatelessWidget {
                       onTap: () {
                         print("facebook login");
                       },
-                      icon: AppAsset.facebook,
+                      icon: Assets.icon.facebook.path,
                     ),
                     _platformLogin(
                       onTap: () {
                         print("google login");
                       },
-                      icon: AppAsset.google,
+                      icon: Assets.icon.google.path,
                     ),
                   ],
                 ),

@@ -1,4 +1,5 @@
 import 'package:clean_pattern/common/core_ui/app_style.dart';
+import 'package:clean_pattern/generated/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -27,8 +28,7 @@ class AppEmptyDataWidget extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(height: 0.2.sh),
-                Image.asset(
-                  AppAsset.empty,
+                Assets.icon.empty.image(
                   width: 150.h,
                   color: AppColor.disable,
                 ),
