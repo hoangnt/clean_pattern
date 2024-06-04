@@ -29,6 +29,7 @@ class AppTheme {
       centerTitle: true,
       titleSpacing: 0,
       backgroundColor: Colors.white,
+      surfaceTintColor: Colors.transparent,
       elevation: 0,
       titleTextStyle: TextStyle(
         fontFamily: "Dosis-Medium",
@@ -71,6 +72,7 @@ class AppTheme {
       centerTitle: true,
       titleSpacing: 0,
       backgroundColor: AppColor.appBarBackground,
+      surfaceTintColor: Colors.transparent,
       elevation: 0,
       titleTextStyle: TextStyle(
         fontFamily: "Dosis-Medium",
