@@ -1,7 +1,12 @@
 # clean_pattern
 My Flutter project with Clean pattern design.
 
-# Command
+# Active generate tool
+dart pub global activate flutter_gen
+
+# Required before build
+<!-- C:\Users\<user_name>\AppData\Local\Pub\Cache\bin\fluttergen -c pubspec.yaml -->
+fluttergen -c pubspec.yaml
 dart run build_runner build --delete-conflicting-outputs
 
 # Build APK

@@ -33,6 +33,7 @@ migrate_working_dir/
 .pub/
 /build/
 pubspec.lock
+lib/gen
 
 # Symbolication related
 app.*.symbols
