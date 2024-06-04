@@ -24,6 +24,7 @@ class AppDropDownField<T> extends StatelessWidget {
   Widget build(BuildContext context) {
     return DropdownButtonFormField<T>(
       value: value,
+      borderRadius: BorderRadius.circular(10.sp),
       items: listOption.map<DropdownMenuItem<T>>((val) {
         return DropdownMenuItem<T>(
           value: val.value,
