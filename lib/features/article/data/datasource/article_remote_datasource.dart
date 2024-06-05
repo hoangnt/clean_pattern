@@ -6,6 +6,9 @@ class ArticleRemoteDatasource {
   static final ArticleRemoteDatasource instance = ArticleRemoteDatasource._();
   ArticleRemoteDatasource._();
 
+  final String allArticleEndpoint = "/api/v1/all_article";
+  final String articleDetailEndpoint = "/api/v1/article_detail";
+
   // TODO: Sample datasource
   Future<BaseResponse> sampleDatasource() async {
     final res = await ApiController().get(
@@ -21,7 +24,7 @@ class ArticleRemoteDatasource {
 
   // Future<BaseResponse> getAllArticle() async {
   //   final res = await ApiController().get(
-  //     endpoint: "/api/v1/all_article",
+  //     endpoint: allArticleEndpoint,
   //     params: {},
   //   );
   //   return BaseResponse(
@@ -33,7 +36,7 @@ class ArticleRemoteDatasource {
 
   // Future<BaseResponse> getArticleDetail() async {
   //   final res = await ApiController().get(
-  //     endpoint: "/api/v1/article_detail",
+  //     endpoint: articleDetailEndpoint,
   //     params: {},
   //   );
   //   return BaseResponse(
