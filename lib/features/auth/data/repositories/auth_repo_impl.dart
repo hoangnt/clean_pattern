@@ -8,7 +8,7 @@ class AuthRepoImpl implements AuthRepo {
   final AuthRemoteDatasource remote = AuthRemoteDatasource.instance;
 
   @override
-  Future<BaseResponse<Map<String, String>>> login({
+  Future<BaseResponse<Map<String, dynamic>?>> login({
     required String email,
     required String password,
   }) async {
@@ -25,7 +25,7 @@ class AuthRepoImpl implements AuthRepo {
     return BaseResponse(
       statusCode: res.statusCode,
       message: res.message,
-      data: res.data as Map<String, String>,
+      data: res.data,
     );
   }
 
@@ -68,7 +68,7 @@ class AuthRepoImpl implements AuthRepo {
   }
 
   @override
-  Future<BaseResponse<Map<String, String>>> refreshToken({
+  Future<BaseResponse<Map<String, dynamic>>> refreshToken({
     required String refreshToken,
   }) async {
     final res = await remote.refreshToken(refreshToken: refreshToken);
@@ -84,7 +84,7 @@ class AuthRepoImpl implements AuthRepo {
     return BaseResponse(
       statusCode: res.statusCode,
       message: res.message,
-      data: res.data as Map<String, String>,
+      data: res.data as Map<String, dynamic>,
     );
   }
 }

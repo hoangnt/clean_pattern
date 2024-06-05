@@ -6,7 +6,7 @@ class LoginUsecase {
 
   LoginUsecase(this.repo);
 
-  Future<BaseResponse<Map<String, String>>> call({
+  Future<BaseResponse<Map<String, dynamic>?>> call({
     required String email,
     required String password,
   }) async =>

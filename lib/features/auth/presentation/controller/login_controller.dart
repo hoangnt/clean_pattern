@@ -58,12 +58,20 @@ class LoginController extends BaseController {
       return;
     }
 
-    await handleBaseResponse<Map<String, String>>(
+    await handleBaseResponse<Map<String, dynamic>?>(
       usecase: loginUsecase(
         email: emailController.text.trim(),
         password: passwordController.text.trim(),
       ),
       onSuccess: (data) async {
+        if (data == null) {
+          Get.dialog(ResultDialog(
+            title: "Notice".tr,
+            content: "Login failed",
+          ));
+          return;
+        }
+
         if (rememberMe) {
           await LocalSecureStorageUtil.instance.saveEmail(emailController.text);
           await LocalSecureStorageUtil.instance
@@ -88,6 +96,8 @@ class LoginController extends BaseController {
         ));
       },
     );
+
+    await Future.delayed(Duration(seconds: 5));
 
     handleBaseResponse<UserModel?>(
       usecase: getUserProfileUsecase(),

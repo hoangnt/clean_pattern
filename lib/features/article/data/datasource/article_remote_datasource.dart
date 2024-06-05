@@ -13,7 +13,7 @@ class ArticleRemoteDatasource {
       params: {},
     );
     return BaseResponse(
-      statusCode: StatusCode.success,
+      statusCode: res.statusCode,
       data: res.data,
       message: res.message,
     );
