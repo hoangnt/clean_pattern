@@ -97,8 +97,6 @@ class LoginController extends BaseController {
       },
     );
 
-    await Future.delayed(Duration(seconds: 5));
-
     handleBaseResponse<UserModel?>(
       usecase: getUserProfileUsecase(),
       onSuccess: (data) async {

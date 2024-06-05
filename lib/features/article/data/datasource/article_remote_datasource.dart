@@ -6,8 +6,8 @@ class ArticleRemoteDatasource {
   static final ArticleRemoteDatasource instance = ArticleRemoteDatasource._();
   ArticleRemoteDatasource._();
 
-  final String allArticleEndpoint = "/api/v1/all_article";
-  final String articleDetailEndpoint = "/api/v1/article_detail";
+  // final String allArticleEndpoint = "/api/v1/all_article";
+  // final String articleDetailEndpoint = "/api/v1/article_detail";
 
   // TODO: Sample datasource
   Future<BaseResponse> sampleDatasource() async {

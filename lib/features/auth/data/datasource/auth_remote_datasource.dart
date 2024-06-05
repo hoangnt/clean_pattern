@@ -5,6 +5,36 @@ class AuthRemoteDatasource {
   static final AuthRemoteDatasource instance = AuthRemoteDatasource._();
   AuthRemoteDatasource._();
 
+  // final String loginEndpoint = "/api/v1/login";
+  // final String userProfileEndpoint = "/api/v1/user_profile";
+
+  // Future<BaseResponse> login({
+  //   required String email,
+  //   required String password,
+  // }) async {
+  //   final res = await ApiController().post(
+  //     endpoint: loginEndpoint,
+  //     params: {},
+  //   );
+  //   return BaseResponse(
+  //     statusCode: res.statusCode,
+  //     data: res.data,
+  //     message: res.message,
+  //   );
+  // }
+
+  // Future<BaseResponse> getUserProfile() async {
+  //   final res = await ApiController().get(
+  //     endpoint: userProfileEndpoint,
+  //     params: {},
+  //   );
+  //   return BaseResponse(
+  //     statusCode: res.statusCode,
+  //     data: res.data,
+  //     message: res.message,
+  //   );
+  // }
+
   Future<BaseResponse> login({
     required String email,
     required String password,
