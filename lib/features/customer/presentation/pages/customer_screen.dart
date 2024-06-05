@@ -237,15 +237,16 @@ class CustomerScreen extends StatelessWidget {
             child: Text(
               "Topping".tr,
               textAlign: TextAlign.right,
-              style: AppTextStyle.w500(16.sp),
+              style: AppTextStyle.w500(14.sp),
             ),
           ),
         ),
-        SizedBox(width: 15.w),
+        SizedBox(width: 10.w),
         Expanded(
-          flex: 5,
+          flex: 6,
           child: Wrap(
             alignment: WrapAlignment.spaceAround,
+            runSpacing: -10.h,
             children: [
               for (var item in ToppingEnum.values)
                 AppElevatedButton(
@@ -269,12 +270,12 @@ class CustomerScreen extends StatelessWidget {
           child: Text(
             "Broth".tr,
             textAlign: TextAlign.right,
-            style: AppTextStyle.w500(16.sp),
+            style: AppTextStyle.w500(14.sp),
           ),
         ),
-        SizedBox(width: 15.w),
+        SizedBox(width: 10.w),
         Expanded(
-          flex: 5,
+          flex: 6,
           child: Row(
             children: [
               for (var item in BrothEnum.values)
@@ -304,11 +305,11 @@ class CustomerScreen extends StatelessWidget {
           child: Text(
             text,
             textAlign: TextAlign.right,
-            style: AppTextStyle.w500(16.sp),
+            style: AppTextStyle.w500(14.sp),
           ),
         ),
         Expanded(
-          flex: 5,
+          flex: 6,
           child: Slider.adaptive(
             activeColor: AppColor.primary,
             inactiveColor: AppColor.primary.withOpacity(0.4),
