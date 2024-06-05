@@ -15,9 +15,33 @@ class ArticleRemoteDatasource {
     return BaseResponse(
       statusCode: StatusCode.success,
       data: res.data,
-      message: res.data["message"], // if has
+      message: res.message,
     );
   }
+
+  // Future<BaseResponse> getAllArticle() async {
+  //   final res = await ApiController().get(
+  //     endpoint: "/api/v1/all_article",
+  //     params: {},
+  //   );
+  //   return BaseResponse(
+  //     statusCode: StatusCode.success,
+  //     data: res.data,
+  //     message: res.message,
+  //   );
+  // }
+
+  // Future<BaseResponse> getArticleDetail() async {
+  //   final res = await ApiController().get(
+  //     endpoint: "/api/v1/article_detail",
+  //     params: {},
+  //   );
+  //   return BaseResponse(
+  //     statusCode: StatusCode.success,
+  //     data: res.data,
+  //     message: res.message,
+  //   );
+  // }
 
   Future<BaseResponse> getAllArticle() async {
     await Future.delayed(Duration(milliseconds: 1500));

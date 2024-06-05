@@ -30,13 +30,14 @@ class ApiController {
     required Map<String, dynamic> params,
   }) async {
     try {
+      debugPrint('API GET request: ${BaseUrl.serverUrl}$endpoint');
+      debugPrint('API log params: $params');
+
       final res = await _dio.request(
         endpoint,
         queryParameters: params,
         options: Options(method: "GET"),
       );
-      debugPrint('API log request: ${res.statusCode} ${res.realUri}');
-      debugPrint('API log params: $params');
 
       return _handleResponse(res);
     } catch (e) {
@@ -49,13 +50,14 @@ class ApiController {
     required Map<String, dynamic> params,
   }) async {
     try {
+      debugPrint('API POST request: ${BaseUrl.serverUrl}$endpoint');
+      debugPrint('API log params: $params');
+
       final res = await _dio.request(
         endpoint,
         data: params,
         options: Options(method: "POST"),
       );
-      debugPrint('API log request: ${res.statusCode} ${res.realUri}');
-      debugPrint('API log params: $params');
 
       return _handleResponse(res);
     } catch (e) {
@@ -75,13 +77,15 @@ class ApiController {
           filename: file.path.split("/").last,
         ),
       });
+
+      debugPrint('API POST request: ${BaseUrl.serverUrl}$endpoint');
+      debugPrint('API log params: $params');
+
       final res = await _dio.request(
-        "${BaseUrl.serverUrl}$endpoint",
+        endpoint,
         data: params,
         options: Options(method: "POST"),
       );
-      debugPrint('API log request: ${res.statusCode} ${res.realUri}');
-      debugPrint('API log params: $params');
 
       return _handleResponse(res);
     } catch (e) {
@@ -91,6 +95,7 @@ class ApiController {
 
   BaseResponse _handleResponse(Response? response) {
     if (response == null) {
+      debugPrint("==== API call failed ====");
       return BaseResponse(
         statusCode: StatusCode.crash,
         message: "Something went wrong !!!",
@@ -113,9 +118,10 @@ class ApiController {
           : null,
     );
 
-    print("===== Response: ${response.realUri} ======");
-    print(data.toJson());
-    print("==========================================");
+    debugPrint(
+        "==== Response ${response.statusCode}: ${response.realUri} ====");
+    debugPrint("${data.toJson()}");
+    debugPrint("==========================================");
 
     return data;
   }
