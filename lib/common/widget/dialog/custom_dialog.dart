@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:clean_pattern/common/core_ui/app_style.dart';
 
 class CustomDialog extends StatelessWidget {
-  CustomDialog({
+  const CustomDialog({
     required this.title,
     this.closeTitle,
     this.actionTitle,
@@ -49,7 +49,7 @@ class CustomDialog extends StatelessWidget {
                     ),
                   ),
                 ),
-                child ?? SizedBox(),
+                child ?? const SizedBox(),
                 SizedBox(height: 5.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,

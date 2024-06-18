@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class AppTextField extends StatelessWidget {
-  AppTextField({
+  const AppTextField({
     this.hintText,
     this.errorText,
     this.controller,
@@ -57,7 +57,7 @@ class AppTextField extends StatelessWidget {
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
         hintText: hintText,
-        hintStyle: TextStyle(
+        hintStyle: const TextStyle(
           color: AppColor.textPlaceholder,
         ),
         errorText: errorText,

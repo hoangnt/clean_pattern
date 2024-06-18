@@ -6,7 +6,7 @@ class StoreRemoteDatasouce {
   StoreRemoteDatasouce._();
 
   Future<BaseResponse> getAllStore() async {
-    await Future.delayed(Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 1));
     dynamic data = {
       "data": [
         {
@@ -72,7 +72,7 @@ class StoreRemoteDatasouce {
   }
 
   Future<BaseResponse> getTopStore() async {
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 2));
     dynamic data = {
       "data": [
         {

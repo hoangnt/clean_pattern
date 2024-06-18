@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppEmptyDataWidget extends StatelessWidget {
-  AppEmptyDataWidget({
+  const AppEmptyDataWidget({
     this.text,
     this.onRefresh,
     this.height,
@@ -23,7 +23,7 @@ class AppEmptyDataWidget extends StatelessWidget {
       child: SizedBox(
         height: height ?? double.infinity,
         child: SingleChildScrollView(
-          physics: AlwaysScrollableScrollPhysics(),
+          physics: const AlwaysScrollableScrollPhysics(),
           child: Center(
             child: Column(
               children: [

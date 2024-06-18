@@ -19,7 +19,7 @@ class CustomerServicesScreen extends StatelessWidget {
       ),
       body: Obx(() {
         if (_controller.chatData.isEmpty) {
-          return AppEmptyDataWidget(
+          return const AppEmptyDataWidget(
             text: "no data",
           );
         }
@@ -35,7 +35,7 @@ class CustomerServicesScreen extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return Row(
                     children: [
-                      if (_controller.chatData[index].isOwner) Spacer(),
+                      if (_controller.chatData[index].isOwner) const Spacer(),
                       LimitedBox(
                         maxWidth: 280.w,
                         child: Container(

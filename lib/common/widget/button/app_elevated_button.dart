@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppElevatedButton extends StatelessWidget {
-  AppElevatedButton({
+  const AppElevatedButton({
     this.onPressed,
     this.text,
     this.backgroundColor,
@@ -32,7 +32,7 @@ class AppElevatedButton extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 8.w),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15.sp),
-          side: BorderSide(color: AppColor.buttonBorder),
+          side: const BorderSide(color: AppColor.buttonBorder),
         ),
       ),
       child: child ??
@@ -43,7 +43,7 @@ class AppElevatedButton extends StatelessWidget {
                     color: textColor ?? Colors.white,
                   ),
                 )
-              : SizedBox()),
+              : const SizedBox()),
     );
   }
 }

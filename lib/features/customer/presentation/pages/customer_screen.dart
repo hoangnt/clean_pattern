@@ -32,7 +32,7 @@ class CustomerScreen extends StatelessWidget {
                         "Set your favorite Ramen taste".tr,
                         style: AppTextStyle.w700(16.sp),
                       ),
-                      Spacer(),
+                      const Spacer(),
                       Obx(
                         () => Text(
                           _controller.hour.toString().padLeft(2, "0"),
@@ -105,14 +105,14 @@ class CustomerScreen extends StatelessWidget {
                     child: AppElevatedButton(
                       onPressed: () async {
                         if (await _controller.saveRamenFlavor()) {
-                          Get.dialog(ResultDialog(
+                          Get.dialog(const ResultDialog(
                             title: "Notice",
                             content: "Save flavor success",
                           ));
                           return;
                         }
 
-                        Get.dialog(ResultDialog(
+                        Get.dialog(const ResultDialog(
                           title: "Notice",
                           content: "Save flavor failure",
                         ));
@@ -156,7 +156,7 @@ class CustomerScreen extends StatelessWidget {
               _controller.userInfo?.avatarUrl != null
                   ? CachedNetworkImage(
                       imageUrl: _controller.userInfo!.avatarUrl!,
-                      errorWidget: (context, _, __) => Center(
+                      errorWidget: (context, _, __) => const Center(
                         child: Icon(Icons.error),
                       ),
                       progressIndicatorBuilder: (_, __, progress) => Container(
@@ -173,7 +173,7 @@ class CustomerScreen extends StatelessWidget {
                         width: 90.w,
                         height: 90.w,
                         clipBehavior: Clip.hardEdge,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           shape: BoxShape.circle,
                         ),
                         child: Image(
@@ -186,7 +186,7 @@ class CustomerScreen extends StatelessWidget {
                       width: 90.w,
                       height: 90.w,
                       clipBehavior: Clip.hardEdge,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: AppColor.disable,
                         shape: BoxShape.circle,
                       ),

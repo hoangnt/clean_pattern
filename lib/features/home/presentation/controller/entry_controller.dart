@@ -18,9 +18,9 @@ class EntryController extends GetxController {
 
   final List<Widget> listScreen = [
     StoreScreen(),
-    SizedBox(),
-    SizedBox(),
-    SizedBox(),
+    const SizedBox(),
+    const SizedBox(),
+    const SizedBox(),
   ];
 
   void onSelectBottomBar(int index) {

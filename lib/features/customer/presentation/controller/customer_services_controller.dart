@@ -53,10 +53,10 @@ class CustomerServicesController extends BaseController {
   }
 
   void _scrollToBottom() {
-    Future.delayed(Duration(milliseconds: 500), () {
+    Future.delayed(const Duration(milliseconds: 500), () {
       scrollController.animateTo(
         scrollController.position.maxScrollExtent,
-        duration: Duration(milliseconds: 500),
+        duration: const Duration(milliseconds: 500),
         curve: Curves.easeOutQuint,
       );
     });

@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class ResultDialog extends StatelessWidget {
-  ResultDialog({
+  const ResultDialog({
     required this.title,
     required this.content,
     this.closeTitle,

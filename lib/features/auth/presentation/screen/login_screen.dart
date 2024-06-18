@@ -132,7 +132,7 @@ class LoginScreen extends StatelessWidget {
                       value: _controller.rememberMe,
                       onChanged: _controller.toggleRememberMe,
                     ),
-                    Spacer(),
+                    const Spacer(),
                     InkWell(
                       onTap: () => Get.offNamed(Routes.forgotPassword),
                       child: Text(
@@ -161,7 +161,7 @@ class LoginScreen extends StatelessWidget {
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Expanded(
+                    const Expanded(
                       child: Divider(color: AppColor.disable, thickness: 2),
                     ),
                     SizedBox(width: 5.w),
@@ -170,7 +170,7 @@ class LoginScreen extends StatelessWidget {
                       style: AppTextStyle.normal(16.sp),
                     ),
                     SizedBox(width: 5.w),
-                    Expanded(
+                    const Expanded(
                       child: Divider(color: AppColor.disable, thickness: 2),
                     ),
                   ],
@@ -215,7 +215,7 @@ class LoginScreen extends StatelessWidget {
                             print("sign up here");
                           },
                         text: "Sign up here".tr,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: AppColor.textAvailable,
                         ),
                       ),
@@ -241,7 +241,7 @@ class LoginScreen extends StatelessWidget {
           borderRadius: BorderRadius.circular(5.sp),
           boxShadow: [
             BoxShadow(
-              offset: Offset(1.5, 4),
+              offset: const Offset(1.5, 4),
               blurRadius: 3,
               spreadRadius: 1,
               color: AppColor.disable.withOpacity(0.7),

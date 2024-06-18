@@ -24,7 +24,7 @@ class StoreStoryController extends GetxController {
 
   void startTimingStory() {
     storyTimer = Timer.periodic(
-      Duration(milliseconds: 1000),
+      const Duration(milliseconds: 1000),
       (timer) {
         print("Tick: ${timer.tick} - index $index");
         if (timer.tick == defaultStoryTime + 1) {

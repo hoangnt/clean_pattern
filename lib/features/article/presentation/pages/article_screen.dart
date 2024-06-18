@@ -19,7 +19,7 @@ class ArticleScreen extends StatelessWidget {
     return Scaffold(
       floatingActionButton: Obx(() {
         return AnimatedCrossFade(
-          duration: Duration(milliseconds: 300),
+          duration: const Duration(milliseconds: 300),
           firstChild: AppScrollToTopButton(
             controller: _controller.scrollController,
           ),
@@ -35,7 +35,7 @@ class ArticleScreen extends StatelessWidget {
       body: Obx(
         () {
           if (_controller.isLoading.value && _controller.listArticle.isEmpty) {
-            return SizedBox();
+            return const SizedBox();
           }
 
           if (!_controller.isLoading.value && _controller.listArticle.isEmpty) {
@@ -49,7 +49,7 @@ class ArticleScreen extends StatelessWidget {
             color: AppColor.primary,
             onRefresh: _controller.fetchData,
             child: ListView.builder(
-              physics: AlwaysScrollableScrollPhysics(),
+              physics: const AlwaysScrollableScrollPhysics(),
               controller: _controller.scrollController,
               itemCount: _controller.listArticle.length,
               itemBuilder: (context, index) {
@@ -72,14 +72,15 @@ class ArticleScreen extends StatelessWidget {
         },
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 7.h),
-          margin: EdgeInsets.symmetric(horizontal: 16).copyWith(top: 12.h),
+          margin:
+              const EdgeInsets.symmetric(horizontal: 16).copyWith(top: 12.h),
           decoration: BoxDecoration(
             color: Get.theme.appBarTheme.backgroundColor,
-            border: Border.all(color: Color(0xffFDFDFD)),
+            border: Border.all(color: const Color(0xffFDFDFD)),
             borderRadius: BorderRadius.circular(10.sp),
             boxShadow: [
               BoxShadow(
-                offset: Offset(0, 3),
+                offset: const Offset(0, 3),
                 spreadRadius: 1.5,
                 blurRadius: 4,
                 color: Colors.black.withOpacity(0.2),
@@ -118,7 +119,7 @@ class ArticleScreen extends StatelessWidget {
               SizedBox(height: 5.h),
               CachedNetworkImage(
                 imageUrl: item.image!,
-                errorWidget: (context, _, __) => Icon(Icons.error),
+                errorWidget: (context, _, __) => const Icon(Icons.error),
                 imageBuilder: (context, imageProvider) => Container(
                   height: 140.h,
                   decoration: BoxDecoration(
@@ -137,7 +138,7 @@ class ArticleScreen extends StatelessWidget {
                     "Is this useful ?",
                     style: AppTextStyle.normal(18.sp),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   IconButton(
                     onPressed: () => _controller.likeArticle(index),
                     icon: Assets.icon.like.image(

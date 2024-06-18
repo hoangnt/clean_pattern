@@ -21,7 +21,7 @@ class EntryScreen extends StatelessWidget {
         extendBody: true,
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: FloatingActionButton(
-          shape: CircleBorder(),
+          shape: const CircleBorder(),
           onPressed: () => Get.toNamed(Routes.post),
           backgroundColor: AppColor.primary,
           child: Assets.icon.imageShare.image(
@@ -56,7 +56,7 @@ class EntryScreen extends StatelessWidget {
           return PageView.builder(
             itemCount: _controller.listScreen.length,
             controller: _controller.pageController,
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             itemBuilder: (context, index) => _controller.listScreen[index],
           );
         }),
@@ -64,7 +64,7 @@ class EntryScreen extends StatelessWidget {
           builder: (_) => BottomAppBar(
             elevation: 0,
             height: 68.h,
-            shape: CircularNotchedRectangle(),
+            shape: const CircularNotchedRectangle(),
             padding: EdgeInsets.zero,
             notchMargin: 10.sp,
             child: Row(
@@ -122,12 +122,12 @@ class EntryScreen extends StatelessWidget {
                   : AppColor.disable,
             ),
             AnimatedCrossFade(
-              duration: Duration(milliseconds: 200),
+              duration: const Duration(milliseconds: 200),
               firstChild: Text(
                 text,
                 style: AppTextStyle.normal(14.sp).primaryColor,
               ),
-              secondChild: SizedBox(),
+              secondChild: const SizedBox(),
               crossFadeState: (_controller.selectedIndex == index)
                   ? CrossFadeState.showFirst
                   : CrossFadeState.showSecond,

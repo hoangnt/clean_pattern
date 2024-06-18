@@ -83,7 +83,7 @@ class StoreMenuWidget extends StatelessWidget {
                 ),
                 SizedBox(height: 5.h),
                 ListView.builder(
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   itemCount: _listDish.length,
                   itemBuilder: (context, index) {
@@ -111,7 +111,7 @@ class StoreMenuWidget extends StatelessWidget {
         children: [
           CachedNetworkImage(
             imageUrl: meal.image!,
-            errorWidget: (context, _, __) => Icon(Icons.error),
+            errorWidget: (context, _, __) => const Icon(Icons.error),
             progressIndicatorBuilder: (_, __, progress) => Container(
               width: 75.w,
               height: 75.w,

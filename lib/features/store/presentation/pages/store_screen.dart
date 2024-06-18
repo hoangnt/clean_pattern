@@ -17,13 +17,13 @@ class StoreScreen extends StatelessWidget {
         color: AppColor.primary,
         onRefresh: _controller.fetchData,
         child: SingleChildScrollView(
-          physics: AlwaysScrollableScrollPhysics(),
+          physics: const AlwaysScrollableScrollPhysics(),
           child: Obx(
             () {
               if (_controller.isLoading.value &&
                   _controller.listStore.isEmpty &&
                   _controller.listTopStore.isEmpty) {
-                return SizedBox();
+                return const SizedBox();
               }
 
               return Column(
@@ -64,7 +64,7 @@ class StoreScreen extends StatelessWidget {
                   SizedBox(height: 5.h),
                   (_controller.listStore.isNotEmpty)
                       ? ListView.builder(
-                          physics: NeverScrollableScrollPhysics(),
+                          physics: const NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
                           padding: EdgeInsets.symmetric(horizontal: 10.w),
                           itemCount: _controller.listStore.length,
@@ -75,7 +75,7 @@ class StoreScreen extends StatelessWidget {
                           },
                         )
                       : AppEmptyDataWidget(height: 500.h),
-                  SizedBox(height: kBottomNavigationBarHeight),
+                  const SizedBox(height: kBottomNavigationBarHeight),
                 ],
               );
             },

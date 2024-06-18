@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class AppDropDownField<T> extends StatelessWidget {
-  AppDropDownField({
+  const AppDropDownField({
     required this.listOption,
     required this.onChanged,
     this.prefixIcon,
@@ -40,7 +40,7 @@ class AppDropDownField<T> extends StatelessWidget {
         prefixIcon: prefixIcon,
         prefixIconColor: Get.theme.iconTheme.color,
         hintText: hintText,
-        hintStyle: TextStyle(
+        hintStyle: const TextStyle(
           color: AppColor.textPlaceholder,
         ),
         errorStyle: AppTextStyle.normal(14.sp).copyWith(

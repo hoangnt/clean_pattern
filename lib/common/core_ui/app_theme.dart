@@ -21,7 +21,7 @@ class AppTheme {
     sliderTheme: SliderThemeData(
       overlayShape: SliderComponentShape.noThumb,
     ),
-    bottomAppBarTheme: BottomAppBarTheme(
+    bottomAppBarTheme: const BottomAppBarTheme(
       color: Colors.white,
       elevation: 0,
     ),
@@ -52,19 +52,19 @@ class AppTheme {
     ),
     visualDensity: VisualDensity.adaptivePlatformDensity,
     scaffoldBackgroundColor: AppColor.scaffoldBackgroundDark,
-    dialogTheme: DialogTheme(
+    dialogTheme: const DialogTheme(
       backgroundColor: AppColor.scaffoldBackgroundDark,
     ),
     sliderTheme: SliderThemeData(
       overlayShape: SliderComponentShape.noThumb,
     ),
-    iconTheme: IconThemeData(
+    iconTheme: const IconThemeData(
       color: Colors.white,
     ),
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       backgroundColor: AppColor.appBarBackground,
     ),
-    bottomAppBarTheme: BottomAppBarTheme(
+    bottomAppBarTheme: const BottomAppBarTheme(
       color: AppColor.appBarBackground,
       elevation: 0,
     ),

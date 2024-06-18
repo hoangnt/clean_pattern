@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppScrollToTopButton extends StatelessWidget {
-  AppScrollToTopButton({required this.controller});
+  const AppScrollToTopButton({required this.controller});
 
   final ScrollController controller;
 
@@ -13,19 +13,19 @@ class AppScrollToTopButton extends StatelessWidget {
       onTap: () {
         controller.animateTo(
           controller.position.minScrollExtent,
-          duration: Duration(milliseconds: 300),
+          duration: const Duration(milliseconds: 300),
           curve: Curves.easeOutQuint,
         );
       },
       child: Container(
         width: 40.w,
         height: 40.w,
-        margin: EdgeInsets.only(bottom: kBottomNavigationBarHeight),
+        margin: const EdgeInsets.only(bottom: kBottomNavigationBarHeight),
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           color: AppColor.primary.withOpacity(0.7),
         ),
-        child: Icon(
+        child: const Icon(
           Icons.arrow_upward,
           color: Colors.white,
         ),

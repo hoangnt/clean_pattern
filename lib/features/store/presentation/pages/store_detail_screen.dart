@@ -19,7 +19,7 @@ class StoreDetailScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Get.theme.appBarTheme.backgroundColor,
       appBar: AppBar(
-        title: Text("Do you like this?"),
+        title: const Text("Do you like this?"),
       ),
       body: Stack(
         children: [
@@ -199,7 +199,7 @@ class StoreDetailScreen extends StatelessWidget {
         }
       },
       child: AnimatedContainer(
-        duration: Duration(milliseconds: 300),
+        duration: const Duration(milliseconds: 300),
         clipBehavior: Clip.hardEdge,
         margin: spotlight != null && spotlight
             ? EdgeInsets.zero
@@ -209,7 +209,7 @@ class StoreDetailScreen extends StatelessWidget {
         ),
         child: CachedNetworkImage(
           imageUrl: image,
-          errorWidget: (context, _, __) => Icon(Icons.error),
+          errorWidget: (context, _, __) => const Icon(Icons.error),
           progressIndicatorBuilder: (_, __, progress) => Container(
             color: AppColor.placeHolder,
             child: AppProgressIndicator(progress.progress),

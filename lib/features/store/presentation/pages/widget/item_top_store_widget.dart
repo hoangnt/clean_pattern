@@ -7,7 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class ItemTopStoreWidget extends StatelessWidget {
-  ItemTopStoreWidget({required this.item, required this.index});
+  const ItemTopStoreWidget({required this.item, required this.index});
 
   final StoreModel item;
   final int index;
@@ -27,11 +27,11 @@ class ItemTopStoreWidget extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 3.h),
         width: 100.w,
         decoration: BoxDecoration(
-          border: Border.all(color: Color(0xffFDFDFD)),
+          border: Border.all(color: const Color(0xffFDFDFD)),
           borderRadius: BorderRadius.circular(10),
           boxShadow: [
             BoxShadow(
-              offset: Offset(0, 3),
+              offset: const Offset(0, 3),
               spreadRadius: 1.5,
               blurRadius: 4,
               color: Colors.black.withOpacity(0.2),
@@ -50,7 +50,7 @@ class ItemTopStoreWidget extends StatelessWidget {
           style: AppTextStyle.w600(14.sp).white.copyWith(
             shadows: [
               BoxShadow(
-                offset: Offset(3, 3),
+                offset: const Offset(3, 3),
                 spreadRadius: 1.5,
                 blurRadius: 4,
                 color: Colors.black.withOpacity(0.8),

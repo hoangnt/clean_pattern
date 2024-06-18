@@ -25,7 +25,7 @@ class ArticleDetailScreen extends StatelessWidget {
             tag: Get.parameters["tag"],
             builder: (context) {
               if (_controller.isLoading.value) {
-                return SizedBox();
+                return const SizedBox();
               }
 
               return Column(
@@ -66,7 +66,7 @@ class ArticleDetailScreen extends StatelessWidget {
                   SizedBox(height: 12.h),
                   CachedNetworkImage(
                     imageUrl: _controller.detail!.images.first,
-                    errorWidget: (context, _, __) => Icon(Icons.error),
+                    errorWidget: (context, _, __) => const Icon(Icons.error),
                     imageBuilder: (context, imageProvider) => Container(
                       height: 0.5.sh,
                       decoration: BoxDecoration(

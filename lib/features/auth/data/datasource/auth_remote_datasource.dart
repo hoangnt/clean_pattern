@@ -39,7 +39,7 @@ class AuthRemoteDatasource {
     required String email,
     required String password,
   }) async {
-    await Future.delayed(Duration(milliseconds: 1500));
+    await Future.delayed(const Duration(milliseconds: 1500));
 
     if (email == "weloveramen@gmail.com") {
       return BaseResponse(
@@ -63,7 +63,7 @@ class AuthRemoteDatasource {
   }
 
   Future<BaseResponse> getUserProfile() async {
-    await Future.delayed(Duration(milliseconds: 1500));
+    await Future.delayed(const Duration(milliseconds: 1500));
 
     dynamic data = {
       "data": {
@@ -82,7 +82,7 @@ class AuthRemoteDatasource {
   }
 
   Future<BaseResponse> logout() async {
-    await Future.delayed(Duration(milliseconds: 1000));
+    await Future.delayed(const Duration(milliseconds: 1000));
     dynamic data = {
       "data": true,
     };
@@ -94,7 +94,7 @@ class AuthRemoteDatasource {
   }
 
   Future<BaseResponse> refreshToken({required String refreshToken}) async {
-    await Future.delayed(Duration(milliseconds: 1500));
+    await Future.delayed(const Duration(milliseconds: 1500));
     dynamic data = {
       "data": {
         "accessToken": "this is access token",

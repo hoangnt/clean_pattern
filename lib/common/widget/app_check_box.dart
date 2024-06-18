@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppCheckBox extends StatelessWidget {
-  AppCheckBox({
+  const AppCheckBox({
     this.text,
     required this.value,
     required this.onChanged,
@@ -21,7 +21,7 @@ class AppCheckBox extends StatelessWidget {
         crossAxisAlignment: WrapCrossAlignment.center,
         children: [
           AnimatedCrossFade(
-            duration: Duration(milliseconds: 150),
+            duration: const Duration(milliseconds: 150),
             crossFadeState:
                 value ? CrossFadeState.showFirst : CrossFadeState.showSecond,
             firstChild: Icon(

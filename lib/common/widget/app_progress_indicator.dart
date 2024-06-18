@@ -2,7 +2,7 @@ import 'package:clean_pattern/common/core_ui/app_color.dart';
 import 'package:flutter/material.dart';
 
 class AppProgressIndicator extends StatelessWidget {
-  AppProgressIndicator(this.progress);
+  const AppProgressIndicator(this.progress);
 
   final double? progress;
 

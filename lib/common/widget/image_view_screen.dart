@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ImageViewScreen extends StatelessWidget {
-  ImageViewScreen({
+  const ImageViewScreen({
     required this.imageUrl,
     this.allImage,
     this.index,
@@ -38,7 +38,7 @@ class ImageViewScreen extends StatelessWidget {
       },
       child: CachedNetworkImage(
         imageUrl: image,
-        errorWidget: (context, _, __) => Center(
+        errorWidget: (context, _, __) => const Center(
           child: Icon(Icons.error),
         ),
         progressIndicatorBuilder: (_, __, progress) => Container(

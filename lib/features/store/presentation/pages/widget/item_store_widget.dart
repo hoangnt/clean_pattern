@@ -8,7 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class ItemStoreWidget extends StatelessWidget {
-  ItemStoreWidget({required this.item});
+  const ItemStoreWidget({required this.item});
 
   final StoreModel item;
 
@@ -20,11 +20,11 @@ class ItemStoreWidget extends StatelessWidget {
         margin: EdgeInsets.only(bottom: 12.h),
         decoration: BoxDecoration(
           color: Get.theme.appBarTheme.backgroundColor,
-          border: Border.all(color: Color(0xffFDFDFD)),
+          border: Border.all(color: const Color(0xffFDFDFD)),
           borderRadius: BorderRadius.circular(10.sp),
           boxShadow: [
             BoxShadow(
-              offset: Offset(0, 3),
+              offset: const Offset(0, 3),
               spreadRadius: 1.5,
               blurRadius: 4,
               color: Colors.black.withOpacity(0.2),
@@ -36,11 +36,11 @@ class ItemStoreWidget extends StatelessWidget {
           children: [
             CachedNetworkImage(
               imageUrl: item.image!,
-              errorWidget: (context, _, __) => Icon(Icons.error),
+              errorWidget: (context, _, __) => const Icon(Icons.error),
               progressIndicatorBuilder: (_, __, progress) => Container(
                 width: 200.w,
                 height: 170.h,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(10),
                     bottomLeft: Radius.circular(10),
@@ -52,7 +52,7 @@ class ItemStoreWidget extends StatelessWidget {
                 width: 200.w,
                 height: 170.h,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(10),
                     bottomLeft: Radius.circular(10),
                   ),
@@ -94,7 +94,7 @@ class ItemStoreWidget extends StatelessWidget {
                           color: Get.theme.iconTheme.color!.withOpacity(0.7),
                           shadows: [
                             BoxShadow(
-                              offset: Offset(3, 3),
+                              offset: const Offset(3, 3),
                               spreadRadius: 1.5,
                               blurRadius: 4,
                               color: Colors.amber.withOpacity(0.5),

@@ -22,7 +22,7 @@ class ApiController {
   late Dio _dio;
   final BaseOptions apiOption = BaseOptions(
     baseUrl: BaseUrl.serverUrl,
-    connectTimeout: Duration(seconds: 10),
+    connectTimeout: const Duration(seconds: 10),
   );
 
   Future<BaseResponse> get({

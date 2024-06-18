@@ -20,7 +20,7 @@ class SettingsScreen extends StatelessWidget {
             ListTile(
               onTap: _controller.toggleTheme,
               tileColor: Get.theme.appBarTheme.backgroundColor,
-              shape: RoundedRectangleBorder(
+              shape: const RoundedRectangleBorder(
                 side: BorderSide(color: AppColor.buttonBorder),
               ),
               leading: Image.asset(
@@ -40,7 +40,7 @@ class SettingsScreen extends StatelessWidget {
             ListTile(
               onTap: _controller.toggleDisplayLanguage,
               tileColor: Get.theme.appBarTheme.backgroundColor,
-              shape: RoundedRectangleBorder(
+              shape: const RoundedRectangleBorder(
                 side: BorderSide(color: AppColor.buttonBorder),
               ),
               leading: Assets.icon.languages.image(
@@ -57,7 +57,7 @@ class SettingsScreen extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   color: Get.theme.appBarTheme.backgroundColor,
-                  border: BorderDirectional(
+                  border: const BorderDirectional(
                     bottom: BorderSide(color: AppColor.buttonBorder),
                   ),
                 ),
@@ -68,7 +68,7 @@ class SettingsScreen extends StatelessWidget {
                       groupValue: _controller.language,
                       onChanged: _controller.changeLanguage,
                       activeColor: AppColor.primary,
-                      title: Text(
+                      title: const Text(
                         "ENG",
                         style: TextStyle(fontWeight: FontWeight.w600),
                       ),
@@ -94,7 +94,7 @@ class SettingsScreen extends StatelessWidget {
             ListTile(
               onTap: _controller.getLuckyNumberInApp,
               tileColor: Get.theme.appBarTheme.backgroundColor,
-              shape: RoundedRectangleBorder(
+              shape: const RoundedRectangleBorder(
                 side: BorderSide(color: AppColor.buttonBorder),
               ),
               leading: Assets.icon.clover.image(
@@ -117,7 +117,7 @@ class SettingsScreen extends StatelessWidget {
             ListTile(
               onTap: _controller.getLuckyNumberPlugin,
               tileColor: Get.theme.appBarTheme.backgroundColor,
-              shape: RoundedRectangleBorder(
+              shape: const RoundedRectangleBorder(
                 side: BorderSide(color: AppColor.buttonBorder),
               ),
               leading: Assets.icon.clover.image(
@@ -140,7 +140,7 @@ class SettingsScreen extends StatelessWidget {
               onTap: _controller.togglePlayBgm,
               onLongPress: _controller.changeBgm,
               tileColor: Get.theme.appBarTheme.backgroundColor,
-              shape: RoundedRectangleBorder(
+              shape: const RoundedRectangleBorder(
                 side: BorderSide(color: AppColor.buttonBorder),
               ),
               leading: Assets.icon.guitar.image(
@@ -159,7 +159,7 @@ class SettingsScreen extends StatelessWidget {
             ListTile(
               onTap: _controller.exitToLogin,
               tileColor: Get.theme.appBarTheme.backgroundColor,
-              shape: RoundedRectangleBorder(
+              shape: const RoundedRectangleBorder(
                 side: BorderSide(color: AppColor.buttonBorder),
               ),
               leading: Assets.icon.logout.image(

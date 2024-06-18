@@ -32,7 +32,7 @@ class EditUserInfoScreen extends StatelessWidget {
                   _controller.userInfo!.avatarUrl != null
                       ? CachedNetworkImage(
                           imageUrl: _controller.userInfo!.avatarUrl!,
-                          errorWidget: (context, _, __) => Center(
+                          errorWidget: (context, _, __) => const Center(
                             child: Icon(Icons.error),
                           ),
                           progressIndicatorBuilder: (_, __, progress) =>
@@ -50,7 +50,7 @@ class EditUserInfoScreen extends StatelessWidget {
                             width: 120.w,
                             height: 120.w,
                             clipBehavior: Clip.hardEdge,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               shape: BoxShape.circle,
                             ),
                             child: Image(
@@ -63,7 +63,7 @@ class EditUserInfoScreen extends StatelessWidget {
                           width: 120.w,
                           height: 120.w,
                           clipBehavior: Clip.hardEdge,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: AppColor.disable,
                             shape: BoxShape.circle,
                           ),
@@ -125,8 +125,8 @@ class EditUserInfoScreen extends StatelessWidget {
                   AppDropDownField<int>(
                     value: _controller.userInfo!.gender,
                     hintText: "Choose gender".tr,
-                    prefixIcon: Icon(Icons.transgender_rounded),
-                    suffixIcon: Icon(Icons.keyboard_arrow_down_outlined),
+                    prefixIcon: const Icon(Icons.transgender_rounded),
+                    suffixIcon: const Icon(Icons.keyboard_arrow_down_outlined),
                     listOption: [
                       DropDownModel(label: "Male".tr, value: Gender.male),
                       DropDownModel(label: "Female".tr, value: Gender.female),

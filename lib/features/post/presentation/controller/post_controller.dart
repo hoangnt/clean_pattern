@@ -22,7 +22,7 @@ class PostController extends BaseController {
   // Background
   Color textColor = Colors.black;
   Color drawColor = Colors.red;
-  Color backgroundColor = Color(0xfff2d5b6);
+  Color backgroundColor = const Color(0xfff2d5b6);
   File? backgroundImagePath;
   double drawStrokeWidth = 7;
 

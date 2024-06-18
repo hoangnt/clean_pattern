@@ -11,7 +11,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class MyApp extends StatelessWidget {
-  MyApp(this.accessToken);
+  const MyApp(this.accessToken);
 
   final String? accessToken;
 
@@ -24,8 +24,8 @@ class MyApp extends StatelessWidget {
       ),
       builder: (_, child) => GetMaterialApp(
         translations: I18n(),
-        locale: Locale('en', 'US'),
-        fallbackLocale: Locale('en', 'US'),
+        locale: const Locale('en', 'US'),
+        fallbackLocale: const Locale('en', 'US'),
         themeMode: ThemeMode.light,
         theme: AppTheme.lightTheme,
         darkTheme: AppTheme.darkTheme,

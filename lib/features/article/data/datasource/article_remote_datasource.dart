@@ -47,7 +47,7 @@ class ArticleRemoteDatasource {
   // }
 
   Future<BaseResponse> getAllArticle() async {
-    await Future.delayed(Duration(milliseconds: 1500));
+    await Future.delayed(const Duration(milliseconds: 1500));
 
     dynamic data = {
       "data": [
@@ -138,7 +138,7 @@ class ArticleRemoteDatasource {
   }
 
   Future<BaseResponse> getArticleDetail() async {
-    await Future.delayed(Duration(milliseconds: 1500));
+    await Future.delayed(const Duration(milliseconds: 1500));
 
     dynamic data = {
       "data": {

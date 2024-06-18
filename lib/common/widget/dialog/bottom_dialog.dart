@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class BottomDialog extends StatelessWidget {
-  BottomDialog({this.child});
+  const BottomDialog({this.child});
 
   final Widget? child;
 
@@ -16,7 +16,7 @@ class BottomDialog extends StatelessWidget {
       child: IntrinsicHeight(
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: 5.h),
-          child: child ?? SizedBox(),
+          child: child ?? const SizedBox(),
         ),
       ),
     );

@@ -16,14 +16,14 @@ class PostScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Share your Ramen"),
+        title: const Text("Share your Ramen"),
         actions: [
           IconButton(
             icon: GetBuilder<PostController>(builder: (context) {
               return Icon(
                 Icons.text_format_rounded,
                 color: _controller.textColor,
-                shadows: [
+                shadows: const [
                   BoxShadow(
                     color: Colors.black26,
                     blurRadius: 5,
@@ -52,7 +52,7 @@ class PostScreen extends StatelessWidget {
               return Icon(
                 Icons.draw_rounded,
                 color: _controller.drawColor,
-                shadows: [
+                shadows: const [
                   BoxShadow(
                     color: Colors.black26,
                     blurRadius: 5,
@@ -135,7 +135,7 @@ class PostScreen extends StatelessWidget {
               AppElevatedButton(
                 onPressed: _controller.changeBackground,
                 text: "background image picker",
-                child: Icon(Icons.image_outlined),
+                child: const Icon(Icons.image_outlined),
               ),
               SizedBox(width: 10.w),
               AppElevatedButton(
@@ -154,37 +154,37 @@ class PostScreen extends StatelessWidget {
                   ));
                 },
                 text: "background color picker",
-                child: Icon(Icons.color_lens_outlined),
+                child: const Icon(Icons.color_lens_outlined),
               ),
               SizedBox(width: 10.w),
               AppElevatedButton(
                 onPressed: _controller.freeDraw,
                 text: "free draw",
-                child: Icon(Icons.draw_outlined),
+                child: const Icon(Icons.draw_outlined),
               ),
               SizedBox(width: 10.w),
               AppElevatedButton(
                 onPressed: _controller.getHistoryDrawable,
                 text: "get history",
-                child: Icon(Icons.history),
+                child: const Icon(Icons.history),
               ),
               SizedBox(width: 10.w),
               AppElevatedButton(
                 onPressed: _controller.undo,
                 text: "Undo",
-                child: Icon(Icons.undo_outlined),
+                child: const Icon(Icons.undo_outlined),
               ),
               SizedBox(width: 10.w),
               AppElevatedButton(
                 onPressed: _controller.captureWidget,
                 text: "Capture",
-                child: Icon(Icons.save_alt_outlined),
+                child: const Icon(Icons.save_alt_outlined),
               ),
               SizedBox(width: 10.w),
               AppElevatedButton(
                 onPressed: _controller.deleteAll,
                 text: "Clear",
-                child: Icon(Icons.delete_forever_outlined),
+                child: const Icon(Icons.delete_forever_outlined),
               ),
               SizedBox(width: 10.w),
               AppElevatedButton(

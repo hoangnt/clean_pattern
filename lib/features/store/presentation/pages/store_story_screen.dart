@@ -23,7 +23,7 @@ class StoreStoryScreen extends StatelessWidget {
             children: [
               CachedNetworkImage(
                 imageUrl: _controller.data.image!,
-                errorWidget: (context, _, __) => Icon(Icons.error),
+                errorWidget: (context, _, __) => const Icon(Icons.error),
                 progressIndicatorBuilder: (_, __, progress) {
                   return Container(
                     width: double.infinity,
@@ -82,7 +82,7 @@ class StoreStoryScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      Spacer(),
+                      const Spacer(),
                       InkWell(
                         onTap: _controller.onBack,
                         child: Assets.icon.close.image(

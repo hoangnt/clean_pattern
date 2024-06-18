@@ -44,7 +44,7 @@ class CustomerController extends GetxController {
     hour.value = appTime.hour;
     min.value = appTime.minute;
     sec.value = appTime.second;
-    Timer.periodic(Duration(seconds: 1), _setTime);
+    Timer.periodic(const Duration(seconds: 1), _setTime);
 
     Box<RamenFlavor> box = Hive.box<RamenFlavor>(HiveBoxKey.ramenFlavor);
     if (box.isNotEmpty) {

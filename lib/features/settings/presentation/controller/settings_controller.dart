@@ -22,7 +22,7 @@ class SettingsController extends BaseController {
 
   SettingsController(this.logoutUsecase);
 
-  final MethodChannel channel = MethodChannel("com.example.clean_pattern");
+  final MethodChannel channel = const MethodChannel("com.example.clean_pattern");
   late AudioPlayer _audioPlayer;
   final List<String> _listBgm = [
     Assets.bgm.bgm1,
@@ -86,7 +86,7 @@ class SettingsController extends BaseController {
     await LocalStorageUtil.instance.saveTheme(mode);
 
     // Delay for color change in getx super controller
-    await Future.delayed(Duration(milliseconds: 200));
+    await Future.delayed(const Duration(milliseconds: 200));
     Get.find<EntryController>().update();
     update();
   }
@@ -94,10 +94,10 @@ class SettingsController extends BaseController {
   void changeLanguage(int? val) {
     if (language == AppLanguage.eng) {
       language = AppLanguage.vie;
-      Get.updateLocale(Locale("vi", "VN"));
+      Get.updateLocale(const Locale("vi", "VN"));
     } else {
       language = AppLanguage.eng;
-      Get.updateLocale(Locale("en", "US"));
+      Get.updateLocale(const Locale("en", "US"));
     }
     update();
   }

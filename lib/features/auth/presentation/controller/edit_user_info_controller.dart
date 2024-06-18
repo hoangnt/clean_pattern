@@ -56,7 +56,7 @@ class EditUserInfoController extends GetxController {
         userInfo!.email == nameController.text &&
         userInfo!.birthday ==
             DateFormat("dd/MM/yyyy").parse(birthdayController.text)) {
-      Get.dialog(ResultDialog(
+      Get.dialog(const ResultDialog(
         title: "Notice",
         content: "Nothing change",
       ));
@@ -74,7 +74,7 @@ class EditUserInfoController extends GetxController {
     flavorController.update();
     Get.find<EntryController>().update(); // update icon navigation bar
 
-    Get.dialog(ResultDialog(
+    Get.dialog(const ResultDialog(
       title: "Notice",
       content: "Save user info success",
     ));
@@ -102,7 +102,7 @@ class EditUserInfoController extends GetxController {
               ),
             ),
           ),
-          Divider(thickness: 1.5),
+          const Divider(thickness: 1.5),
           InkWell(
             onTap: () async {
               Get.back();

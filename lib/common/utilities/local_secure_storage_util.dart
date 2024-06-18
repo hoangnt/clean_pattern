@@ -4,7 +4,7 @@ class LocalSecureStorageUtil {
   static LocalSecureStorageUtil instance = LocalSecureStorageUtil._();
   LocalSecureStorageUtil._();
 
-  final _storage = FlutterSecureStorage(
+  final _storage = const FlutterSecureStorage(
     aOptions: AndroidOptions(encryptedSharedPreferences: true),
     iOptions: IOSOptions(accessibility: KeychainAccessibility.first_unlock),
   );
