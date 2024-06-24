@@ -28,6 +28,9 @@ class AppColor {
   static const Color iconColorBlue = Color(0xff62abe3);
   static const Color iconColorRed = Color(0xffe06565);
 
+  //Border color
+  static const Color border1 = Color(0xffFDFDFD);
+
   //Dark theme color
   static const Color scaffoldBackgroundDark = Color.fromARGB(255, 80, 80, 80);
   static const Color appBarBackground = Color(0xff242424);
