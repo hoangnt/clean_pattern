@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
         MediaQuery.of(context).size.height,
       ),
       builder: (_, child) => GetMaterialApp(
+        debugShowCheckedModeBanner: false,
         translations: I18n(),
         locale: const Locale('en', 'US'),
         fallbackLocale: const Locale('en', 'US'),

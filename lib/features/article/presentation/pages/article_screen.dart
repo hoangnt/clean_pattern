@@ -1,16 +1,9 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:clean_pattern/common/core_ui/app_style.dart';
-import 'package:clean_pattern/common/extensions/datetime_extension.dart';
 import 'package:clean_pattern/common/widget/app_empty_data_widget.dart';
 import 'package:clean_pattern/common/widget/button/app_scroll_to_top_button.dart';
-import 'package:clean_pattern/config/routes.dart';
-import 'package:clean_pattern/features/article/data/model/article_model.dart';
 import 'package:clean_pattern/features/article/presentation/controller/article_controller.dart';
 import 'package:clean_pattern/features/article/presentation/pages/widget/article_item_loading_widget.dart';
 import 'package:clean_pattern/features/article/presentation/pages/widget/article_item_widget.dart';
-import 'package:clean_pattern/features/article/presentation/pages/widget/shimmer.dart';
-import 'package:clean_pattern/features/article/presentation/pages/widget/shimmer_loading.dart';
-import 'package:clean_pattern/generated/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -39,7 +32,11 @@ class ArticleScreen extends StatelessWidget {
       body: Obx(
         () {
           if (_controller.isLoading.value && _controller.listArticle.isEmpty) {
-            return const SizedBox();
+            return ListView.builder(
+              physics: const NeverScrollableScrollPhysics(),
+              itemBuilder: (context, index) => ArticleItemLoadingWidget(),
+              itemCount: 3,
+            );
           }
 
           if (!_controller.isLoading.value && _controller.listArticle.isEmpty) {
@@ -57,13 +54,6 @@ class ArticleScreen extends StatelessWidget {
               controller: _controller.scrollController,
               itemCount: _controller.listArticle.length,
               itemBuilder: (context, index) {
-                // return Shimmer(
-                //   linearGradient: shimmerGradient,
-                //   child: ShimmerLoading(
-                //     isLoading: true,
-                //     child: ArticleItemLoadingWidget(),
-                //   ),
-                // );
                 return ArticleItemWidget(
                   data: _controller.listArticle[index],
                   index: index,

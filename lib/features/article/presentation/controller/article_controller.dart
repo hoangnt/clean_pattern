@@ -41,6 +41,7 @@ class ArticleController extends BaseController {
   Future<void> fetchData() async {
     listArticle.clear();
     handleBaseResponse<List<ArticleModel>>(
+      showLoading: false,
       usecase: getAllArticleUsecase(),
       onSuccess: (data) => listArticle.value = data,
     );

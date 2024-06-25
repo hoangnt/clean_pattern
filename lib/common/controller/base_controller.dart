@@ -13,11 +13,14 @@ class BaseController extends GetxController {
   Future<void> handleBaseResponse<T>({
     required Future<BaseResponse<T>> usecase,
     String? loadingText,
+    bool showLoading = true,
     FutureOr<void> Function(T)? onSuccess,
     void Function(String)? onError,
   }) async {
     isLoading.value = true;
-    EasyLoading.show(status: loadingText ?? "Loading...");
+    if (showLoading) {
+      EasyLoading.show(status: loadingText ?? "Loading...");
+    }
     final res = await usecase;
 
     if (res.statusCode != StatusCode.success && onError != null) {

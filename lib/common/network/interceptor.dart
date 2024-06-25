@@ -29,6 +29,9 @@ class ConnectionInterceptor extends QueuedInterceptorsWrapper {
         val == ConnectivityResult.mobile || val == ConnectivityResult.wifi)) {
       ToastMessageUtil.show(getx.Get.context!,
           message: "No internet connection !");
+      return handler.resolve(
+        Response(requestOptions: options, data: null),
+      );
     }
 
     super.onRequest(options, handler);
