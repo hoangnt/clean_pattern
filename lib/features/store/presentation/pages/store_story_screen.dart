@@ -15,7 +15,7 @@ class StoreStoryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return PopScope(
       canPop: false,
-      onPopInvoked: _controller.onBackPhysics,
+      onPopInvokedWithResult: _controller.onBackPhysics,
       child: Scaffold(
         backgroundColor: Colors.black54,
         body: SafeArea(

@@ -102,7 +102,7 @@ class ApiController {
       );
     }
 
-    Map<String, dynamic>? jsonData = Map<String, dynamic>();
+    Map<String, dynamic>? jsonData = <String, dynamic>{};
     try {
       jsonData = Map.from(response.data);
     } catch (e) {

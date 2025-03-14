@@ -16,7 +16,7 @@ class EntryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return PopScope(
       canPop: false,
-      onPopInvoked: _controller.onBackDevice,
+      onPopInvokedWithResult: _controller.onBackDevice,
       child: Scaffold(
         extendBody: true,
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

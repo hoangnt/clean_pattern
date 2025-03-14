@@ -27,6 +27,6 @@ linter:
     unnecessary_this: false
     always_use_package_imports: false
     use_key_in_widget_constructors: false
-    prefer_collection_literals: false
+    # prefer_collection_literals: false
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options

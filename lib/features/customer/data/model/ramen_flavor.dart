@@ -34,7 +34,7 @@ class RamenFlavor extends HiveObject {
   }
 
   Map<String, dynamic> toJson() {
-    Map<String, dynamic> json = Map<String, dynamic>();
+    Map<String, dynamic> json = <String, dynamic>{};
     json["salt"] = this.salt;
     json["fat"] = this.fat;
     json["noodleTenderness"] = this.noodleTenderness;

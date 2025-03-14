@@ -47,8 +47,8 @@ class EntryController extends GetxController {
     update();
   }
 
-  void onBackDevice(bool didPop) async {
-    if (selectedIndex == 0) {
+  void onBackDevice(bool didPop, dynamic result) async {
+    if (selectedIndex == 0 || didPop) {
       return;
     }
     selectedIndex = 0;

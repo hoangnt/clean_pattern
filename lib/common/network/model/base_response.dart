@@ -19,7 +19,7 @@ class BaseResponse<T> {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> map = Map<String, dynamic>();
+    final Map<String, dynamic> map = <String, dynamic>{};
     map['message'] = message;
     map['data'] = data;
     map['statusCode'] = statusCode;
@@ -40,7 +40,7 @@ class Paging {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['totalRecords'] = this.totalRecords;
     data['totalPages'] = this.totalPages;
     return data;
