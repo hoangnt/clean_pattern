@@ -91,49 +91,49 @@ class SettingsScreen extends StatelessWidget {
             ),
 
             ///
-            ListTile(
-              onTap: _controller.getLuckyNumberInApp,
-              tileColor: Get.theme.appBarTheme.backgroundColor,
-              shape: const RoundedRectangleBorder(
-                side: BorderSide(color: AppColor.buttonBorder),
-              ),
-              leading: Assets.icon.clover.image(
-                color: Get.theme.iconTheme.color,
-              ),
-              title: Text(
-                "Lucky number (in-app)".tr,
-                style: AppTextStyle.w600(),
-              ),
-              subtitle: Text("Tap to get lucky number".tr),
-              trailing: _controller.luckyNumberInApp != null
-                  ? Text(
-                      _controller.luckyNumberInApp.toString().padLeft(2, "0"),
-                      style: AppTextStyle.normal(20.sp),
-                    )
-                  : null,
-            ),
+            // ListTile(
+            //   onTap: _controller.getLuckyNumberInApp,
+            //   tileColor: Get.theme.appBarTheme.backgroundColor,
+            //   shape: const RoundedRectangleBorder(
+            //     side: BorderSide(color: AppColor.buttonBorder),
+            //   ),
+            //   leading: Assets.icon.clover.image(
+            //     color: Get.theme.iconTheme.color,
+            //   ),
+            //   title: Text(
+            //     "Lucky number (in-app)".tr,
+            //     style: AppTextStyle.w600(),
+            //   ),
+            //   subtitle: Text("Tap to get lucky number".tr),
+            //   trailing: _controller.luckyNumberInApp != null
+            //       ? Text(
+            //           _controller.luckyNumberInApp.toString().padLeft(2, "0"),
+            //           style: AppTextStyle.normal(20.sp),
+            //         )
+            //       : null,
+            // ),
 
             ///
-            ListTile(
-              onTap: _controller.getLuckyNumberPlugin,
-              tileColor: Get.theme.appBarTheme.backgroundColor,
-              shape: const RoundedRectangleBorder(
-                side: BorderSide(color: AppColor.buttonBorder),
-              ),
-              leading: Assets.icon.clover.image(
-                color: Get.theme.iconTheme.color,
-              ),
-              title: Text(
-                "Lucky number (plugin)".tr,
-                style: AppTextStyle.w600(),
-              ),
-              subtitle: Text("Tap to get lucky number".tr),
-              trailing: _controller.luckyNumberPlugin != null
-                  ? Text(
-                      _controller.luckyNumberPlugin.toString().padLeft(2, "0"),
-                      style: AppTextStyle.normal(20.sp))
-                  : null,
-            ),
+            // ListTile(
+            //   onTap: _controller.getLuckyNumberPlugin,
+            //   tileColor: Get.theme.appBarTheme.backgroundColor,
+            //   shape: const RoundedRectangleBorder(
+            //     side: BorderSide(color: AppColor.buttonBorder),
+            //   ),
+            //   leading: Assets.icon.clover.image(
+            //     color: Get.theme.iconTheme.color,
+            //   ),
+            //   title: Text(
+            //     "Lucky number (plugin)".tr,
+            //     style: AppTextStyle.w600(),
+            //   ),
+            //   subtitle: Text("Tap to get lucky number".tr),
+            //   trailing: _controller.luckyNumberPlugin != null
+            //       ? Text(
+            //           _controller.luckyNumberPlugin.toString().padLeft(2, "0"),
+            //           style: AppTextStyle.normal(20.sp))
+            //       : null,
+            // ),
 
             ///
             ListTile(

@@ -62,14 +62,14 @@ class SettingsController extends BaseController {
     });
   }
 
-  void getLuckyNumberInApp() {
-    channel.invokeMethod("luckyNumber");
-  }
+  // void getLuckyNumberInApp() {
+  //   channel.invokeMethod("luckyNumber");
+  // }
 
-  void getLuckyNumberPlugin() async {
-    // luckyNumberPlugin = await RandomNumber.instance.luckyNumber();
-    update();
-  }
+  // void getLuckyNumberPlugin() async {
+  //   luckyNumberPlugin = await RandomNumber.instance.luckyNumber();
+  //   update();
+  // }
 
   void toggleTheme() async {
     if (mode == AppThemeMode.light) {
