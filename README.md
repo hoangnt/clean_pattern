@@ -1,16 +1,25 @@
 # clean_pattern
+My Flutter project with Clean pattern design.
 
-A new Flutter project.
+# Active generate tool
+dart pub global activate flutter_gen
 
-## Getting Started
+# Required before build
+<!-- C:\Users\<user_name>\AppData\Local\Pub\Cache\bin\fluttergen -c pubspec.yaml -->
+fluttergen -c pubspec.yaml
+dart run build_runner build --delete-conflicting-outputs
 
-This project is a starting point for a Flutter application.
+# Build APK
+flutter build apk --flavor dev .\lib\main_dev.dart<br />
+flutter build apk --flavor stg .\lib\main_stg.dart<br />
+flutter build apk --flavor prod .\lib\main_prod.dart<br />
 
-A few resources to get you started if this is your first Flutter project:
+# Build App Bundle 
+flutter build appbundle --flavor dev .\lib\main_dev.dart<br />
+flutter build appbundle --flavor stg .\lib\main_stg.dart<br />
+flutter build appbundle --flavor prod .\lib\main_prod.dart<br />
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Build IPA 
+flutter build ipa --flavor dev .\lib\main_dev.dart<br />
+flutter build ipa --flavor stg .\lib\main_stg.dart<br />
+flutter build ipa --flavor prod .\lib\main_prod.dart<br />
