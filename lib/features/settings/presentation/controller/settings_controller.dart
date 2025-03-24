@@ -21,7 +21,7 @@ class SettingsController extends BaseController {
 
   SettingsController(this.logoutUsecase);
 
-  final MethodChannel channel = const MethodChannel("com.example.clean_pattern");
+  final MethodChannel channel = const MethodChannel("com.clean.pattern");
   late AudioPlayer _audioPlayer;
   final List<String> _listBgm = [
     Assets.bgm.bgm1,
@@ -62,9 +62,9 @@ class SettingsController extends BaseController {
     });
   }
 
-  // void getLuckyNumberInApp() {
-  //   channel.invokeMethod("luckyNumber");
-  // }
+  void getLuckyNumberInApp() {
+    channel.invokeMethod("luckyNumber");
+  }
 
   // void getLuckyNumberPlugin() async {
   //   luckyNumberPlugin = await RandomNumber.instance.luckyNumber();
